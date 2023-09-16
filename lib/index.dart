@@ -1,0 +1,221 @@
+// Export pages
+export '/pages/auth/login/login_widget.dart' show LoginWidget;
+export '/pages/attendance/attendance/attendance_widget.dart'
+    show AttendanceWidget;
+export '/pages/leave/leave_create/leave_create_widget.dart'
+    show LeaveCreateWidget;
+export '/pages/attendance/attendance_history/attendance_history_widget.dart'
+    show AttendanceHistoryWidget;
+export '/pages/leave/leave_list/leave_list_widget.dart' show LeaveListWidget;
+export '/pages/expenses/expenses_view/expenses_view_widget.dart'
+    show ExpensesViewWidget;
+export '/pages/task/appspares/appspares_widget.dart' show AppsparesWidget;
+export '/pages/expenses/expence_create/expence_create_widget.dart'
+    show ExpenceCreateWidget;
+export '/pages/expenses/expenses_list/expenses_list_widget.dart'
+    show ExpensesListWidget;
+export '/pages/leave/leave_info/leave_info_widget.dart' show LeaveInfoWidget;
+export '/pages/auth/create_account/create_account_widget.dart'
+    show CreateAccountWidget;
+export '/pages/profile/edit_profile/edit_profile_widget.dart'
+    show EditProfileWidget;
+export '/pages/biliti_eservice/forget_password/forget_password_widget.dart'
+    show ForgetPasswordWidget;
+export '/dashboard/project_dashboard/project_dashboard_widget.dart'
+    show ProjectDashboardWidget;
+export '/pages/boqs/boq_list/boq_list_widget.dart' show BoqListWidget;
+export '/pages/task/task_details/task_details_widget.dart'
+    show TaskDetailsWidget;
+export '/pages/lead/lead_pages/lead_list/leadlist/leadlist_widget.dart'
+    show LeadlistWidget;
+export '/pages/project/project/project_widget.dart' show ProjectWidget;
+export '/pages/lead/lead_pages/lead_edit/leadedit/leadedit_widget.dart'
+    show LeadeditWidget;
+export '/pages/lead/lead_pages/leadview/leadview_widget.dart'
+    show LeadviewWidget;
+export '/pages/project/projects_details/projects_details_widget.dart'
+    show ProjectsDetailsWidget;
+export '/pages/boqs/boq_view/boq_view_widget.dart' show BoqViewWidget;
+export '/pages/profile/my_profile/my_profile_widget.dart' show MyProfileWidget;
+export '/pages/lead/recent_activity_list/recent_activity_list_widget.dart'
+    show RecentActivityListWidget;
+export '/pages/task/task_list/task_list_widget.dart' show TaskListWidget;
+export '/pages/boqs/b_o_q_descripition/b_o_q_descripition_widget.dart'
+    show BOQDescripitionWidget;
+export '/pages/boqs/creatin_b_o_q_descripition/creatin_b_o_q_descripition_widget.dart'
+    show CreatinBOQDescripitionWidget;
+export '/pages/boqs/boqdescription/boqdescription_widget.dart'
+    show BoqdescriptionWidget;
+export '/pages/boqs/add_scope_work/add_scope_work_widget.dart'
+    show AddScopeWorkWidget;
+export '/pages/boqs/adding_unit_amount/adding_unit_amount_widget.dart'
+    show AddingUnitAmountWidget;
+export '/pages/task/user_task/user_task_widget.dart' show UserTaskWidget;
+export '/pages/task/tasklog/tasklog_widget.dart' show TasklogWidget;
+export '/pages/task/user_task_dashboard/user_task_dashboard_widget.dart'
+    show UserTaskDashboardWidget;
+export '/pages/lead/c_r_m_team/c_r_m_team_widget.dart' show CRMTeamWidget;
+export '/dashboard/dashboard_c_r_m/dashboard_c_r_m_widget.dart'
+    show DashboardCRMWidget;
+export '/pages/sale/quotation/quotation_list/quotation_list_page/quotation_list_page_widget.dart'
+    show QuotationListPageWidget;
+export '/pages/sale/quotation/quotation_view/quotation_view_page/quotation_view_page_widget.dart'
+    show QuotationViewPageWidget;
+export '/pages/sale/sale_order/sale_order_list/sale_order_list_page/sale_order_list_page_widget.dart'
+    show SaleOrderListPageWidget;
+export '/pages/sale/quotation/quotation_edit/quotation_edit_page/quotation_edit_page_widget.dart'
+    show QuotationEditPageWidget;
+export '/pages/sale/sale_order/sale_order_view/sale_order_view_page/sale_order_view_page_widget.dart'
+    show SaleOrderViewPageWidget;
+export '/pages/lead/lead_pages/lead_list/lead_dashboardlist/lead_dashboardlist_widget.dart'
+    show LeadDashboardlistWidget;
+export '/pages/inventory/grn_pages/grn_list/grn_list_page/grn_list_page_widget.dart'
+    show GrnListPageWidget;
+export '/pages/accounting/invoice_pagess/invoice_list/invoice_list_page/invoice_list_page_widget.dart'
+    show InvoiceListPageWidget;
+export '/pages/accounting/invoice_pagess/invoice_view/invoice_view_page/invoice_view_page_widget.dart'
+    show InvoiceViewPageWidget;
+export '/pages/sale/quotation/quotation_create/quotation_create_page/quotation_create_page_widget.dart'
+    show QuotationCreatePageWidget;
+export '/dashboard/e_r_p_dashboard/e_r_p_dashboard_widget.dart'
+    show ERPDashboardWidget;
+export '/pages/contact/contact_pages/contact_create/contact_create_page/contact_create_page_widget.dart'
+    show ContactCreatePageWidget;
+export '/pages/contact/contact_pages/contact_edit/contact_edit_page/contact_edit_page_widget.dart'
+    show ContactEditPageWidget;
+export '/pages/auth/spalashscreen/spalashscreen_widget.dart'
+    show SpalashscreenWidget;
+export '/pages/contact/contact_pages/contact_list/contact_page_list/contact_page_list_widget.dart'
+    show ContactPageListWidget;
+export '/pages/purchase/purchase_rfq_pages/purchase_rfq_edit/r_f_q_edit/r_f_q_edit_widget.dart'
+    show RFQEditWidget;
+export '/pages/purchase/purchase_rfq_pages/purchase_rfq_lists/purchase_rfq_lists_widget.dart'
+    show PurchaseRfqListsWidget;
+export '/pages/purchase/purchase_order_pages/purchase_order_list/purchase_order_lists/purchase_order_lists_widget.dart'
+    show PurchaseOrderListsWidget;
+export '/pages/accounting/invoice_pagess/invoice_edit/invoice_edit_page/invoice_edit_page_widget.dart'
+    show InvoiceEditPageWidget;
+export '/pages/accounting/invoice_pagess/vendor_pages/vendor_list/vendorbill_list_page/vendorbill_list_page_widget.dart'
+    show VendorbillListPageWidget;
+export '/pages/auth/payment_pages/payment_list/payment_list_page/payment_list_page_widget.dart'
+    show PaymentListPageWidget;
+export '/pages/expenses/expense_update/expense_update_widget.dart'
+    show ExpenseUpdateWidget;
+export '/pages/inventory/delivery_chellan_pages/delivery_chellan_list/delivery_challen_list/delivery_challen_list_widget.dart'
+    show DeliveryChallenListWidget;
+export '/pages/inventory/inventory_pages/inventory_list/inventory_list_page/inventory_list_page_widget.dart'
+    show InventoryListPageWidget;
+export '/pages/accounting/invoice_pagess/vendor_pages/vendor_edit/vendor_bill_edit/vendor_bill_edit_widget.dart'
+    show VendorBillEditWidget;
+export '/pages/purchase/purchase_rfq_pages/purchase_rfq_view/purchase_rfq_view/purchase_rfq_view_widget.dart'
+    show PurchaseRfqViewWidget;
+export '/pages/purchase/purchase_order_pages/purchase_order_view/purchase_order_view/purchase_order_view_widget.dart'
+    show PurchaseOrderViewWidget;
+export '/pages/inventory/grn_pages/grn_view/grn_view_page/grn_view_page_widget.dart'
+    show GrnViewPageWidget;
+export '/pages/accounting/invoice_pagess/vendor_pages/vendor_view/vendor_bill_view/vendor_bill_view_widget.dart'
+    show VendorBillViewWidget;
+export '/pages/contact/contact_pages/contact_list/contact_sale_lists_table/contact_sale_lists_table_widget.dart'
+    show ContactSaleListsTableWidget;
+export '/pages/accounting/payment_view/payment_view_page/payment_view_page_widget.dart'
+    show PaymentViewPageWidget;
+export '/pages/accounting/invoice_pagess/invoice_create/account_invoice_create_page/account_invoice_create_page_widget.dart'
+    show AccountInvoiceCreatePageWidget;
+export '/pages/contact/contact_pages/contact_list/contact_invoices_lists_table/contact_invoices_lists_table_widget.dart'
+    show ContactInvoicesListsTableWidget;
+export '/pages/contact/contact_pages/contact_list/contact_purchase_order_list/contact_purchase_order_list_widget.dart'
+    show ContactPurchaseOrderListWidget;
+export '/pages/contact/contact_pages/contact_list/contact_payment_lists_table/contact_payment_lists_table_widget.dart'
+    show ContactPaymentListsTableWidget;
+export '/pages/inventory/delivery_chellan_pages/delivery_chellan_view/delivery_challan_view/delivery_challan_view_widget.dart'
+    show DeliveryChallanViewWidget;
+export '/service_list_page/service_list_page_widget.dart'
+    show ServiceListPageWidget;
+export '/pages/accounting/invoice_pagess/vendor_pages/vendor_create/accoun_vendor_create_page/accoun_vendor_create_page_widget.dart'
+    show AccounVendorCreatePageWidget;
+export '/pages/settings/setting/setting_widget.dart' show SettingWidget;
+export '/pages/auth/payment_pages/account_payment_create/account_payment_create_widget.dart'
+    show AccountPaymentCreateWidget;
+export '/pages/product_cataloge/categories_with_product/categories_with_product_widget.dart'
+    show CategoriesWithProductWidget;
+export '/pages/task/dashboard_tasklist/dashboard_tasklist_widget.dart'
+    show DashboardTasklistWidget;
+export '/pages/lead/lead_pages/lead_dashboard_opportunity/lead_dashboard_opportunity_widget.dart'
+    show LeadDashboardOpportunityWidget;
+export '/pages/contact/contact_pages/contact_view/contact_view_page_new/contact_view_page_new_widget.dart'
+    show ContactViewPageNewWidget;
+export '/pages/inventory/inventory_pages/inventory_view/inventory_view_widget.dart'
+    show InventoryViewWidget;
+export '/pages/inventory/delivery_chellan_pages/delivery_chellan_create/delivery_chellan_create_page/delivery_chellan_create_page_widget.dart'
+    show DeliveryChellanCreatePageWidget;
+export '/pages/lead/lead_pages/lead_list/lead_opportunity_list/lead_opportunity_list_widget.dart'
+    show LeadOpportunityListWidget;
+export '/pages/lead/lead_pages/lead_create/create_lead/create_lead_widget.dart'
+    show CreateLeadWidget;
+export '/pages/purchase/purchase_rfq_pages/purchase_rfq_create/purchase_rfq_create_new/purchase_rfq_create_new_widget.dart'
+    show PurchaseRfqCreateNewWidget;
+export '/pages/auth/welcome/welcome_widget.dart' show WelcomeWidget;
+export '/pages/product_cataloge/product_details_new/product_details_new_widget.dart'
+    show ProductDetailsNewWidget;
+export '/pages/inventory/inventory_quantity_hand/inventory_quantity_hand_widget.dart'
+    show InventoryQuantityHandWidget;
+export '/pages/task/material_equipment_list/material_equipment_list_widget.dart'
+    show MaterialEquipmentListWidget;
+export '/pages/task/equipment_create/equipment_create_widget.dart'
+    show EquipmentCreateWidget;
+export '/pages/inventory/inventory_forecast_quantity/inventory_forecast_quantity_widget.dart'
+    show InventoryForecastQuantityWidget;
+export '/pages/inventory/inventory_purchase_page/inventory_purchase_page_widget.dart'
+    show InventoryPurchasePageWidget;
+export '/pages/inventory/inventory_sold_page/inventory_sold_page_widget.dart'
+    show InventorySoldPageWidget;
+export '/pages/inventory/inventory_pages/inventory_create/inventory_create/inventory_create_widget.dart'
+    show InventoryCreateWidget;
+export '/pages/task/equipment_view/equipment_view_widget.dart'
+    show EquipmentViewWidget;
+export '/pages/biliti_eservice/activity/my_activity_calendar/my_activity_calendar_widget.dart'
+    show MyActivityCalendarWidget;
+export '/pages/inventory/grn_pages/grn_create/g_r_n_create_page/g_r_n_create_page_widget.dart'
+    show GRNCreatePageWidget;
+export '/pages/manufacturing/work_order/work_order_list/work_order_list_widget.dart'
+    show WorkOrderListWidget;
+export '/pages/inventory/picking_and_others/pick_create/pick_create_page/pick_create_page_widget.dart'
+    show PickCreatePageWidget;
+export '/pages/inventory/picking_and_others/pick_list/pick_list_page/pick_list_page_widget.dart'
+    show PickListPageWidget;
+export '/pages/inventory/picking_and_others/pick_view/pick_view_page/pick_view_page_widget.dart'
+    show PickViewPageWidget;
+export '/pages/manufacturing/work_order/work_order_details/work_order_details_widget.dart'
+    show WorkOrderDetailsWidget;
+export '/pages/leave/leave_request_list/leave_request_list_widget.dart'
+    show LeaveRequestListWidget;
+export '/dashboard/c_e_o_dashboard/c_e_o_dashboard_widget.dart'
+    show CEODashboardWidget;
+export '/pages/manufacturing/manufacturing_order/manufacturing_order/manufacturing_order_widget.dart'
+    show ManufacturingOrderWidget;
+export '/pages/manufacturing/manufacturing_order/manufacturing_details/manufacturing_details_widget.dart'
+    show ManufacturingDetailsWidget;
+export '/over_all_dashboard/purchase_dashboard_list/purchase_dashboard_list_widget.dart'
+    show PurchaseDashboardListWidget;
+export '/pages/inventory/picking_and_others/pick_view/g_r_n_pick_view_page/g_r_n_pick_view_page_widget.dart'
+    show GRNPickViewPageWidget;
+export '/over_all_dashboard/opportunity_dashboard_list/opportunity_dashboard_list_widget.dart'
+    show OpportunityDashboardListWidget;
+export '/over_all_dashboard/quotation_dashboard/quotation_dashboard_widget.dart'
+    show QuotationDashboardWidget;
+export '/over_all_dashboard/salelist_dashboard/salelist_dashboard_widget.dart'
+    show SalelistDashboardWidget;
+export '/over_all_dashboard/invoice_dashboard/invoice_dashboard_widget.dart'
+    show InvoiceDashboardWidget;
+export '/over_all_dashboard/payment_dashboard/payment_dashboard_widget.dart'
+    show PaymentDashboardWidget;
+export '/over_all_dashboard/expense_dashboard/expense_dashboard_widget.dart'
+    show ExpenseDashboardWidget;
+export '/pages/inventory/picking_and_others/pick_view/d_c_pick_view_page/d_c_pick_view_page_widget.dart'
+    show DCPickViewPageWidget;
+export '/over_all_dashboard/vendor_dashboard/vendor_dashboard_widget.dart'
+    show VendorDashboardWidget;
+export '/pages/inventory/delivery_chellan_pages/sale_order_delivery_chellan_list/sale_order_delivery_chellan_list_widget.dart'
+    show SaleOrderDeliveryChellanListWidget;
+export '/pages/inventory/grn_pages/grn_view/purchase_order_grn_list/purchase_order_grn_list_widget.dart'
+    show PurchaseOrderGrnListWidget;
