@@ -265,11 +265,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'To',
       'ta': '',
     },
-    'vcvicg09': {
+    '93g9rnh1': {
       'en': 'Half Day',
       'ta': '',
     },
-    'rls6rezg': {
+    'i30ji07c': {
       'en': '​Custom Hours',
       'ta': '',
     },
@@ -277,7 +277,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'From',
       'ta': '',
     },
-    'kezmz3ao': {
+    '1tg3xfwy': {
       'en': 'Search for an item...',
       'ta': '',
     },
@@ -285,7 +285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'To',
       'ta': '',
     },
-    'c3jz0g4s': {
+    'd89f9cr2': {
       'en': 'Search for an item...',
       'ta': '',
     },
@@ -1709,7 +1709,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Task List',
       'ta': '',
     },
-    'yd51sief': {
+    '813xplt5': {
       'en': 'Project : ',
       'ta': '',
     },
@@ -6428,7 +6428,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search...',
       'ta': '',
     },
-    'q2ti66hz': {
+    'lm9qkxva': {
       'en': 'Project : ',
       'ta': '',
     },
@@ -9793,15 +9793,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CheckcheckOut
   {
-    'hkvvvor8': {
+    'zemlzs2s': {
       'en': 'IN',
       'ta': '',
     },
-    '9smvbc7v': {
+    'y6ql0z6p': {
       'en': 'OUT',
       'ta': '',
     },
-    'aad6itlx': {
+    'br8oyjq0': {
       'en': 'Hello World',
       'ta': '',
     },

@@ -74,7 +74,7 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                       ),
                       Text(
                         FFLocalizations.of(context).getText(
-                          'hkvvvor8' /* IN */,
+                          'zemlzs2s' /* IN */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
@@ -110,7 +110,7 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            '9smvbc7v' /* OUT */,
+                            'y6ql0z6p' /* OUT */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -155,7 +155,7 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                               alignment: AlignmentDirectional(0.00, 0.00),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'aad6itlx' /* Hello World */,
+                                  'br8oyjq0' /* Hello World */,
                                 ),
                                 maxLines: 10,
                                 style: FlutterFlowTheme.of(context).bodyMedium,

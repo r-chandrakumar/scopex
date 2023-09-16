@@ -438,7 +438,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        'yd51sief' /* Project :  */,
+                                        '813xplt5' /* Project :  */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

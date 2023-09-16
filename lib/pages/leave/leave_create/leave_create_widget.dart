@@ -648,7 +648,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'vcvicg09' /* Half Day */,
+                                    '93g9rnh1' /* Half Day */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -694,7 +694,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'rls6rezg' /* ​Custom Hours */,
+                                    'i30ji07c' /* ​Custom Hours */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
