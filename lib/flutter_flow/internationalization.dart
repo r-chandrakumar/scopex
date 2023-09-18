@@ -265,11 +265,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'To',
       'ta': '',
     },
-    '93g9rnh1': {
+    'l5aw19vk': {
       'en': 'Half Day',
       'ta': '',
     },
-    'i30ji07c': {
+    'lpzbps3q': {
       'en': '​Custom Hours',
       'ta': '',
     },
@@ -277,7 +277,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'From',
       'ta': '',
     },
-    '1tg3xfwy': {
+    'n24gkrvq': {
       'en': 'Search for an item...',
       'ta': '',
     },
@@ -285,7 +285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'To',
       'ta': '',
     },
-    'd89f9cr2': {
+    'pwaxs9x7': {
       'en': 'Search for an item...',
       'ta': '',
     },
@@ -1709,7 +1709,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Task List',
       'ta': '',
     },
-    '813xplt5': {
+    'koglouvy': {
       'en': 'Project : ',
       'ta': '',
     },
@@ -3843,7 +3843,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     '68j9byq3': {
-      'en': 'Vendor Bill  Date',
+      'en': 'Vendor Bill Date',
       'ta': '',
     },
     'tn5hwuh1': {
@@ -4745,27 +4745,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Priority',
       'ta': '',
     },
-    '1gtbdnj6': {
+    '17gaf0ou': {
       'en': 'Low',
       'ta': '',
     },
-    'mgvtl4oi': {
+    'fibultu9': {
       'en': 'Medium',
       'ta': '',
     },
-    'tm0sru3g': {
+    'kqflkzxu': {
       'en': 'High',
       'ta': '',
     },
-    'm8uajfj9': {
+    '5a2dq7l3': {
       'en': 'Very High',
       'ta': '',
     },
-    'tzhbmgha': {
+    'de218a2n': {
       'en': 'Please select',
       'ta': '',
     },
-    'otyhjq2v': {
+    'nbmsx2vi': {
       'en': 'Search for an item...',
       'ta': '',
     },
@@ -5283,35 +5283,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'ta': '',
     },
-    'f0e3mwuv': {
+    'x36rx852': {
       'en': 'Product Name is required',
       'ta': '',
     },
-    'b24mz8e0': {
+    'qton1jku': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'zsof1tjb': {
-      'en': 'HNC Field is required',
+    'avsjk58f': {
+      'en': 'Field is required',
       'ta': '',
     },
-    'vwmzvekj': {
+    'jdb5af67': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'jce2y6i7': {
-      'en': 'Purchase Cost Field is required',
+    'g6e0wit2': {
+      'en': 'Field is required',
       'ta': '',
     },
-    '0g2a1nty': {
-      'en': 'Please choose an option from the dropdown',
-      'ta': '',
-    },
-    'd940i5kh': {
-      'en': 'Sold Price Field is required',
-      'ta': '',
-    },
-    'ow72cii0': {
+    'p3i7dmc4': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -6428,7 +6420,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search...',
       'ta': '',
     },
-    'lm9qkxva': {
+    'bpk4yr17': {
       'en': 'Project : ',
       'ta': '',
     },
@@ -7191,6 +7183,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'fcpzsbv3': {
+      'en': '',
+      'ta': '',
+    },
+    'brgndcrr': {
       'en': 'Product',
       'ta': '',
     },
@@ -7203,11 +7199,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'den57j9g': {
-      'en': 'Quality',
+      'en': 'Quantity',
       'ta': '',
     },
     'uawem9k1': {
       'en': '',
+      'ta': '',
+    },
+    'j0cle9ha': {
+      'en': 'Quantity',
       'ta': '',
     },
     'fhhnnyb6': {
@@ -7218,6 +7218,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
+    'kr0h9y8a': {
+      'en': 'Units',
+      'ta': '',
+    },
+    'bt54gl46': {
+      'en': 'Tax',
+      'ta': '',
+    },
     'lvub6pza': {
       'en': 'Amount',
       'ta': '',
@@ -7226,12 +7234,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
+    'vz0dyh81': {
+      'en': 'Amount',
+      'ta': '',
+    },
     '3x4n5zdf': {
       'en': 'Sub Total',
       'ta': '',
     },
     'n8ekecn8': {
       'en': '',
+      'ta': '',
+    },
+    '2yhjcq1g': {
+      'en': 'Sub Total',
       'ta': '',
     },
     'w071g6qx': {
@@ -7246,51 +7262,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save & New',
       'ta': '',
     },
-    'v1qmi0vn': {
+    'dmxbapf1': {
       'en': 'Field is required',
       'ta': '',
     },
-    'e0cc91qe': {
+    'd4xp8mu2': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'mreubrn4': {
+    'cakean4k': {
       'en': 'Field is required',
       'ta': '',
     },
-    'nuw07rw2': {
+    'x2kdqub6': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'enrj81pk': {
-      'en': 'Field is required',
+    '1p297d3p': {
+      'en': 'Quantity is required',
       'ta': '',
     },
-    'lyoqa2nf': {
+    '14qrwr1y': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'ccix1lx9': {
+    'bps4w73n': {
       'en': 'Field is required',
       'ta': '',
     },
-    'e2a6ijk3': {
+    '1v28cvmt': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    '4ktirtk0': {
-      'en': 'Field is required',
+    'rcuqf4f3': {
+      'en': 'Amount is required',
       'ta': '',
     },
-    '2324ifhd': {
+    '9lhiitz0': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    '08w4oi2d': {
+    'krut3o15': {
       'en': 'Field is required',
       'ta': '',
     },
-    'r2h07n43': {
+    '8y3276ek': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -9793,16 +9809,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // CheckcheckOut
   {
-    'zemlzs2s': {
+    '0dv125w6': {
       'en': 'IN',
       'ta': '',
     },
-    'y6ql0z6p': {
+    '7r66z04m': {
       'en': 'OUT',
       'ta': '',
     },
-    'br8oyjq0': {
-      'en': 'Hello World',
+    'ps5pistg': {
+      'en': 'Not Started',
       'ta': '',
     },
   },

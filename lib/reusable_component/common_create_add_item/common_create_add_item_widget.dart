@@ -444,7 +444,7 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),

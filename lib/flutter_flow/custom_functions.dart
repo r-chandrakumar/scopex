@@ -2782,7 +2782,8 @@ String? filterDateFormatChange(
       // If parsing fails, it's not a valid date format
       dateisok = false;
     }
-
+    print('date Ok');
+    print(date);
     if (dateisok) {
       DateTime dateTime = DateTime.parse(date);
       String formattedDate = DateFormat("MM-dd-yyyy").format(dateTime);

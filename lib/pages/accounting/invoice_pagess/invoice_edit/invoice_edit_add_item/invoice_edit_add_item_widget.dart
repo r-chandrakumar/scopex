@@ -409,7 +409,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .inputFieldColor,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -442,9 +442,9 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .caradTextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.normal,
                                         ),
                                     validator: _model
                                         .productdescriptionControllerValidator
@@ -583,7 +583,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -694,7 +694,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -732,7 +732,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
                                             ),
                                         validator: _model
@@ -933,7 +933,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -1044,7 +1044,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:

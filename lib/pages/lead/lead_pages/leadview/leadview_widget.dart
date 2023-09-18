@@ -4,10 +4,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/lead/lead_pages/lead_view/leadview_shimmer/leadview_shimmer_widget.dart';
-import '/pages/lead/schedule_my_activity_copy/schedule_my_activity_copy_widget.dart';
 import '/pages/noactivity/noactivity_widget.dart';
+import '/pages/schedule_my_activity_copy/schedule_my_activity_copy_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
+import '/reusable_component/f_a_b_empty_component_shimmer/f_a_b_empty_component_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -244,7 +245,7 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                               child: Text(
                                                                 valueOrDefault<
                                                                     String>(
-                                                                  functions.nullcheckforDisplay(HymechApiGroupGroup
+                                                                  functions.isNull(HymechApiGroupGroup
                                                                       .crmViewCall
                                                                       .leadSource(
                                                                         containerCrmViewResponse
@@ -380,13 +381,22 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                '  ₹  ${HymechApiGroupGroup.crmViewCall.expectedrevenue(
-                                                                      containerCrmViewResponse
-                                                                          .jsonBody,
-                                                                    ) != null ? HymechApiGroupGroup.crmViewCall.expectedrevenue(
-                                                                      containerCrmViewResponse
-                                                                          .jsonBody,
-                                                                    ).toString() : '0'}',
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.amountSymbol(
+                                                                      HymechApiGroupGroup.crmViewCall.expectedrevenue(
+                                                                                containerCrmViewResponse.jsonBody,
+                                                                              ) !=
+                                                                              null
+                                                                          ? HymechApiGroupGroup.crmViewCall
+                                                                              .expectedrevenue(
+                                                                                containerCrmViewResponse.jsonBody,
+                                                                              )
+                                                                              .toString()
+                                                                          : '0',
+                                                                      FFAppState().currencySymbol),
+                                                                  '-',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1023,7 +1033,7 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                                     containerCrmViewResponse.jsonBody,
                                                                                   )
                                                                                   .toString()),
-                                                                              'null',
+                                                                              '-',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Roboto',
@@ -1669,22 +1679,7 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return Center(
-                                                    child: SizedBox(
-                                                      width: 40.0,
-                                                      height: 40.0,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
+                                                  return FABEmptyComponentShimmerWidget();
                                                 }
                                                 final listViewListLeadActivityResponse =
                                                     snapshot.data!;

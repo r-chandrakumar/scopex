@@ -11,6 +11,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,16 @@ class InventoryCreateModel extends FlutterFlowModel {
   // State field(s) for Name widget.
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
+  String? _nameControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'x36rx852' /* Product Name is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for Type widget.
   String? typeValue;
   FormFieldController<String>? typeValueController;
@@ -47,6 +58,16 @@ class InventoryCreateModel extends FlutterFlowModel {
   // State field(s) for SoldPrice widget.
   TextEditingController? soldPriceController;
   String? Function(BuildContext, String?)? soldPriceControllerValidator;
+  String? _soldPriceControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'g6e0wit2' /* Field is required */,
+      );
+    }
+
+    return null;
+  }
+
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -63,6 +84,8 @@ class InventoryCreateModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
+    nameControllerValidator = _nameControllerValidator;
+    soldPriceControllerValidator = _soldPriceControllerValidator;
   }
 
   void dispose() {

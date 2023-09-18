@@ -231,8 +231,10 @@ class _VendorBillEditAddItemWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w600,
+                                  color: FlutterFlowTheme.of(context)
+                                      .appBarTextColor,
+                                  fontSize: 23.0,
+                                  fontWeight: FontWeight.normal,
                                 ),
                           ),
                         ),
@@ -271,7 +273,12 @@ class _VendorBillEditAddItemWidgetState
                             FFLocalizations.of(context).getText(
                               '6lbrbt8t' /* Product */,
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  fontSize: 14.0,
+                                ),
                           ),
                         ),
                       ),
@@ -349,7 +356,12 @@ class _VendorBillEditAddItemWidgetState
                             FFLocalizations.of(context).getText(
                               'rq4nuig6' /* Description */,
                             ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  fontSize: 14.0,
+                                ),
                           ),
                         ),
                       ),
@@ -446,7 +458,11 @@ class _VendorBillEditAddItemWidgetState
                                           'q5gr3ubj' /* Quantity */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -586,7 +602,11 @@ class _VendorBillEditAddItemWidgetState
                                           'qkf1mn0y' /* Units */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -683,8 +703,12 @@ class _VendorBillEditAddItemWidgetState
                                   FFLocalizations.of(context).getText(
                                     'w90saodc' /* Quantity */,
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 14.0,
+                                      ),
                                 ),
                               ),
                             ),
@@ -744,7 +768,11 @@ class _VendorBillEditAddItemWidgetState
                                           'pya8cca0' /* Amount */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -885,7 +913,11 @@ class _VendorBillEditAddItemWidgetState
                                           'am8q6h7k' /* Sub Total */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -985,7 +1017,11 @@ class _VendorBillEditAddItemWidgetState
                                           'iecpdge2' /* Total */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -1027,7 +1063,10 @@ class _VendorBillEditAddItemWidgetState
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                fontSize: 14.0,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .inputtextColor,
+                                                fontSize: 16.0,
                                               ),
                                         ),
                                       ),

@@ -1287,7 +1287,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                       16.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .normal,
                                                                 ),
                                                             maxLines: 3,
                                                             validator: _model

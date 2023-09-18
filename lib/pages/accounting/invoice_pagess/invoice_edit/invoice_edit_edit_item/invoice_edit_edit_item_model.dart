@@ -34,17 +34,37 @@ class InvoiceEditEditItemModel extends FlutterFlowModel {
   // State field(s) for quantity widget.
   TextEditingController? quantityController;
   String? Function(BuildContext, String?)? quantityControllerValidator;
+  String? _quantityControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        '1p297d3p' /* Quantity is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for unit widget.
   TextEditingController? unitController;
   String? Function(BuildContext, String?)? unitControllerValidator;
   // State field(s) for amount widget.
   TextEditingController? amountController;
   String? Function(BuildContext, String?)? amountControllerValidator;
+  String? _amountControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'rcuqf4f3' /* Amount is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for subtotal widget.
   TextEditingController? subtotalController;
   String? Function(BuildContext, String?)? subtotalControllerValidator;
   // Stores action output result for [Backend Call - API (Accounting Line Product Update)] action in Button widget.
-  ApiCallResponse? apiResult5u7;
+  ApiCallResponse? accountLineItemUpdate;
   // Stores action output result for [Backend Call - API (Invoice View)] action in Button widget.
   ApiCallResponse? updationDetailForTotalEdit;
   // Stores action output result for [Backend Call - API (Accounting Line Product Update)] action in Button widget.
@@ -57,6 +77,8 @@ class InvoiceEditEditItemModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
+    quantityControllerValidator = _quantityControllerValidator;
+    amountControllerValidator = _amountControllerValidator;
   }
 
   void dispose() {

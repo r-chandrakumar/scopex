@@ -219,13 +219,15 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
-                                                          fontSize: 17.0,
+                                                              .inputtextColor,
+                                                          fontSize: 16.0,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .hashColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -235,7 +237,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .inputFieldColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -278,7 +282,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                               validator: _model
                                                   .leadnameControllerValidator
@@ -383,7 +387,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .inputtextColor,
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                       hintText:
@@ -545,7 +549,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                               keyboardType:
                                                   TextInputType.emailAddress,
@@ -611,7 +615,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          fontSize: 17.0,
+                                                          fontSize: 16.0,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -669,7 +673,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                               keyboardType: TextInputType.phone,
                                               validator: _model
@@ -821,7 +825,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .inputtextColor,
+                                                                          .primaryText,
                                                                     ),
                                                             hintText:
                                                                 FFLocalizations.of(
@@ -1033,7 +1037,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .inputtextColor,
+                                                                      .primaryText,
                                                                 ),
                                                             validator: _model
                                                                 .contactPesronControllerValidator
@@ -1213,7 +1217,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .inputtextColor,
+                                                                      .primaryText,
                                                                 ),
                                                             validator: _model
                                                                 .expectedrevenueControllerValidator
@@ -1357,7 +1361,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                         ),
                                                 keyboardType:
                                                     TextInputType.number,
@@ -1487,9 +1491,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
                                               ),
-                                          maxLines: 2,
+                                          maxLines: 3,
                                           validator: _model
                                               .streetControllerValidator
                                               .asValidator(context),
@@ -1594,7 +1598,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
                                               ),
                                           validator: _model
                                               .cityControllerValidator
@@ -1692,7 +1696,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                   fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                                 ),
                                             validator: _model
                                                 .zipControllerValidator
@@ -1806,8 +1810,8 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
-                                          fontSize: 15.0,
+                                              .primaryText,
+                                          fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     textAlign: TextAlign.start,

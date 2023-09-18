@@ -11,6 +11,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'inventory_create_model.dart';
@@ -1203,6 +1204,10 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                   validator: _model
                                                       .soldPriceControllerValidator
                                                       .asValidator(context),
+                                                  inputFormatters: [
+                                                    FilteringTextInputFormatter
+                                                        .allow(RegExp('[0-9]'))
+                                                  ],
                                                 ),
                                               ),
                                             ],
@@ -1439,6 +1444,82 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                         .validate()) {
                                                   return;
                                                 }
+                                                if (_model.typeValue == null) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Type Resuired',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                    ),
+                                                  );
+                                                  return;
+                                                }
+                                                if (_model.categoryValue ==
+                                                    null) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Category Type Reuired',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                  );
+                                                  return;
+                                                }
+                                                if (_model.measuresValue ==
+                                                    null) {
+                                                  return;
+                                                }
+                                                if (_model.uploadedLocalFile ==
+                                                        null ||
+                                                    (_model.uploadedLocalFile
+                                                                .bytes ??
+                                                            [])
+                                                        .isEmpty) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Imventory Image Required',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                  );
+                                                  return;
+                                                }
                                                 if (_model.soldValue! ||
                                                     _model.purchaseValue!) {
                                                   _model.inventoryCreateResult =
@@ -1531,6 +1612,27 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondary,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Error While Create Inventory',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
                                                       ),
                                                     );
                                                   }

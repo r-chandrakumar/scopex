@@ -1024,6 +1024,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryText,
+                                                      fontSize: 16.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -1080,7 +1081,8 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
+                                                fontSize: 16.0,
                                               ),
                                           keyboardType: TextInputType.number,
                                           validator: _model
@@ -1524,9 +1526,8 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                               .bodyMedium
                               .override(
                                 fontFamily: 'Plus Jakarta Sans',
-                                color:
-                                    FlutterFlowTheme.of(context).inputtextColor,
-                                fontSize: 14.0,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16.0,
                                 fontWeight: FontWeight.normal,
                               ),
                           textAlign: TextAlign.start,

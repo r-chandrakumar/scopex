@@ -1142,10 +1142,14 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                             .getText(
                                                           '3xi1mszi' /* Notes */,
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Roboto',
+                                                              fontSize: 14.0,
+                                                            ),
                                                       ),
                                                     ),
                                                     Row(
@@ -1183,7 +1187,7 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryText,
+                                                                          .inputtextColor,
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:
@@ -1196,6 +1200,9 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .inputtextColor,
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:

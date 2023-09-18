@@ -385,90 +385,45 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                       ],
                                     ),
                                   ),
-                                  if (functions.jsonToString(getJsonField(
-                                            activityItem,
-                                            r'''$.res_name''',
-                                          )) !=
-                                          null &&
-                                      functions.jsonToString(getJsonField(
-                                            activityItem,
-                                            r'''$.res_name''',
-                                          )) !=
-                                          '')
-                                    Container(
-                                      width: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                functions.isNull(getJsonField(
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (functions.jsonToString(getJsonField(
                                                   activityItem,
                                                   r'''$.res_name''',
-                                                ).toString())!,
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .appBarTextColor,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  if (functions.jsonToString(getJsonField(
-                                            activityItem,
-                                            r'''$.res_name''',
-                                          )) !=
-                                          null &&
-                                      functions.jsonToString(getJsonField(
-                                            activityItem,
-                                            r'''$.res_name''',
-                                          )) !=
-                                          '')
-                                    Container(
-                                      width: 100.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                functions.isNull(getJsonField(
+                                                )) !=
+                                                null &&
+                                            functions.jsonToString(getJsonField(
                                                   activityItem,
-                                                  r'''$.summary''',
-                                                ).toString())!,
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  r'''$.res_name''',
+                                                )) !=
+                                                '')
+                                          SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 15.0, 0.0,
+                                                          15.0),
+                                                  child: Text(
+                                                    functions
+                                                        .isNull(getJsonField(
+                                                      activityItem,
+                                                      r'''$.res_name''',
+                                                    ).toString())!,
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
@@ -479,12 +434,58 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                              ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
+                                          ),
+                                        if (functions.jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.res_name''',
+                                                )) !=
+                                                null &&
+                                            functions.jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.res_name''',
+                                                )) !=
+                                                '')
+                                          SingleChildScrollView(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.stretch,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(10.0, 15.0, 0.0,
+                                                          15.0),
+                                                  child: Text(
+                                                    functions
+                                                        .isNull(getJsonField(
+                                                      activityItem,
+                                                      r'''$.summary''',
+                                                    ).toString())!,
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .appBarTextColor,
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                      ],
                                     ),
+                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         25.0, 15.0, 25.0, 0.0),

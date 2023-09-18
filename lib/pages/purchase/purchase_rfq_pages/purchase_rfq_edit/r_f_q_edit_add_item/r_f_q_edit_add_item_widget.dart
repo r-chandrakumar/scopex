@@ -335,7 +335,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .caradTextColor,
+                                                                .inputtextColor,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -414,7 +414,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .caradTextColor,
+                                                .inputtextColor,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.normal,
                                             lineHeight: 2.0,
@@ -587,7 +587,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
+                                                        .inputtextColor,
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -698,7 +698,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
+                                                        .inputtextColor,
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -937,7 +937,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
+                                                        .inputtextColor,
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -1048,7 +1048,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
+                                                        .inputtextColor,
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),

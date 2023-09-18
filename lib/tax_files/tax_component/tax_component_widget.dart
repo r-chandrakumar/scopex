@@ -96,62 +96,66 @@ class _TaxComponentWidgetState extends State<TaxComponentWidget> {
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Builder(
-                    builder: (context) {
-                      final taxList = getJsonField(
-                        FFAppState().taxJson,
-                        r'''$.taxid''',
-                      ).toList();
-                      return Wrap(
-                        spacing: 10.0,
-                        runSpacing: 10.0,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: List.generate(taxList.length, (taxListIndex) {
-                          final taxListItem = taxList[taxListIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                6.0, 6.0, 6.0, 6.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent3,
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    functions
-                                        .findListValueWithIndex(
-                                            getJsonField(
-                                              FFAppState().taxJson,
-                                              r'''$.taxnames''',
-                                            ),
-                                            taxListIndex,
-                                            'value')
-                                        ?.toString(),
-                                    '-',
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Builder(
+                      builder: (context) {
+                        final taxList = getJsonField(
+                          FFAppState().taxJson,
+                          r'''$.taxid''',
+                        ).toList();
+                        return Wrap(
+                          spacing: 10.0,
+                          runSpacing: 10.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children:
+                              List.generate(taxList.length, (taxListIndex) {
+                            final taxListItem = taxList[taxListIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).accent3,
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 5.0, 5.0, 5.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      functions
+                                          .findListValueWithIndex(
+                                              getJsonField(
+                                                FFAppState().taxJson,
+                                                r'''$.taxnames''',
+                                              ),
+                                              taxListIndex,
+                                              'value')
+                                          ?.toString(),
+                                      '-',
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ),
-                            ),
-                          );
-                        }),
-                      );
-                    },
-                  ),
-                ],
+                            );
+                          }),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             );
           }

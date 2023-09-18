@@ -427,7 +427,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .inputtextColor,
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                               ),
                                                       validator: _model
@@ -567,7 +567,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .inputtextColor,
+                                                                    .primaryText,
                                                               ),
                                                       keyboardType:
                                                           TextInputType
@@ -715,7 +715,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .inputtextColor,
+                                                                    .primaryText,
                                                               ),
                                                       keyboardType:
                                                           TextInputType.phone,
@@ -773,111 +773,95 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                       ),
                                                                 ),
                                                               ),
-                                                              Container(
-                                                                height: 50.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              6.0),
-                                                                  border: Border
-                                                                      .all(
-                                                                    color: Color(
-                                                                        0xFFD1E2EA),
-                                                                  ),
-                                                                ),
-                                                                child:
-                                                                    FlutterFlowDropDown<
-                                                                        String>(
-                                                                  controller: _model
-                                                                          .priorityValueController ??=
-                                                                      FormFieldController<
-                                                                              String>(
-                                                                          null),
-                                                                  options: [
-                                                                    '0',
-                                                                    '1',
-                                                                    '2',
-                                                                    '3'
-                                                                  ],
-                                                                  optionLabels: [
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '1gtbdnj6' /* Low */,
-                                                                    ),
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'mgvtl4oi' /* Medium */,
-                                                                    ),
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'tm0sru3g' /* High */,
-                                                                    ),
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'm8uajfj9' /* Very High */,
-                                                                    )
-                                                                  ],
-                                                                  onChanged: (val) =>
-                                                                      setState(() =>
-                                                                          _model.priorityValue =
-                                                                              val),
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .inputtextColor,
-                                                                      ),
-                                                                  hintText: FFLocalizations.of(
+                                                              FlutterFlowDropDown<
+                                                                  String>(
+                                                                controller: _model
+                                                                        .priorityValueController ??=
+                                                                    FormFieldController<
+                                                                            String>(
+                                                                        null),
+                                                                options: [
+                                                                  '0',
+                                                                  '1',
+                                                                  '2',
+                                                                  '3'
+                                                                ],
+                                                                optionLabels: [
+                                                                  FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'tzhbmgha' /* Please select */,
+                                                                    '17gaf0ou' /* Low */,
                                                                   ),
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .inputtextColor,
-                                                                    size: 24.0,
-                                                                  ),
-                                                                  fillColor: FlutterFlowTheme.of(
+                                                                  FFLocalizations.of(
                                                                           context)
-                                                                      .secondaryBackground,
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderColor:
-                                                                      FlutterFlowTheme.of(
+                                                                      .getText(
+                                                                    'fibultu9' /* Medium */,
+                                                                  ),
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'kqflkzxu' /* High */,
+                                                                  ),
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    '5a2dq7l3' /* Very High */,
+                                                                  )
+                                                                ],
+                                                                onChanged: (val) =>
+                                                                    setState(() =>
+                                                                        _model.priorityValue =
+                                                                            val),
+                                                                height: 50.0,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .hashColor,
-                                                                  borderWidth:
-                                                                      1.0,
-                                                                  borderRadius:
-                                                                      8.0,
-                                                                  margin: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          4.0,
-                                                                          3.0,
-                                                                          4.0),
-                                                                  hidesUnderline:
-                                                                      true,
-                                                                  isSearchable:
-                                                                      false,
-                                                                  isMultiSelect:
-                                                                      false,
+                                                                          .inputtextColor,
+                                                                    ),
+                                                                hintText:
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                  'de218a2n' /* Please select */,
                                                                 ),
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .keyboard_arrow_down_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .inputtextColor,
+                                                                  size: 24.0,
+                                                                ),
+                                                                fillColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                elevation: 0.0,
+                                                                borderColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .hashColor,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            4.0,
+                                                                            3.0,
+                                                                            4.0),
+                                                                hidesUnderline:
+                                                                    true,
+                                                                isSearchable:
+                                                                    false,
+                                                                isMultiSelect:
+                                                                    false,
                                                               ),
                                                             ],
                                                           ),
@@ -1029,7 +1013,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .inputtextColor,
+                                                                          .primaryText,
                                                                     ),
                                                                 validator: _model
                                                                     .customerPersonControllerValidator
@@ -1208,7 +1192,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .inputtextColor,
+                                                                            .primaryText,
                                                                       ),
                                                                   keyboardType:
                                                                       TextInputType
@@ -1398,7 +1382,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .inputtextColor,
+                                                                    .primaryText,
                                                               ),
                                                       keyboardType:
                                                           TextInputType.number,
@@ -1543,9 +1527,9 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
-                                              maxLines: 2,
+                                              maxLines: 3,
                                               keyboardType:
                                                   TextInputType.multiline,
                                               validator: _model
@@ -1658,7 +1642,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                               validator: _model
                                                   .cityControllerValidator
@@ -1770,7 +1754,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                         ),
                                                 keyboardType:
                                                     TextInputType.number,
@@ -1882,7 +1866,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -1939,7 +1923,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                       priority: functions
                                           .changeStringToInt(
                                               _model.priorityValue)
-                                          ?.toString(),
+                                          .toString(),
                                       name: _model.leadnameController.text,
                                       emailFrom: _model.emailController.text,
                                       phone: _model.numberController.text,

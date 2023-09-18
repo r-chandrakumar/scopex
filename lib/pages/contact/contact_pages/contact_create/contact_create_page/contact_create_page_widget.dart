@@ -246,17 +246,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                           controller: _model.gstController,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .inputtextColor,
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -525,7 +514,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                             Expanded(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 18.0),
+                                    0.0, 0.0, 0.0, 15.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -559,17 +548,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                             _model.mobileNumberController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
                                             'us8ldund' /* Mobile Number */,
@@ -637,7 +615,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -693,16 +671,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                       autofillHints: [AutofillHints.email],
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
                                           '5lhm4ysx' /* Email */,
@@ -762,7 +730,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .inputtextColor,
+                                                .primaryText,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -816,17 +784,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                             _model.websiteTextController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
                                             'gvv02oxt' /* Website */,
@@ -894,7 +851,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -946,15 +903,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                         _model.contactPersonNameController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .inputtextColor,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
                                         'm2urqr9e' /* Contact Person Name */,
@@ -1126,11 +1074,11 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),
-                                    maxLines: 2,
+                                    maxLines: 3,
                                     keyboardType: TextInputType.multiline,
                                     validator: _model.addressControllerValidator
                                         .asValidator(context),
@@ -1175,15 +1123,6 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                     controller: _model.pinCodeController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .inputtextColor,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
                                       hintText:
                                           FFLocalizations.of(context).getText(
                                         'xot5m6ri' /* Pincode */,
@@ -1242,7 +1181,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),

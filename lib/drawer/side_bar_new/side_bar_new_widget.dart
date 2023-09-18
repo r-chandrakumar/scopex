@@ -816,6 +816,7 @@ class _SideBarNewWidgetState extends State<SideBarNewWidget> {
                                 wrapWithModel(
                                   model: _model.checkcheckOutModel,
                                   updateCallback: () => setState(() {}),
+                                  updateOnChange: true,
                                   child: CheckcheckOutWidget(),
                                 ),
                                 Divider(

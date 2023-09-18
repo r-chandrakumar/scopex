@@ -296,15 +296,17 @@ class _QuotationEditAddItemWidgetState
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Roboto',
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                            labelStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .inputtextColor,
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -317,7 +319,7 @@ class _QuotationEditAddItemWidgetState
                                                   fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .caradTextColor,
+                                                      .inputtextColor,
                                                   fontSize: 16.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -328,7 +330,13 @@ class _QuotationEditAddItemWidgetState
                                                 InputBorder.none,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .inputtextColor,
+                                              ),
                                           validator: _model
                                               .productNameControllerValidator
                                               .asValidator(context),
@@ -378,7 +386,7 @@ class _QuotationEditAddItemWidgetState
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .caradTextColor,
+                                              .inputtextColor,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -391,7 +399,7 @@ class _QuotationEditAddItemWidgetState
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .caradTextColor,
+                                              .inputtextColor,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -436,9 +444,9 @@ class _QuotationEditAddItemWidgetState
                                       .override(
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
-                                            .caradTextColor,
+                                            .inputtextColor,
                                         fontSize: 16.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.normal,
                                       ),
                                   validator: _model
                                       .productdescriptionControllerValidator
@@ -558,7 +566,7 @@ class _QuotationEditAddItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .inputtextColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),

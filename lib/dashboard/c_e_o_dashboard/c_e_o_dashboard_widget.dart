@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -37,6 +38,9 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.attendanceSubscription(
+        context,
+      );
       _model.apiSwipe =
           await CommonApisGroupGroup.acitivitySwipeDateListCall.call(
         domainUrl: FFAppState().DomainUrl,

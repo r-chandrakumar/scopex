@@ -348,6 +348,8 @@ class _VendorBillViewWidgetState extends State<VendorBillViewWidget> {
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .loginBtnColor1,
+                                                            fontWeight:
+                                                                FontWeight.w500,
                                                           ),
                                                 ),
                                               ),
@@ -412,6 +414,8 @@ class _VendorBillViewWidgetState extends State<VendorBillViewWidget> {
                                                                 : FlutterFlowTheme.of(
                                                                         context)
                                                                     .loginBtnColor1,
+                                                            fontWeight:
+                                                                FontWeight.w500,
                                                           ),
                                                 ),
                                               ),

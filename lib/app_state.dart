@@ -226,6 +226,21 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Attendence = prefs.getBool('ff_Attendence') ?? _Attendence;
     });
+    _safeInit(() {
+      _notificationList = prefs.getStringList('ff_notificationList')?.map((x) {
+            try {
+              return jsonDecode(x);
+            } catch (e) {
+              print("Can't decode persisted json. Error: $e.");
+              return {};
+            }
+          }).toList() ??
+          _notificationList;
+    });
+    _safeInit(() {
+      _notificationCount =
+          prefs.getInt('ff_notificationCount') ?? _notificationCount;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -1134,6 +1149,54 @@ class FFAppState extends ChangeNotifier {
   set Attendence(bool _value) {
     _Attendence = _value;
     prefs.setBool('ff_Attendence', _value);
+  }
+
+  List<dynamic> _notificationList = [];
+  List<dynamic> get notificationList => _notificationList;
+  set notificationList(List<dynamic> _value) {
+    _notificationList = _value;
+    prefs.setStringList(
+        'ff_notificationList', _value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void addToNotificationList(dynamic _value) {
+    _notificationList.add(_value);
+    prefs.setStringList('ff_notificationList',
+        _notificationList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromNotificationList(dynamic _value) {
+    _notificationList.remove(_value);
+    prefs.setStringList('ff_notificationList',
+        _notificationList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromNotificationList(int _index) {
+    _notificationList.removeAt(_index);
+    prefs.setStringList('ff_notificationList',
+        _notificationList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void updateNotificationListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _notificationList[_index] = updateFn(_notificationList[_index]);
+    prefs.setStringList('ff_notificationList',
+        _notificationList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInNotificationList(int _index, dynamic _value) {
+    _notificationList.insert(_index, _value);
+    prefs.setStringList('ff_notificationList',
+        _notificationList.map((x) => jsonEncode(x)).toList());
+  }
+
+  int _notificationCount = 0;
+  int get notificationCount => _notificationCount;
+  set notificationCount(int _value) {
+    _notificationCount = _value;
+    prefs.setInt('ff_notificationCount', _value);
   }
 }
 

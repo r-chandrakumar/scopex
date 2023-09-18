@@ -1944,127 +1944,127 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceBetween,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          3.0,
-                                                                          0.0),
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                child: Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Expanded(
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.333,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            ),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                '98os15y5' /* Lead Stages */,
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            3.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.333,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                               ),
-                                                                              textAlign: TextAlign.center,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Roboto',
-                                                                                    color: FlutterFlowTheme.of(context).caradTextColor,
-                                                                                    fontSize: 18.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          3.0,
-                                                                          0.0,
-                                                                          3.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.333,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                            ),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'qb9cqle8' /* Count */,
+                                                                              child: Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  '98os15y5' /* Lead Stages */,
+                                                                                ),
+                                                                                textAlign: TextAlign.center,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).caradTextColor,
+                                                                                      fontSize: 16.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
                                                                               ),
-                                                                              textAlign: TextAlign.center,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Roboto',
-                                                                                    color: FlutterFlowTheme.of(context).caradTextColor,
-                                                                                    fontSize: 18.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          3.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                    Expanded(
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Container(
-                                                                            width:
-                                                                                MediaQuery.sizeOf(context).width * 0.333,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            3.0,
+                                                                            0.0,
+                                                                            3.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.333,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              ),
+                                                                              child: Text(
+                                                                                FFLocalizations.of(context).getText(
+                                                                                  'qb9cqle8' /* Count */,
+                                                                                ),
+                                                                                textAlign: TextAlign.center,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).caradTextColor,
+                                                                                      fontSize: 16.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
                                                                             ),
-                                                                            child:
-                                                                                Text(
-                                                                              'Deal ( ${FFAppState().currencySymbol} )',
-                                                                              textAlign: TextAlign.center,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Roboto',
-                                                                                    color: FlutterFlowTheme.of(context).caradTextColor,
-                                                                                    fontSize: 18.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ),
-                                                                ],
+                                                                    Expanded(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            3.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Container(
+                                                                              width: MediaQuery.sizeOf(context).width * 0.333,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              ),
+                                                                              child: Text(
+                                                                                'Deal ( ${FFAppState().currencySymbol} )',
+                                                                                textAlign: TextAlign.center,
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Roboto',
+                                                                                      color: FlutterFlowTheme.of(context).caradTextColor,
+                                                                                      fontSize: 16.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
                                                               ),
                                                               Divider(
                                                                 thickness: 1.0,

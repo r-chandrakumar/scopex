@@ -147,6 +147,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
                     fontFamily: 'Outfit',
+                    color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
             ),
@@ -246,7 +247,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Padding(
@@ -422,7 +429,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           FutureBuilder<
@@ -500,7 +513,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                               context)
                                                                           .inputtextColor,
                                                                       fontSize:
-                                                                          14.0,
+                                                                          16.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -584,7 +597,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Padding(
@@ -782,7 +801,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           Container(
@@ -1121,7 +1146,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Align(
@@ -1236,6 +1267,9 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Roboto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .inputtextColor,
                                                                     fontSize:
                                                                         16.0,
                                                                     fontWeight:

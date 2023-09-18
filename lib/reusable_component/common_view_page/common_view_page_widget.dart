@@ -453,11 +453,13 @@ class _CommonViewPageWidgetState extends State<CommonViewPageWidget>
                                                         widget.model)
                                                     ?.toList() ??
                                                 [];
-                                            return ListView.builder(
+                                            return ListView.separated(
                                               padding: EdgeInsets.zero,
                                               shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
                                               itemCount: taxLine.length,
+                                              separatorBuilder: (_, __) =>
+                                                  SizedBox(height: 2.0),
                                               itemBuilder:
                                                   (context, taxLineIndex) {
                                                 final taxLineItem =
@@ -465,7 +467,7 @@ class _CommonViewPageWidgetState extends State<CommonViewPageWidget>
                                                 return Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          10.0, 5.0, 5.0, 5.0),
+                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,

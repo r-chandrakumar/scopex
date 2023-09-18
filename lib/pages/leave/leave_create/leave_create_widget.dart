@@ -634,8 +634,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                             .secondaryText,
                                   ),
                                   child: Checkbox(
-                                    value: _model.checkboxValue1 ??=
-                                        !_model.checkboxValue2!,
+                                    value: _model.checkboxValue1 ??= false,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.checkboxValue1 = newValue!);
@@ -648,7 +647,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '93g9rnh1' /* Half Day */,
+                                    'l5aw19vk' /* Half Day */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -680,8 +679,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                             .secondaryText,
                                   ),
                                   child: Checkbox(
-                                    value: _model.checkboxValue2 ??=
-                                        !_model.checkboxValue1!,
+                                    value: _model.checkboxValue2 ??= false,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.checkboxValue2 = newValue!);
@@ -694,7 +692,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'i30ji07c' /* ​Custom Hours */,
+                                    'lpzbps3q' /* ​Custom Hours */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

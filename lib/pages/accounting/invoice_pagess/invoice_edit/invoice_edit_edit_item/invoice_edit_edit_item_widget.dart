@@ -310,23 +310,13 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                       child: TextFormField(
                                         controller:
                                             _model.productNameController,
+                                        readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: FFLocalizations.of(context)
+                                          hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'fcpzsbv3' /* Product */,
+                                            'brgndcrr' /* Product */,
                                           ),
-                                          labelStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -334,8 +324,9 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
-                                                fontSize: 15.0,
+                                                        .inputtextColor,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -389,9 +380,9 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                         validator: _model
                                             .productNameControllerValidator
@@ -451,7 +442,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .inputtextColor,
-                                                fontSize: 15.0,
+                                                fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           hintStyle: FlutterFlowTheme.of(
@@ -520,6 +511,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
                                             ),
+                                        maxLines: 2,
                                         validator: _model
                                             .descriptionControllerValidator
                                             .asValidator(context),
@@ -545,7 +537,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                         0.0, 0.0, 0.0, 10.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'den57j9g' /* Quality */,
+                                        'den57j9g' /* Quantity */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -624,8 +616,20 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               fontSize: 15.0,
                                               fontWeight: FontWeight.normal,
                                             ),
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'j0cle9ha' /* Quantity */,
+                                        ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputtextColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -638,7 +642,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -671,7 +675,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .inputtextColor,
+                                                .primaryText,
                                           ),
                                       validator: _model
                                           .quantityControllerValidator
@@ -716,11 +720,23 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .inputtextColor,
-                                              fontSize: 15.0,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'kr0h9y8a' /* Units */,
+                                        ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputtextColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -733,7 +749,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -783,58 +799,96 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                     0.0, 0.0, 0.0, 18.0),
                                 child: Container(
                                   width: 100.0,
-                                  height: 50.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final taxlist = getJsonField(
-                                        FFAppState().taxJson,
-                                        r'''$.taxid''',
-                                      ).toList();
-                                      return Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: List.generate(taxlist.length,
-                                            (taxlistIndex) {
-                                          final taxlistItem =
-                                              taxlist[taxlistIndex];
-                                          return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 5.0, 5.0, 5.0),
-                                            child: Container(
-                                              width: 100.0,
-                                              height: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'bt54gl46' /* Tax */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 14.0,
                                               ),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  functions
-                                                      .findListValueWithIndex(
-                                                          getJsonField(
-                                                            FFAppState()
-                                                                .taxJson,
-                                                            r'''$.taxnames''',
-                                                          ),
-                                                          taxlistIndex,
-                                                          'value')
-                                                      ?.toString(),
-                                                  '-',
+                                        ),
+                                      ),
+                                      Builder(
+                                        builder: (context) {
+                                          final taxlist = getJsonField(
+                                            FFAppState().taxJson,
+                                            r'''$.taxid''',
+                                          ).toList();
+                                          return Wrap(
+                                            spacing: 0.0,
+                                            runSpacing: 0.0,
+                                            alignment: WrapAlignment.start,
+                                            crossAxisAlignment:
+                                                WrapCrossAlignment.start,
+                                            direction: Axis.horizontal,
+                                            runAlignment: WrapAlignment.start,
+                                            verticalDirection:
+                                                VerticalDirection.down,
+                                            clipBehavior: Clip.none,
+                                            children: List.generate(
+                                                taxlist.length, (taxlistIndex) {
+                                              final taxlistItem =
+                                                  taxlist[taxlistIndex];
+                                              return Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 5.0, 5.0, 5.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent3,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 5.0,
+                                                                8.0, 5.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        functions
+                                                            .findListValueWithIndex(
+                                                                getJsonField(
+                                                                  FFAppState()
+                                                                      .taxJson,
+                                                                  r'''$.taxnames''',
+                                                                ),
+                                                                taxlistIndex,
+                                                                'value')
+                                                            ?.toString(),
+                                                        '-',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
+                                              );
+                                            }),
                                           );
-                                        }),
-                                      );
-                                    },
+                                        },
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -936,12 +990,24 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .inputtextColor,
-                                                fontSize: 15.0,
+                                                fontSize: 14.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'vz0dyh81' /* Amount */,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .inputtextColor,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -956,7 +1022,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -1023,7 +1089,6 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                           0.0, 0.0, 0.0, 18.0),
                                       child: TextFormField(
                                         controller: _model.subtotalController,
-                                        autofocus: true,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1038,9 +1103,21 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 fontSize: 15.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '2yhjcq1g' /* Sub Total */,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .inputtextColor,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1055,7 +1132,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -1197,7 +1274,12 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                   FFButtonWidget(
                                     onPressed: () async {
                                       var _shouldSetState = false;
-                                      _model.apiResult5u7 =
+                                      if (_model.formKey.currentState == null ||
+                                          !_model.formKey.currentState!
+                                              .validate()) {
+                                        return;
+                                      }
+                                      _model.accountLineItemUpdate =
                                           await AccountingApiGroupGroup
                                               .accountingLineProductUpdateCall
                                               .call(
@@ -1244,7 +1326,8 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 _model.subtotalController.text),
                                       );
                                       _shouldSetState = true;
-                                      if ((_model.apiResult5u7?.succeeded ??
+                                      if ((_model.accountLineItemUpdate
+                                              ?.succeeded ??
                                           true)) {
                                         _model.updationDetailForTotalEdit =
                                             await AccountingApiGroupGroup
@@ -1362,6 +1445,12 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         var _shouldSetState = false;
+                                        if (_model.formKey.currentState ==
+                                                null ||
+                                            !_model.formKey.currentState!
+                                                .validate()) {
+                                          return;
+                                        }
                                         _model.invoiceUpdate2 =
                                             await AccountingApiGroupGroup
                                                 .accountingLineProductUpdateCall

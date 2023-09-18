@@ -405,7 +405,7 @@ class _AccounVendorCreatePageWidgetState
                                                   0.0, 0.0, 0.0, 10.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '68j9byq3' /* Vendor Bill  Date */,
+                                              '68j9byq3' /* Vendor Bill Date */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
