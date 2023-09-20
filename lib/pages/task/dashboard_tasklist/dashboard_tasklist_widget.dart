@@ -204,7 +204,7 @@ class _DashboardTasklistWidgetState extends State<DashboardTasklistWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: wrapWithModel(
                       model: _model.searchIconModel,

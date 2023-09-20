@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -174,7 +175,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -185,24 +186,12 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Flexible(
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios_rounded,
-                          color: FlutterFlowTheme.of(context).appBarTextColor,
-                          size: 24.0,
-                        ),
-                      ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: wrapWithModel(
+                      model: _model.backButttonComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: BackButttonComponentWidget(),
                     ),
                   ),
                   Flexible(
@@ -813,7 +802,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: wrapWithModel(
                                     model: _model.taxComponentModel,
@@ -955,7 +944,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -1066,7 +1055,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -1197,7 +1186,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                             ),
                                           ),
@@ -1465,8 +1454,8 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
                                             } else {
                                               Navigator.pop(context);
                                               await showModalBottomSheet(
@@ -1488,8 +1477,8 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                     ),
                                                   );
                                                 },
-                                              ).then(
-                                                  (value) => setState(() {}));
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
 
                                               if (_shouldSetState)
                                                 setState(() {});

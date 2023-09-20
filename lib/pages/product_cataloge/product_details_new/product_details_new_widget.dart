@@ -1551,7 +1551,7 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -1621,7 +1621,7 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,

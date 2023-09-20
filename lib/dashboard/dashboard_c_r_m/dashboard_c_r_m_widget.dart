@@ -395,7 +395,7 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

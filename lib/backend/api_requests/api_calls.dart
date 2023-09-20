@@ -1165,17 +1165,22 @@ class ListLeaveTypeCall {
 
 class CreateLeaveCall {
   Future<ApiCallResponse> call({
-    int? holidayStatusId,
+    String? domainUrl = '',
+    String? authToken = '',
     String? dateFrom = '',
     String? dateTo = '',
-    int? numberOfDays,
+    int? holidayStatusId,
+    String? holidayType = '',
     String? notes = '',
+    double? numberOfDays,
     String? privateName = '',
-    String? authToken = '',
     String? requestDateFrom = '',
     String? requestDateTo = '',
-    String? holidayType = '',
-    String? domainUrl = '',
+    String? requestDateFromPeriod = '',
+    String? requestHourFrom = '',
+    String? requestHourTo = '',
+    bool? requestUnitHours,
+    bool? requestUnitHalf,
   }) {
     final ffApiRequestBody = '''
 {
@@ -1187,7 +1192,12 @@ class CreateLeaveCall {
   "private_name": "${privateName}",
   "request_date_from": "${requestDateFrom}",
   "request_date_to": "${requestDateTo}",
-  "holiday_type": "employee"
+  "holiday_type": "employee",
+  "request_unit_hours": ${requestUnitHours},
+  "request_hour_from": "${requestHourFrom}",
+  "request_hour_to": "${requestHourTo}",
+  "request_unit_half": ${requestUnitHalf},
+  "request_date_from_period": "${requestDateFromPeriod}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Create Leave',

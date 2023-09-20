@@ -175,7 +175,7 @@ class _PurchaseRfqListsWidgetState extends State<PurchaseRfqListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -224,7 +224,7 @@ class _PurchaseRfqListsWidgetState extends State<PurchaseRfqListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -266,7 +266,7 @@ class _PurchaseRfqListsWidgetState extends State<PurchaseRfqListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

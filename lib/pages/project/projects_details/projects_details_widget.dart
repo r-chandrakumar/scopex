@@ -190,7 +190,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                       ),
                     );
                   },
-                ).then((value) => setState(() {}));
+                ).then((value) => safeSetState(() {}));
               },
               backgroundColor: FlutterFlowTheme.of(context).listPlusButton,
               elevation: 1.0,
@@ -277,7 +277,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.filter_list_sharp,
@@ -414,15 +414,17 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                   .getText(
                                                 'dr38oorz' /* Task :  */,
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .appBarTextColor,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .appBarTextColor,
+                                                    fontSize: 13.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                           Text(
@@ -439,6 +441,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .appBarTextColor,
+                                                  fontSize: 14.0,
                                                 ),
                                           ),
                                         ],
@@ -473,7 +476,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                fontSize: 14.0,
+                                                fontSize: 13.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -509,8 +512,11 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .appBarTextColor,
                                                 fontSize: 14.0,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ],
@@ -536,7 +542,12 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                         labelColor: FlutterFlowTheme.of(context).primaryText,
                         unselectedLabelColor:
                             FlutterFlowTheme.of(context).secondaryText,
-                        labelStyle: FlutterFlowTheme.of(context).titleMedium,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Roboto',
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                         unselectedLabelStyle: TextStyle(),
                         indicatorColor: FlutterFlowTheme.of(context).primary,
                         padding:
@@ -702,9 +713,9 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .cardHeading,
+                                                                            .appBarTextColor,
                                                                         fontSize:
-                                                                            18.0,
+                                                                            16.0,
                                                                       ),
                                                                 ),
                                                                 if (functions
@@ -797,7 +808,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                                             .override(
                                                                               fontFamily: 'Roboto',
                                                                               color: FlutterFlowTheme.of(context).cardHeading,
-                                                                              fontSize: 18.0,
+                                                                              fontSize: 14.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -862,8 +873,6 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                                     .max,
                                                             children: [
                                                               Container(
-                                                                width: 100.0,
-                                                                height: 30.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
@@ -871,7 +880,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                                           .only(
                                                                     bottomLeft:
                                                                         Radius.circular(
-                                                                            12.0),
+                                                                            7.0),
                                                                     bottomRight:
                                                                         Radius.circular(
                                                                             0.0),
@@ -880,7 +889,7 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                                             0.0),
                                                                     topRight: Radius
                                                                         .circular(
-                                                                            12.0),
+                                                                            7.0),
                                                                   ),
                                                                   border: Border
                                                                       .all(
@@ -1089,63 +1098,75 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            AutoSizeText(
-                                                              getJsonField(
-                                                                projectTeamsItem,
-                                                                r'''$.res_user.res_partner.name''',
-                                                              )
-                                                                  .toString()
-                                                                  .maybeHandleOverflow(
-                                                                    maxChars:
-                                                                        32,
-                                                                    replacement:
-                                                                        '…',
-                                                                  ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .rgb,
-                                                                    fontSize:
-                                                                        20.0,
-                                                                  ),
-                                                            ),
-                                                            if (responsiveVisibility(
-                                                              context: context,
-                                                              tabletLandscape:
-                                                                  false,
-                                                              desktop: false,
-                                                            ))
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    projectTeamsItem,
-                                                                    r'''$.res_user.res_partner.email''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              AutoSizeText(
+                                                                getJsonField(
+                                                                  projectTeamsItem,
+                                                                  r'''$.res_user.res_partner.name''',
+                                                                )
+                                                                    .toString()
+                                                                    .maybeHandleOverflow(
+                                                                      maxChars:
+                                                                          32,
+                                                                      replacement:
+                                                                          '…',
+                                                                    ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .rgb,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
                                                               ),
-                                                          ],
+                                                              if (responsiveVisibility(
+                                                                context:
+                                                                    context,
+                                                                tabletLandscape:
+                                                                    false,
+                                                                desktop: false,
+                                                              ))
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                      projectTeamsItem,
+                                                                      r'''$.res_user.res_partner.email''',
+                                                                    ).toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
                                                         ),
                                                       ],
                                                     ),

@@ -292,7 +292,7 @@ class _ScheduleActivityEditWidgetState
                                       );
 
                                       if (_datePickedDate != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked = DateTime(
                                             _datePickedDate.year,
                                             _datePickedDate.month,
@@ -425,8 +425,8 @@ class _ScheduleActivityEditWidgetState
                                       .override(
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 18.0,
+                                            .inputtextColor,
+                                        fontSize: 16.0,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -438,7 +438,8 @@ class _ScheduleActivityEditWidgetState
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Color(0xFFD1E2EA),
+                                      color: FlutterFlowTheme.of(context)
+                                          .inputFieldColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -521,6 +522,7 @@ class _ScheduleActivityEditWidgetState
                                                   .override(
                                                     fontFamily: 'Roboto',
                                                     color: Colors.white,
+                                                    fontSize: 18.0,
                                                   ),
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
@@ -689,7 +691,7 @@ class _ScheduleActivityEditWidgetState
                                                     .override(
                                                       fontFamily: 'Roboto',
                                                       color: Colors.white,
-                                                      fontSize: 20.0,
+                                                      fontSize: 18.0,
                                                     ),
                                             elevation: 0.0,
                                             borderSide: BorderSide(

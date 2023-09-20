@@ -230,7 +230,6 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    width: 100.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -243,42 +242,36 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                     ),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                          5.0, 3.0, 5.0, 3.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Expanded(
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  HymechApiGroupGroup
-                                                              .taskInfoCall
-                                                              .currentTaskEndDate(
-                                                                columnTaskInfoResponse
-                                                                    .jsonBody,
-                                                              )
-                                                              .toString() ==
-                                                          'null'
-                                                      ? functions.isNull(
-                                                          _model.tasktime)
-                                                      : '00:00:00',
-                                                  '00:00:00',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .customColor1,
-                                                        ),
-                                              ),
+                                          Text(
+                                            valueOrDefault<String>(
+                                              HymechApiGroupGroup.taskInfoCall
+                                                          .currentTaskEndDate(
+                                                            columnTaskInfoResponse
+                                                                .jsonBody,
+                                                          )
+                                                          .toString() ==
+                                                      'null'
+                                                  ? functions
+                                                      .isNull(_model.tasktime)
+                                                  : '00:00:00',
+                                              '00:00:00',
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .customColor1,
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                           ),
                                         ],
                                       ),
@@ -298,10 +291,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(10.0),
+                                              bottomLeft: Radius.circular(8.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(0.0),
-                                              topRight: Radius.circular(10.0),
+                                              topRight: Radius.circular(8.0),
                                             ),
                                             border: Border.all(
                                               color:
@@ -325,7 +318,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
-                                                        fontSize: 14.0,
+                                                        fontSize: 13.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -381,7 +374,8 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                   ),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
                                         ),
                                       ),
@@ -391,7 +385,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 120.0, 0.0),
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'zylhnvpp' /* Project */,
@@ -399,12 +393,11 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'outfit',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w600,
-                                        useGoogleFonts: false,
+                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
@@ -421,9 +414,9 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'Lexend Deca',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
-                                          .primaryText,
+                                          .appBarTextColor,
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -487,10 +480,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -512,10 +505,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 .bodySmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Lexend Deca',
+                                                                      'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryText,
+                                                                      .appBarTextColor,
                                                                   fontSize:
                                                                       14.0,
                                                                   fontWeight:
@@ -546,10 +539,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -568,7 +561,16 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -593,10 +595,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -615,7 +617,16 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -678,10 +689,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -697,14 +708,19 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                   .toString()),
                                                           'Deadline',
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              fontSize: 14.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -729,10 +745,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -751,7 +767,16 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -776,10 +801,10 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryText,
-                                                                fontSize: 16.0,
+                                                                fontSize: 15.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w600,
+                                                                        .w500,
                                                               ),
                                                         ),
                                                       ),
@@ -798,7 +823,16 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -1153,6 +1187,8 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .loginBtnColor1,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w600,
                                                   ),
                                             ),
                                           ),
@@ -1212,6 +1248,8 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .loginBtnColor1,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w600,
                                                   ),
                                             ),
                                           ),
@@ -1239,7 +1277,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                             if (_model.tabchange == 0) {
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 15.0, 15.0),
+                                    0.0, 0.0, 0.0, 15.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1676,7 +1714,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                             );
                                                                           },
                                                                         ).then((value) =>
-                                                                            setState(() {}));
+                                                                            safeSetState(() {}));
                                                                       },
                                                                       child:
                                                                           ClipRRect(

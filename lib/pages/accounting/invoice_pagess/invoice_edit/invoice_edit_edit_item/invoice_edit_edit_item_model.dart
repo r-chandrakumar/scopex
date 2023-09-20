@@ -37,7 +37,7 @@ class InvoiceEditEditItemModel extends FlutterFlowModel {
   String? _quantityControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        '1p297d3p' /* Quantity is required */,
+        '23d623yb' /* Quantity is required */,
       );
     }
 
@@ -53,7 +53,7 @@ class InvoiceEditEditItemModel extends FlutterFlowModel {
   String? _amountControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'rcuqf4f3' /* Amount is required */,
+        'ebuxn5gi' /* Amount is required */,
       );
     }
 

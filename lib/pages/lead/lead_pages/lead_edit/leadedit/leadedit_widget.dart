@@ -412,7 +412,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                       borderColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .black,
+                                                              .hashColor,
                                                       borderWidth: 1.0,
                                                       borderRadius: 8.0,
                                                       margin:
@@ -490,13 +490,15 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
-                                                          fontSize: 17.0,
+                                                              .inputtextColor,
+                                                          fontSize: 16.0,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .hashColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -506,7 +508,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .inputFieldColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -614,13 +618,15 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
+                                                              .inputFieldColor,
                                                           fontSize: 16.0,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .hashColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -630,7 +636,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: BorderSide(
-                                                    color: Color(0xFFD1E2EA),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .inputFieldColor,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -848,7 +856,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                             borderColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .white,
+                                                                    .hashColor,
                                                             borderWidth: 1.0,
                                                             borderRadius: 8.0,
                                                             margin:
@@ -966,16 +974,17 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
+                                                                            .inputtextColor,
                                                                         fontSize:
-                                                                            17.0,
+                                                                            16.0,
                                                                       ),
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
                                                                     BorderSide(
-                                                                  color: Color(
-                                                                      0xFFD1E2EA),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .hashColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -987,8 +996,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                   OutlineInputBorder(
                                                                 borderSide:
                                                                     BorderSide(
-                                                                  color: Color(
-                                                                      0xFFD1E2EA),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .inputFieldColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1140,17 +1150,36 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                               labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Roboto',
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium,
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Roboto',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .inputtextColor,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
                                                                     BorderSide(
-                                                                  color: Color(
-                                                                      0xFFD1E2EA),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .hashColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1164,7 +1193,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                                     BorderSide(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primary,
+                                                                      .inputFieldColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1291,14 +1320,26 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 ),
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .inputtextColor,
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
-                                                      color: Color(0xFFD1E2EA),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .hashColor,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
@@ -1308,7 +1349,10 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                   focusedBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
-                                                      color: Color(0xFFD1E2EA),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .inputFieldColor,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
@@ -1432,18 +1476,22 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Roboto',
-                                                      fontSize: 14.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                    ),
+                                            hintStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .inputtextColor,
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFD1E2EA),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .hashColor,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -1453,7 +1501,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .inputFieldColor,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -1550,7 +1598,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFD1E2EA),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .hashColor,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -1560,7 +1610,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .inputFieldColor,
                                                 width: 1.0,
                                               ),
                                               borderRadius:
@@ -1648,7 +1698,9 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                       ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
-                                                  color: Color(0xFFD1E2EA),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .hashColor,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
@@ -1658,7 +1710,7 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primary,
+                                                      .inputFieldColor,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
@@ -1763,13 +1815,15 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Plus Jakarta Sans',
-                                            color: Color(0xFF57636C),
-                                            fontSize: 14.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .inputtextColor,
+                                            fontSize: 16.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0xFFE0E3E7),
+                                          color: FlutterFlowTheme.of(context)
+                                              .hashColor,
                                           width: 2.0,
                                         ),
                                         borderRadius:
@@ -1777,7 +1831,8 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0xFFE0E3E7),
+                                          color: FlutterFlowTheme.of(context)
+                                              .inputFieldColor,
                                           width: 2.0,
                                         ),
                                         borderRadius:
@@ -1785,7 +1840,8 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0xFFFF5963),
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
                                           width: 2.0,
                                         ),
                                         borderRadius:
@@ -1793,14 +1849,16 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                          color: Color(0xFFFF5963),
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
                                           width: 2.0,
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       filled: true,
-                                      fillColor: Colors.white,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 0.0, 24.0),
@@ -1953,7 +2011,8 @@ class _LeadeditWidgetState extends State<LeadeditWidget> {
                                       'mqh8rb4h' /* Save */,
                                     ),
                                     options: FFButtonOptions(
-                                      width: 150.0,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
                                       height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),

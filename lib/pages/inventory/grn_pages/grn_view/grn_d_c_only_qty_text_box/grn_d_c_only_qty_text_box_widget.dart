@@ -199,7 +199,6 @@ class _GrnDCOnlyQtyTextBoxWidgetState extends State<GrnDCOnlyQtyTextBoxWidget> {
                     fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).inputFieldColor,
                   ),
-              maxLines: null,
               keyboardType: TextInputType.number,
               validator: _model.textControllerValidator.asValidator(context),
             ),

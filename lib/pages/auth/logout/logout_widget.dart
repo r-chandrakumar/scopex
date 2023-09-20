@@ -54,9 +54,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
       ),
       onPressed: () async {
         FFAppState().update(() {
-          FFAppState().loginid = 0;
           FFAppState().accessToken = '';
           FFAppState().username = 'user';
+          FFAppState().LoginID = 0;
         });
 
         context.goNamed('Login');

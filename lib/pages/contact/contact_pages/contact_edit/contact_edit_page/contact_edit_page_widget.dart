@@ -84,7 +84,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                 'nr94w6ti' /* Contact Edit  */,
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
@@ -427,14 +427,20 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                         'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondaryText,
+                                                                        .inputtextColor,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
                                                                   ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .hashColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -446,8 +452,9 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .inputFieldColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -497,7 +504,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .caradTextColor,
+                                                                      .primaryText,
                                                                   fontSize:
                                                                       16.0,
                                                                   fontWeight:
@@ -587,13 +594,26 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                             hintStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .inputtextColor,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
                                                                   BorderSide(
-                                                                color: Color(
-                                                                    0xFFD1E2EA),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .hashColor,
                                                                 width: 1.0,
                                                               ),
                                                               borderRadius:
@@ -605,8 +625,9 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                 OutlineInputBorder(
                                                               borderSide:
                                                                   BorderSide(
-                                                                color: Color(
-                                                                    0xFFD1E2EA),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .inputFieldColor,
                                                                 width: 1.0,
                                                               ),
                                                               borderRadius:
@@ -655,7 +676,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .caradTextColor,
+                                                                    .primaryText,
                                                                 fontSize: 16.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -848,13 +869,26 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .inputtextColor,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .hashColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -866,8 +900,9 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .inputFieldColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -917,7 +952,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .caradTextColor,
+                                                                      .primaryText,
                                                                   fontSize:
                                                                       16.0,
                                                                   fontWeight:
@@ -1066,16 +1101,20 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                         'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .caradTextColor,
+                                                                        .inputtextColor,
                                                                     fontSize:
-                                                                        15.0,
+                                                                        16.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
                                                                   ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .hashColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -1087,8 +1126,9 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: Color(
-                                                                  0xFFD1E2EA),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .inputFieldColor,
                                                               width: 1.0,
                                                             ),
                                                             borderRadius:
@@ -1138,7 +1178,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .caradTextColor,
+                                                                      .primaryText,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1206,16 +1246,20 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .accent1,
+                                                                      .inputtextColor,
                                                                   fontSize:
-                                                                      15.0,
+                                                                      16.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
                                                               BorderSide(
-                                                            color: Color(
-                                                                0xFFD1E2EA),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .hashColor,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
@@ -1227,8 +1271,9 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                             OutlineInputBorder(
                                                           borderSide:
                                                               BorderSide(
-                                                            color: Color(
-                                                                0xFFD1E2EA),
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .inputFieldColor,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
@@ -1278,7 +1323,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .caradTextColor,
+                                                                    .primaryText,
                                                               ),
                                                       maxLines: 4,
                                                       validator: _model
@@ -1421,7 +1466,7 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                       '4sbt4ztp' /* Save */,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 48.0,
+                                                      height: 40.0,
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(

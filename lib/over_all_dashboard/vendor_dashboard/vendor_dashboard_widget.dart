@@ -127,90 +127,49 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                 );
               }
               final columnVendorBillListDashResponse = snapshot.data!;
-              return SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Flexible(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 0.0, 15.0, 15.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'sorn5nhz' /* Amount :  */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .appBarTextColor,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                  Flexible(
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        functions.amountSymbol(
-                                            OverallDashboardGroup
-                                                .vendorBillListDashCall
-                                                .totalAmount(
-                                                  columnVendorBillListDashResponse
-                                                      .jsonBody,
-                                                )
-                                                .toString(),
-                                            FFAppState().currencySymbol),
-                                        '-',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .appBarTextColor,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ilkm4li2' /* Count :  */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context)
-                                            .appBarTextColor,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+              return Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 15.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'sorn5nhz' /* Amount :  */,
                                 ),
-                                Text(
-                                  OverallDashboardGroup.vendorBillListDashCall
-                                      .totalCount(
-                                        columnVendorBillListDashResponse
-                                            .jsonBody,
-                                      )
-                                      .toString(),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .appBarTextColor,
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                              Flexible(
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    functions.amountSymbol(
+                                        OverallDashboardGroup
+                                            .vendorBillListDashCall
+                                            .totalAmount(
+                                              columnVendorBillListDashResponse
+                                                  .jsonBody,
+                                            )
+                                            .toString(),
+                                        FFAppState().currencySymbol),
+                                    '-',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -221,146 +180,218 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ],
-                            ),
-                          ].divide(SizedBox(width: 5.0)),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 400.0,
-                      height: 350.0,
-                      child: custom_widgets.BarChart(
-                        width: 400.0,
-                        height: 350.0,
-                        dateWise: (getJsonField(
-                          functions.dashboardXandYaxisCalculation(
-                              OverallDashboardGroup.vendorBillListDashCall
-                                  .nodeList(
-                                    columnVendorBillListDashResponse.jsonBody,
-                                  )
-                                  ?.toList()),
-                          r'''$.xLabels''',
-                        ) as List)
-                            .map<String>((s) => s.toString())
-                            .toList(),
-                        amountWise: getJsonField(
-                          functions.dashboardXandYaxisCalculation(
-                              OverallDashboardGroup.vendorBillListDashCall
-                                  .nodeList(
-                                    columnVendorBillListDashResponse.jsonBody,
-                                  )
-                                  ?.toList()),
-                          r'''$.yValues''',
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 15.0, 0.0, 10.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'cbit0w23' /* Vendor Bill List */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Roboto',
-                                color:
-                                    FlutterFlowTheme.of(context).caradTextColor,
-                                fontSize: 16.0,
                               ),
+                            ],
+                          ),
                         ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'ilkm4li2' /* Count :  */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .appBarTextColor,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                            Text(
+                              OverallDashboardGroup.vendorBillListDashCall
+                                  .totalCount(
+                                    columnVendorBillListDashResponse.jsonBody,
+                                  )
+                                  .toString(),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .appBarTextColor,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ].divide(SizedBox(width: 5.0)),
+                    ),
+                  ),
+                  Container(
+                    width: 330.0,
+                    height: 350.0,
+                    child: custom_widgets.BarChart(
+                      width: 330.0,
+                      height: 350.0,
+                      dateWise: (getJsonField(
+                        functions.dashboardXandYaxisCalculation(
+                            OverallDashboardGroup.vendorBillListDashCall
+                                .nodeList(
+                                  columnVendorBillListDashResponse.jsonBody,
+                                )
+                                ?.toList()),
+                        r'''$.xLabels''',
+                      ) as List)
+                          .map<String>((s) => s.toString())
+                          .toList(),
+                      amountWise: getJsonField(
+                        functions.dashboardXandYaxisCalculation(
+                            OverallDashboardGroup.vendorBillListDashCall
+                                .nodeList(
+                                  columnVendorBillListDashResponse.jsonBody,
+                                )
+                                ?.toList()),
+                        r'''$.yValues''',
                       ),
                     ),
-                    Builder(
-                      builder: (context) {
-                        final vendor =
-                            OverallDashboardGroup.vendorBillListDashCall
-                                    .vendor(
-                                      columnVendorBillListDashResponse.jsonBody,
-                                    )
-                                    ?.toList() ??
-                                [];
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: vendor.length,
-                          itemBuilder: (context, vendorIndex) {
-                            final vendorItem = vendor[vendorIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 15.0, 10.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 60.0,
-                                      color: Color(0x0F000000),
-                                      offset: Offset(0.0, 10.0),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).hashColor,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      15.0, 15.0, 15.0, 15.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Flexible(
-                                            child: Column(
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(-1.00, 0.00),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 10.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'cbit0w23' /* Vendor Bill List */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Roboto',
+                              color:
+                                  FlutterFlowTheme.of(context).caradTextColor,
+                              fontSize: 16.0,
+                            ),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              final vendor =
+                                  OverallDashboardGroup.vendorBillListDashCall
+                                          .vendor(
+                                            columnVendorBillListDashResponse
+                                                .jsonBody,
+                                          )
+                                          ?.toList() ??
+                                      [];
+                              return ListView.builder(
+                                padding: EdgeInsets.zero,
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: vendor.length,
+                                itemBuilder: (context, vendorIndex) {
+                                  final vendorItem = vendor[vendorIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 0.0, 15.0, 10.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 60.0,
+                                            color: Color(0x0F000000),
+                                            offset: Offset(0.0, 10.0),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .hashColor,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.center,
                                               children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 3.0, 0.0, 3.0),
-                                                  child: Text(
-                                                    getJsonField(
-                                                      vendorItem,
-                                                      r'''$.res_partner.name''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontWeight:
-                                                              FontWeight.w600,
+                                                Flexible(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          functions.isNull(
+                                                              getJsonField(
+                                                            vendorItem,
+                                                            r'''$.res_partner.name''',
+                                                          ).toString()),
+                                                          '-',
                                                         ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          functions
+                                                              .convertLeaveDateFormat(
+                                                                  getJsonField(
+                                                            vendorItem,
+                                                            r'''$.create_date''',
+                                                          ).toString()),
+                                                          '-',
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Roboto',
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 5.0)),
                                                   ),
                                                 ),
                                                 Text(
                                                   valueOrDefault<String>(
-                                                    functions
-                                                        .convertLeaveDateFormat(
-                                                            getJsonField(
-                                                      vendorItem,
-                                                      r'''$.create_date''',
-                                                    ).toString()),
+                                                    functions.amountSymbol(
+                                                        getJsonField(
+                                                          vendorItem,
+                                                          r'''$.amount_total''',
+                                                        ).toString(),
+                                                        FFAppState()
+                                                            .currencySymbol),
                                                     '-',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -368,43 +399,27 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
-                                                        fontSize: 13.0,
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                       ),
                                                 ),
-                                              ],
+                                              ].divide(SizedBox(width: 5.0)),
                                             ),
-                                          ),
-                                          Text(
-                                            valueOrDefault<String>(
-                                              functions.amountSymbol(
-                                                  getJsonField(
-                                                    vendorItem,
-                                                    r'''$.amount_total''',
-                                                  ).toString(),
-                                                  FFAppState().currencySymbol),
-                                              '-',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                  ].addToStart(SizedBox(height: 15.0)),
-                ),
+                  ),
+                ].addToStart(SizedBox(height: 15.0)),
               );
             },
           ),

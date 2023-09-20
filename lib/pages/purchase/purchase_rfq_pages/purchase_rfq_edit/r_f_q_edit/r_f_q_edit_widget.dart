@@ -146,7 +146,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                 'yjgb5l20' /* RFQ Edit */,
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
@@ -305,7 +305,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                   );
                                                                 },
                                                               ).then((value) =>
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {}));
                                                             },
                                                             child: Container(
@@ -372,7 +372,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Roboto',
-                                                                                color: FlutterFlowTheme.of(context).inputtextColor,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
                                                                               ),
                                                                         ),
                                                                       ),
@@ -511,7 +511,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .inputtextColor,
+                                                                          .primaryText,
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:
@@ -688,9 +688,9 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Roboto',
-                                                                              color: FlutterFlowTheme.of(context).inputtextColor,
-                                                                              fontSize: 14.0,
-                                                                              fontWeight: FontWeight.w500,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 16.0,
+                                                                              fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -748,7 +748,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
 
                                                                         if (_datePicked1Date !=
                                                                             null) {
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {
                                                                             _model.datePicked1 =
                                                                                 DateTime(
@@ -885,11 +885,11 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                             fontFamily:
                                                                                 'Roboto',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).inputtextColor,
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
-                                                                                14.0,
+                                                                                16.0,
                                                                             fontWeight:
-                                                                                FontWeight.w500,
+                                                                                FontWeight.normal,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -963,7 +963,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
 
                                                                       if (_datePicked2Date !=
                                                                           null) {
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {
                                                                           _model.datePicked2 =
                                                                               DateTime(
@@ -1037,7 +1037,8 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                               );
                                                             },
                                                           ).then((value) =>
-                                                              setState(() {}));
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                         text:
                                                             FFLocalizations.of(
@@ -1197,8 +1198,14 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .inputtextColor,
                                                                       fontSize:
                                                                           16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
                                                                     ),
                                                                 enabledBorder:
                                                                     OutlineInputBorder(
@@ -1220,7 +1227,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                       BorderSide(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .hashColor,
+                                                                        .inputFieldColor,
                                                                     width: 1.0,
                                                                   ),
                                                                   borderRadius:
@@ -1269,7 +1276,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                         'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .inputtextColor,
+                                                                        .primaryText,
                                                                     fontSize:
                                                                         16.0,
                                                                     fontWeight:
@@ -1496,7 +1503,10 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                       'lly5gziu' /* Save */,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      width: 150.0,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
                                                       height: 40.0,
                                                       padding:
                                                           EdgeInsetsDirectional

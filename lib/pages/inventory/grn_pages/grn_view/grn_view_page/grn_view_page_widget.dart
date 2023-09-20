@@ -197,7 +197,7 @@ class _GrnViewPageWidgetState extends State<GrnViewPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,

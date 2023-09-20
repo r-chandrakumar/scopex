@@ -187,7 +187,7 @@ class _DeliveryChellanCreatePageWidgetState
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -553,7 +553,7 @@ class _DeliveryChellanCreatePageWidgetState
                                           );
 
                                           if (_datePickedDate != null) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.datePicked = DateTime(
                                                 _datePickedDate.year,
                                                 _datePickedDate.month,
@@ -668,7 +668,7 @@ class _DeliveryChellanCreatePageWidgetState
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '9hhjvxhe' /* Add Items */,

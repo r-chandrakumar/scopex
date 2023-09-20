@@ -95,7 +95,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                 'ifu3demi' /* Quotation Create  */,
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
@@ -169,7 +169,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Container(
                                 width: double.infinity,
@@ -388,7 +388,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                       );
 
                                       if (_datePicked1Date != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked1 = DateTime(
                                             _datePicked1Date.year,
                                             _datePicked1Date.month,
@@ -507,7 +507,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                       );
 
                                       if (_datePicked2Date != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked2 = DateTime(
                                             _datePicked2Date.year,
                                             _datePicked2Date.month,
@@ -617,7 +617,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'xsylz6lw' /* Add Items */,
@@ -994,7 +994,7 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                     options: FFButtonOptions(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
-                                      height: 45.0,
+                                      height: 40.0,
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:

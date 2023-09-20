@@ -239,7 +239,7 @@ class _EquipmentCreateWidgetState extends State<EquipmentCreateWidget> {
                                                         );
                                                       },
                                                     ).then((value) =>
-                                                        setState(() {}));
+                                                        safeSetState(() {}));
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -376,7 +376,7 @@ class _EquipmentCreateWidgetState extends State<EquipmentCreateWidget> {
                                                       );
                                                     },
                                                   ).then((value) =>
-                                                      setState(() {}));
+                                                      safeSetState(() {}));
                                                 },
                                                 child: Row(
                                                   mainAxisSize:
@@ -622,7 +622,7 @@ class _EquipmentCreateWidgetState extends State<EquipmentCreateWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    13.0, 10.0, 13.0, 0.0),
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (FFAppState().ProductSearch != null) {

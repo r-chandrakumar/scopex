@@ -146,7 +146,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                 'yjsz6efs' /* Edit Quotations */,
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
@@ -282,7 +282,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                         );
                                                       },
                                                     ).then((value) =>
-                                                        setState(() {}));
+                                                        safeSetState(() {}));
                                                   },
                                                   child: Container(
                                                     width: double.infinity,
@@ -475,7 +475,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .caradTextColor,
+                                                              .primaryText,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -682,7 +682,8 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
 
                                                               if (_datePicked1Date !=
                                                                   null) {
-                                                                setState(() {
+                                                                safeSetState(
+                                                                    () {
                                                                   _model.datePicked1 =
                                                                       DateTime(
                                                                     _datePicked1Date
@@ -889,7 +890,8 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
 
                                                               if (_datePicked2Date !=
                                                                   null) {
-                                                                setState(() {
+                                                                safeSetState(
+                                                                    () {
                                                                   _model.datePicked2 =
                                                                       DateTime(
                                                                     _datePicked2Date
@@ -924,7 +926,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 18.0, 0.0, 15.0),
+                                          0.0, 25.0, 0.0, 15.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -958,8 +960,8 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                       ),
                                                     );
                                                   },
-                                                ).then(
-                                                    (value) => setState(() {}));
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
@@ -994,9 +996,8 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                                   .of(context)
                                                               .secondaryBackground,
                                                         ),
-                                                elevation: 1.0,
                                                 borderSide: BorderSide(
-                                                  width: 1.0,
+                                                  width: 0.0,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -1120,8 +1121,12 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .inputtextColor,
                                                                         fontSize:
-                                                                            12.0,
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
                                                                       ),
                                                               enabledBorder:
                                                                   OutlineInputBorder(
@@ -1143,7 +1148,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                                     BorderSide(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .accent3,
+                                                                      .inputFieldColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1194,7 +1199,7 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                                       16.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .normal,
                                                                 ),
                                                             maxLines: 3,
                                                             validator: _model
@@ -1396,8 +1401,11 @@ class _QuotationEditPageWidgetState extends State<QuotationEditPageWidget> {
                                                 'wt45w1qj' /* Save */,
                                               ),
                                               options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 45.0,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),

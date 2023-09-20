@@ -30,9 +30,6 @@ class FFAppState extends ChangeNotifier {
       _email = prefs.getString('ff_email') ?? _email;
     });
     _safeInit(() {
-      _loginid = prefs.getInt('ff_loginid') ?? _loginid;
-    });
-    _safeInit(() {
       _userrole = prefs.getString('ff_userrole') ?? _userrole;
     });
     _safeInit(() {
@@ -287,13 +284,6 @@ class FFAppState extends ChangeNotifier {
   set email(String _value) {
     _email = _value;
     prefs.setString('ff_email', _value);
-  }
-
-  int _loginid = 0;
-  int get loginid => _loginid;
-  set loginid(int _value) {
-    _loginid = _value;
-    prefs.setInt('ff_loginid', _value);
   }
 
   String _userrole = '';

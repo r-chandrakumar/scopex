@@ -17,15 +17,16 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
+  // Start initial custom actions code
+  await actions.inAppUpdateRequest();
+  await actions.lockOrientation();
+  await actions.checkInternetConnection();
+  // End initial custom actions code
+
   await FlutterFlowTheme.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
-
-  // Start final custom actions code
-  await actions.lockOrientation();
-  await actions.checkInternetConnection();
-  // End final custom actions code
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,

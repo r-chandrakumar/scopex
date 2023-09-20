@@ -441,12 +441,12 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                           ),
                                         if (functions.jsonToString(getJsonField(
                                                   activityItem,
-                                                  r'''$.res_name''',
+                                                  r'''$.summary''',
                                                 )) !=
                                                 null &&
                                             functions.jsonToString(getJsonField(
                                                   activityItem,
-                                                  r'''$.res_name''',
+                                                  r'''$.summary''',
                                                 )) !=
                                                 '')
                                           SingleChildScrollView(

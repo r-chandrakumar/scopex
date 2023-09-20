@@ -401,7 +401,7 @@ String? leaveSwitchStatusText(String? status) {
   }
 }
 
-int? findDaysBetweenTwoDates(
+double? findDaysBetweenTwoDates(
   String? fromdate,
   String? todate,
 ) {
@@ -419,7 +419,7 @@ int? findDaysBetweenTwoDates(
     return 0;
   }
 
-  return difference;
+  return difference.toDouble();
 }
 
 DateTime? convertStringToDateTime(String? date) {
@@ -3566,7 +3566,7 @@ String? displayUppercase(String? data) {
   }
 }
 
-List<dynamic>? customHours(String? type) {
+List<String>? customHours(String? type) {
   var hours = [
     "12:00 AM",
     "00:30 AM",
@@ -3619,58 +3619,78 @@ List<dynamic>? customHours(String? type) {
   ];
 
   var values = [
-    "00:00:00",
-    "00:30:00",
-    "01:00:00",
-    "01:30:00",
-    "02:00:00",
-    "02:30:00",
-    "03:00:00",
-    "03:30:00",
-    "04:00:00",
-    "04:30:00",
-    "05:00:00",
-    "05:30:00",
-    "06:00:00",
-    "06:30:00",
-    "07:00:00",
-    "07:30:00",
-    "08:00:00",
-    "08:30:00",
-    "09:00:00",
-    "09:30:00",
-    "10:00:00",
-    "10:30:00",
-    "11:00:00",
-    "11:30:00",
-    "12:00:00",
-    "12:30:00",
-    "13:00:00",
-    "13:30:00",
-    "14:00:00",
-    "14:30:00",
-    "15:00:00",
-    "15:30:00",
-    "16:00:00",
-    "16:30:00",
-    "17:00:00",
-    "17:30:00",
-    "18:00:00",
-    "18:30:00",
-    "19:00:00",
-    "19:30:00",
-    "20:00:00",
-    "20:30:00",
-    "21:00:00",
-    "21:30:00",
-    "22:00:00",
-    "22:30:00",
-    "23:00:00",
-    "23:30:00",
+    "0",
+    "0.5",
+    "1",
+    "1.5",
+    "2",
+    "2.5",
+    "3",
+    "3.5",
+    "4",
+    "4.5",
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "12.5",
+    "13",
+    "13.5",
+    "14",
+    "14.5",
+    "15",
+    "15.5",
+    "16",
+    "16.5",
+    "17",
+    "17.5",
+    "18",
+    "18.5",
+    "19",
+    "19.5",
+    "20",
+    "20.5",
+    "21",
+    "21.5",
+    "22",
+    "22.5",
+    "23",
+    "23.5",
   ];
   if (type == "name") {
     return hours;
   } else {
     return values;
   }
+}
+
+double? findHoursbetweentwo(
+  double? from,
+  double? to,
+) {
+  if (from == null || from == 'null' || from == '') {
+    return 0;
+  }
+  if (to == null || to == 'null' || to == '') {
+    return 0;
+  }
+
+  var fromdouble = from;
+  var todouble = to;
+  var result = todouble - fromdouble;
+  if (result < 0) {
+    return 0;
+  }
+  return result;
 }

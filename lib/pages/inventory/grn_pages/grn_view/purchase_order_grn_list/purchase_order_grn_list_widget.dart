@@ -89,7 +89,7 @@ class _PurchaseOrderGrnListWidgetState
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).listPlusButton,
           elevation: 0.0,

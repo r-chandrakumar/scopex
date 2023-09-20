@@ -195,7 +195,7 @@ class _PickViewPageWidgetState extends State<PickViewPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,

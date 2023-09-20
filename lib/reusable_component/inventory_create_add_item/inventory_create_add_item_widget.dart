@@ -242,7 +242,7 @@ class _InventoryCreateAddItemWidgetState
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
                                               ),
                                           validator: _model
                                               .productNameControllerValidator
@@ -318,7 +318,7 @@ class _InventoryCreateAddItemWidgetState
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .inputFieldColor,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -351,7 +351,7 @@ class _InventoryCreateAddItemWidgetState
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                         ),
                                     keyboardType: TextInputType.number,
                                     validator: _model
@@ -419,7 +419,7 @@ class _InventoryCreateAddItemWidgetState
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .inputFieldColor,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -452,7 +452,7 @@ class _InventoryCreateAddItemWidgetState
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .caradTextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                         ),
                                     validator: _model.unitControllerValidator
@@ -697,7 +697,7 @@ class _InventoryCreateAddItemWidgetState
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'avk0nd17' /* Save & New */,

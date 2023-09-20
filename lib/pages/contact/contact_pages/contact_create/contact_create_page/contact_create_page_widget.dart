@@ -177,7 +177,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -1270,7 +1270,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Container(
                                     width:
@@ -1316,7 +1316,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                             ),
                                           ),
@@ -1367,7 +1367,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     } else {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -1432,7 +1432,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                       ),
                                             ),
                                           ),
@@ -1587,7 +1587,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                     size: 15.0,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 48.0,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -1779,7 +1779,7 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                     'ntw8ugsl' /* Save */,
                                   ),
                                   options: FFButtonOptions(
-                                    height: 48.0,
+                                    height: 40.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(

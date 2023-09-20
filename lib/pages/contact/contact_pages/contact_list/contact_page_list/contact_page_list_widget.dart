@@ -151,7 +151,7 @@ class _ContactPageListWidgetState extends State<ContactPageListWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -198,7 +198,7 @@ class _ContactPageListWidgetState extends State<ContactPageListWidget> {
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -240,7 +240,7 @@ class _ContactPageListWidgetState extends State<ContactPageListWidget> {
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

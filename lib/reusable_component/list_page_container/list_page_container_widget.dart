@@ -163,7 +163,7 @@ class _ListPageContainerWidgetState extends State<ListPageContainerWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).rgb,
-                          fontSize: 16.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -177,7 +177,7 @@ class _ListPageContainerWidgetState extends State<ListPageContainerWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 15.0,
+                            fontSize: 14.0,
                           ),
                     ),
                   ),
@@ -202,8 +202,9 @@ class _ListPageContainerWidgetState extends State<ListPageContainerWidget>
                         textAlign: TextAlign.justify,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 15.0,
+                              color:
+                                  FlutterFlowTheme.of(context).appBarTextColor,
+                              fontSize: 14.0,
                             ),
                       ),
                     ),
@@ -219,7 +220,7 @@ class _ListPageContainerWidgetState extends State<ListPageContainerWidget>
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).rgb,
-                            fontSize: 20.0,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),

@@ -219,7 +219,7 @@ class _ProjectDashboardWidgetState extends State<ProjectDashboardWidget>
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: wrapWithModel(
                     model: _model.notificationIconModel,

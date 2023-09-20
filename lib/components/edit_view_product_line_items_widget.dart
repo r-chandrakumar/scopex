@@ -110,8 +110,8 @@ class _EditViewProductLineItemsWidgetState
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .appBarTextColor,
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
@@ -137,11 +137,12 @@ class _EditViewProductLineItemsWidgetState
                                             FFAppState().currencySymbol),
                                         '-',
                                       ),
-                                      style: TextStyle(
+                                      style: GoogleFonts.getFont(
+                                        'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .appBarTextColor,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 15.0,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14.0,
                                       ),
                                     )
                                   ],
@@ -151,6 +152,7 @@ class _EditViewProductLineItemsWidgetState
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .appBarTextColor,
+                                        fontSize: 14.0,
                                       ),
                                 ),
                                 textAlign: TextAlign.end,
@@ -248,7 +250,7 @@ class _EditViewProductLineItemsWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'vendorbill') {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -269,7 +271,7 @@ class _EditViewProductLineItemsWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'rfq') {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -290,7 +292,7 @@ class _EditViewProductLineItemsWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'quote') {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -311,7 +313,7 @@ class _EditViewProductLineItemsWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     }
                                   },
                                   child: Icon(
@@ -900,8 +902,8 @@ class _EditViewProductLineItemsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto',
-                        fontSize: 17.0,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
                 Text(
@@ -916,7 +918,7 @@ class _EditViewProductLineItemsWidgetState
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto',
-                        fontSize: 17.0,
+                        fontSize: 15.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),

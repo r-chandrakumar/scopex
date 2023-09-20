@@ -168,7 +168,7 @@ class _PurchaseRfqCreateNewWidgetState
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: Container(
                                         width: double.infinity,
@@ -413,7 +413,7 @@ class _PurchaseRfqCreateNewWidgetState
                                         );
 
                                         if (_datePicked1Date != null) {
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.datePicked1 = DateTime(
                                               _datePicked1Date.year,
                                               _datePicked1Date.month,
@@ -531,7 +531,7 @@ class _PurchaseRfqCreateNewWidgetState
                                         );
 
                                         if (_datePicked2Date != null) {
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.datePicked2 = DateTime(
                                               _datePicked2Date.year,
                                               _datePicked2Date.month,
@@ -647,7 +647,7 @@ class _PurchaseRfqCreateNewWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'fcle19dr' /* Add Items */,

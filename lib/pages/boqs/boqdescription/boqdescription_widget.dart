@@ -492,8 +492,9 @@ class _BoqdescriptionWidgetState extends State<BoqdescriptionWidget> {
                       'rhzs32x4' /* Add Another item */,
                     ),
                     options: FFButtonOptions(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 22.0, 24.0, 24.0),
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).addItemsButton,
@@ -501,7 +502,7 @@ class _BoqdescriptionWidgetState extends State<BoqdescriptionWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Roboto',
                                 color: Colors.white,
-                                fontSize: 20.0,
+                                fontSize: 18.0,
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(

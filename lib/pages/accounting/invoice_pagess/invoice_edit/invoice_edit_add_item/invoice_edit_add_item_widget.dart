@@ -176,7 +176,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -791,7 +791,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: wrapWithModel(
                                     model: _model.taxComponentModel,
@@ -1443,7 +1443,8 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                                   ),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           } else {
                                             Navigator.pop(context);
                                             await showModalBottomSheet(
@@ -1465,7 +1466,8 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                                   ),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
 
                                             if (_shouldSetState)
                                               setState(() {});

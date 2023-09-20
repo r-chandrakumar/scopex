@@ -17,6 +17,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'lead_opportunity_list_model.dart';
@@ -176,7 +177,7 @@ class _LeadOpportunityListWidgetState extends State<LeadOpportunityListWidget>
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -223,7 +224,7 @@ class _LeadOpportunityListWidgetState extends State<LeadOpportunityListWidget>
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -268,7 +269,7 @@ class _LeadOpportunityListWidgetState extends State<LeadOpportunityListWidget>
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 },
                                 child: wrapWithModel(
                                   model: _model.searchIconModel,
@@ -498,6 +499,33 @@ class _LeadOpportunityListWidgetState extends State<LeadOpportunityListWidget>
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                              ),
+                                              RatingBarIndicator(
+                                                itemBuilder: (context, index) =>
+                                                    Icon(
+                                                  Icons.star_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                ),
+                                                direction: Axis.horizontal,
+                                                rating: getJsonField(
+                                                          crmleadItem,
+                                                          r'''$.priority''',
+                                                        ) !=
+                                                        null
+                                                    ? functions
+                                                        .convertstringtoDouble(
+                                                            getJsonField(
+                                                        crmleadItem,
+                                                        r'''$.priority''',
+                                                      ).toString())!
+                                                    : 0.0,
+                                                unratedColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent3,
+                                                itemCount: 3,
+                                                itemSize: 14.0,
                                               ),
                                             ],
                                           ),

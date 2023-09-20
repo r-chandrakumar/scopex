@@ -132,7 +132,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -373,7 +373,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Divider(
-                                        height: 0.0,
+                                        height: 10.0,
                                         thickness: 0.5,
                                         color: FlutterFlowTheme.of(context)
                                             .hashColor,
@@ -402,8 +402,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                         FFLocalizations.of(context).getText(
                                           '4vwcbmah' /* Total Revenue */,
                                         ),
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .appBarTextColor,
                                           fontWeight: FontWeight.w500,
@@ -428,8 +428,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                             return '1';
                                           }
                                         }()} days',
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .caradTextColor,
                                           fontWeight: FontWeight.normal,
@@ -440,7 +440,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Flexible(
+                                        Expanded(
                                           child: Text(
                                             valueOrDefault<String>(
                                               functions.amountSymbol(
@@ -470,13 +470,13 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                   FFAppState().currencySymbol),
                                               '-',
                                             ),
-                                            style: TextStyle(
-                                              fontFamily: 'outfit',
+                                            style: GoogleFonts.getFont(
+                                              'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .dashboardHeading,
                                               fontWeight: FontWeight.w600,
-                                              fontSize: 40.0,
+                                              fontSize: 30.0,
                                             ),
                                           ),
                                         ),
@@ -497,7 +497,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Divider(
-                                          height: 0.0,
+                                          height: 10.0,
                                           thickness: 0.5,
                                           color: FlutterFlowTheme.of(context)
                                               .hashColor,
@@ -523,9 +523,9 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Expanded(
+                                        Flexible(
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -542,8 +542,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                       .getText(
                                                     'vy2deid9' /* QUOTATION */,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .caradTextColor,
@@ -565,24 +565,24 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                             .currencySymbol),
                                                     '-',
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .appBarTextColor,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 22.0,
+                                                    fontSize: 20.0,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
-                                        Expanded(
+                                        Flexible(
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 0.0, 0.0),
+                                                    0.0, 0.0, 15.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -595,8 +595,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                       .getText(
                                                     '8xsahss5' /* SALE ORDER */,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .caradTextColor,
@@ -618,20 +618,20 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                             .currencySymbol),
                                                     '-',
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .appBarTextColor,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 22.0,
+                                                    fontSize: 20.0,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ].divide(SizedBox(width: 10.0)),
                                     ),
                                   ),
                                 ],
@@ -648,7 +648,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Divider(
-                                          height: 0.0,
+                                          height: 10.0,
                                           thickness: 0.5,
                                           color: FlutterFlowTheme.of(context)
                                               .hashColor,
@@ -674,9 +674,9 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Expanded(
+                                        Flexible(
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -693,13 +693,13 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                       .getText(
                                                     'acrvvsw9' /* QUOTATION SEND */,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .caradTextColor,
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 12.0,
+                                                    fontSize: 14.0,
                                                   ),
                                                 ),
                                                 Text(
@@ -716,24 +716,24 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                             .currencySymbol),
                                                     '-',
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .appBarTextColor,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 22.0,
+                                                    fontSize: 20.0,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
-                                        Expanded(
+                                        Flexible(
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 0.0, 0.0),
+                                                    0.0, 0.0, 15.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -746,13 +746,13 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                       .getText(
                                                     'k4837axd' /* QUOTATION CANCEL */,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .caradTextColor,
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0,
+                                                    fontSize: 14.0,
                                                   ),
                                                 ),
                                                 Text(
@@ -769,20 +769,20 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                             .currencySymbol),
                                                     '-',
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .appBarTextColor,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 22.0,
+                                                    fontSize: 20.0,
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ].divide(SizedBox(width: 10.0)),
                                     ),
                                   ),
                                   Padding(
@@ -810,13 +810,13 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                       .getText(
                                                     'yabsrx19' /* TO BE INVOICED */,
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .caradTextColor,
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0,
+                                                    fontSize: 14.0,
                                                   ),
                                                 ),
                                                 Text(
@@ -833,13 +833,13 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                             .currencySymbol),
                                                     '-',
                                                   ),
-                                                  style: TextStyle(
-                                                    fontFamily: 'outfit',
+                                                  style: GoogleFonts.getFont(
+                                                    'Roboto',
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .dashboardHeading,
                                                     fontWeight: FontWeight.w600,
-                                                    fontSize: 22.0,
+                                                    fontSize: 20.0,
                                                   ),
                                                 ),
                                               ],
@@ -863,7 +863,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Divider(
-                                          height: 0.0,
+                                          height: 10.0,
                                           thickness: 0.5,
                                           color: FlutterFlowTheme.of(context)
                                               .hashColor,
@@ -894,12 +894,12 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                         FFLocalizations.of(context).getText(
                                           'e1z1b0xk' /* Total Profit */,
                                         ),
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 23.0,
+                                          fontSize: 20.0,
                                         ),
                                       ),
                                     ),
@@ -920,8 +920,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                             return '1';
                                           }
                                         }()} days',
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .caradTextColor,
                                           fontSize: 12.0,
@@ -932,12 +932,12 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                       FFLocalizations.of(context).getText(
                                         '5b7hi1im' /* ₹ 89.39K */,
                                       ),
-                                      style: TextStyle(
-                                        fontFamily: 'outfit',
+                                      style: GoogleFonts.getFont(
+                                        'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .dashboardHeading,
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 24.0,
+                                        fontSize: 22.0,
                                       ),
                                     ),
                                   ],
@@ -955,7 +955,7 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Divider(
-                                          height: 0.0,
+                                          height: 10.0,
                                           thickness: 0.5,
                                           color: FlutterFlowTheme.of(context)
                                               .hashColor,
@@ -986,12 +986,12 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                         FFLocalizations.of(context).getText(
                                           'bg0oqnul' /* New Customers */,
                                         ),
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 23.0,
+                                          fontSize: 20.0,
                                         ),
                                       ),
                                     ),
@@ -1012,8 +1012,8 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                             return '1';
                                           }
                                         }()} days',
-                                        style: TextStyle(
-                                          fontFamily: 'outfit',
+                                        style: GoogleFonts.getFont(
+                                          'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .caradTextColor,
                                           fontSize: 12.0,
@@ -1027,12 +1027,12 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                                 .jsonBody,
                                           )
                                           .toString(),
-                                      style: TextStyle(
-                                        fontFamily: 'outfit',
+                                      style: GoogleFonts.getFont(
+                                        'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .dashboardHeading,
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 24.0,
+                                        fontSize: 22.0,
                                       ),
                                     ),
                                   ],

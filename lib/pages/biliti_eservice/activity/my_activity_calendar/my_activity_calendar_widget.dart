@@ -203,12 +203,22 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
-                        child: Icon(
-                          Icons.add,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                6.0, 3.0, 6.0, 3.0),
+                            child: Icon(
+                              Icons.add,
+                              color: FlutterFlowTheme.of(context).white,
+                              size: 24.0,
+                            ),
+                          ),
                         ),
                       ),
                     ],

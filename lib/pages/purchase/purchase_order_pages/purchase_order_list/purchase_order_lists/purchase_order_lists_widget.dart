@@ -154,7 +154,7 @@ class _PurchaseOrderListsWidgetState extends State<PurchaseOrderListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -203,7 +203,7 @@ class _PurchaseOrderListsWidgetState extends State<PurchaseOrderListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -245,7 +245,7 @@ class _PurchaseOrderListsWidgetState extends State<PurchaseOrderListsWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.min,

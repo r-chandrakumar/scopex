@@ -4,7 +4,7 @@ import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/accounting/payment_view/payment_view_page_loader/payment_view_page_loader_widget.dart';
+import '/pages/accounting/invoice_pagess/invoice_view/viewpage_common_shimmer/viewpage_common_shimmer_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -92,7 +92,7 @@ class _PaymentViewPageWidgetState extends State<PaymentViewPageWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -201,7 +201,7 @@ class _PaymentViewPageWidgetState extends State<PaymentViewPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,
@@ -230,7 +230,7 @@ class _PaymentViewPageWidgetState extends State<PaymentViewPageWidget> {
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
-                  return PaymentViewPageLoaderWidget();
+                  return ViewpageCommonShimmerWidget();
                 }
                 final columnPaymentViewResponse = snapshot.data!;
                 return SingleChildScrollView(

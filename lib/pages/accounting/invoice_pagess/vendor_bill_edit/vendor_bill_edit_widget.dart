@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/components/edit_view_product_line_items_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -119,20 +119,10 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Color(0x0023A8FF),
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            fillColor: Color(0x00616161),
-            icon: Icon(
-              Icons.arrow_back_ios_rounded,
-              color: FlutterFlowTheme.of(context).appBarTextColor,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
+          leading: wrapWithModel(
+            model: _model.backButttonComponentModel,
+            updateCallback: () => setState(() {}),
+            child: BackButttonComponentWidget(),
           ),
           title: Align(
             alignment: AlignmentDirectional(-1.00, 0.00),
@@ -299,7 +289,7 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                                   );
                                                                 },
                                                               ).then((value) =>
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {}));
                                                             },
                                                             child: Container(
@@ -747,7 +737,7 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
 
                                                                             if (_datePicked1Date !=
                                                                                 null) {
-                                                                              setState(() {
+                                                                              safeSetState(() {
                                                                                 _model.datePicked1 = DateTime(
                                                                                   _datePicked1Date.year,
                                                                                   _datePicked1Date.month,
@@ -964,7 +954,7 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
 
                                                                         if (_datePicked2Date !=
                                                                             null) {
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {
                                                                             _model.datePicked2 =
                                                                                 DateTime(
@@ -1038,7 +1028,8 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                               );
                                                             },
                                                           ).then((value) =>
-                                                              setState(() {}));
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                         text:
                                                             FFLocalizations.of(
@@ -1227,8 +1218,9 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                                     OutlineInputBorder(
                                                                   borderSide:
                                                                       BorderSide(
-                                                                    color: Color(
-                                                                        0xFFD1E2EA),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .inputFieldColor,
                                                                     width: 1.0,
                                                                   ),
                                                                   borderRadius:
@@ -1492,7 +1484,10 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                     '9acemt7v' /* Save */,
                                                   ),
                                                   options: FFButtonOptions(
-                                                    width: 150.0,
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
                                                     height: 40.0,
                                                     padding:
                                                         EdgeInsetsDirectional

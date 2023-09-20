@@ -135,7 +135,7 @@ class _CommonViewPageWidgetState extends State<CommonViewPageWidget>
                                         fontFamily: 'Roboto',
                                         color:
                                             FlutterFlowTheme.of(context).white,
-                                        fontSize: 18.0,
+                                        fontSize: 16.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),

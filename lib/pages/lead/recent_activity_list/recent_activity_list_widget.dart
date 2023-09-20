@@ -195,7 +195,7 @@ class _RecentActivityListWidgetState extends State<RecentActivityListWidget>
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'ghu3yqap' /* Schedule Activity */,

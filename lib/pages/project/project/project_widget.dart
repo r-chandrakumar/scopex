@@ -245,7 +245,7 @@ class _ProjectWidgetState extends State<ProjectWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: wrapWithModel(
                       model: _model.searchIconModel,
@@ -599,9 +599,11 @@ class _ProjectWidgetState extends State<ProjectWidget>
                                                                           fontFamily:
                                                                               'Roboto',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).appBarTextColor,
+                                                                              FlutterFlowTheme.of(context).primaryText,
                                                                           fontSize:
-                                                                              14.0,
+                                                                              13.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -669,7 +671,7 @@ class _ProjectWidgetState extends State<ProjectWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Roboto',
-                                                              fontSize: 14.0,
+                                                              fontSize: 13.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
@@ -685,17 +687,22 @@ class _ProjectWidgetState extends State<ProjectWidget>
                                                           ).toString()),
                                                           '-',
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              fontSize: 14.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .appBarTextColor,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
                                                       ),
                                                     ],
                                                   ),

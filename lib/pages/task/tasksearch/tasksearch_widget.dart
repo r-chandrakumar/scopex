@@ -347,7 +347,10 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                                           context)
                                                                       .cardHeading,
                                                                   fontSize:
-                                                                      18.0,
+                                                                      15.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
                                                                 ),
                                                           ),
                                                         ),
@@ -399,7 +402,9 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
-                                                          fontSize: 15.0,
+                                                          fontSize: 13.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                         ),
                                                   ),
                                                   Expanded(
@@ -415,7 +420,10 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
-                                                                fontSize: 15.0,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .appBarTextColor,
+                                                                fontSize: 14.0,
                                                               ),
                                                     ),
                                                   ),
@@ -453,6 +461,25 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                                     .max,
                                                             children: [
                                                               Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'nf63csjr' /* Deadline :  */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Roboto',
+                                                                      fontSize:
+                                                                          13.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                              ),
+                                                              Text(
                                                                 valueOrDefault<
                                                                     String>(
                                                                   functions
@@ -469,8 +496,11 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .appBarTextColor,
                                                                       fontSize:
-                                                                          15.0,
+                                                                          14.0,
                                                                     ),
                                                               ),
                                                             ],
@@ -480,22 +510,21 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                     ),
                                                   ),
                                                   Container(
-                                                    width: 120.0,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.only(
                                                         bottomLeft:
                                                             Radius.circular(
-                                                                2.0),
+                                                                8.0),
                                                         bottomRight:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                         topLeft:
                                                             Radius.circular(
-                                                                8.0),
+                                                                0.0),
                                                         topRight:
                                                             Radius.circular(
-                                                                2.0),
+                                                                8.0),
                                                       ),
                                                       border: Border.all(
                                                         color:
@@ -508,10 +537,10 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
-                                                                  5.0,
-                                                                  10.0,
-                                                                  5.0),
+                                                                  6.0,
+                                                                  3.0,
+                                                                  6.0,
+                                                                  3.0),
                                                       child: Text(
                                                         getJsonField(
                                                           searchbarchildItem,
@@ -530,10 +559,10 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                                                           context)
                                                                       .primaryText,
                                                                   fontSize:
-                                                                      14.0,
+                                                                      13.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w600,
+                                                                          .bold,
                                                                 ),
                                                       ),
                                                     ),

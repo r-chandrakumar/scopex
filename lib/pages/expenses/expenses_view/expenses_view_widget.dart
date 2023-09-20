@@ -1725,7 +1725,7 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                                                     );
                                                                   },
                                                                 ).then((value) =>
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {}));
                                                               },
                                                               child: ClipRRect(

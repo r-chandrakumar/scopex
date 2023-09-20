@@ -164,7 +164,7 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 60.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -800,7 +800,7 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   onLongPress: () async {
                                     await showModalBottomSheet(
@@ -818,7 +818,7 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: wrapWithModel(
                                     model: _model.taxComponentModel,
@@ -1208,142 +1208,17 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                               ],
                             ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        if (_model.formKey.currentState ==
-                                                null ||
-                                            !_model.formKey.currentState!
-                                                .validate()) {
-                                          return;
-                                        }
-                                        if (getJsonField(
-                                          functions.addProductItemJson(
-                                              widget.productid,
-                                              FFAppState()
-                                                  .productAddItem
-                                                  .toList()),
-                                          r'''$.status''',
-                                        )) {
-                                          FFAppState().update(() {
-                                            FFAppState()
-                                                .updateProductAddItemAtIndex(
-                                              getJsonField(
-                                                functions.addProductItemJson(
-                                                    widget.productid,
-                                                    FFAppState()
-                                                        .productAddItem
-                                                        .toList()),
-                                                r'''$.index''',
-                                              ),
-                                              (_) => getJsonField(
-                                                functions.addProductItemUpdate(
-                                                    FFAppState()
-                                                        .productAddItem
-                                                        .toList(),
-                                                    widget.productid,
-                                                    widget.productname,
-                                                    double.tryParse(_model
-                                                        .quantityController
-                                                        .text),
-                                                    double.tryParse(_model
-                                                        .amountController.text),
-                                                    double.tryParse(_model
-                                                        .subtotalController
-                                                        .text),
-                                                    _model.unitController.text,
-                                                    CommonApisGroupGroup
-                                                        .productDetailCall
-                                                        .unitId(
-                                                      (_model.productDetailResponse
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    FFAppState().taxJson),
-                                                r'''$.data''',
-                                              ),
-                                            );
-                                          });
-                                        } else {
-                                          FFAppState().update(() {
-                                            FFAppState().addToProductAddItem(
-                                                functions.addItemProduct(
-                                                    widget.productid,
-                                                    widget.productname,
-                                                    double.tryParse(_model
-                                                        .quantityController
-                                                        .text),
-                                                    double.tryParse(_model
-                                                        .amountController.text),
-                                                    double.tryParse(_model
-                                                        .subtotalController
-                                                        .text),
-                                                    CommonApisGroupGroup
-                                                        .productDetailCall
-                                                        .unitName(
-                                                          (_model.productDetailResponse
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )
-                                                        .toString(),
-                                                    CommonApisGroupGroup
-                                                        .productDetailCall
-                                                        .unitId(
-                                                      (_model.productDetailResponse
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    FFAppState().taxJson)!);
-                                          });
-                                        }
-
-                                        Navigator.pop(context);
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'q2fwftzf' /* Save */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: double.infinity,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .saveButton,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.white,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: FFButtonWidget(
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 15.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FFButtonWidget(
                                         onPressed: () async {
                                           if (_model.formKey.currentState ==
                                                   null ||
@@ -1436,27 +1311,10 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                           }
 
                                           Navigator.pop(context);
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    CommonCreateProductSearchWidget(
-                                                  page: '',
-                                                ),
-                                              );
-                                            },
-                                          ).then((value) => setState(() {}));
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'usxpqli1' /* Save & New */,
+                                          'q2fwftzf' /* Save */,
                                         ),
                                         options: FFButtonOptions(
                                           width: double.infinity,
@@ -1468,7 +1326,7 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .saveAndNewButton,
+                                              .saveButton,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -1485,11 +1343,169 @@ class _CommonCreateAddItemWidgetState extends State<CommonCreateAddItemWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Expanded(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            if (_model.formKey.currentState ==
+                                                    null ||
+                                                !_model.formKey.currentState!
+                                                    .validate()) {
+                                              return;
+                                            }
+                                            if (getJsonField(
+                                              functions.addProductItemJson(
+                                                  widget.productid,
+                                                  FFAppState()
+                                                      .productAddItem
+                                                      .toList()),
+                                              r'''$.status''',
+                                            )) {
+                                              FFAppState().update(() {
+                                                FFAppState()
+                                                    .updateProductAddItemAtIndex(
+                                                  getJsonField(
+                                                    functions
+                                                        .addProductItemJson(
+                                                            widget.productid,
+                                                            FFAppState()
+                                                                .productAddItem
+                                                                .toList()),
+                                                    r'''$.index''',
+                                                  ),
+                                                  (_) => getJsonField(
+                                                    functions
+                                                        .addProductItemUpdate(
+                                                            FFAppState()
+                                                                .productAddItem
+                                                                .toList(),
+                                                            widget.productid,
+                                                            widget.productname,
+                                                            double.tryParse(_model
+                                                                .quantityController
+                                                                .text),
+                                                            double.tryParse(_model
+                                                                .amountController
+                                                                .text),
+                                                            double.tryParse(_model
+                                                                .subtotalController
+                                                                .text),
+                                                            _model
+                                                                .unitController
+                                                                .text,
+                                                            CommonApisGroupGroup
+                                                                .productDetailCall
+                                                                .unitId(
+                                                              (_model.productDetailResponse
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            FFAppState()
+                                                                .taxJson),
+                                                    r'''$.data''',
+                                                  ),
+                                                );
+                                              });
+                                            } else {
+                                              FFAppState().update(() {
+                                                FFAppState().addToProductAddItem(
+                                                    functions.addItemProduct(
+                                                        widget.productid,
+                                                        widget.productname,
+                                                        double.tryParse(_model
+                                                            .quantityController
+                                                            .text),
+                                                        double.tryParse(_model
+                                                            .amountController
+                                                            .text),
+                                                        double.tryParse(_model
+                                                            .subtotalController
+                                                            .text),
+                                                        CommonApisGroupGroup
+                                                            .productDetailCall
+                                                            .unitName(
+                                                              (_model.productDetailResponse
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )
+                                                            .toString(),
+                                                        CommonApisGroupGroup
+                                                            .productDetailCall
+                                                            .unitId(
+                                                          (_model.productDetailResponse
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ),
+                                                        FFAppState().taxJson)!);
+                                              });
+                                            }
+
+                                            Navigator.pop(context);
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      CommonCreateProductSearchWidget(
+                                                    page: '',
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'usxpqli1' /* Save & New */,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: double.infinity,
+                                            height: 40.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .saveAndNewButton,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color: Colors.white,
+                                                    ),
+                                            elevation: 0.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

@@ -105,7 +105,7 @@ class _MyActivityActionWidgetState extends State<MyActivityActionWidget> {
                               ),
                             );
                           },
-                        ).then((value) => setState(() {}));
+                        ).then((value) => safeSetState(() {}));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,

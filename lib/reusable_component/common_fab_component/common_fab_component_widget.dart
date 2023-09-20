@@ -65,50 +65,257 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
     return Builder(
       builder: (context) {
         if (widget.page == 'quote') {
-          return Align(
-            alignment: AlignmentDirectional(1.00, 1.00),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-              child: FutureBuilder<ApiCallResponse>(
-                future: SalesApiGroupGroup.saleOrderViewCall.call(
-                  authToken: FFAppState().accessToken,
-                  eq: widget.id,
-                  domainUrl: FFAppState().DomainUrl,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return FABEmptyComponentShimmerWidget();
-                  }
-                  final quotationFabSaleOrderViewResponse = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              _model.saleEmail =
-                                  await CommonApisGroupGroup.saleEmailCall.call(
+          return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+            child: FutureBuilder<ApiCallResponse>(
+              future: SalesApiGroupGroup.saleOrderViewCall.call(
+                authToken: FFAppState().accessToken,
+                eq: widget.id,
+                domainUrl: FFAppState().DomainUrl,
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return FABEmptyComponentShimmerWidget();
+                }
+                final quotationFabSaleOrderViewResponse = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            _model.saleEmail =
+                                await CommonApisGroupGroup.saleEmailCall.call(
+                              authToken: FFAppState().accessToken,
+                              domainUrl: FFAppState().DomainUrl,
+                              saleid: widget.id,
+                            );
+                            if ((_model.saleEmail?.succeeded ?? true)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Email Sent Successfully...',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Failed Send To Email...',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+
+                            setState(() {});
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'k42mye8b' /* Send Mail */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Icon(
+                                    Icons.mail_outline,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 30.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+
+                            context.pushNamed(
+                              'quotation_edit_page',
+                              queryParameters: {
+                                'id': serializeParam(
+                                  widget.id,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'lzjpw6xw' /* Edit */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.mode_edit,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            var _shouldSetState = false;
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Delete Quotation'),
+                                      content: Text(
+                                          'If  you Want Delete Quotation '),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                            if (confirmDialogResponse) {
+                              _model.deleteconfirmCopy =
+                                  await SalesApiGroupGroup.saleOrderDeleteCall
+                                      .call(
                                 authToken: FFAppState().accessToken,
                                 domainUrl: FFAppState().DomainUrl,
-                                saleid: widget.id,
+                                id: widget.id,
                               );
-                              if ((_model.saleEmail?.succeeded ?? true)) {
+                              _shouldSetState = true;
+                              if ((_model.deleteconfirmCopy?.succeeded ??
+                                  true)) {
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
+                                context.pushNamed(
+                                  'quotation_list_page',
+                                  queryParameters: {
+                                    'startdate': serializeParam(
+                                      functions.beforeOneMonthDate(
+                                          FFAppState().initialMonth),
+                                      ParamType.String,
+                                    ),
+                                    'state': serializeParam(
+                                      'draft',
+                                      ParamType.String,
+                                    ),
+                                    'enddate': serializeParam(
+                                      functions.getTodayDate(),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Email Sent Successfully...',
+                                      'Quotation Deleted',
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -120,20 +327,168 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ),
                                 );
                               } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Failed Send To Email...',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                if (_shouldSetState) setState(() {});
+                                return;
+                              }
+
+                              if (_shouldSetState) setState(() {});
+                              return;
+                            } else {
+                              if (_shouldSetState) setState(() {});
+                              return;
+                            }
+
+                            if (_shouldSetState) setState(() {});
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'pto8dm69' /* Delete */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.delete_outline,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    if (SalesApiGroupGroup.saleOrderViewCall
+                            .status(
+                              quotationFabSaleOrderViewResponse.jsonBody,
+                            )
+                            .toString() !=
+                        'cancel')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title:
+                                                Text('Convert to Sale Order'),
+                                            content: Text(
+                                                'If you want convert to Sale Order?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.convertResponse =
+                                    await SalesApiGroupGroup
+                                        .convertToSaleOrderCall
+                                        .call(
+                                  authToken: FFAppState().accessToken,
+                                  id: widget.id,
+                                  domainUrl: FFAppState().DomainUrl,
+                                  state: 'sale',
                                 );
+                                if ((_model.convertResponse?.succeeded ??
+                                    true)) {
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
+                                  context.pushNamed(
+                                    'sale_order_list_page',
+                                    queryParameters: {
+                                      'startdate': serializeParam(
+                                        functions.beforeOneMonthDate(
+                                            FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'state': serializeParam(
+                                        'sale',
+                                        ParamType.String,
+                                      ),
+                                      'enddate': serializeParam(
+                                        functions.getTodayDate(),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Sale Order Converted',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Failed to convert sale order...',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
                               }
 
                               setState(() {});
@@ -147,74 +502,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'k42mye8b' /* Send Mail */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.mail_outline,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-
-                              context.pushNamed(
-                                'quotation_edit_page',
-                                queryParameters: {
-                                  'id': serializeParam(
-                                    widget.id,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'lzjpw6xw' /* Edit */,
+                                      'xf40p850' /* Convert To Sale */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -235,7 +523,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Icon(
-                                    Icons.mode_edit,
+                                    Icons.sync,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 25.0,
@@ -246,6 +534,12 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           ),
                         ),
                       ),
+                    if (SalesApiGroupGroup.saleOrderViewCall
+                            .status(
+                              quotationFabSaleOrderViewResponse.jsonBody,
+                            )
+                            .toString() ==
+                        'cancel')
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -257,15 +551,14 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              var _shouldSetState = false;
                               var confirmDialogResponse =
                                   await showDialog<bool>(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
-                                            title: Text('Delete Quotation'),
+                                            title: Text('Reset to Draft'),
                                             content: Text(
-                                                'If  you Want Delete Quotation '),
+                                                'If you want to Reset this Quotation to Draft?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -283,15 +576,17 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       ) ??
                                       false;
                               if (confirmDialogResponse) {
-                                _model.deleteconfirmCopy =
-                                    await SalesApiGroupGroup.saleOrderDeleteCall
+                                _model.convertQuoteDraftResponse =
+                                    await SalesApiGroupGroup
+                                        .convertToSaleOrderCall
                                         .call(
                                   authToken: FFAppState().accessToken,
-                                  domainUrl: FFAppState().DomainUrl,
                                   id: widget.id,
+                                  domainUrl: FFAppState().DomainUrl,
+                                  state: 'draft',
                                 );
-                                _shouldSetState = true;
-                                if ((_model.deleteconfirmCopy?.succeeded ??
+                                if ((_model
+                                        .convertQuoteDraftResponse?.succeeded ??
                                     true)) {
                                   if (Navigator.of(context).canPop()) {
                                     context.pop();
@@ -318,7 +613,23 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Quotation Deleted',
+                                        'Drafted',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Failed to Reset as Draft...',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -330,19 +641,10 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                               .secondary,
                                     ),
                                   );
-                                } else {
-                                  if (_shouldSetState) setState(() {});
-                                  return;
                                 }
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              } else {
-                                if (_shouldSetState) setState(() {});
-                                return;
                               }
 
-                              if (_shouldSetState) setState(() {});
+                              setState(() {});
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -353,7 +655,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'pto8dm69' /* Delete */,
+                                      '79937owc' /* Reset to Draft */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -374,7 +676,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Icon(
-                                    Icons.delete_outline,
+                                    Icons.draw,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 25.0,
@@ -385,467 +687,12 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           ),
                         ),
                       ),
-                      if (SalesApiGroupGroup.saleOrderViewCall
-                              .status(
-                                quotationFabSaleOrderViewResponse.jsonBody,
-                              )
-                              .toString() !=
-                          'cancel')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse = await showDialog<
-                                        bool>(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Convert to Sale Order'),
-                                          content: Text(
-                                              'If you want convert to Sale Order?'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, false),
-                                              child: Text('Cancel'),
-                                            ),
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, true),
-                                              child: Text('Confirm'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    ) ??
-                                    false;
-                                if (confirmDialogResponse) {
-                                  _model.convertResponse =
-                                      await SalesApiGroupGroup
-                                          .convertToSaleOrderCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    domainUrl: FFAppState().DomainUrl,
-                                    state: 'sale',
-                                  );
-                                  if ((_model.convertResponse?.succeeded ??
-                                      true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed(
-                                      'sale_order_list_page',
-                                      queryParameters: {
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'state': serializeParam(
-                                          'sale',
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Sale Order Converted',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Failed to convert sale order...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
-                                }
-
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'xf40p850' /* Convert To Sale */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.sync,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (SalesApiGroupGroup.saleOrderViewCall
-                              .status(
-                                quotationFabSaleOrderViewResponse.jsonBody,
-                              )
-                              .toString() ==
-                          'cancel')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse =
-                                    await showDialog<bool>(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title: Text('Reset to Draft'),
-                                              content: Text(
-                                                  'If you want to Reset this Quotation to Draft?'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          false),
-                                                  child: Text('Cancel'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          true),
-                                                  child: Text('Confirm'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        ) ??
-                                        false;
-                                if (confirmDialogResponse) {
-                                  _model.convertQuoteDraftResponse =
-                                      await SalesApiGroupGroup
-                                          .convertToSaleOrderCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    domainUrl: FFAppState().DomainUrl,
-                                    state: 'draft',
-                                  );
-                                  if ((_model.convertQuoteDraftResponse
-                                          ?.succeeded ??
-                                      true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed(
-                                      'quotation_list_page',
-                                      queryParameters: {
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'state': serializeParam(
-                                          'draft',
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Drafted',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Failed to Reset as Draft...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
-                                }
-
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '79937owc' /* Reset to Draft */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.draw,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (SalesApiGroupGroup.saleOrderViewCall
-                              .status(
-                                quotationFabSaleOrderViewResponse.jsonBody,
-                              )
-                              .toString() !=
-                          'cancel')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse = await showDialog<
-                                        bool>(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Cancelled'),
-                                          content:
-                                              Text('If you want to Cancel?'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, false),
-                                              child: Text('Cancel'),
-                                            ),
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, true),
-                                              child: Text('Confirm'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    ) ??
-                                    false;
-                                if (confirmDialogResponse) {
-                                  _model.cancelQuoteResponse =
-                                      await SalesApiGroupGroup
-                                          .convertToSaleOrderCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    domainUrl: FFAppState().DomainUrl,
-                                    state: 'cancel',
-                                  );
-                                  if ((_model.cancelQuoteResponse?.succeeded ??
-                                      true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed(
-                                      'quotation_list_page',
-                                      queryParameters: {
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'state': serializeParam(
-                                          'cancel',
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Successfully cancelled...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Failed to cancel the quotation...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
-                                }
-
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'mfquyu7h' /* Cancel */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.cancel_presentation,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
+                    if (SalesApiGroupGroup.saleOrderViewCall
+                            .status(
+                              quotationFabSaleOrderViewResponse.jsonBody,
+                            )
+                            .toString() !=
+                        'cancel')
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -857,234 +704,55 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await actions.downloadPdfFromUrl(
-                                context,
-                                functions.getDownloadUrl(
-                                    FFAppState().WebUrl, 'sale', widget.id),
-                                '${widget.name}.pdf',
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'isyok5vc' /* Download */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.download_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                useSafeArea: true,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: PDFViewWidget(
-                                      pdfurl: functions.getDownloadUrl(
-                                          FFAppState().WebUrl,
-                                          'sale',
-                                          widget.id)!,
-                                      title: widget.name!,
-                                      shareFile: true,
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'i55jmdjx' /* View PDF */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.picture_as_pdf_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            width: 55.0,
-                            height: 55.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF4B39EF),
-                              borderRadius: BorderRadius.circular(50.0),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(
-                                Icons.close,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 25.0,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
-          );
-        } else if (widget.page == 'sale') {
-          return Align(
-            alignment: AlignmentDirectional(1.00, 1.00),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-              child: FutureBuilder<ApiCallResponse>(
-                future: SalesApiGroupGroup.saleOrderViewCall.call(
-                  authToken: FFAppState().accessToken,
-                  eq: widget.id,
-                  domainUrl: FFAppState().DomainUrl,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return FABEmptyComponentShimmerWidget();
-                  }
-                  final saleOrderFabSaleOrderViewResponse = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      if ((SalesApiGroupGroup.saleOrderViewCall
-                                  .invoiceStatus(
-                                    saleOrderFabSaleOrderViewResponse.jsonBody,
-                                  )
-                                  .toString() !=
-                              'invoiced') &&
-                          (functions.jsonToString(SalesApiGroupGroup
-                                  .saleOrderViewCall
-                                  .stockPickStatus(
-                                saleOrderFabSaleOrderViewResponse.jsonBody,
-                              )) ==
-                              'done'))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                                _model.saleOrderConversion =
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Cancelled'),
+                                            content:
+                                                Text('If you want to Cancel?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.cancelQuoteResponse =
                                     await SalesApiGroupGroup
-                                        .saleInvoiceConversionCall
+                                        .convertToSaleOrderCall
                                         .call(
                                   authToken: FFAppState().accessToken,
-                                  domainUrl: FFAppState().DomainUrl,
                                   id: widget.id,
+                                  domainUrl: FFAppState().DomainUrl,
+                                  state: 'cancel',
                                 );
-                                if ((_model.saleOrderConversion?.succeeded ??
+                                if ((_model.cancelQuoteResponse?.succeeded ??
                                     true)) {
                                   if (Navigator.of(context).canPop()) {
                                     context.pop();
                                   }
                                   context.pushNamed(
-                                    'invoice_list_page',
+                                    'quotation_list_page',
                                     queryParameters: {
-                                      'state': serializeParam(
-                                        'draft',
-                                        ParamType.String,
-                                      ),
-                                      'statedate': serializeParam(
+                                      'startdate': serializeParam(
                                         functions.beforeOneMonthDate(
                                             FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'state': serializeParam(
+                                        'cancel',
                                         ParamType.String,
                                       ),
                                       'enddate': serializeParam(
@@ -1097,10 +765,10 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Successfully Converted sale order to invoice...',
+                                        'Successfully cancelled...',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
-                                              .white,
+                                              .primaryText,
                                         ),
                                       ),
                                       duration: Duration(milliseconds: 4000),
@@ -1113,7 +781,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Convert sales order to invoice failed...',
+                                        'Failed to cancel the quotation...',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -1126,72 +794,9 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 }
+                              }
 
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '00vsqfu7' /* Convert To Invoice */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.sync,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-
-                              context.pushNamed(
-                                'Sale_order_delivery_chellan_list',
-                                queryParameters: {
-                                  'name': serializeParam(
-                                    widget.name,
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
+                              setState(() {});
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -1202,7 +807,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '22puvhbj' /* Delivery chellan */,
+                                      'mfquyu7h' /* Cancel */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -1223,7 +828,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Icon(
-                                    Icons.delivery_dining_outlined,
+                                    Icons.cancel_presentation,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 25.0,
@@ -1234,187 +839,569 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await actions.downloadPdfFromUrl(
-                                context,
-                                functions.getDownloadUrl(
-                                    FFAppState().WebUrl, 'sale', widget.id),
-                                '${widget.name}.pdf',
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '4hnbomtw' /* Download */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await actions.downloadPdfFromUrl(
+                              context,
+                              functions.getDownloadUrl(
+                                  FFAppState().WebUrl, 'sale', widget.id),
+                              '${widget.name}.pdf',
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'isyok5vc' /* Download */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                 ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      await actions.downloadPdfFromUrl(
-                                        context,
-                                        'https://scopexwebb.mo.vc/api/sale_print?saleid=${widget.id?.toString()}',
-                                        '${widget.name}${getCurrentTimestamp.toString()}',
-                                      );
-                                    },
-                                    child: Icon(
-                                      Icons.download_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                useSafeArea: true,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: PDFViewWidget(
-                                      pdfurl: functions.getDownloadUrl(
-                                          FFAppState().WebUrl,
-                                          'sale',
-                                          widget.id)!,
-                                      title: widget.name!,
-                                      shareFile: true,
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'cdlewia0' /* View PDF */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.picture_as_pdf_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            width: 60.0,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF4B39EF),
-                              borderRadius: BorderRadius.circular(50.0),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(
-                                Icons.close,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 25.0,
                               ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.download_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              useSafeArea: true,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PDFViewWidget(
+                                    pdfurl: functions.getDownloadUrl(
+                                        FFAppState().WebUrl,
+                                        'sale',
+                                        widget.id)!,
+                                    title: widget.name!,
+                                    shareFile: true,
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'i55jmdjx' /* View PDF */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Icon(
+                                    Icons.picture_as_pdf_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 30.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 60.0,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF4B39EF),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 25.0,
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  );
-                },
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            ),
+          );
+        } else if (widget.page == 'sale') {
+          return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+            child: FutureBuilder<ApiCallResponse>(
+              future: SalesApiGroupGroup.saleOrderViewCall.call(
+                authToken: FFAppState().accessToken,
+                eq: widget.id,
+                domainUrl: FFAppState().DomainUrl,
               ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return FABEmptyComponentShimmerWidget();
+                }
+                final saleOrderFabSaleOrderViewResponse = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if ((SalesApiGroupGroup.saleOrderViewCall
+                                .invoiceStatus(
+                                  saleOrderFabSaleOrderViewResponse.jsonBody,
+                                )
+                                .toString() !=
+                            'invoiced') &&
+                        (functions.jsonToString(SalesApiGroupGroup
+                                .saleOrderViewCall
+                                .stockPickStatus(
+                              saleOrderFabSaleOrderViewResponse.jsonBody,
+                            )) ==
+                            'done'))
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                              _model.saleOrderConversion =
+                                  await SalesApiGroupGroup
+                                      .saleInvoiceConversionCall
+                                      .call(
+                                authToken: FFAppState().accessToken,
+                                domainUrl: FFAppState().DomainUrl,
+                                id: widget.id,
+                              );
+                              if ((_model.saleOrderConversion?.succeeded ??
+                                  true)) {
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
+                                context.pushNamed(
+                                  'invoice_list_page',
+                                  queryParameters: {
+                                    'state': serializeParam(
+                                      'draft',
+                                      ParamType.String,
+                                    ),
+                                    'statedate': serializeParam(
+                                      functions.beforeOneMonthDate(
+                                          FFAppState().initialMonth),
+                                      ParamType.String,
+                                    ),
+                                    'enddate': serializeParam(
+                                      functions.getTodayDate(),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Successfully Converted sale order to invoice...',
+                                      style: TextStyle(
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Convert sales order to invoice failed...',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                              }
+
+                              setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '00vsqfu7' /* Convert To Invoice */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.sync,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+
+                            context.pushNamed(
+                              'Sale_order_delivery_chellan_list',
+                              queryParameters: {
+                                'name': serializeParam(
+                                  widget.name,
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '22puvhbj' /* Delivery chellan */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.delivery_dining_outlined,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await actions.downloadPdfFromUrl(
+                              context,
+                              functions.getDownloadUrl(
+                                  FFAppState().WebUrl, 'sale', widget.id),
+                              '${widget.name}.pdf',
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '4hnbomtw' /* Download */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await actions.downloadPdfFromUrl(
+                                      context,
+                                      'https://scopexwebb.mo.vc/api/sale_print?saleid=${widget.id?.toString()}',
+                                      '${widget.name}${getCurrentTimestamp.toString()}',
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.download_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              useSafeArea: true,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PDFViewWidget(
+                                    pdfurl: functions.getDownloadUrl(
+                                        FFAppState().WebUrl,
+                                        'sale',
+                                        widget.id)!,
+                                    title: widget.name!,
+                                    shareFile: true,
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'cdlewia0' /* View PDF */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Icon(
+                                    Icons.picture_as_pdf_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 30.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 60.0,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF4B39EF),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 25.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
             ),
           );
         } else if (widget.page == 'rfq') {
@@ -2281,7 +2268,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -2683,7 +2670,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -2956,7 +2943,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -3343,7 +3330,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -4232,7 +4219,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -4364,7 +4351,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -4867,7 +4854,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -5317,7 +5304,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -5492,7 +5479,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -5644,7 +5631,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -6042,7 +6029,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -6932,7 +6919,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
 
                               setState(() {});
                             },

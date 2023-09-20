@@ -1069,7 +1069,7 @@ class _AddingUnitAmountWidgetState extends State<AddingUnitAmountWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 30.0, 15.0, 30.0),
+                                0.0, 30.0, 0.0, 30.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -227,14 +227,10 @@ class _UserTaskWidgetState extends State<UserTaskWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 5.0,
-                                  color: Color(0x34111417),
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
                               borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).hashColor,
+                              ),
                             ),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

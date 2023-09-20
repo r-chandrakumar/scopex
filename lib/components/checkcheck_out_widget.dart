@@ -165,9 +165,9 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Icon(
-                            Icons.task_outlined,
+                            Icons.task_alt,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
+                            size: 18.0,
                           ),
                           Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
@@ -179,7 +179,12 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                                   maxChars: 10,
                                   replacement: '…',
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 14.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -192,9 +197,9 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.task_outlined,
+                          Icons.task_alt,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
+                          size: 18.0,
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -208,6 +213,7 @@ class _CheckcheckOutWidgetState extends State<CheckcheckOutWidget> {
                                 .override(
                                   fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context).error,
+                                  fontSize: 14.0,
                                 ),
                           ),
                         ),

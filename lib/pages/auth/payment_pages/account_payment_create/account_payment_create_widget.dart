@@ -339,8 +339,8 @@ class _AccountPaymentCreateWidgetState
                                                       ),
                                                     );
                                                   },
-                                                ).then(
-                                                    (value) => setState(() {}));
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               } else {
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
@@ -364,8 +364,8 @@ class _AccountPaymentCreateWidgetState
                                                       ),
                                                     );
                                                   },
-                                                ).then(
-                                                    (value) => setState(() {}));
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               }
                                             },
                                             child: Container(
@@ -420,7 +420,7 @@ class _AccountPaymentCreateWidgetState
                                                         );
                                                       },
                                                     ).then((value) =>
-                                                        setState(() {}));
+                                                        safeSetState(() {}));
                                                   },
                                                   child: Row(
                                                     mainAxisSize:
@@ -529,7 +529,7 @@ class _AccountPaymentCreateWidgetState
                                               );
 
                                               if (_datePickedDate != null) {
-                                                setState(() {
+                                                safeSetState(() {
                                                   _model.datePicked = DateTime(
                                                     _datePickedDate.year,
                                                     _datePickedDate.month,

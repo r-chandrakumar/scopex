@@ -283,7 +283,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
@@ -308,7 +308,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   }
                                 } else if (widget.page == 'rfq') {
                                   if (getJsonField(
@@ -346,7 +346,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
@@ -371,7 +371,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   }
                                 } else if (widget.page == 'invoice') {
                                   if (getJsonField(
@@ -409,7 +409,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
@@ -434,7 +434,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   }
                                 } else if (widget.page == 'vendorbill') {
                                   if (getJsonField(
@@ -472,7 +472,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
@@ -497,7 +497,7 @@ class _CommonEditProductSearchWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   }
                                 }
                               },

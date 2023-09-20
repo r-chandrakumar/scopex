@@ -98,7 +98,7 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).listPlusButton,
           elevation: 0.0,
@@ -185,7 +185,7 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -228,7 +228,7 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -267,7 +267,7 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

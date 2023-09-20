@@ -110,7 +110,7 @@ class _TeamAssignUserWidgetState extends State<TeamAssignUserWidget> {
                       ),
                     );
                   },
-                ).then((value) => setState(() {}));
+                ).then((value) => safeSetState(() {}));
               },
               child: Container(
                 width: double.infinity,

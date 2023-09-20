@@ -82,7 +82,7 @@ class _QuotationViewPageWidgetState extends State<QuotationViewPageWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -124,7 +124,7 @@ class _QuotationViewPageWidgetState extends State<QuotationViewPageWidget> {
                 '-',
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     fontSize: 23.0,
                   ),
             ),
@@ -181,7 +181,7 @@ class _QuotationViewPageWidgetState extends State<QuotationViewPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,
@@ -308,6 +308,8 @@ class _QuotationViewPageWidgetState extends State<QuotationViewPageWidget> {
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .loginBtnColor1,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w600,
                                                   ),
                                             ),
                                           ),
@@ -367,6 +369,8 @@ class _QuotationViewPageWidgetState extends State<QuotationViewPageWidget> {
                                                         : FlutterFlowTheme.of(
                                                                 context)
                                                             .loginBtnColor1,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w600,
                                                   ),
                                             ),
                                           ),

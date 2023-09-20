@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -184,72 +185,57 @@ class _VendorBillEditEditItemWidgetState
         children: [
           Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.chevron_left,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 30.0,
-                          ),
-                        ),
-                      ],
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: wrapWithModel(
+                      model: _model.backButttonComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: BackButttonComponentWidget(),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '5kkhn7eu' /* Edit Items */,
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '5kkhn7eu' /* Edit Items */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .appBarTextColor,
+                                    fontSize: 23.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: FlutterFlowTheme.of(context)
-                                      .appBarTextColor,
-                                  fontSize: 23.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -362,7 +348,7 @@ class _VendorBillEditEditItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -395,7 +381,7 @@ class _VendorBillEditEditItemWidgetState
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .caradTextColor,
+                                                .primaryText,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -475,7 +461,7 @@ class _VendorBillEditEditItemWidgetState
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .inputFieldColor,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -508,7 +494,7 @@ class _VendorBillEditEditItemWidgetState
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .caradTextColor,
+                                              .primaryText,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -545,132 +531,131 @@ class _VendorBillEditEditItemWidgetState
                                           'pnsnhh0i' /* Quantity */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 8.0, 0.0),
-                                    child: TextFormField(
-                                      controller: _model.quantityController,
-                                      onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.quantityController',
-                                        Duration(milliseconds: 2000),
-                                        () async {
-                                          setState(() {
-                                            _model.subtotalController?.text =
-                                                functions
-                                                    .findSubTotal(
-                                                        double.tryParse(_model
-                                                            .quantityController
-                                                            .text),
-                                                        double.tryParse(_model
-                                                            .amountController
-                                                            .text))!
-                                                    .toString();
-                                          });
-                                          FFAppState().update(() {
-                                            FFAppState().taxJson =
-                                                functions.taxjson(
-                                                    FFAppState().taxJson,
-                                                    'tax_total',
-                                                    0,
-                                                    'null',
-                                                    functions.findTotalamount(
-                                                        double.tryParse(_model
-                                                            .subtotalController
-                                                            .text),
-                                                        'tax',
-                                                        FFAppState().taxJson,
-                                                        'add',
-                                                        'purchase'),
-                                                    0.0,
-                                                    functions.findTotalamount(
-                                                        double.tryParse(_model
-                                                            .subtotalController
-                                                            .text),
-                                                        'total',
-                                                        FFAppState().taxJson,
-                                                        'add',
-                                                        'purchase'),
-                                                    0,
-                                                    AccountingApiGroupGroup
-                                                        .accountingLineProductDetailsCall
-                                                        .accountMoveLine(
-                                                      (_model.moveLineInvoiceDetailRes
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ),
-                                                    'purchase')!;
-                                          });
-                                        },
-                                      ),
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .hashColor,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .hashColor,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                  TextFormField(
+                                    controller: _model.quantityController,
+                                    onChanged: (_) => EasyDebounce.debounce(
+                                      '_model.quantityController',
+                                      Duration(milliseconds: 2000),
+                                      () async {
+                                        setState(() {
+                                          _model.subtotalController?.text =
+                                              functions
+                                                  .findSubTotal(
+                                                      double.tryParse(_model
+                                                          .quantityController
+                                                          .text),
+                                                      double.tryParse(_model
+                                                          .amountController
+                                                          .text))!
+                                                  .toString();
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'tax_total',
+                                                  0,
+                                                  'null',
+                                                  functions.findTotalamount(
+                                                      double.tryParse(_model
+                                                          .subtotalController
+                                                          .text),
+                                                      'tax',
+                                                      FFAppState().taxJson,
+                                                      'add',
+                                                      'purchase'),
+                                                  0.0,
+                                                  functions.findTotalamount(
+                                                      double.tryParse(_model
+                                                          .subtotalController
+                                                          .text),
+                                                      'total',
+                                                      FFAppState().taxJson,
+                                                      'add',
+                                                      'purchase'),
+                                                  0,
+                                                  AccountingApiGroupGroup
+                                                      .accountingLineProductDetailsCall
+                                                      .accountMoveLine(
+                                                    (_model.moveLineInvoiceDetailRes
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'purchase')!;
+                                        });
+                                      },
+                                    ),
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .caradTextColor,
+                                            fontSize: 15.0,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                      validator: _model
-                                          .quantityControllerValidator
-                                          .asValidator(context),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .hashColor,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .inputFieldColor,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .caradTextColor,
+                                        ),
+                                    validator: _model
+                                        .quantityControllerValidator
+                                        .asValidator(context),
                                   ),
                                 ],
                               ),
@@ -690,79 +675,78 @@ class _VendorBillEditEditItemWidgetState
                                           '5z87g2ud' /* Units */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 14.0,
+                                            ),
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: TextFormField(
-                                      controller: _model.unitController,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
+                                  TextFormField(
+                                    controller: _model.unitController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
-                                            width: 1.0,
+                                                .caradTextColor,
+                                            fontSize: 15.0,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .hashColor,
+                                          width: 1.0,
                                         ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .hashColor,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      validator: _model.unitControllerValidator
-                                          .asValidator(context),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .inputFieldColor,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
                                     ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    validator: _model.unitControllerValidator
+                                        .asValidator(context),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
+                          ].divide(SizedBox(width: 16.0)),
                         ),
                       ),
                       Row(
@@ -948,7 +932,7 @@ class _VendorBillEditEditItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -1041,7 +1025,7 @@ class _VendorBillEditEditItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -1464,7 +1448,8 @@ class _VendorBillEditEditItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         } else {
                                           Navigator.pop(context);
                                           await showModalBottomSheet(
@@ -1491,7 +1476,8 @@ class _VendorBillEditEditItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
 
                                           if (_shouldSetState) setState(() {});
                                           return;

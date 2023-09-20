@@ -154,7 +154,7 @@ class _InvoiceListPageWidgetState extends State<InvoiceListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -200,7 +200,7 @@ class _InvoiceListPageWidgetState extends State<InvoiceListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -245,7 +245,7 @@ class _InvoiceListPageWidgetState extends State<InvoiceListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: wrapWithModel(
                           model: _model.searchIconModel,

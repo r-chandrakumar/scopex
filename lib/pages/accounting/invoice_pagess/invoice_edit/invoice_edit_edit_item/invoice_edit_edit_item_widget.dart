@@ -184,7 +184,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
         children: [
           Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -315,7 +315,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                         decoration: InputDecoration(
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'brgndcrr' /* Product */,
+                                            'vruliu9f' /* Product */,
                                           ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
@@ -342,7 +342,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -430,10 +430,6 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             _model.descriptionController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: FFLocalizations.of(context)
-                                              .getText(
-                                            'qxqasmoh' /* Description */,
-                                          ),
                                           labelStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -445,6 +441,10 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 fontSize: 16.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'k5d6cnnu' /* Description */,
+                                          ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
                                               .labelMedium
@@ -452,8 +452,9 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .caradTextColor,
-                                                fontSize: 15.0,
+                                                        .inputtextColor,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -469,7 +470,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .hashColor,
+                                                      .inputFieldColor,
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -507,9 +508,9 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
+                                              fontWeight: FontWeight.normal,
                                             ),
                                         maxLines: 2,
                                         validator: _model
@@ -618,7 +619,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'j0cle9ha' /* Quantity */,
+                                          '4a8vwlzn' /* Quantity */,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -725,7 +726,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'kr0h9y8a' /* Units */,
+                                          '3k02500u' /* Units */,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -813,7 +814,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'bt54gl46' /* Tax */,
+                                            'cfbg6q1p' /* Tax */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -995,7 +996,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'vz0dyh81' /* Amount */,
+                                            'y5oa4xtd' /* Amount */,
                                           ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1105,7 +1106,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            '2yhjcq1g' /* Sub Total */,
+                                            '7365a04u' /* Sub Total */,
                                           ),
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
@@ -1573,7 +1574,8 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                   ),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           } else {
                                             Navigator.pop(context);
                                             await showModalBottomSheet(
@@ -1601,7 +1603,8 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                   ),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
 
                                             if (_shouldSetState)
                                               setState(() {});

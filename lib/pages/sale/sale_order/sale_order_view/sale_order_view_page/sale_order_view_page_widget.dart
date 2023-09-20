@@ -83,18 +83,15 @@ class _SaleOrderViewPageWidgetState extends State<SaleOrderViewPageWidget> {
                       FocusScope.of(context).requestFocus(_model.unfocusNode),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
-                    child: Container(
-                      height: MediaQuery.sizeOf(context).height * 0.5,
-                      child: CommonFabComponentWidget(
-                        id: widget.id!,
-                        name: widget.name,
-                        page: 'sale',
-                      ),
+                    child: CommonFabComponentWidget(
+                      id: widget.id!,
+                      name: widget.name,
+                      page: 'sale',
                     ),
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -144,8 +141,9 @@ class _SaleOrderViewPageWidgetState extends State<SaleOrderViewPageWidget> {
                 widget.name,
                 '-',
               ),
+              textAlign: TextAlign.start,
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).appBarTextColor,
                     fontSize: 23.0,
                   ),
@@ -203,7 +201,7 @@ class _SaleOrderViewPageWidgetState extends State<SaleOrderViewPageWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,

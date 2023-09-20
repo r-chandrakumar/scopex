@@ -246,7 +246,7 @@ class _ManufacturingOrderWidgetState extends State<ManufacturingOrderWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: wrapWithModel(
                       model: _model.searchIconModel,

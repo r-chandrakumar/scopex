@@ -163,14 +163,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Forgot Password?',
       'ta': '',
     },
-    '95hnnlxz': {
-      'en': 'Haven’t account please',
-      'ta': '',
-    },
-    'ok60m8fq': {
-      'en': 'Sign Up',
-      'ta': '',
-    },
     'gkgtqgd4': {
       'en': 'CIN is required',
       'ta': '',
@@ -257,59 +249,459 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'ta': 'ஒரு பொருளைத் தேடு...',
     },
-    'osgd5rtu': {
-      'en': 'From',
-      'ta': '',
-    },
-    '458ggt6t': {
-      'en': 'To',
-      'ta': '',
-    },
-    'l5aw19vk': {
+    'lpzbps3q': {
       'en': 'Half Day',
       'ta': '',
     },
-    'lpzbps3q': {
-      'en': '​Custom Hours',
-      'ta': '',
-    },
-    'n01a2d77': {
+    'woe4s3mn': {
       'en': 'From',
       'ta': '',
     },
-    'n24gkrvq': {
-      'en': 'Search for an item...',
-      'ta': '',
-    },
-    'xd4egw6t': {
+    'c38gk13r': {
       'en': 'To',
       'ta': '',
     },
-    'pwaxs9x7': {
+    's738yvj2': {
+      'en': 'Date',
+      'ta': '',
+    },
+    'fr8fk22m': {
+      'en': 'Day',
+      'ta': '',
+    },
+    'fvzaxm0c': {
+      'en': 'ForeNoon',
+      'ta': '',
+    },
+    'v08aljv6': {
+      'en': 'AfterNoon',
+      'ta': '',
+    },
+    'f03fsf2p': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    'rivc52ut': {
-      'en': 'Number of Days',
+    'hn1plm81': {
+      'en': 'Date',
       'ta': '',
     },
-    'wg62h106': {
+    'qm8e6kqj': {
+      'en': 'From',
+      'ta': '',
+    },
+    '4d0eis6e': {
+      'en': '12:00 AM',
+      'ta': '',
+    },
+    '84fnzyju': {
+      'en': '00:30 AM',
+      'ta': '',
+    },
+    '1v125yrx': {
+      'en': '01:00 AM',
+      'ta': '',
+    },
+    'pqydle5y': {
+      'en': '01:30 AM',
+      'ta': '',
+    },
+    'nazv7m3o': {
+      'en': '02:00 AM',
+      'ta': '',
+    },
+    'irwhcem0': {
+      'en': '02:30 AM',
+      'ta': '',
+    },
+    'rji37dau': {
+      'en': '03:00 AM',
+      'ta': '',
+    },
+    'clg7ej29': {
+      'en': '03:30 AM',
+      'ta': '',
+    },
+    '74etlgpe': {
+      'en': '04:00 AM',
+      'ta': '',
+    },
+    '1y7e5swl': {
+      'en': '04:30 AM',
+      'ta': '',
+    },
+    'g5tgx1d3': {
+      'en': '05:00 AM',
+      'ta': '',
+    },
+    'msm6pc4k': {
+      'en': '05:30 AM',
+      'ta': '',
+    },
+    'xqi5cogh': {
+      'en': '06:00 AM',
+      'ta': '',
+    },
+    '5cjk87gz': {
+      'en': '06:30 AM',
+      'ta': '',
+    },
+    'b0piz65y': {
+      'en': '07:00 AM',
+      'ta': '',
+    },
+    'ul25q8j5': {
+      'en': '07:30 AM',
+      'ta': '',
+    },
+    '53o5co8y': {
+      'en': '08:00 AM',
+      'ta': '',
+    },
+    'j6tbzfh1': {
+      'en': '08:30 AM',
+      'ta': '',
+    },
+    '5vlxuukl': {
+      'en': '09:00 AM',
+      'ta': '',
+    },
+    '6rxpxkyn': {
+      'en': '09:30 AM',
+      'ta': '',
+    },
+    'eq9rs6iu': {
+      'en': '10:00 AM',
+      'ta': '',
+    },
+    '8br3jpcb': {
+      'en': '10:30 AM',
+      'ta': '',
+    },
+    'u5gpeyh6': {
+      'en': '11:00 AM',
+      'ta': '',
+    },
+    '7l2e3wo8': {
+      'en': '11:30 AM',
+      'ta': '',
+    },
+    'vn5jd4h1': {
+      'en': '12:00 PM',
+      'ta': '',
+    },
+    'xo59yvpl': {
+      'en': '12:30 PM',
+      'ta': '',
+    },
+    '3ssett8h': {
+      'en': '01:00 PM',
+      'ta': '',
+    },
+    '8vh9uhel': {
+      'en': '01:30 PM',
+      'ta': '',
+    },
+    'b4i3xc0l': {
+      'en': '02:00 PM',
+      'ta': '',
+    },
+    '5j8x9f72': {
+      'en': '02:30 PM',
+      'ta': '',
+    },
+    'v6dkylbk': {
+      'en': '03:00 PM',
+      'ta': '',
+    },
+    'a7fvldpj': {
+      'en': '03:30 PM',
+      'ta': '',
+    },
+    'm03hgggd': {
+      'en': '04:00 PM',
+      'ta': '',
+    },
+    'dta2rerq': {
+      'en': '04:30 PM',
+      'ta': '',
+    },
+    'bxo7bsl2': {
+      'en': '05:00 PM',
+      'ta': '',
+    },
+    'avt06djp': {
+      'en': '05:30 PM',
+      'ta': '',
+    },
+    '1lc85339': {
+      'en': '06:00 PM',
+      'ta': '',
+    },
+    '8t5ufgta': {
+      'en': '06:30 PM',
+      'ta': '',
+    },
+    'ir9fj319': {
+      'en': '07:00 PM',
+      'ta': '',
+    },
+    'caefqi9h': {
+      'en': '07:30 PM',
+      'ta': '',
+    },
+    'n5nfdi09': {
+      'en': '08:00 PM',
+      'ta': '',
+    },
+    'y6hrnk4t': {
+      'en': '08:30 PM',
+      'ta': '',
+    },
+    'xpwh7ryy': {
+      'en': '09:00 PM',
+      'ta': '',
+    },
+    'fx870yc3': {
+      'en': '09:30 PM',
+      'ta': '',
+    },
+    'w7boaiz5': {
+      'en': '10:00 PM',
+      'ta': '',
+    },
+    'cq3p7fzj': {
+      'en': '10:30 PM',
+      'ta': '',
+    },
+    'rxlfztsa': {
+      'en': '11:00 PM',
+      'ta': '',
+    },
+    'ipwjydi8': {
+      'en': '11:30 PM',
+      'ta': '',
+    },
+    '63ow2l6g': {
+      'en': 'Search for an item...',
+      'ta': '',
+    },
+    'y3jbj05b': {
+      'en': 'To',
+      'ta': '',
+    },
+    'i6t6ndst': {
+      'en': '12:00 AM',
+      'ta': '',
+    },
+    'wu4lz12n': {
+      'en': '00:30 AM',
+      'ta': '',
+    },
+    '5wca5wq0': {
+      'en': '01:00 AM',
+      'ta': '',
+    },
+    'xxp2b2l6': {
+      'en': '01:30 AM',
+      'ta': '',
+    },
+    'zn73nbwg': {
+      'en': '02:00 AM',
+      'ta': '',
+    },
+    'm5acf431': {
+      'en': '02:30 AM',
+      'ta': '',
+    },
+    '169b4uqw': {
+      'en': '03:00 AM',
+      'ta': '',
+    },
+    'uwq24l1c': {
+      'en': '03:30 AM',
+      'ta': '',
+    },
+    'ic9gnod0': {
+      'en': '04:00 AM',
+      'ta': '',
+    },
+    '6120yosw': {
+      'en': '04:30 AM',
+      'ta': '',
+    },
+    'jjnsgob7': {
+      'en': '05:00 AM',
+      'ta': '',
+    },
+    'cosny86j': {
+      'en': '05:30 AM',
+      'ta': '',
+    },
+    'hh8uyiw0': {
+      'en': '06:00 AM',
+      'ta': '',
+    },
+    '9yuc1atz': {
+      'en': '06:30 AM',
+      'ta': '',
+    },
+    '2crulut5': {
+      'en': '07:00 AM',
+      'ta': '',
+    },
+    '4cj5726w': {
+      'en': '07:30 AM',
+      'ta': '',
+    },
+    'ypoaof2s': {
+      'en': '08:00 AM',
+      'ta': '',
+    },
+    'kv22jn88': {
+      'en': '08:30 AM',
+      'ta': '',
+    },
+    'bmx2vtes': {
+      'en': '09:00 AM',
+      'ta': '',
+    },
+    'go37qwoi': {
+      'en': '09:30 AM',
+      'ta': '',
+    },
+    '6xevznf5': {
+      'en': '10:00 AM',
+      'ta': '',
+    },
+    'v46upnl1': {
+      'en': '10:30 AM',
+      'ta': '',
+    },
+    'judspzzq': {
+      'en': '11:00 AM',
+      'ta': '',
+    },
+    'va7q4lym': {
+      'en': '11:30 AM',
+      'ta': '',
+    },
+    '7eemlg21': {
+      'en': '12:00 PM',
+      'ta': '',
+    },
+    'kpllhlig': {
+      'en': '12:30 PM',
+      'ta': '',
+    },
+    'ma7792lp': {
+      'en': '01:00 PM',
+      'ta': '',
+    },
+    'zewvwrv6': {
+      'en': '01:30 PM',
+      'ta': '',
+    },
+    '602bzkru': {
+      'en': '02:00 PM',
+      'ta': '',
+    },
+    'vlfa86iq': {
+      'en': '02:30 PM',
+      'ta': '',
+    },
+    'slmsjqbc': {
+      'en': '03:00 PM',
+      'ta': '',
+    },
+    '61drgbtf': {
+      'en': '03:30 PM',
+      'ta': '',
+    },
+    '1pe9xpia': {
+      'en': '04:00 PM',
+      'ta': '',
+    },
+    'uwf0to9h': {
+      'en': '04:30 PM',
+      'ta': '',
+    },
+    '1d7xmg4w': {
+      'en': '05:00 PM',
+      'ta': '',
+    },
+    'g5wairc6': {
+      'en': '05:30 PM',
+      'ta': '',
+    },
+    'fcxlz8xy': {
+      'en': '06:00 PM',
+      'ta': '',
+    },
+    '5vwik4mw': {
+      'en': '06:30 PM',
+      'ta': '',
+    },
+    '4i7qvpwy': {
+      'en': '07:00 PM',
+      'ta': '',
+    },
+    'nx6bypah': {
+      'en': '07:30 PM',
+      'ta': '',
+    },
+    'mau8um0h': {
+      'en': '08:00 PM',
+      'ta': '',
+    },
+    'xv6mgjus': {
+      'en': '08:30 PM',
+      'ta': '',
+    },
+    'ed01qwv9': {
+      'en': '09:00 PM',
+      'ta': '',
+    },
+    'uwckvt0o': {
+      'en': '09:30 PM',
+      'ta': '',
+    },
+    'gvd9hjju': {
+      'en': '10:00 PM',
+      'ta': '',
+    },
+    '9xponus4': {
+      'en': '10:30 PM',
+      'ta': '',
+    },
+    '9c1uzbox': {
+      'en': '11:00 PM',
+      'ta': '',
+    },
+    't7r2y70a': {
+      'en': '11:30 PM',
+      'ta': '',
+    },
+    '7baepbvk': {
+      'en': 'Search for an item...',
+      'ta': '',
+    },
+    'yr5q6haz': {
       'en': 'Reason',
       'ta': '',
     },
-    'dcqq7p70': {
+    'io2qu4k8': {
       'en': 'Enter Reason Here',
       'ta': 'இங்கே காரணத்தை உள்ளிடவும்',
     },
-    'sxtv5a2v': {
+    'js0t7si1': {
       'en': 'Apply Leave',
       'ta': 'விடுப்பு விண்ணப்பிக்கவும்',
     },
-    '61o3mgzc': {
-      'en': 'Field is required',
+    'b9egmwly': {
+      'en': 'Reason is required',
       'ta': '',
     },
-    'inf82fks': {
+    'sqogbp4t': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -893,7 +1285,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     '9kwba0hd': {
-      'en': 'Save Changes',
+      'en': 'Update',
       'ta': '',
     },
     'h8bmsa96': {
@@ -5283,27 +5675,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save',
       'ta': '',
     },
-    'x36rx852': {
+    'vn5pmc9m': {
       'en': 'Product Name is required',
       'ta': '',
     },
-    'qton1jku': {
+    'imc7naoh': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'avsjk58f': {
+    'f6thgx2m': {
       'en': 'Field is required',
       'ta': '',
     },
-    'jdb5af67': {
+    'ovlucpj6': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'g6e0wit2': {
+    '67300ukb': {
       'en': 'Field is required',
       'ta': '',
     },
-    'p3i7dmc4': {
+    'j1a0rq86': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -5849,20 +6241,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // OpportunityDashboardList
   {
-    '3m0ar6lv': {
+    '12x6c4ck': {
+      'en': 'Opportunity',
+      'ta': '',
+    },
+    'nvatpbzp': {
       'en': 'Amount : ',
       'ta': '',
     },
-    '40xghhi8': {
+    'gtbux1v8': {
       'en': 'Count : ',
       'ta': '',
     },
-    'y4d4tt1q': {
+    'hl95o18w': {
       'en': 'Opportunity List',
-      'ta': '',
-    },
-    '12x6c4ck': {
-      'en': 'Opportunity',
       'ta': '',
     },
     '6a5vhy86': {
@@ -5964,10 +6356,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ExpenseDashboard
   {
-    '50njfn0p': {
-      'en': 'Expense',
-      'ta': '',
-    },
     '6ulo9j6v': {
       'en': 'Amount : ',
       'ta': '',
@@ -5978,6 +6366,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p8qmikha': {
       'en': 'Expense List',
+      'ta': '',
+    },
+    '50njfn0p': {
+      'en': 'Expense',
       'ta': '',
     },
     'c6j51ck0': {
@@ -6422,6 +6814,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'bpk4yr17': {
       'en': 'Project : ',
+      'ta': '',
+    },
+    'nf63csjr': {
+      'en': 'Deadline : ',
       'ta': '',
     },
   },
@@ -6901,6 +7297,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'bakpw5do': {
+      'en': '',
+      'ta': '',
+    },
+    '4uopemnp': {
       'en': 'Product',
       'ta': '',
     },
@@ -7186,7 +7586,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
-    'brgndcrr': {
+    'vruliu9f': {
       'en': 'Product',
       'ta': '',
     },
@@ -7195,6 +7595,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'qxqasmoh': {
+      'en': '',
+      'ta': '',
+    },
+    'k5d6cnnu': {
       'en': 'Description',
       'ta': '',
     },
@@ -7206,7 +7610,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
-    'j0cle9ha': {
+    '4a8vwlzn': {
       'en': 'Quantity',
       'ta': '',
     },
@@ -7218,11 +7622,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
-    'kr0h9y8a': {
+    '3k02500u': {
       'en': 'Units',
       'ta': '',
     },
-    'bt54gl46': {
+    'cfbg6q1p': {
       'en': 'Tax',
       'ta': '',
     },
@@ -7234,7 +7638,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
-    'vz0dyh81': {
+    'y5oa4xtd': {
       'en': 'Amount',
       'ta': '',
     },
@@ -7246,7 +7650,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
-    '2yhjcq1g': {
+    '7365a04u': {
       'en': 'Sub Total',
       'ta': '',
     },
@@ -7262,51 +7666,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save & New',
       'ta': '',
     },
-    'dmxbapf1': {
+    'xa3dwe1s': {
       'en': 'Field is required',
       'ta': '',
     },
-    'd4xp8mu2': {
+    '639xcwp8': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'cakean4k': {
+    'r6rh0job': {
       'en': 'Field is required',
       'ta': '',
     },
-    'x2kdqub6': {
+    'llcebqle': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    '1p297d3p': {
+    '23d623yb': {
       'en': 'Quantity is required',
       'ta': '',
     },
-    '14qrwr1y': {
+    'rzvj1p1x': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'bps4w73n': {
+    '4jbrgc7n': {
       'en': 'Field is required',
       'ta': '',
     },
-    '1v28cvmt': {
+    'c94dkdkn': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'rcuqf4f3': {
+    'ebuxn5gi': {
       'en': 'Amount is required',
       'ta': '',
     },
-    '9lhiitz0': {
+    'wf15iyrw': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
-    'krut3o15': {
+    'ytfqhh81': {
       'en': 'Field is required',
       'ta': '',
     },
-    '8y3276ek': {
+    'zw9m4w4k': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },

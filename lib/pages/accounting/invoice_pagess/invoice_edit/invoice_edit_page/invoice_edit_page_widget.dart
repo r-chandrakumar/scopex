@@ -308,7 +308,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                   );
                                                                 },
                                                               ).then((value) =>
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {}));
                                                             },
                                                             child: Container(
@@ -520,7 +520,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                           'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .caradTextColor,
+                                                                          .primaryText,
                                                                       fontSize:
                                                                           16.0,
                                                                       fontWeight:
@@ -697,9 +697,9 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Roboto',
-                                                                              color: FlutterFlowTheme.of(context).caradTextColor,
-                                                                              fontSize: 14.0,
-                                                                              fontWeight: FontWeight.w500,
+                                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                                              fontSize: 16.0,
+                                                                              fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -773,7 +773,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
 
                                                                         if (_datePicked1Date !=
                                                                             null) {
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {
                                                                             _model.datePicked1 =
                                                                                 DateTime(
@@ -918,11 +918,11 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                             fontFamily:
                                                                                 'Roboto',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).caradTextColor,
+                                                                                FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
-                                                                                14.0,
+                                                                                16.0,
                                                                             fontWeight:
-                                                                                FontWeight.w500,
+                                                                                FontWeight.normal,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -996,7 +996,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
 
                                                                       if (_datePicked2Date !=
                                                                           null) {
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {
                                                                           _model.datePicked2 =
                                                                               DateTime(
@@ -1069,7 +1069,8 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                               );
                                                             },
                                                           ).then((value) =>
-                                                              setState(() {}));
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                         text:
                                                             FFLocalizations.of(
@@ -1214,13 +1215,16 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                             .inputtextColor,
                                                                         fontSize:
                                                                             16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
                                                                       ),
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
                                                                     BorderSide(
-                                                                  color: Color(
-                                                                      0xFFD1E2EA),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .hashColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1232,8 +1236,9 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                   OutlineInputBorder(
                                                                 borderSide:
                                                                     BorderSide(
-                                                                  color: Color(
-                                                                      0xFFD1E2EA),
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .inputFieldColor,
                                                                   width: 1.0,
                                                                 ),
                                                                 borderRadius:
@@ -1282,7 +1287,7 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .inputtextColor,
+                                                                      .primaryText,
                                                                   fontSize:
                                                                       16.0,
                                                                   fontWeight:
@@ -1484,7 +1489,10 @@ class _InvoiceEditPageWidgetState extends State<InvoiceEditPageWidget> {
                                                     'epidc29q' /* Save */,
                                                   ),
                                                   options: FFButtonOptions(
-                                                    width: 150.0,
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
                                                     height: 40.0,
                                                     padding:
                                                         EdgeInsetsDirectional

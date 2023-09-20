@@ -461,7 +461,7 @@ class _ScheduleMyActivityCopyWidgetState
                                   );
 
                                   if (_datePickedDate != null) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.datePicked = DateTime(
                                         _datePickedDate.year,
                                         _datePickedDate.month,

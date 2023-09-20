@@ -611,7 +611,7 @@ class _LeaveInfoWidgetState extends State<LeaveInfoWidget> {
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     '294lfeoy' /* Refuse */,

@@ -597,7 +597,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                       BorderSide(
                                                                     color: valueOrDefault<
                                                                         Color>(
-                                                                      _model.cinexist!
+                                                                      !_model.cinexist!
                                                                           ? FlutterFlowTheme.of(context)
                                                                               .success
                                                                           : FlutterFlowTheme.of(context)
@@ -1447,14 +1447,22 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 .toList()
                                                                 .cast<String>();
                                                             FFAppState()
-                                                                    .LoginID =
-                                                                HymechApiGroupGroup
+                                                                .LoginID = HymechApiGroupGroup
+                                                                        .loginCall
+                                                                        .loginID(
+                                                                      (_model.loginResult
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    ) ==
+                                                                    null
+                                                                ? 1
+                                                                : HymechApiGroupGroup
                                                                     .loginCall
                                                                     .loginID(
-                                                              (_model.loginResult
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            );
+                                                                    (_model.loginResult
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  );
                                                           });
                                                           await requestPermission(
                                                               notificationsPermission);
@@ -1626,52 +1634,6 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                           ).animateOnPageLoad(
                               animationsMap['buttonOnPageLoadAnimation2']!),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 80.0, 20.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '95hnnlxz' /* Haven’t account please */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'outfit',
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ok60m8fq' /* Sign Up */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'outfit',
-                                            color: FlutterFlowTheme.of(context)
-                                                .orange,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: false,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
                         ],
                       ),
                     ),

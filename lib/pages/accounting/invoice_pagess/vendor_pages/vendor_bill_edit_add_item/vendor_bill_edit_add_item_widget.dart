@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -174,75 +175,57 @@ class _VendorBillEditAddItemWidgetState
           elevation: 0.0,
           child: Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 0.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                            },
-                            child: Icon(
-                              Icons.arrow_back_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 30.0,
-                            ),
-                          ),
-                        ),
-                      ],
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: wrapWithModel(
+                      model: _model.backButttonComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: BackButttonComponentWidget(),
                     ),
                   ),
-                ),
-                Flexible(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'fy8dyhze' /* Add Items */,
+                  Flexible(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'fy8dyhze' /* Add Items */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .appBarTextColor,
+                                    fontSize: 23.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: FlutterFlowTheme.of(context)
-                                      .appBarTextColor,
-                                  fontSize: 23.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -395,8 +378,8 @@ class _VendorBillEditAddItemWidgetState
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).hashColor,
+                                    color: FlutterFlowTheme.of(context)
+                                        .inputFieldColor,
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
@@ -424,7 +407,7 @@ class _VendorBillEditAddItemWidgetState
                                   .override(
                                     fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
-                                        .caradTextColor,
+                                        .primaryText,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -536,7 +519,15 @@ class _VendorBillEditAddItemWidgetState
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputFieldColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -549,7 +540,7 @@ class _VendorBillEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -629,7 +620,15 @@ class _VendorBillEditAddItemWidgetState
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputtextColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -642,7 +641,7 @@ class _VendorBillEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -675,7 +674,7 @@ class _VendorBillEditAddItemWidgetState
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .caradTextColor,
+                                                .inputFieldColor,
                                             fontSize: 16.0,
                                           ),
                                       validator: _model.unitControllerValidator
@@ -733,7 +732,7 @@ class _VendorBillEditAddItemWidgetState
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: wrapWithModel(
                                 model: _model.taxComponentModel,
@@ -842,12 +841,20 @@ class _VendorBillEditAddItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .inputFieldColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputtextColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -860,7 +867,7 @@ class _VendorBillEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -940,7 +947,15 @@ class _VendorBillEditAddItemWidgetState
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .inputtextColor,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -953,7 +968,7 @@ class _VendorBillEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -1330,7 +1345,8 @@ class _VendorBillEditAddItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         } else {
                                           Navigator.pop(context);
                                           await showModalBottomSheet(
@@ -1351,7 +1367,8 @@ class _VendorBillEditAddItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
 
                                           if (_shouldSetState) setState(() {});
                                           return;

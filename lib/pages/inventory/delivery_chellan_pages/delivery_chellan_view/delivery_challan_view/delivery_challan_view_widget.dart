@@ -94,7 +94,7 @@ class _DeliveryChallanViewWidgetState extends State<DeliveryChallanViewWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           child: Icon(
@@ -187,7 +187,7 @@ class _DeliveryChallanViewWidgetState extends State<DeliveryChallanViewWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,

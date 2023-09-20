@@ -171,11 +171,19 @@ class _PickViewEditPageWidgetState extends State<PickViewEditPageWidget> {
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .accent1,
+                                                .inputtextColor,
                                             fontSize: 16.0,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .inputtextColor,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -188,7 +196,7 @@ class _PickViewEditPageWidgetState extends State<PickViewEditPageWidget> {
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .inputFieldColor,
                                           width: 1.0,
                                         ),
                                         borderRadius:
@@ -218,7 +226,7 @@ class _PickViewEditPageWidgetState extends State<PickViewEditPageWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .inputtextColor,
+                                              .primaryText,
                                         ),
                                     keyboardType: TextInputType.number,
                                     validator: _model

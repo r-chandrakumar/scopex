@@ -174,18 +174,6 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                       _model.nameController,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .inputtextColor,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
                                                     hintText:
                                                         FFLocalizations.of(
                                                                 context)
@@ -268,7 +256,7 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -778,21 +766,6 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                         .hSNcodeController,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .inputtextColor,
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
                                                       hintText:
                                                           FFLocalizations.of(
                                                                   context)
@@ -874,7 +847,7 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -1100,18 +1073,6 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                       TextInputAction.done,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .inputtextColor,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
                                                     hintText:
                                                         FFLocalizations.of(
                                                                 context)
@@ -1194,7 +1155,7 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .inputtextColor,
+                                                                .primaryText,
                                                         fontSize: 16.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -1491,6 +1452,25 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                 }
                                                 if (_model.measuresValue ==
                                                     null) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'UOM is Required',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                  );
                                                   return;
                                                 }
                                                 if (_model.uploadedLocalFile ==

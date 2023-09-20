@@ -454,7 +454,7 @@ class _AppsparesWidgetState extends State<AppsparesWidget> {
                             .servicepartId(
                           (_model.servicePartExistCheck?.jsonBody ?? ''),
                         ),
-                        userId: FFAppState().loginid,
+                        userId: FFAppState().LoginID,
                         authToken: FFAppState().accessToken,
                         domainUrl: FFAppState().DomainUrl,
                       );

@@ -246,7 +246,7 @@ class _CreateProductItemsWidgetState extends State<CreateProductItemsWidget> {
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: Icon(
                                         Icons.mode_edit_rounded,

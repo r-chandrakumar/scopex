@@ -5,7 +5,7 @@ import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/accounting/invoice_pagess/invoice_view/invoice_view_page_loader/invoice_view_page_loader_widget.dart';
+import '/pages/accounting/invoice_pagess/invoice_view/viewpage_common_shimmer/viewpage_common_shimmer_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/reusable_component/common_view_page/common_view_page_widget.dart';
@@ -91,7 +91,7 @@ class _InvoiceViewPageWidgetState extends State<InvoiceViewPageWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -141,69 +141,75 @@ class _InvoiceViewPageWidgetState extends State<InvoiceViewPageWidget> {
                 '-',
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(
-                    fontFamily: 'Outfit',
+                    fontFamily: 'Roboto',
                     fontSize: 23.0,
                   ),
             ),
           ),
           actions: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await actions.downloadPdfFromUrl(
-                    context,
-                    functions.getDownloadUrl(
-                        FFAppState().WebUrl, 'invoice', widget.id),
-                    '${widget.name}.pdf',
-                  );
-                },
-                child: Icon(
-                  Icons.download_rounded,
-                  color: FlutterFlowTheme.of(context).appBarTextColor,
-                  size: 24.0,
+            Align(
+              alignment: AlignmentDirectional(0.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await actions.downloadPdfFromUrl(
+                      context,
+                      functions.getDownloadUrl(
+                          FFAppState().WebUrl, 'invoice', widget.id),
+                      '${widget.name}.pdf',
+                    );
+                  },
+                  child: Icon(
+                    Icons.download_rounded,
+                    color: FlutterFlowTheme.of(context).appBarTextColor,
+                    size: 24.0,
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await showModalBottomSheet(
-                    isScrollControlled: true,
-                    backgroundColor: Colors.transparent,
-                    enableDrag: false,
-                    useSafeArea: true,
-                    context: context,
-                    builder: (context) {
-                      return GestureDetector(
-                        onTap: () => FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode),
-                        child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: PDFViewWidget(
-                            pdfurl: functions.getDownloadUrl(
-                                FFAppState().WebUrl, 'invoice', widget.id)!,
-                            title: widget.name!,
-                            shareFile: true,
+            Align(
+              alignment: AlignmentDirectional(0.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      useSafeArea: true,
+                      context: context,
+                      builder: (context) {
+                        return GestureDetector(
+                          onTap: () => FocusScope.of(context)
+                              .requestFocus(_model.unfocusNode),
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: PDFViewWidget(
+                              pdfurl: functions.getDownloadUrl(
+                                  FFAppState().WebUrl, 'invoice', widget.id)!,
+                              title: widget.name!,
+                              shareFile: true,
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  ).then((value) => setState(() {}));
-                },
-                child: Icon(
-                  Icons.share_rounded,
-                  color: FlutterFlowTheme.of(context).appBarTextColor,
-                  size: 24.0,
+                        );
+                      },
+                    ).then((value) => safeSetState(() {}));
+                  },
+                  child: Icon(
+                    Icons.share_rounded,
+                    color: FlutterFlowTheme.of(context).appBarTextColor,
+                    size: 24.0,
+                  ),
                 ),
               ),
             ),
@@ -222,7 +228,7 @@ class _InvoiceViewPageWidgetState extends State<InvoiceViewPageWidget> {
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
               if (!snapshot.hasData) {
-                return InvoiceViewPageLoaderWidget();
+                return ViewpageCommonShimmerWidget();
               }
               final columnInvoiceViewResponse = snapshot.data!;
               return SingleChildScrollView(

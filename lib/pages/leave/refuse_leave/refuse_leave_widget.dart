@@ -113,8 +113,12 @@ class _RefuseLeaveWidgetState extends State<RefuseLeaveWidget> {
                                     FFLocalizations.of(context).getText(
                                       'dnx4fjr1' /* Reason */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          fontSize: 14.0,
+                                        ),
                                   ),
                                 ),
                                 Padding(
@@ -139,12 +143,15 @@ class _RefuseLeaveWidgetState extends State<RefuseLeaveWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Roboto',
+                                            color: FlutterFlowTheme.of(context)
+                                                .inputtextColor,
                                             fontSize: 16.0,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .hashColor,
                                           width: 0.0,
                                         ),
                                         borderRadius:
@@ -153,7 +160,7 @@ class _RefuseLeaveWidgetState extends State<RefuseLeaveWidget> {
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .inputFieldColor,
                                           width: 0.0,
                                         ),
                                         borderRadius:

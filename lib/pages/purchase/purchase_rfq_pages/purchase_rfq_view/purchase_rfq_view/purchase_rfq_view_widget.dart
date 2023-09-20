@@ -90,7 +90,7 @@ class _PurchaseRfqViewWidgetState extends State<PurchaseRfqViewWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -199,7 +199,7 @@ class _PurchaseRfqViewWidgetState extends State<PurchaseRfqViewWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.share_rounded,

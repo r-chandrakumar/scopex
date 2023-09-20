@@ -178,7 +178,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
+                                              .inputtextColor,
                                           fontSize: 16.0,
                                         ),
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1170,7 +1170,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                             );
 
                                             if (_datePickedDate != null) {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.datePicked = DateTime(
                                                   _datePickedDate.year,
                                                   _datePickedDate.month,

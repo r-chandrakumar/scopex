@@ -370,11 +370,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                       ),
                     ).animateOnPageLoad(
                         animationsMap['buttonOnPageLoadAnimation1']!),
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'wr0yas83' /* Hello World */,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'wr0yas83' /* Hello World */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ],
                 ),
@@ -563,7 +567,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
               Align(
                 alignment: AlignmentDirectional(0.00, 0.05),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(15.0, 24.0, 15.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       var _shouldSetState = false;
@@ -607,11 +612,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                       if (_shouldSetState) setState(() {});
                     },
                     text: FFLocalizations.of(context).getText(
-                      '9kwba0hd' /* Save Changes */,
+                      '9kwba0hd' /* Update */,
                     ),
                     options: FFButtonOptions(
-                      width: 200.0,
-                      height: 50.0,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 40.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:

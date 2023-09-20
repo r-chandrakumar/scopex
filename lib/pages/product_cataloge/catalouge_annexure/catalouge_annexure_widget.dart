@@ -205,7 +205,7 @@ class _CatalougeAnnexureWidgetState extends State<CatalougeAnnexureWidget> {
                                                       );
                                                     },
                                                   ).then((value) =>
-                                                      setState(() {}));
+                                                      safeSetState(() {}));
                                                 },
                                                 child: Icon(
                                                   Icons.remove_red_eye,

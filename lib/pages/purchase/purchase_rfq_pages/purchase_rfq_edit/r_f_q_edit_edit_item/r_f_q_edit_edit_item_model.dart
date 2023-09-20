@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -22,6 +23,8 @@ class RFQEditEditItemModel extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (Purchase Order Line Product Detail)] action in RFQ_Edit_Edit_item widget.
   ApiCallResponse? orderLineProductDataResponse;
+  // Model for backButttonComponent component.
+  late BackButttonComponentModel backButttonComponentModel;
   // State field(s) for productname widget.
   TextEditingController? productnameController;
   String? Function(BuildContext, String?)? productnameControllerValidator;
@@ -52,9 +55,13 @@ class RFQEditEditItemModel extends FlutterFlowModel {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    backButttonComponentModel =
+        createModel(context, () => BackButttonComponentModel());
+  }
 
   void dispose() {
+    backButttonComponentModel.dispose();
     productnameController?.dispose();
     productdescriptionController?.dispose();
     quantityController?.dispose();

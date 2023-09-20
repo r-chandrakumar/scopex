@@ -160,7 +160,7 @@ class _FilterSaleOrderWidgetState extends State<FilterSaleOrderWidget> {
                                       );
 
                                       if (_datePicked1Date != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked1 = DateTime(
                                             _datePicked1Date.year,
                                             _datePicked1Date.month,
@@ -283,7 +283,7 @@ class _FilterSaleOrderWidgetState extends State<FilterSaleOrderWidget> {
                                       );
 
                                       if (_datePicked2Date != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked2 = DateTime(
                                             _datePicked2Date.year,
                                             _datePicked2Date.month,

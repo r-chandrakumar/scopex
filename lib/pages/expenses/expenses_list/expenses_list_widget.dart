@@ -177,7 +177,7 @@ class _ExpensesListWidgetState extends State<ExpensesListWidget>
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.max,

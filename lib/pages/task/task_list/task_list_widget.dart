@@ -208,7 +208,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -251,7 +251,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: wrapWithModel(
                       model: _model.searchIconModel,
@@ -394,17 +394,17 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                 projectTaskItem,
                                                 r'''$.name''',
                                               ).toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .rgb,
-                                                        fontSize: 18.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .rgb,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -430,7 +430,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 2.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -444,7 +444,8 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Roboto',
-                                            fontSize: 15.0,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w500,
                                           ),
                                     ),
                                     Expanded(
@@ -457,6 +458,9 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .appBarTextColor,
                                               fontSize: 15.0,
                                             ),
                                       ),
@@ -466,7 +470,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
+                                    0.0, 2.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -489,7 +493,9 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
-                                                        fontSize: 15.0,
+                                                        fontSize: 13.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
                                             ),
                                             Flexible(
@@ -507,6 +513,9 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .appBarTextColor,
                                                           fontSize: 15.0,
                                                         ),
                                               ),
@@ -515,11 +524,8 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                    Flexible(
                                       child: Container(
-                                        width: 100.0,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
@@ -537,8 +543,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 5.0, 10.0, 5.0),
+                                                  .fromSTEB(6.0, 3.0, 6.0, 3.0),
                                               child: Text(
                                                 getJsonField(
                                                   projectTaskItem,
@@ -553,9 +558,9 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .caradTextColor,
-                                                          fontSize: 15.0,
+                                                          fontSize: 13.0,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.bold,
                                                         ),
                                               ),
                                             ),

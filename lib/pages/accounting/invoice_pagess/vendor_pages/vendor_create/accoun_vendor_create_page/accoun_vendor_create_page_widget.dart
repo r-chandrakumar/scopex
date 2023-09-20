@@ -175,7 +175,7 @@ class _AccounVendorCreatePageWidgetState
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: Container(
                                         width: double.infinity,
@@ -227,7 +227,7 @@ class _AccounVendorCreatePageWidgetState
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                         ),
                                                   ),
                                                 ),
@@ -341,7 +341,7 @@ class _AccounVendorCreatePageWidgetState
                                                   fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                                   fontSize: 16.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -431,7 +431,7 @@ class _AccounVendorCreatePageWidgetState
                                           );
 
                                           if (_datePicked1Date != null) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.datePicked1 = DateTime(
                                                 _datePicked1Date.year,
                                                 _datePicked1Date.month,
@@ -483,7 +483,7 @@ class _AccounVendorCreatePageWidgetState
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -553,7 +553,7 @@ class _AccounVendorCreatePageWidgetState
                                           );
 
                                           if (_datePicked2Date != null) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.datePicked2 = DateTime(
                                                 _datePicked2Date.year,
                                                 _datePicked2Date.month,
@@ -605,7 +605,7 @@ class _AccounVendorCreatePageWidgetState
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .inputtextColor,
+                                                              .primaryText,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -669,7 +669,7 @@ class _AccounVendorCreatePageWidgetState
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'y18fkmzo' /* Add Items */,
@@ -815,7 +815,7 @@ class _AccounVendorCreatePageWidgetState
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
                                                 fontSize: 16.0,
                                               ),
                                           maxLines: 3,

@@ -267,7 +267,8 @@ class _AddScopeWorkWidgetState extends State<AddScopeWorkWidget> {
                                   '5tcysa1n' /* Add Scope of Work */,
                                 ),
                                 options: FFButtonOptions(
-                                  height: 46.0,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       30.0, 0.0, 30.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -299,8 +300,8 @@ class _AddScopeWorkWidgetState extends State<AddScopeWorkWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 30.0),
                                 child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.8,
-                                  height: 46.0,
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -315,8 +316,10 @@ class _AddScopeWorkWidgetState extends State<AddScopeWorkWidget> {
                                         'zan1tum8' /* Save & Next */,
                                       ),
                                       options: FFButtonOptions(
-                                        width: double.infinity,
-                                        height: 46.0,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 40.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:

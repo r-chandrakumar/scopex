@@ -177,7 +177,7 @@ class _QuotationEditAddItemWidgetState
         children: [
           Container(
             width: double.infinity,
-            height: 50.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -188,10 +188,13 @@ class _QuotationEditAddItemWidgetState
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  wrapWithModel(
-                    model: _model.backButttonComponentModel,
-                    updateCallback: () => setState(() {}),
-                    child: BackButttonComponentWidget(),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
+                    child: wrapWithModel(
+                      model: _model.backButttonComponentModel,
+                      updateCallback: () => setState(() {}),
+                      child: BackButttonComponentWidget(),
+                    ),
                   ),
                   Flexible(
                     child: Padding(
@@ -335,7 +338,7 @@ class _QuotationEditAddItemWidgetState
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .inputtextColor,
+                                                        .primaryText,
                                               ),
                                           validator: _model
                                               .productNameControllerValidator
@@ -414,7 +417,7 @@ class _QuotationEditAddItemWidgetState
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .hashColor,
+                                            .inputFieldColor,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -444,7 +447,7 @@ class _QuotationEditAddItemWidgetState
                                       .override(
                                         fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
-                                            .inputtextColor,
+                                            .primaryText,
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -582,7 +585,7 @@ class _QuotationEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -674,7 +677,7 @@ class _QuotationEditAddItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .inputtextColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -690,7 +693,7 @@ class _QuotationEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -723,7 +726,7 @@ class _QuotationEditAddItemWidgetState
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
-                                                .caradTextColor,
+                                                .primaryText,
                                             fontSize: 16.0,
                                           ),
                                       validator: _model.unitControllerValidator
@@ -783,7 +786,7 @@ class _QuotationEditAddItemWidgetState
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 },
                                 child: wrapWithModel(
                                   model: _model.taxComponentModel,
@@ -906,7 +909,7 @@ class _QuotationEditAddItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .inputtextColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -922,7 +925,7 @@ class _QuotationEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .hashColor,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -1014,7 +1017,7 @@ class _QuotationEditAddItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .inputtextColor,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -1030,7 +1033,7 @@ class _QuotationEditAddItemWidgetState
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .inputFieldColor,
                                             width: 1.0,
                                           ),
                                           borderRadius:
@@ -1438,7 +1441,8 @@ class _QuotationEditAddItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         } else {
                                           Navigator.pop(context);
                                           await showModalBottomSheet(
@@ -1459,7 +1463,8 @@ class _QuotationEditAddItemWidgetState
                                                 ),
                                               );
                                             },
-                                          ).then((value) => setState(() {}));
+                                          ).then(
+                                              (value) => safeSetState(() {}));
 
                                           if (_shouldSetState) setState(() {});
                                           return;

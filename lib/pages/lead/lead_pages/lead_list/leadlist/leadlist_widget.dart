@@ -177,7 +177,7 @@ class _LeadlistWidgetState extends State<LeadlistWidget>
                               ),
                             );
                           },
-                        ).then((value) => setState(() {}));
+                        ).then((value) => safeSetState(() {}));
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -216,7 +216,7 @@ class _LeadlistWidgetState extends State<LeadlistWidget>
                               ),
                             );
                           },
-                        ).then((value) => setState(() {}));
+                        ).then((value) => safeSetState(() {}));
                       },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,

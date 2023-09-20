@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/back_buttton_component_widget.dart';
 import '/components/edit_view_product_line_items_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -37,18 +37,23 @@ class VendorBillEditModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (Vendor Bill Update)] action in Button widget.
   ApiCallResponse? vendorBillUpdateRes;
+  // Model for backButttonComponent component.
+  late BackButttonComponentModel backButttonComponentModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
     editViewProductLineItemsModel =
         createModel(context, () => EditViewProductLineItemsModel());
+    backButttonComponentModel =
+        createModel(context, () => BackButttonComponentModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
     editViewProductLineItemsModel.dispose();
     textController?.dispose();
+    backButttonComponentModel.dispose();
   }
 
   /// Action blocks are added here.

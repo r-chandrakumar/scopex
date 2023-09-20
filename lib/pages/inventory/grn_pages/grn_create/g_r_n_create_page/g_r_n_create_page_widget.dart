@@ -187,7 +187,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                       ),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
@@ -554,7 +554,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           );
 
                                           if (_datePickedDate != null) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.datePicked = DateTime(
                                                 _datePickedDate.year,
                                                 _datePickedDate.month,
@@ -669,7 +669,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'w2gx1lv2' /* Add Items */,

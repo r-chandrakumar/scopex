@@ -170,7 +170,7 @@ class _QuotationListPageWidgetState extends State<QuotationListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -218,7 +218,7 @@ class _QuotationListPageWidgetState extends State<QuotationListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -260,7 +260,7 @@ class _QuotationListPageWidgetState extends State<QuotationListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,

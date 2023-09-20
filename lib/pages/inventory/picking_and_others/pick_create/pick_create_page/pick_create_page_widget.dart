@@ -269,7 +269,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
@@ -362,7 +362,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                     ),
                                   );
                                 },
-                              ).then((value) => setState(() {}));
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
@@ -659,7 +659,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       );
 
                                       if (_datePickedDate != null) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.datePicked = DateTime(
                                             _datePickedDate.year,
                                             _datePickedDate.month,
@@ -771,7 +771,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'g2d9ed4u' /* Add Items */,

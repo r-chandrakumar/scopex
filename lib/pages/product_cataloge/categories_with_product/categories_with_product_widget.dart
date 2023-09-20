@@ -137,7 +137,7 @@ class _CategoriesWithProductWidgetState
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.max,

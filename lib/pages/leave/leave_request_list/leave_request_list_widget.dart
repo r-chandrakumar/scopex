@@ -159,7 +159,7 @@ class _LeaveRequestListWidgetState extends State<LeaveRequestListWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: Icon(
                   Icons.filter_list,

@@ -136,7 +136,7 @@ class _CommonCreateEditItemWidgetState
         children: [
           Container(
             width: double.infinity,
-            height: 60.0,
+            height: 55.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -173,7 +173,7 @@ class _CommonCreateEditItemWidgetState
                   Flexible(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -292,6 +292,9 @@ class _CommonCreateEditItemWidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .inputtextColor,
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
                                                       ),
                                               enabledBorder: InputBorder.none,
                                               focusedBorder: InputBorder.none,
@@ -418,7 +421,7 @@ class _CommonCreateEditItemWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .inputtextColor,
                                           fontSize: 16.0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.normal,
                                         ),
                                     maxLines: 2,
                                     validator: _model
@@ -596,7 +599,7 @@ class _CommonCreateEditItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                             ),
                                         keyboardType: TextInputType.number,
                                         validator: _model
@@ -713,7 +716,7 @@ class _CommonCreateEditItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .caradTextColor,
+                                                      .primaryText,
                                               fontSize: 16.0,
                                             ),
                                         validator: _model
@@ -772,7 +775,7 @@ class _CommonCreateEditItemWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   onLongPress: () async {
                                     await showModalBottomSheet(
@@ -790,7 +793,7 @@ class _CommonCreateEditItemWidgetState
                                           ),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: wrapWithModel(
                                     model: _model.taxComponentModel,
@@ -969,7 +972,7 @@ class _CommonCreateEditItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                             ),
                                         validator: _model
                                             .amountControllerValidator
@@ -1085,7 +1088,7 @@ class _CommonCreateEditItemWidgetState
                                               fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
+                                                      .primaryText,
                                             ),
                                         validator: _model
                                             .subtotalControllerValidator
@@ -1187,68 +1190,77 @@ class _CommonCreateEditItemWidgetState
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        if (_model.formKey.currentState ==
-                                                null ||
-                                            !_model.formKey.currentState!
-                                                .validate()) {
-                                          return;
-                                        }
-                                        setState(() {
-                                          FFAppState()
-                                              .removeAtIndexFromProductAddItem(
-                                                  widget.index!);
-                                        });
-                                        FFAppState().update(() {
-                                          FFAppState().addToProductAddItem(
-                                              functions.addItemProduct(
-                                                  widget.productid,
-                                                  widget.productname,
-                                                  double.tryParse(_model
-                                                      .quantityController.text),
-                                                  double.tryParse(_model
-                                                      .amountController.text),
-                                                  double.tryParse(_model
-                                                      .subtotalController.text),
-                                                  getJsonField(
-                                                    widget.lineitem,
-                                                    r'''$.unit''',
-                                                  ).toString(),
-                                                  getJsonField(
-                                                    widget.lineitem,
-                                                    r'''$.unitid''',
-                                                  ),
-                                                  FFAppState().taxJson)!);
-                                        });
-                                        Navigator.pop(context);
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'gc2fi2it' /* Save */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: double.infinity,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .saveButton,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.white,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 15.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          if (_model.formKey.currentState ==
+                                                  null ||
+                                              !_model.formKey.currentState!
+                                                  .validate()) {
+                                            return;
+                                          }
+                                          setState(() {
+                                            FFAppState()
+                                                .removeAtIndexFromProductAddItem(
+                                                    widget.index!);
+                                          });
+                                          FFAppState().update(() {
+                                            FFAppState().addToProductAddItem(
+                                                functions.addItemProduct(
+                                                    widget.productid,
+                                                    widget.productname,
+                                                    double.tryParse(_model
+                                                        .quantityController
+                                                        .text),
+                                                    double.tryParse(_model
+                                                        .amountController.text),
+                                                    double.tryParse(_model
+                                                        .subtotalController
+                                                        .text),
+                                                    getJsonField(
+                                                      widget.lineitem,
+                                                      r'''$.unit''',
+                                                    ).toString(),
+                                                    getJsonField(
+                                                      widget.lineitem,
+                                                      r'''$.unitid''',
+                                                    ),
+                                                    FFAppState().taxJson)!);
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'gc2fi2it' /* Save */,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        options: FFButtonOptions(
+                                          width: double.infinity,
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .saveButton,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 0.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
                                       ),
                                     ),
                                   ],

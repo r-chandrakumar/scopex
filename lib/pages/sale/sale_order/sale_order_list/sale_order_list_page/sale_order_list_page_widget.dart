@@ -152,7 +152,7 @@ class _SaleOrderListPageWidgetState extends State<SaleOrderListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -200,7 +200,7 @@ class _SaleOrderListPageWidgetState extends State<SaleOrderListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -242,7 +242,7 @@ class _SaleOrderListPageWidgetState extends State<SaleOrderListPageWidget> {
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

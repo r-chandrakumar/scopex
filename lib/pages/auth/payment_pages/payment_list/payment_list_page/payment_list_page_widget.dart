@@ -184,7 +184,7 @@ class _PaymentListPageWidgetState extends State<PaymentListPageWidget>
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -228,7 +228,7 @@ class _PaymentListPageWidgetState extends State<PaymentListPageWidget>
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: wrapWithModel(
                           model: _model.fillterIconModel,
@@ -267,7 +267,7 @@ class _PaymentListPageWidgetState extends State<PaymentListPageWidget>
                                 ),
                               );
                             },
-                          ).then((value) => setState(() {}));
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: wrapWithModel(
                           model: _model.searchIconModel,

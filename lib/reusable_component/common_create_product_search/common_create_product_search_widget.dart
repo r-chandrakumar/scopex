@@ -263,7 +263,7 @@ class _CommonCreateProductSearchWidgetState
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 } else {
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
@@ -287,7 +287,7 @@ class _CommonCreateProductSearchWidgetState
                                         ),
                                       );
                                     },
-                                  ).then((value) => setState(() {}));
+                                  ).then((value) => safeSetState(() {}));
                                 }
                               },
                               child: Container(

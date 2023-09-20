@@ -69,7 +69,7 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                 ),
               );
             },
-          ).then((value) => setState(() {}));
+          ).then((value) => safeSetState(() {}));
         }
       }
     });
@@ -163,7 +163,7 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  ).then((value) => safeSetState(() {}));
                 },
                 child: wrapWithModel(
                   model: _model.notificationIconModel,

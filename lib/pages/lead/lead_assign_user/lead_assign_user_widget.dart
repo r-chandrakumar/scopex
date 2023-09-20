@@ -106,7 +106,7 @@ class _LeadAssignUserWidgetState extends State<LeadAssignUserWidget> {
                       child: UserSearchWidget(),
                     );
                   },
-                ).then((value) => setState(() {}));
+                ).then((value) => safeSetState(() {}));
               },
               child: Container(
                 width: double.infinity,

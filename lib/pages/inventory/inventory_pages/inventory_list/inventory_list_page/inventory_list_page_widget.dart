@@ -156,7 +156,7 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -199,7 +199,7 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -237,7 +237,7 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

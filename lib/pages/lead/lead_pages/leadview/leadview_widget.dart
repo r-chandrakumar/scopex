@@ -84,7 +84,7 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).menuBarButton,
           elevation: 0.0,
@@ -1491,7 +1491,7 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                 );
                                                               },
                                                             ).then((value) =>
-                                                                setState(
+                                                                safeSetState(
                                                                     () {}));
                                                           },
                                                           child: Container(

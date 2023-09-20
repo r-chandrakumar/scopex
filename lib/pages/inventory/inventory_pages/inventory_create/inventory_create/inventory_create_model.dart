@@ -32,7 +32,7 @@ class InventoryCreateModel extends FlutterFlowModel {
   String? _nameControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'x36rx852' /* Product Name is required */,
+        'vn5pmc9m' /* Product Name is required */,
       );
     }
 
@@ -61,7 +61,7 @@ class InventoryCreateModel extends FlutterFlowModel {
   String? _soldPriceControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
-        'g6e0wit2' /* Field is required */,
+        '67300ukb' /* Field is required */,
       );
     }
 

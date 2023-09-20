@@ -103,7 +103,7 @@ class _MoreForEditWidgetState extends State<MoreForEditWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           } else if (widget.page == 'vendorbill') {
                             await showModalBottomSheet(
                               isScrollControlled: true,
@@ -120,7 +120,7 @@ class _MoreForEditWidgetState extends State<MoreForEditWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           } else if (widget.page == 'rfq') {
                             await showModalBottomSheet(
                               isScrollControlled: true,
@@ -137,7 +137,7 @@ class _MoreForEditWidgetState extends State<MoreForEditWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           } else if (widget.page == 'quote') {
                             await showModalBottomSheet(
                               isScrollControlled: true,
@@ -154,7 +154,7 @@ class _MoreForEditWidgetState extends State<MoreForEditWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           }
                         },
                         child: Row(

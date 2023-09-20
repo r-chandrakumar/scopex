@@ -95,7 +95,7 @@ class _GrnListPageWidgetState extends State<GrnListPageWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).listPlusButton,
           elevation: 0.0,
@@ -182,7 +182,7 @@ class _GrnListPageWidgetState extends State<GrnListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -227,7 +227,7 @@ class _GrnListPageWidgetState extends State<GrnListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -266,7 +266,7 @@ class _GrnListPageWidgetState extends State<GrnListPageWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

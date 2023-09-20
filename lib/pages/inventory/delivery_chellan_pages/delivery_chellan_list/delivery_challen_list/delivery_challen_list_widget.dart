@@ -95,7 +95,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                   ),
                 );
               },
-            ).then((value) => setState(() {}));
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).listPlusButton,
           elevation: 0.0,
@@ -181,7 +181,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -225,7 +225,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -264,7 +264,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                             ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      ).then((value) => safeSetState(() {}));
                     },
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -292,7 +292,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                                   ),
                                 );
                               },
-                            ).then((value) => setState(() {}));
+                            ).then((value) => safeSetState(() {}));
                           },
                           child: wrapWithModel(
                             model: _model.searchIconModel,
