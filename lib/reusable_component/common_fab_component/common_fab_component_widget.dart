@@ -1445,6 +1445,20 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                 domainUrl: FFAppState().DomainUrl,
                                 purchaseid: widget.id,
                               );
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'send mail ',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
                               if ((_model.purchaseEmail?.succeeded ?? true)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -1890,10 +1904,9 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return AlertDialog(
-                                          title:
-                                              Text('Convert to Purchase Order'),
-                                          content: Text(
-                                              'If you want convert to Purchase Order?'),
+                                          title: Text('Change to Draft'),
+                                          content:
+                                              Text('If you want Change Draft?'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(

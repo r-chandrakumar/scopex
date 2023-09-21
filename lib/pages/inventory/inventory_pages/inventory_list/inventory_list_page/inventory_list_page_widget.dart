@@ -455,10 +455,11 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if (functions.inventoryStockCheck(
-                                                  getJsonField(
+                                                  functions.jsonToDouble(
+                                                      getJsonField(
                                                     inventoryListsItem,
                                                     r'''$.stock_quants_aggregate.nodes[0].quantity''',
-                                                  ),
+                                                  )),
                                                   'high') ??
                                               true)
                                             Container(
@@ -500,10 +501,11 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                                               ),
                                             ),
                                           if (functions.inventoryStockCheck(
-                                                  getJsonField(
+                                                  functions.jsonToDouble(
+                                                      getJsonField(
                                                     inventoryListsItem,
                                                     r'''$.stock_quants_aggregate.nodes[0].quantity''',
-                                                  ),
+                                                  )),
                                                   'medium') ??
                                               true)
                                             Padding(
@@ -552,10 +554,11 @@ class _InventoryListPageWidgetState extends State<InventoryListPageWidget> {
                                               ),
                                             ),
                                           if (functions.inventoryStockCheck(
-                                                  getJsonField(
+                                                  functions.jsonToDouble(
+                                                      getJsonField(
                                                     inventoryListsItem,
                                                     r'''$.stock_quants_aggregate.nodes[0].quantity''',
-                                                  ),
+                                                  )),
                                                   'low') ??
                                               true)
                                             Padding(

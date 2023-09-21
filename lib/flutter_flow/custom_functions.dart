@@ -3215,7 +3215,7 @@ String? getDownloadUrl(
 }
 
 int? doubleToInteger(double? value) {
-  if (value == null) {
+  if (value == null || value == 'null') {
     return 0;
   } else {
     return value.toInt();
@@ -3693,4 +3693,28 @@ double? findHoursbetweentwo(
     return 0;
   }
   return result;
+}
+
+double? jsonToDouble(dynamic value) {
+  // json to double
+  if (value is int) {
+    return value.toDouble();
+  } else if (value is double) {
+    return value;
+  } else if (value is String) {
+    return double.tryParse(value);
+  } else {
+    return 0.0;
+  }
+}
+
+int? jsonToInteger(dynamic value) {
+  // json to integer
+  if (value is int) {
+    return value;
+  } else if (value is String) {
+    return int.tryParse(value);
+  } else {
+    return 0;
+  }
 }

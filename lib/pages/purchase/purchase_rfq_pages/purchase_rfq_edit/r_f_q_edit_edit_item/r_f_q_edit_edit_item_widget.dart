@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/reusable_component/common_edit_product_search/common_edit_product_search_widget.dart';
+import '/tax_files/tax_component/tax_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -44,9 +45,6 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().taxJson = null;
-      });
       _model.orderLineProductDataResponse =
           await PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall.call(
         authToken: FFAppState().accessToken,
@@ -101,54 +99,6 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
               .findSubTotal(double.tryParse(_model.quantityController.text),
                   double.tryParse(_model.amountController.text))!
               .toString();
-        });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'update',
-              0,
-              'null',
-              0.0,
-              0.0,
-              0.0,
-              0,
-              PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                  .orderLineData(
-                (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-              ),
-              'purchase')!;
-        });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'tax_total',
-              0,
-              'null',
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'tax',
-                  PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                      .orderLineData(
-                    (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-                  ),
-                  'update',
-                  'purchase'),
-              0.0,
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'total',
-                  PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                      .orderLineData(
-                    (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-                  ),
-                  'update',
-                  'purchase'),
-              0,
-              PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                  .orderLineData(
-                (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-              ),
-              'update')!;
         });
       }
     });
@@ -713,61 +663,10 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                child: Builder(
-                                  builder: (context) {
-                                    final taxlist = getJsonField(
-                                      FFAppState().taxJson,
-                                      r'''$.taxid''',
-                                    ).toList();
-                                    return Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: List.generate(taxlist.length,
-                                          (taxlistIndex) {
-                                        final taxlistItem =
-                                            taxlist[taxlistIndex];
-                                        return Flexible(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 5.0, 5.0, 5.0),
-                                            child: Container(
-                                              width: 100.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent2,
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 5.0, 5.0, 5.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    functions
-                                                        .findListValueWithIndex(
-                                                            getJsonField(
-                                                              FFAppState()
-                                                                  .taxJson,
-                                                              r'''$.taxnames''',
-                                                            ),
-                                                            taxlistIndex,
-                                                            'value')
-                                                        ?.toString(),
-                                                    '-',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }),
-                                    );
-                                  },
+                                child: wrapWithModel(
+                                  model: _model.taxComponentModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: TaxComponentWidget(),
                                 ),
                               ),
                             ),
@@ -855,7 +754,6 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                                           });
                                         },
                                       ),
-                                      autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText:

@@ -230,6 +230,9 @@ class _EditViewProductLineItemsWidgetState
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     Navigator.pop(context);
+                                    FFAppState().update(() {
+                                      FFAppState().taxJson = null;
+                                    });
                                     if (widget.page == 'invoice') {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -273,6 +276,93 @@ class _EditViewProductLineItemsWidgetState
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'rfq') {
+                                      _model.orderLineProductDataResponse =
+                                          await PurchaseApiGroupGroup
+                                              .purchaseOrderLineProductDetailCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                        eq: getJsonField(
+                                          editItemProductListItem,
+                                          r'''$.line_id''',
+                                        ),
+                                      );
+                                      if ((_model.orderLineProductDataResponse
+                                              ?.succeeded ??
+                                          true)) {
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'update',
+                                                  0,
+                                                  'null',
+                                                  0.0,
+                                                  0.0,
+                                                  0.0,
+                                                  0,
+                                                  PurchaseApiGroupGroup
+                                                      .purchaseOrderLineProductDetailCall
+                                                      .orderLineData(
+                                                    (_model.orderLineProductDataResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'purchase')!;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'tax_total',
+                                                  0,
+                                                  'null',
+                                                  functions.findSubTotal(
+                                                      PurchaseApiGroupGroup
+                                                          .purchaseOrderLineProductDetailCall
+                                                          .productUOMQty(
+                                                            (_model.orderLineProductDataResponse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )
+                                                          .toDouble(),
+                                                      PurchaseApiGroupGroup
+                                                          .purchaseOrderLineProductDetailCall
+                                                          .pricePerUnit(
+                                                            (_model.orderLineProductDataResponse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )
+                                                          .toDouble()),
+                                                  0.0,
+                                                  functions.findSubTotal(
+                                                      PurchaseApiGroupGroup
+                                                          .purchaseOrderLineProductDetailCall
+                                                          .productUOMQty(
+                                                            (_model.orderLineProductDataResponse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )
+                                                          .toDouble(),
+                                                      PurchaseApiGroupGroup
+                                                          .purchaseOrderLineProductDetailCall
+                                                          .pricePerUnit(
+                                                            (_model.orderLineProductDataResponse
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )
+                                                          .toDouble()),
+                                                  0,
+                                                  PurchaseApiGroupGroup
+                                                      .purchaseOrderLineProductDetailCall
+                                                      .orderLineData(
+                                                    (_model.orderLineProductDataResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'update')!;
+                                        });
+                                      }
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
@@ -315,6 +405,8 @@ class _EditViewProductLineItemsWidgetState
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     }
+
+                                    setState(() {});
                                   },
                                   child: Icon(
                                     Icons.edit_rounded,

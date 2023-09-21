@@ -1115,13 +1115,18 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                                   FFAppState()
                                                                       .currencySymbol,
                                                                   formatNumber(
-                                                                    functions.convertIntToString(functions.doubleToInteger(HymechApiGroupGroup
-                                                                        .cRMDashboardCall
-                                                                        .expectedrevenue(
-                                                                          columnCRMDashboardResponse
-                                                                              .jsonBody,
-                                                                        )
-                                                                        .toDouble())),
+                                                                    functions.convertIntToString(functions.doubleToInteger(HymechApiGroupGroup.cRMDashboardCall
+                                                                                .expectedrevenue(
+                                                                              columnCRMDashboardResponse.jsonBody,
+                                                                            ) !=
+                                                                            null
+                                                                        ? HymechApiGroupGroup
+                                                                            .cRMDashboardCall
+                                                                            .expectedrevenue(
+                                                                              columnCRMDashboardResponse.jsonBody,
+                                                                            )
+                                                                            .toDouble()
+                                                                        : 0.0)),
                                                                     formatType:
                                                                         FormatType
                                                                             .compact,
@@ -1327,13 +1332,18 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                                   FFAppState()
                                                                       .currencySymbol,
                                                                   formatNumber(
-                                                                    functions.convertIntToString(functions.doubleToInteger(HymechApiGroupGroup
-                                                                        .cRMDashboardCall
-                                                                        .protectedrevenue(
-                                                                          columnCRMDashboardResponse
-                                                                              .jsonBody,
-                                                                        )
-                                                                        .toDouble())),
+                                                                    functions.convertIntToString(functions.doubleToInteger(HymechApiGroupGroup.cRMDashboardCall
+                                                                                .protectedrevenue(
+                                                                              columnCRMDashboardResponse.jsonBody,
+                                                                            ) !=
+                                                                            null
+                                                                        ? HymechApiGroupGroup
+                                                                            .cRMDashboardCall
+                                                                            .protectedrevenue(
+                                                                              columnCRMDashboardResponse.jsonBody,
+                                                                            )
+                                                                            .toDouble()
+                                                                        : 0.0)),
                                                                     formatType:
                                                                         FormatType
                                                                             .compact,
@@ -2207,9 +2217,15 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                                                                     FFAppState().currencySymbol,
                                                                                                     formatNumber(
                                                                                                       functions.convertIntToString(functions.doubleToInteger(getJsonField(
-                                                                                                        stageItem,
-                                                                                                        r'''$.crm_leads_aggregate.aggregate.sum.expected_revenue''',
-                                                                                                      ))),
+                                                                                                                stageItem,
+                                                                                                                r'''$.crm_leads_aggregate.aggregate.sum.expected_revenue''',
+                                                                                                              ) !=
+                                                                                                              null
+                                                                                                          ? getJsonField(
+                                                                                                              stageItem,
+                                                                                                              r'''$.crm_leads_aggregate.aggregate.sum.expected_revenue''',
+                                                                                                            )
+                                                                                                          : 0.0)),
                                                                                                       formatType: FormatType.compact,
                                                                                                     )),
                                                                                                 '-',

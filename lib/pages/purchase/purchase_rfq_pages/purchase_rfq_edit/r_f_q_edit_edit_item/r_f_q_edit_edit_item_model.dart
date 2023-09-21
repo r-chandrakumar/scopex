@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/reusable_component/common_edit_product_search/common_edit_product_search_widget.dart';
+import '/tax_files/tax_component/tax_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,8 @@ class RFQEditEditItemModel extends FlutterFlowModel {
   // State field(s) for unit widget.
   TextEditingController? unitController;
   String? Function(BuildContext, String?)? unitControllerValidator;
+  // Model for TaxComponent component.
+  late TaxComponentModel taxComponentModel;
   // State field(s) for amount widget.
   TextEditingController? amountController;
   String? Function(BuildContext, String?)? amountControllerValidator;
@@ -58,6 +61,7 @@ class RFQEditEditItemModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
+    taxComponentModel = createModel(context, () => TaxComponentModel());
   }
 
   void dispose() {
@@ -66,6 +70,7 @@ class RFQEditEditItemModel extends FlutterFlowModel {
     productdescriptionController?.dispose();
     quantityController?.dispose();
     unitController?.dispose();
+    taxComponentModel.dispose();
     amountController?.dispose();
     subtotalController?.dispose();
   }

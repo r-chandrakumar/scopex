@@ -857,6 +857,9 @@ class _PurchaseRfqCreateNewWidgetState
                                         if ((_model.purchaseRfqCreateResult
                                                 ?.succeeded ??
                                             true)) {
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1500));
+
                                           context.pushNamed(
                                             'purchase_rfq_lists',
                                             queryParameters: {

@@ -1058,6 +1058,10 @@ class _DeliveryChellanCreatePageWidgetState
                                                         .deliveryChellanCreate
                                                         ?.succeeded ??
                                                     true)) {
+                                                  await Future.delayed(
+                                                      const Duration(
+                                                          milliseconds: 1500));
+
                                                   context.pushNamed(
                                                     'delivery_challen_list',
                                                     queryParameters: {

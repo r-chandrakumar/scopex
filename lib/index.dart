@@ -152,7 +152,7 @@ export '/pages/lead/lead_pages/lead_list/lead_opportunity_list/lead_opportunity_
     show LeadOpportunityListWidget;
 export '/pages/lead/lead_pages/lead_create/create_lead/create_lead_widget.dart'
     show CreateLeadWidget;
-export '/pages/purchase/purchase_rfq_pages/purchase_rfq_create/purchase_rfq_create_new/purchase_rfq_create_new_widget.dart'
+export '/pages/purchase/purchase_rfq_pages/purchase_rfq_create_new/purchase_rfq_create_new_widget.dart'
     show PurchaseRfqCreateNewWidget;
 export '/pages/auth/welcome/welcome_widget.dart' show WelcomeWidget;
 export '/pages/product_cataloge/product_details_new/product_details_new_widget.dart'

@@ -111,7 +111,7 @@ class _TasklogWidgetState extends State<TasklogWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   decoration: BoxDecoration(
-                    color: Color(0xFFDEE2E6),
+                    color: FlutterFlowTheme.of(context).firstboxcolor,
                   ),
                   child: Padding(
                     padding:
@@ -219,12 +219,7 @@ class _TasklogWidgetState extends State<TasklogWidget> {
                           );
                         }
                         return ListView.builder(
-                          padding: EdgeInsets.fromLTRB(
-                            0,
-                            15.0,
-                            0,
-                            0,
-                          ),
+                          padding: EdgeInsets.zero,
                           primary: false,
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
@@ -234,11 +229,12 @@ class _TasklogWidgetState extends State<TasklogWidget> {
                             return Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).hSLcolor,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 15.0, 20.0),
+                                    15.0, 20.0, 15.0, 20.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,

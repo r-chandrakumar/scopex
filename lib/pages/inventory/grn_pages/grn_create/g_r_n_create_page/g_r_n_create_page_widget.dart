@@ -1108,6 +1108,10 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                                   if ((_model.gRNCreate
                                                           ?.succeeded ??
                                                       true)) {
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds:
+                                                                1500));
                                                     if (Navigator.of(context)
                                                         .canPop()) {
                                                       context.pop();

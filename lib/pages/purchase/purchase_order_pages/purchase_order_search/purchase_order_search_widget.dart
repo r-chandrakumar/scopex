@@ -8,7 +8,6 @@ import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'purchase_order_search_model.dart';
 export 'purchase_order_search_model.dart';
@@ -113,9 +112,8 @@ class _PurchaseOrderSearchWidgetState extends State<PurchaseOrderSearchWidget> {
                               setState(() {
                                 _model.orderSearch = _model.textController.text;
                               });
-                              setState(() =>
-                                  _model.listViewPagingController?.refresh());
-                              await _model.waitForOnePageForListView();
+                              setState(() => _model.apiRequestCompleter = null);
+                              await _model.waitForApiRequestCompleted();
                             },
                           ),
                           obscureText: false,
@@ -171,10 +169,9 @@ class _PurchaseOrderSearchWidgetState extends State<PurchaseOrderSearchWidget> {
                                         _model.orderSearch =
                                             _model.textController.text;
                                       });
-                                      setState(() => _model
-                                          .listViewPagingController
-                                          ?.refresh());
-                                      await _model.waitForOnePageForListView();
+                                      setState(() =>
+                                          _model.apiRequestCompleter = null);
+                                      await _model.waitForApiRequestCompleted();
                                       setState(() {});
                                     },
                                     child: Icon(
@@ -219,113 +216,126 @@ class _PurchaseOrderSearchWidgetState extends State<PurchaseOrderSearchWidget> {
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
-          child: RefreshIndicator(
-            onRefresh: () async {
-              setState(() => _model.listViewPagingController?.refresh());
-              await _model.waitForOnePageForListView();
-            },
-            child: PagedListView<ApiPagingParams, dynamic>.separated(
-              pagingController: _model.setListViewController(
-                (nextPageMarker) =>
-                    SearchApiGroupGroup.purchaseOrderSearchCall.call(
-                  authToken: FFAppState().accessToken,
-                  partnerName: functions.emptyStringReturn(_model.orderSearch),
-                  domainUrl: FFAppState().DomainUrl,
-                  state: widget.state,
-                ),
-              ),
-              padding: EdgeInsets.fromLTRB(
-                0,
-                15.0,
-                0,
-                15.0,
-              ),
-              shrinkWrap: true,
-              reverse: false,
-              scrollDirection: Axis.vertical,
-              separatorBuilder: (_, __) => SizedBox(height: 10.0),
-              builderDelegate: PagedChildBuilderDelegate<dynamic>(
-                // Customize what your widget looks like when it's loading the first page.
-                firstPageProgressIndicatorBuilder: (_) => Center(
+          child: FutureBuilder<ApiCallResponse>(
+            future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
+                  ..complete(SearchApiGroupGroup.purchaseOrderSearchCall.call(
+                    authToken: FFAppState().accessToken,
+                    partnerName:
+                        functions.emptyStringReturn(_model.orderSearch),
+                    domainUrl: FFAppState().DomainUrl,
+                    state: widget.state,
+                  )))
+                .future,
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
                   child: LeadsshimmerWidget(),
-                ),
-                // Customize what your widget looks like when it's loading another page.
-                newPageProgressIndicatorBuilder: (_) => Center(
-                  child: LeadsshimmerWidget(),
-                ),
-                noItemsFoundIndicatorBuilder: (_) => Center(
-                  child: Image.asset(
-                    'assets/images/New_Project_(2).png',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                itemBuilder: (context, _, purchaseorderlistsIndex) {
-                  final purchaseorderlistsItem = _model
-                      .listViewPagingController!
-                      .itemList![purchaseorderlistsIndex];
-                  return InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      context.pushNamed(
-                        'purchase_order_view',
-                        queryParameters: {
-                          'name': serializeParam(
-                            getJsonField(
-                              purchaseorderlistsItem,
-                              r'''$.name''',
-                            ).toString(),
-                            ParamType.String,
-                          ),
-                          'id': serializeParam(
-                            getJsonField(
-                              purchaseorderlistsItem,
-                              r'''$.id''',
-                            ),
-                            ParamType.int,
-                          ),
-                        }.withoutNulls,
-                      );
+                );
+              }
+              final listViewPurchaseOrderSearchResponse = snapshot.data!;
+              return Builder(
+                builder: (context) {
+                  final purchaseorderlists =
+                      SearchApiGroupGroup.purchaseOrderSearchCall
+                              .purchaseordersearchapi(
+                                listViewPurchaseOrderSearchResponse.jsonBody,
+                              )
+                              ?.toList() ??
+                          [];
+                  if (purchaseorderlists.isEmpty) {
+                    return Center(
+                      child: Image.asset(
+                        'assets/images/New_Project_(2).png',
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  }
+                  return RefreshIndicator(
+                    onRefresh: () async {
+                      setState(() => _model.apiRequestCompleter = null);
+                      await _model.waitForApiRequestCompleted();
                     },
-                    child: wrapWithModel(
-                      model: _model.listPageContainerModels.getModel(
-                        purchaseorderlistsIndex.toString(),
-                        purchaseorderlistsIndex,
+                    child: ListView.separated(
+                      padding: EdgeInsets.fromLTRB(
+                        0,
+                        15.0,
+                        0,
+                        15.0,
                       ),
-                      updateCallback: () => setState(() {}),
-                      child: ListPageContainerWidget(
-                        key: Key(
-                          'Key5of_${purchaseorderlistsIndex.toString()}',
-                        ),
-                        status: getJsonField(
-                          purchaseorderlistsItem,
-                          r'''$.state''',
-                        ).toString(),
-                        number: getJsonField(
-                          purchaseorderlistsItem,
-                          r'''$.name''',
-                        ).toString(),
-                        date: getJsonField(
-                          purchaseorderlistsItem,
-                          r'''$.date_order''',
-                        ).toString(),
-                        partnername: getJsonField(
-                          purchaseorderlistsItem,
-                          r'''$.res_partner.name''',
-                        ).toString(),
-                        amount: getJsonField(
-                          purchaseorderlistsItem,
-                          r'''$.amount_total''',
-                        ),
-                        model: 'purchaseorder',
-                      ),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: purchaseorderlists.length,
+                      separatorBuilder: (_, __) => SizedBox(height: 10.0),
+                      itemBuilder: (context, purchaseorderlistsIndex) {
+                        final purchaseorderlistsItem =
+                            purchaseorderlists[purchaseorderlistsIndex];
+                        return InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'purchase_order_view',
+                              queryParameters: {
+                                'name': serializeParam(
+                                  getJsonField(
+                                    purchaseorderlistsItem,
+                                    r'''$.name''',
+                                  ).toString(),
+                                  ParamType.String,
+                                ),
+                                'id': serializeParam(
+                                  getJsonField(
+                                    purchaseorderlistsItem,
+                                    r'''$.id''',
+                                  ),
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: wrapWithModel(
+                            model: _model.listPageContainerModels.getModel(
+                              purchaseorderlistsIndex.toString(),
+                              purchaseorderlistsIndex,
+                            ),
+                            updateCallback: () => setState(() {}),
+                            child: ListPageContainerWidget(
+                              key: Key(
+                                'Key5of_${purchaseorderlistsIndex.toString()}',
+                              ),
+                              status: getJsonField(
+                                purchaseorderlistsItem,
+                                r'''$.state''',
+                              ).toString(),
+                              number: getJsonField(
+                                purchaseorderlistsItem,
+                                r'''$.name''',
+                              ).toString(),
+                              date: getJsonField(
+                                purchaseorderlistsItem,
+                                r'''$.date_order''',
+                              ).toString(),
+                              partnername: getJsonField(
+                                purchaseorderlistsItem,
+                                r'''$.res_partner.name''',
+                              ).toString(),
+                              amount: getJsonField(
+                                purchaseorderlistsItem,
+                                r'''$.amount_total''',
+                              ),
+                              model: 'purchaseorder',
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
-              ),
-            ),
+              );
+            },
           ),
         ),
       ],
