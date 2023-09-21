@@ -2040,7 +2040,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                 dateFrom: functions.convertDateFormatToSave(
                                     _model.datePicked3?.toString()),
                                 dateTo: functions.convertDateFormatToSave(
-                                    _model.datePicked2?.toString()),
+                                    _model.datePicked3?.toString()),
                               );
                               _shouldSetState = true;
                               if ((_model.halfLeavecheckRes?.succeeded ??
@@ -2057,24 +2057,25 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                           .call(
                                     authToken: FFAppState().accessToken,
                                     domainUrl: FFAppState().DomainUrl,
+                                    dateFrom: functions.convertDateFormatToSave(
+                                        _model.datePicked3?.toString()),
+                                    dateTo: functions.convertDateFormatToSave(
+                                        _model.datePicked3?.toString()),
                                     holidayStatusId:
                                         functions.changeStringToInt(
                                             _model.optionValuesValue),
-                                    dateFrom: functions.convertDateFormatToSave(
-                                        _model.datePicked3?.toString()),
-                                    privateName: _model.reasonController.text,
+                                    holidayType: 'employee',
                                     notes: _model.reasonController.text,
+                                    numberOfDays: 4.0,
+                                    privateName: _model.reasonController.text,
                                     requestDateFrom:
                                         functions.convertDateFormatToSave(
                                             _model.datePicked3?.toString()),
-                                    holidayType: 'employee',
-                                    requestDateFromPeriod: _model.aMorPMValue,
-                                    dateTo: functions.convertDateFormatToSave(
-                                        _model.datePicked3?.toString()),
                                     requestDateTo:
                                         functions.convertDateFormatToSave(
                                             _model.datePicked3?.toString()),
-                                    numberOfDays: 4.0,
+                                    requestDateFromPeriod: _model.aMorPMValue,
+                                    requestUnitHours: false,
                                     requestUnitHalf: true,
                                   );
                                   _shouldSetState = true;
@@ -2192,6 +2193,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                     requestHourTo:
                                         _model.toHourValue?.toString(),
                                     requestUnitHours: true,
+                                    requestUnitHalf: false,
                                   );
                                   _shouldSetState = true;
                                   if ((_model.permissionPostResult?.succeeded ??

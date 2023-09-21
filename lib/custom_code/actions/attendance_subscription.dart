@@ -10,12 +10,14 @@ import 'package:flutter/material.dart';
 
 import 'package:hasura_connect/hasura_connect.dart';
 
-Future attendanceSubscription(BuildContext context) async {
+Future attendanceSubscription() async {
   // Add your function code here!
   String domainUrl = FFAppState().DomainUrl;
-  String url = 'https://$domainUrl/v1/graphql';
-  HasuraConnect hasuraConnect = HasuraConnect(url);
-  String docSubscription = """
+  String authtoken = FFAppState().accessToken;
+  if (authtoken != "" || authtoken != 'null') {
+    String url = 'https://$domainUrl/v1/graphql';
+    HasuraConnect hasuraConnect = HasuraConnect(url);
+    String docSubscription = """
     subscription attendanceSubscription {
       hr_attendance(order_by: {id: desc}, where: {check_out: {_is_null: true}}) {
         check_in
@@ -25,12 +27,12 @@ Future attendanceSubscription(BuildContext context) async {
     }
 """;
 
-  Snapshot snapshot = await hasuraConnect.subscription(docSubscription);
-  snapshot.listen((data) {
-    print(data);
-  }).onError((err) {
-    print(err);
-  });
-
+    Snapshot snapshot = await hasuraConnect.subscription(docSubscription);
+    snapshot.listen((data) {
+      print(data);
+    }).onError((err) {
+      print(err);
+    });
+  }
 //change values of variables for PAGINATIONS
 }

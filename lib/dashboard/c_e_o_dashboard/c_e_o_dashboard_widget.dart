@@ -38,9 +38,7 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.attendanceSubscription(
-        context,
-      );
+      await actions.attendanceSubscription();
       _model.apiSwipe =
           await CommonApisGroupGroup.acitivitySwipeDateListCall.call(
         domainUrl: FFAppState().DomainUrl,

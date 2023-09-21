@@ -235,6 +235,8 @@ class _TaskStatusChangeWidgetState extends State<TaskStatusChangeWidget> {
                                 _shouldSetState = true;
                                 if ((_model.taskChangeStage?.succeeded ??
                                     true)) {
+                                  Navigator.pop(context);
+
                                   context.pushNamed(
                                     'TaskDetails',
                                     queryParameters: {

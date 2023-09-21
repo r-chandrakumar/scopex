@@ -96,13 +96,13 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             Navigator.pop(context);
-                            _model.saleEmail =
+                            _model.saleEmailResult =
                                 await CommonApisGroupGroup.saleEmailCall.call(
                               authToken: FFAppState().accessToken,
                               domainUrl: FFAppState().DomainUrl,
                               saleid: widget.id,
                             );
-                            if ((_model.saleEmail?.succeeded ?? true)) {
+                            if ((_model.saleEmailResult?.succeeded ?? true)) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -260,9 +260,9 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return AlertDialog(
-                                      title: Text('Delete Quotation'),
+                                      title: Text('Delete Confirmation'),
                                       content: Text(
-                                          'If  you Want Delete Quotation '),
+                                          'Do you want to delete the quotation?'),
                                       actions: [
                                         TextButton(
                                           onPressed: () => Navigator.pop(
@@ -315,7 +315,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Quotation Deleted',
+                                      'Quotation deleted successfully',
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -406,7 +406,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                             title:
                                                 Text('Convert to Sale Order'),
                                             content: Text(
-                                                'If you want convert to Sale Order?'),
+                                                'If you want to convert this quotaion to sale order?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -460,7 +460,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Sale Order Converted',
+                                        'Quotation converted to sale order successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .white,
@@ -468,8 +468,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       ),
                                       duration: Duration(milliseconds: 4000),
                                       backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
+                                          FlutterFlowTheme.of(context).success,
                                     ),
                                   );
                                 } else {
@@ -709,9 +708,9 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
-                                            title: Text('Cancelled'),
-                                            content:
-                                                Text('If you want to Cancel?'),
+                                            title: Text('Cancel Confirmation'),
+                                            content: Text(
+                                                'If you want to cancel this Quotation?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -1095,7 +1094,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                     duration: Duration(milliseconds: 4000),
                                     backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                        FlutterFlowTheme.of(context).success,
                                   ),
                                 );
                               } else {
@@ -1190,7 +1189,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '22puvhbj' /* Delivery chellan */,
+                                    '22puvhbj' /* Delivery challan */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -4433,397 +4432,31 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
             ),
           );
         } else if (widget.page == 'vendorbill') {
-          return Align(
-            alignment: AlignmentDirectional(1.00, 1.00),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
-              child: FutureBuilder<ApiCallResponse>(
-                future: AccountingApiGroupGroup.vendorBillViewCall.call(
-                  authToken: FFAppState().accessToken,
-                  domainUrl: FFAppState().DomainUrl,
-                  id: widget.id,
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return FABEmptyComponentShimmerWidget();
-                  }
-                  final vendorBillFabVendorBillViewResponse = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() !=
-                          'posted')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'vendor_bill_edit',
-                                  queryParameters: {
-                                    'id': serializeParam(
-                                      widget.id,
-                                      ParamType.int,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'e3qu03fs' /* Edit */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.mode_edit,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() !=
-                          'posted')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var _shouldSetState = false;
-                                var confirmDialogResponse = await showDialog<
-                                        bool>(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Delete Bill'),
-                                          content:
-                                              Text('If  you Want Delete Bill '),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, false),
-                                              child: Text('Cancel'),
-                                            ),
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, true),
-                                              child: Text('Confirm'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    ) ??
-                                    false;
-                                if (confirmDialogResponse) {
-                                  _model.vendordeleteconfirm =
-                                      await AccountingApiGroupGroup
-                                          .vendorBillDeleteCall
-                                          .call(
-                                    id: widget.id,
-                                    authToken: FFAppState().accessToken,
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  _shouldSetState = true;
-                                  if ((_model.vendordeleteconfirm?.succeeded ??
-                                      true)) {
-                                    context.pushNamed(
-                                      'Vendorbill_list_page',
-                                      queryParameters: {
-                                        'state': serializeParam(
-                                          'draft',
-                                          ParamType.String,
-                                        ),
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Deleted',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
-
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                } else {
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-
-                                if (_shouldSetState) setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'sf3baub2' /* Delete */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.delete_outline,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() ==
-                          'draft')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse =
-                                    await showDialog<bool>(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title: Text('Convert to Bill'),
-                                              content: Text(
-                                                  'If you want convert to Bill ?'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          false),
-                                                  child: Text('Cancel'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          true),
-                                                  child: Text('Confirm'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        ) ??
-                                        false;
-                                if (confirmDialogResponse) {
-                                  _model.invoiceConvertResponseCopy =
-                                      await AccountingApiGroupGroup
-                                          .convertToInvoiceCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    state: 'posted',
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  if ((_model.invoiceConvertResponseCopy
-                                          ?.succeeded ??
-                                      true)) {
-                                    Navigator.pop(context);
-
-                                    context.pushNamed(
-                                      'Vendorbill_list_page',
-                                      queryParameters: {
-                                        'state': serializeParam(
-                                          'posted',
-                                          ParamType.String,
-                                        ),
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Bill Converted',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Something went wrong',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
-                                } else {
-                                  Navigator.pop(context);
-                                }
-
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '564tihks' /* Convert To Bill */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.sync,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
+          return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+            child: FutureBuilder<ApiCallResponse>(
+              future: AccountingApiGroupGroup.vendorBillViewCall.call(
+                authToken: FFAppState().accessToken,
+                domainUrl: FFAppState().DomainUrl,
+                id: widget.id,
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return FABEmptyComponentShimmerWidget();
+                }
+                final vendorBillFabVendorBillViewResponse = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() !=
+                        'posted')
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -4835,87 +4468,14 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                useSafeArea: true,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: PDFViewWidget(
-                                      pdfurl: functions.getDownloadUrl(
-                                          FFAppState().WebUrl,
-                                          'invoice',
-                                          widget.id)!,
-                                      title: widget.name!,
-                                      shareFile: true,
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'caf785bg' /* View PDF */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                              context.pushNamed(
+                                'vendor_bill_edit',
+                                queryParameters: {
+                                  'id': serializeParam(
+                                    widget.id,
+                                    ParamType.int,
                                   ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Icon(
-                                      Icons.picture_as_pdf_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 30.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await actions.downloadPdfFromUrl(
-                                context,
-                                functions.getDownloadUrl(
-                                    FFAppState().WebUrl, 'invoice', widget.id),
-                                '${widget.name}.pdf',
+                                }.withoutNulls,
                               );
                             },
                             child: Row(
@@ -4927,7 +4487,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'rm1xvu8t' /* Download */,
+                                      'e3qu03fs' /* Edit */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -4948,7 +4508,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Icon(
-                                    Icons.file_download,
+                                    Icons.mode_edit,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 25.0,
@@ -4959,427 +4519,855 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           ),
                         ),
                       ),
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() ==
-                          'cancel')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse =
-                                    await showDialog<bool>(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title: Text('Reset to Draft'),
-                                              content: Text(
-                                                  'If you want Reset to Draft ?'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          false),
-                                                  child: Text('Cancel'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          true),
-                                                  child: Text('Confirm'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        ) ??
-                                        false;
-                                if (confirmDialogResponse) {
-                                  _model.vendorbillConverttoDraftRes =
-                                      await AccountingApiGroupGroup
-                                          .convertToInvoiceCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    state: 'draft',
-                                    domainUrl: FFAppState().DomainUrl,
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() !=
+                        'posted')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var _shouldSetState = false;
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Delete Bill'),
+                                            content: Text(
+                                                'If  you Want Delete Bill '),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.vendordeleteconfirm =
+                                    await AccountingApiGroupGroup
+                                        .vendorBillDeleteCall
+                                        .call(
+                                  id: widget.id,
+                                  authToken: FFAppState().accessToken,
+                                  domainUrl: FFAppState().DomainUrl,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.vendordeleteconfirm?.succeeded ??
+                                    true)) {
+                                  context.pushNamed(
+                                    'Vendorbill_list_page',
+                                    queryParameters: {
+                                      'state': serializeParam(
+                                        'draft',
+                                        ParamType.String,
+                                      ),
+                                      'startdate': serializeParam(
+                                        functions.beforeOneMonthDate(
+                                            FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'enddate': serializeParam(
+                                        functions.getTodayDate(),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
                                   );
-                                  if ((_model.vendorbillConverttoDraftRes
-                                          ?.succeeded ??
-                                      true)) {
-                                    Navigator.pop(context);
 
-                                    context.pushNamed(
-                                      'Vendorbill_list_page',
-                                      queryParameters: {
-                                        'state': serializeParam(
-                                          'draft',
-                                          ParamType.String,
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Deleted',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                         ),
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Drafted',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
                                       ),
-                                    );
-                                  } else {
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Failed to Reset Draft...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  if (_shouldSetState) setState(() {});
+                                  return;
                                 }
 
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '39hf0vw4' /* Reset to Draft */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                if (_shouldSetState) setState(() {});
+                                return;
+                              } else {
+                                if (_shouldSetState) setState(() {});
+                                return;
+                              }
+
+                              if (_shouldSetState) setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'sf3baub2' /* Delete */,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                   ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.draw,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
                                   ),
-                                ],
-                              ),
+                                  child: Icon(
+                                    Icons.delete_outline,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() !=
-                          'cancel')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                var confirmDialogResponse = await showDialog<
-                                        bool>(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return AlertDialog(
-                                          title: Text('Cancel'),
-                                          content:
-                                              Text('If you want to  Cancel ?'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, false),
-                                              child: Text('Cancel'),
-                                            ),
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext, true),
-                                              child: Text('Confirm'),
-                                            ),
-                                          ],
-                                        );
-                                      },
-                                    ) ??
-                                    false;
-                                if (confirmDialogResponse) {
-                                  _model.vendorbillConverttoCancelRes =
-                                      await AccountingApiGroupGroup
-                                          .convertToInvoiceCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    id: widget.id,
-                                    state: 'cancel',
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  if ((_model.vendorbillConverttoCancelRes
-                                          ?.succeeded ??
-                                      true)) {
-                                    Navigator.pop(context);
-
-                                    context.pushNamed(
-                                      'Vendorbill_list_page',
-                                      queryParameters: {
-                                        'state': serializeParam(
-                                          'cancel',
-                                          ParamType.String,
-                                        ),
-                                        'startdate': serializeParam(
-                                          functions.beforeOneMonthDate(
-                                              FFAppState().initialMonth),
-                                          ParamType.String,
-                                        ),
-                                        'enddate': serializeParam(
-                                          functions.getTodayDate(),
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Cancelled',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  } else {
-                                    Navigator.pop(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Failed to Cancel...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                  }
-                                }
-
-                                setState(() {});
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '16ifxppc' /* Cancel */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.cancel_presentation_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      if (AccountingApiGroupGroup.vendorBillViewCall
-                              .status(
-                                vendorBillFabVendorBillViewResponse.jsonBody,
-                              )
-                              .toString() ==
-                          'posted')
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  useSafeArea: true,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.5,
-                                        child: InvoiceConversionWidget(),
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'a91r2o7a' /* Convert To Payment */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.currency_rupee_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            width: 55.0,
-                            height: 55.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF4B39EF),
-                              borderRadius: BorderRadius.circular(50.0),
-                            ),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(
-                                Icons.close,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 25.0,
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
-                    ],
-                  );
-                },
-              ),
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() ==
+                        'draft')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Convert to Bill'),
+                                            content: Text(
+                                                'If you want convert to Bill ?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.invoiceConvertResponseCopy =
+                                    await AccountingApiGroupGroup
+                                        .convertToInvoiceCall
+                                        .call(
+                                  authToken: FFAppState().accessToken,
+                                  id: widget.id,
+                                  state: 'posted',
+                                  domainUrl: FFAppState().DomainUrl,
+                                );
+                                if ((_model.invoiceConvertResponseCopy
+                                        ?.succeeded ??
+                                    true)) {
+                                  Navigator.pop(context);
+
+                                  context.pushNamed(
+                                    'Vendorbill_list_page',
+                                    queryParameters: {
+                                      'state': serializeParam(
+                                        'posted',
+                                        ParamType.String,
+                                      ),
+                                      'startdate': serializeParam(
+                                        functions.beforeOneMonthDate(
+                                            FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'enddate': serializeParam(
+                                        functions.getTodayDate(),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Bill Converted successfully',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Something went wrong',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
+                              } else {
+                                Navigator.pop(context);
+                              }
+
+                              setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '564tihks' /* Convert To Bill */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.sync,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              useSafeArea: true,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PDFViewWidget(
+                                    pdfurl: functions.getDownloadUrl(
+                                        FFAppState().WebUrl,
+                                        'invoice',
+                                        widget.id)!,
+                                    title: widget.name!,
+                                    shareFile: true,
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'caf785bg' /* View PDF */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: Icon(
+                                    Icons.picture_as_pdf_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 30.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await actions.downloadPdfFromUrl(
+                              context,
+                              functions.getDownloadUrl(
+                                  FFAppState().WebUrl, 'invoice', widget.id),
+                              '${widget.name}.pdf',
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'rm1xvu8t' /* Download */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.file_download,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() ==
+                        'cancel')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Reset to Draft'),
+                                            content: Text(
+                                                'If you want Reset to Draft ?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.vendorbillConverttoDraftRes =
+                                    await AccountingApiGroupGroup
+                                        .convertToInvoiceCall
+                                        .call(
+                                  authToken: FFAppState().accessToken,
+                                  id: widget.id,
+                                  state: 'draft',
+                                  domainUrl: FFAppState().DomainUrl,
+                                );
+                                if ((_model.vendorbillConverttoDraftRes
+                                        ?.succeeded ??
+                                    true)) {
+                                  Navigator.pop(context);
+
+                                  context.pushNamed(
+                                    'Vendorbill_list_page',
+                                    queryParameters: {
+                                      'state': serializeParam(
+                                        'draft',
+                                        ParamType.String,
+                                      ),
+                                      'startdate': serializeParam(
+                                        functions.beforeOneMonthDate(
+                                            FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'enddate': serializeParam(
+                                        functions.getTodayDate(),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Drafted',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Failed to Reset Draft...',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
+                              }
+
+                              setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '39hf0vw4' /* Reset to Draft */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.draw,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() !=
+                        'cancel')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('Cancel'),
+                                            content: Text(
+                                                'If you want to  Cancel ?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                _model.vendorbillConverttoCancelRes =
+                                    await AccountingApiGroupGroup
+                                        .convertToInvoiceCall
+                                        .call(
+                                  authToken: FFAppState().accessToken,
+                                  id: widget.id,
+                                  state: 'cancel',
+                                  domainUrl: FFAppState().DomainUrl,
+                                );
+                                if ((_model.vendorbillConverttoCancelRes
+                                        ?.succeeded ??
+                                    true)) {
+                                  Navigator.pop(context);
+
+                                  context.pushNamed(
+                                    'Vendorbill_list_page',
+                                    queryParameters: {
+                                      'state': serializeParam(
+                                        'cancel',
+                                        ParamType.String,
+                                      ),
+                                      'startdate': serializeParam(
+                                        functions.beforeOneMonthDate(
+                                            FFAppState().initialMonth),
+                                        ParamType.String,
+                                      ),
+                                      'enddate': serializeParam(
+                                        functions.getTodayDate(),
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Cancelled',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                } else {
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Failed to Cancel...',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
+                              }
+
+                              setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '16ifxppc' /* Cancel */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.cancel_presentation_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (AccountingApiGroupGroup.vendorBillViewCall
+                            .status(
+                              vendorBillFabVendorBillViewResponse.jsonBody,
+                            )
+                            .toString() ==
+                        'posted')
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                useSafeArea: true,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.5,
+                                      child: InvoiceConversionWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'a91r2o7a' /* Convert To Payment */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 55.0,
+                                  height: 55.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(50.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.currency_rupee_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 55.0,
+                          height: 55.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF4B39EF),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 25.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
             ),
           );
         } else if (widget.page == 'payment') {

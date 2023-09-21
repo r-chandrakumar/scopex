@@ -21,6 +21,7 @@ void main() async {
   await actions.inAppUpdateRequest();
   await actions.lockOrientation();
   await actions.checkInternetConnection();
+  await actions.attendanceSubscription();
   // End initial custom actions code
 
   await FlutterFlowTheme.initialize();

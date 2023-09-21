@@ -95,7 +95,7 @@ class _DeliveryChellanCreatePageWidgetState
             alignment: AlignmentDirectional(-1.00, 0.00),
             child: Text(
               FFLocalizations.of(context).getText(
-                'ihgtllb0' /* Delivery Chellan Create */,
+                'ihgtllb0' /* Delivery Challan Create */,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
@@ -1059,7 +1059,14 @@ class _DeliveryChellanCreatePageWidgetState
                                                         ?.succeeded ??
                                                     true)) {
                                                   context.pushNamed(
-                                                      'delivery_challen_list');
+                                                    'delivery_challen_list',
+                                                    queryParameters: {
+                                                      'state': serializeParam(
+                                                        'assigned',
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
 
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(

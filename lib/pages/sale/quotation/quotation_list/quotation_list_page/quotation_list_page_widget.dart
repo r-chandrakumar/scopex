@@ -9,7 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
-import '/pages/sale/quotation/quotation_list/filter_quotations/filter_quotations_widget.dart';
+import '/pages/sale/quotation/filter_quotations/filter_quotations_widget.dart';
 import '/pages/sale/quotation/quotation_search/quotation_search_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';

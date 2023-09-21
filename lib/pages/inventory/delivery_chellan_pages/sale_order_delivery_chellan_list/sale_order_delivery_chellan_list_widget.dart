@@ -138,7 +138,7 @@ class _SaleOrderDeliveryChellanListWidgetState
             alignment: AlignmentDirectional(-1.00, 0.00),
             child: Text(
               FFLocalizations.of(context).getText(
-                '6wefxrzt' /* Delivery Challen List */,
+                '6wefxrzt' /* Delivery Challan List */,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',

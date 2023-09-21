@@ -3826,7 +3826,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // delivery_challen_list
   {
     'qryzwwcs': {
-      'en': 'Delivery Challen List',
+      'en': 'Delivery Challan List',
       'ta': '',
     },
     'xks3r32h': {
@@ -5072,7 +5072,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'ihgtllb0': {
-      'en': 'Delivery Chellan Create',
+      'en': 'Delivery Challan Create',
       'ta': '',
     },
     'q6b0mlcz': {
@@ -6426,7 +6426,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Sale_order_delivery_chellan_list
   {
     '6wefxrzt': {
-      'en': 'Delivery Challen List',
+      'en': 'Delivery Challan List',
       'ta': '',
     },
     'jn9ewhp7': {
@@ -9025,7 +9025,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     '22puvhbj': {
-      'en': 'Delivery chellan',
+      'en': 'Delivery challan',
       'ta': '',
     },
     '4hnbomtw': {

@@ -8077,6 +8077,11 @@ class PurchaseOrderLineProductDetailCall {
   dynamic purchasetaxJson(dynamic response) => getJsonField(
         response,
         r'''$.purchase_order_line[:].account_tax_purchase_order_line_rels''',
+        true,
+      );
+  dynamic orderLineData(dynamic response) => getJsonField(
+        response,
+        r'''$.purchase_order_line[:]''',
       );
 }
 

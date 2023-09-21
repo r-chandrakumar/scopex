@@ -23,7 +23,7 @@ class CommonFabComponentModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (Sale Email)] action in Row widget.
-  ApiCallResponse? saleEmail;
+  ApiCallResponse? saleEmailResult;
   // Stores action output result for [Backend Call - API (Sale Order Delete)] action in Row widget.
   ApiCallResponse? deleteconfirmCopy;
   // Stores action output result for [Backend Call - API (Convert To Sale Order)] action in Row widget.

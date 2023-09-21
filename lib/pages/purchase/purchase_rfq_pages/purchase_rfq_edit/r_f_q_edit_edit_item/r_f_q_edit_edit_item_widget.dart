@@ -113,7 +113,7 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
               0.0,
               0,
               PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                  .purchasetaxJson(
+                  .orderLineData(
                 (_model.orderLineProductDataResponse?.jsonBody ?? ''),
               ),
               'purchase')!;
@@ -128,7 +128,7 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                   double.tryParse(_model.subtotalController.text),
                   'tax',
                   PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                      .purchasetaxJson(
+                      .orderLineData(
                     (_model.orderLineProductDataResponse?.jsonBody ?? ''),
                   ),
                   'update',
@@ -138,14 +138,14 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                   double.tryParse(_model.subtotalController.text),
                   'total',
                   PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                      .purchasetaxJson(
+                      .orderLineData(
                     (_model.orderLineProductDataResponse?.jsonBody ?? ''),
                   ),
                   'update',
                   'purchase'),
               0,
               PurchaseApiGroupGroup.purchaseOrderLineProductDetailCall
-                  .purchasetaxJson(
+                  .orderLineData(
                 (_model.orderLineProductDataResponse?.jsonBody ?? ''),
               ),
               'update')!;
@@ -532,7 +532,7 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                                                     0,
                                                     PurchaseApiGroupGroup
                                                         .purchaseOrderLineProductDetailCall
-                                                        .purchasetaxJson(
+                                                        .orderLineData(
                                                       (_model.orderLineProductDataResponse
                                                               ?.jsonBody ??
                                                           ''),
@@ -846,7 +846,7 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                                                     0,
                                                     PurchaseApiGroupGroup
                                                         .purchaseOrderLineProductDetailCall
-                                                        .purchasetaxJson(
+                                                        .orderLineData(
                                                       (_model.orderLineProductDataResponse
                                                               ?.jsonBody ??
                                                           ''),

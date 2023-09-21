@@ -144,7 +144,7 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
             alignment: AlignmentDirectional(-1.00, 0.00),
             child: Text(
               FFLocalizations.of(context).getText(
-                'qryzwwcs' /* Delivery Challen List */,
+                'qryzwwcs' /* Delivery Challan List */,
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
@@ -216,11 +216,8 @@ class _DeliveryChallenListWidgetState extends State<DeliveryChallenListWidget> {
                                 .requestFocus(_model.unfocusNode),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 0.5,
-                                child: DeliverychallanFilterComponentWidget(
-                                  state: widget.state!,
-                                ),
+                              child: DeliverychallanFilterComponentWidget(
+                                state: widget.state!,
                               ),
                             ),
                           );

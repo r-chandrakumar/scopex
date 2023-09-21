@@ -106,7 +106,7 @@ class CreateLeadModel extends FlutterFlowModel {
       );
     }
 
-    if (!RegExp('^(0|[1-9][0-9]?|100)\$').hasMatch(val)) {
+    if (!RegExp('^(?!99\$)([1-9]\\d{2,})\$').hasMatch(val)) {
       return FFLocalizations.of(context).getText(
         '049bojtg' /* Percentage must between 1 to 1... */,
       );
