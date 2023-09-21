@@ -321,7 +321,7 @@ class _CommonCreateProductSearchWidgetState
                                               child: Text(
                                                 getJsonField(
                                                   productLIstItem,
-                                                  r'''$.product_template.name''',
+                                                  r'''$.product_display''',
                                                 ).toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)

@@ -796,6 +796,48 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                         );
                                         return;
                                       }
+                                      if (_model.datePicked1 == null) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Quotation Date Required',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      if (_model.datePicked2 == null) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Due Date Required',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        return;
+                                      }
                                       if (getJsonField(
                                             FFAppState().CustomerSearch,
                                             r'''$.id''',
@@ -879,6 +921,8 @@ class _QuotationCreatePageWidgetState extends State<QuotationCreatePageWidget> {
                                           if ((_model.saleOrderCreateResult
                                                   ?.succeeded ??
                                               true)) {
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 1500));
                                             if (Navigator.of(context)
                                                 .canPop()) {
                                               context.pop();

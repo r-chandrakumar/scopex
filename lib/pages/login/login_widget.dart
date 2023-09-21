@@ -1470,6 +1470,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           context.pushNamed(
                                                               'CEO_Dashboard');
 
+                                                          await actions
+                                                              .attendanceSubscription();
                                                           if (isAndroid ==
                                                               true) {
                                                             if (FFAppState()

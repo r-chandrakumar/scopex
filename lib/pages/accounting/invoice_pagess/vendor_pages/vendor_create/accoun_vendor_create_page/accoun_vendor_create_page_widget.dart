@@ -898,6 +898,8 @@ class _AccounVendorCreatePageWidgetState
                                         );
                                         if ((_model.vendorCreate?.succeeded ??
                                             true)) {
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1500));
                                           if (Navigator.of(context).canPop()) {
                                             context.pop();
                                           }

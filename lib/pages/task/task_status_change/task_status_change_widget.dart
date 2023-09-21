@@ -236,7 +236,9 @@ class _TaskStatusChangeWidgetState extends State<TaskStatusChangeWidget> {
                                 if ((_model.taskChangeStage?.succeeded ??
                                     true)) {
                                   Navigator.pop(context);
-
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
                                   context.pushNamed(
                                     'TaskDetails',
                                     queryParameters: {
@@ -258,9 +260,6 @@ class _TaskStatusChangeWidgetState extends State<TaskStatusChangeWidget> {
                                     },
                                   );
 
-                                  setState(
-                                      () => _model.apiRequestCompleter = null);
-                                  await _model.waitForApiRequestCompleted();
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(

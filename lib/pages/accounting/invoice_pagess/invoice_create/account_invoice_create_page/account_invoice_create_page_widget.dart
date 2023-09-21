@@ -903,6 +903,9 @@ class _AccountInvoiceCreatePageWidgetState
                                         );
                                         if ((_model.invoiceCreate?.succeeded ??
                                             true)) {
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1500));
+
                                           context.pushNamed(
                                             'invoice_list_page',
                                             queryParameters: {
