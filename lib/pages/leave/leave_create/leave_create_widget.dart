@@ -386,7 +386,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                           ],
                         ),
                       ),
-                      if (_model.optionValuesValue == '6')
+                      if (_model.optionValuesValue != '6')
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 15.0),
@@ -425,7 +425,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                           });
                                         } else {
                                           setState(() {
-                                            _model.leavetype = 'permission';
+                                            _model.leavetype = 'leave';
                                           });
                                         }
                                       },

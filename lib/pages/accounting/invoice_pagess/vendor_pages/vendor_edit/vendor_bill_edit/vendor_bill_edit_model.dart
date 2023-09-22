@@ -1,12 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
-import '/components/edit_view_product_line_items_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/reusable_component/common_edit_product_search/common_edit_product_search_widget.dart';
+import '/reusable_component/edit_view_product_line_items/edit_view_product_line_items_widget.dart';
 import '/search_components/supplier_search_component/supplier_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;

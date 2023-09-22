@@ -103,54 +103,6 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                   double.tryParse(_model.amountController.text))!
               .toString();
         });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'update',
-              0,
-              'null',
-              0.0,
-              0.0,
-              0.0,
-              0,
-              AccountingApiGroupGroup.accountingLineProductDetailsCall
-                  .accountMoveLine(
-                (_model.moveLineInvoiceDetailRes?.jsonBody ?? ''),
-              ),
-              'invoice')!;
-        });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'tax_total',
-              0,
-              'null',
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'tax',
-                  AccountingApiGroupGroup.accountingLineProductDetailsCall
-                      .accountMoveLine(
-                    (_model.moveLineInvoiceDetailRes?.jsonBody ?? ''),
-                  ),
-                  'invoice',
-                  'purchase'),
-              0.0,
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'total',
-                  AccountingApiGroupGroup.accountingLineProductDetailsCall
-                      .accountMoveLine(
-                    (_model.moveLineInvoiceDetailRes?.jsonBody ?? ''),
-                  ),
-                  'update',
-                  'invoice'),
-              0,
-              AccountingApiGroupGroup.accountingLineProductDetailsCall
-                  .accountMoveLine(
-                (_model.moveLineInvoiceDetailRes?.jsonBody ?? ''),
-              ),
-              'update')!;
-        });
       }
     });
 
@@ -197,10 +149,19 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                 children: [
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                    child: wrapWithModel(
-                      model: _model.backButttonComponentModel,
-                      updateCallback: () => setState(() {}),
-                      child: BackButttonComponentWidget(),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        Navigator.pop(context);
+                      },
+                      child: wrapWithModel(
+                        model: _model.backButttonComponentModel,
+                        updateCallback: () => setState(() {}),
+                        child: BackButttonComponentWidget(),
+                      ),
                     ),
                   ),
                   Flexible(

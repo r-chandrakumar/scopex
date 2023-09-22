@@ -229,11 +229,119 @@ class _EditViewProductLineItemsWidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    Navigator.pop(context);
                                     FFAppState().update(() {
                                       FFAppState().taxJson = null;
                                     });
                                     if (widget.page == 'invoice') {
+                                      _model.moveLineItemInvoiceDetailRes =
+                                          await AccountingApiGroupGroup
+                                              .accountingLineProductDetailsCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                        eq: getJsonField(
+                                          editItemProductListItem,
+                                          r'''$.line_id''',
+                                        ),
+                                      );
+                                      if ((_model.moveLineItemInvoiceDetailRes
+                                              ?.succeeded ??
+                                          true)) {
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'update',
+                                                  0,
+                                                  'null',
+                                                  0.0,
+                                                  0.0,
+                                                  0.0,
+                                                  0,
+                                                  AccountingApiGroupGroup
+                                                      .accountingLineProductDetailsCall
+                                                      .accountMoveLine(
+                                                    (_model.moveLineItemInvoiceDetailRes
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'invoice')!;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'tax_total',
+                                                  0,
+                                                  'null',
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .quantity(
+                                                                (_model.moveLineItemInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .priceperUnit(
+                                                                (_model.moveLineItemInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'tax',
+                                                      AccountingApiGroupGroup
+                                                          .accountingLineProductDetailsCall
+                                                          .accountMoveLine(
+                                                        (_model.moveLineItemInvoiceDetailRes
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'invoice'),
+                                                  0.0,
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .quantity(
+                                                                (_model.moveLineItemInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .priceperUnit(
+                                                                (_model.moveLineItemInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'total',
+                                                      AccountingApiGroupGroup
+                                                          .accountingLineProductDetailsCall
+                                                          .accountMoveLine(
+                                                        (_model.moveLineItemInvoiceDetailRes
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'invoice'),
+                                                  0,
+                                                  AccountingApiGroupGroup
+                                                      .accountingLineProductDetailsCall
+                                                      .accountMoveLine(
+                                                    (_model.moveLineItemInvoiceDetailRes
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'update')!;
+                                        });
+                                      }
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
@@ -255,6 +363,115 @@ class _EditViewProductLineItemsWidgetState
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'vendorbill') {
+                                      _model.moveLineInvoiceDetailRes =
+                                          await AccountingApiGroupGroup
+                                              .accountingLineProductDetailsCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                        eq: getJsonField(
+                                          editItemProductListItem,
+                                          r'''$.line_id''',
+                                        ),
+                                      );
+                                      if ((_model.moveLineInvoiceDetailRes
+                                              ?.succeeded ??
+                                          true)) {
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'update',
+                                                  0,
+                                                  'null',
+                                                  0.0,
+                                                  0.0,
+                                                  0.0,
+                                                  0,
+                                                  AccountingApiGroupGroup
+                                                      .accountingLineProductDetailsCall
+                                                      .accountMoveLine(
+                                                    (_model.moveLineInvoiceDetailRes
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'invoice')!;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'tax_total',
+                                                  0,
+                                                  'null',
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .quantity(
+                                                                (_model.moveLineInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .priceperUnit(
+                                                                (_model.moveLineInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'tax',
+                                                      AccountingApiGroupGroup
+                                                          .accountingLineProductDetailsCall
+                                                          .accountMoveLine(
+                                                        (_model.moveLineInvoiceDetailRes
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'invoice'),
+                                                  0.0,
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .quantity(
+                                                                (_model.moveLineInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          AccountingApiGroupGroup
+                                                              .accountingLineProductDetailsCall
+                                                              .priceperUnit(
+                                                                (_model.moveLineInvoiceDetailRes
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'total',
+                                                      AccountingApiGroupGroup
+                                                          .accountingLineProductDetailsCall
+                                                          .accountMoveLine(
+                                                        (_model.moveLineInvoiceDetailRes
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'invoice'),
+                                                  0,
+                                                  AccountingApiGroupGroup
+                                                      .accountingLineProductDetailsCall
+                                                      .accountMoveLine(
+                                                    (_model.moveLineInvoiceDetailRes
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'update')!;
+                                        });
+                                      }
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
@@ -317,41 +534,63 @@ class _EditViewProductLineItemsWidgetState
                                                   'tax_total',
                                                   0,
                                                   'null',
-                                                  functions.findSubTotal(
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          PurchaseApiGroupGroup
+                                                              .purchaseOrderLineProductDetailCall
+                                                              .productUOMQty(
+                                                                (_model.orderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          PurchaseApiGroupGroup
+                                                              .purchaseOrderLineProductDetailCall
+                                                              .pricePerUnit(
+                                                                (_model.orderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'tax',
                                                       PurchaseApiGroupGroup
                                                           .purchaseOrderLineProductDetailCall
-                                                          .productUOMQty(
-                                                            (_model.orderLineProductDataResponse
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          .toDouble(),
-                                                      PurchaseApiGroupGroup
-                                                          .purchaseOrderLineProductDetailCall
-                                                          .pricePerUnit(
-                                                            (_model.orderLineProductDataResponse
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          .toDouble()),
+                                                          .orderLineData(
+                                                        (_model.orderLineProductDataResponse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'purchase'),
                                                   0.0,
-                                                  functions.findSubTotal(
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          PurchaseApiGroupGroup
+                                                              .purchaseOrderLineProductDetailCall
+                                                              .productUOMQty(
+                                                                (_model.orderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          PurchaseApiGroupGroup
+                                                              .purchaseOrderLineProductDetailCall
+                                                              .pricePerUnit(
+                                                                (_model.orderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'total',
                                                       PurchaseApiGroupGroup
                                                           .purchaseOrderLineProductDetailCall
-                                                          .productUOMQty(
-                                                            (_model.orderLineProductDataResponse
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          .toDouble(),
-                                                      PurchaseApiGroupGroup
-                                                          .purchaseOrderLineProductDetailCall
-                                                          .pricePerUnit(
-                                                            (_model.orderLineProductDataResponse
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )
-                                                          .toDouble()),
+                                                          .orderLineData(
+                                                        (_model.orderLineProductDataResponse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'purchase'),
                                                   0,
                                                   PurchaseApiGroupGroup
                                                       .purchaseOrderLineProductDetailCall
@@ -384,6 +623,116 @@ class _EditViewProductLineItemsWidgetState
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     } else if (widget.page == 'quote') {
+                                      _model.quoteOrderLineProductDataResponse =
+                                          await SalesApiGroupGroup
+                                              .saleOrderLineProductDetailCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                        eq: getJsonField(
+                                          editItemProductListItem,
+                                          r'''$.line_id''',
+                                        ),
+                                      );
+                                      if ((_model
+                                              .quoteOrderLineProductDataResponse
+                                              ?.succeeded ??
+                                          true)) {
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'update',
+                                                  0,
+                                                  'null',
+                                                  0.0,
+                                                  0.0,
+                                                  0.0,
+                                                  0,
+                                                  SalesApiGroupGroup
+                                                      .saleOrderLineProductDetailCall
+                                                      .saleorderList(
+                                                    (_model.quoteOrderLineProductDataResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'sales')!;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().taxJson =
+                                              functions.taxjson(
+                                                  FFAppState().taxJson,
+                                                  'tax_total',
+                                                  0,
+                                                  'null',
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          SalesApiGroupGroup
+                                                              .saleOrderLineProductDetailCall
+                                                              .productUomQty(
+                                                                (_model.quoteOrderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          SalesApiGroupGroup
+                                                              .saleOrderLineProductDetailCall
+                                                              .pricePerUnit(
+                                                                (_model.quoteOrderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'tax',
+                                                      SalesApiGroupGroup
+                                                          .saleOrderLineProductDetailCall
+                                                          .saleorderList(
+                                                        (_model.quoteOrderLineProductDataResponse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'sale'),
+                                                  0.0,
+                                                  functions.findTotalamount(
+                                                      functions.findSubTotal(
+                                                          SalesApiGroupGroup
+                                                              .saleOrderLineProductDetailCall
+                                                              .productUomQty(
+                                                                (_model.quoteOrderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble(),
+                                                          SalesApiGroupGroup
+                                                              .saleOrderLineProductDetailCall
+                                                              .pricePerUnit(
+                                                                (_model.quoteOrderLineProductDataResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )
+                                                              .toDouble()),
+                                                      'total',
+                                                      SalesApiGroupGroup
+                                                          .saleOrderLineProductDetailCall
+                                                          .saleorderList(
+                                                        (_model.quoteOrderLineProductDataResponse
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
+                                                      'update',
+                                                      'sale'),
+                                                  0,
+                                                  SalesApiGroupGroup
+                                                      .saleOrderLineProductDetailCall
+                                                      .saleorderList(
+                                                    (_model.quoteOrderLineProductDataResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  'update')!;
+                                        });
+                                      }
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,

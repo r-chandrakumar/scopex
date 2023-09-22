@@ -1646,76 +1646,107 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                     }
                                     if (_model.typeCustomerValue! ||
                                         _model.typeVendorValue!) {
-                                      _model.contactCreate =
-                                          await ContactApiGroupGroup
-                                              .contactsCreateCall
-                                              .call(
-                                        vat: _model.gstController.text,
-                                        street: _model.addressController.text,
-                                        zip: _model.pinCodeController.text,
-                                        mobile:
-                                            _model.mobileNumberController.text,
-                                        email: _model.emailTextController.text,
-                                        website:
-                                            _model.websiteTextController.text,
-                                        supplierRank:
-                                            _model.typeVendorValue! ? 1 : 0,
-                                        customerRank:
-                                            _model.typeCustomerValue! ? 1 : 0,
-                                        stateId: getJsonField(
-                                          FFAppState().StateSearch,
-                                          r'''$.id''',
-                                        ),
-                                        countryId: functions
-                                            .changeStringToInt(getJsonField(
-                                          FFAppState().CountrySearch,
-                                          r'''$.id''',
-                                        ).toString()),
-                                        authToken: FFAppState().accessToken,
-                                        domainUrl: FFAppState().DomainUrl,
-                                        name: _model
-                                            .contactPersonNameController.text,
-                                        phone:
-                                            _model.mobileNumberController.text,
-                                      );
-                                      if ((_model.contactCreate?.succeeded ??
-                                          true)) {
-                                        if (_model.imageBase64 != null &&
-                                            _model.imageBase64 != '') {
-                                          _model.contactProdileUpload =
-                                              await InventoryApiGroupGroup
-                                                  .contactProfileUploadCall
-                                                  .call(
-                                            authToken: FFAppState().accessToken,
-                                            domainUrl: FFAppState().DomainUrl,
-                                            image: _model.imageBase64,
-                                            contactId: ContactApiGroupGroup
+                                      if (getJsonField(
+                                            FFAppState().StateSearch,
+                                            r'''$.id''',
+                                          ) !=
+                                          null) {
+                                        _model.contactCreate =
+                                            await ContactApiGroupGroup
                                                 .contactsCreateCall
-                                                .contactId(
-                                              (_model.contactCreate?.jsonBody ??
-                                                  ''),
-                                            ),
-                                          );
-                                        }
-                                        if (widget.string == 'forcreate') {
-                                          if (Navigator.of(context).canPop()) {
-                                            context.pop();
-                                          }
-                                          context.pushNamed(
-                                            'contact_page_list',
-                                            queryParameters: {
-                                              'contactType': serializeParam(
-                                                'all',
-                                                ParamType.String,
+                                                .call(
+                                          vat: _model.gstController.text,
+                                          street: _model.addressController.text,
+                                          zip: _model.pinCodeController.text,
+                                          mobile: _model
+                                              .mobileNumberController.text,
+                                          email:
+                                              _model.emailTextController.text,
+                                          website:
+                                              _model.websiteTextController.text,
+                                          supplierRank:
+                                              _model.typeVendorValue! ? 1 : 0,
+                                          customerRank:
+                                              _model.typeCustomerValue! ? 1 : 0,
+                                          stateId: getJsonField(
+                                            FFAppState().StateSearch,
+                                            r'''$.id''',
+                                          ),
+                                          countryId: functions
+                                              .changeStringToInt(getJsonField(
+                                            FFAppState().CountrySearch,
+                                            r'''$.id''',
+                                          ).toString()),
+                                          authToken: FFAppState().accessToken,
+                                          domainUrl: FFAppState().DomainUrl,
+                                          name: _model
+                                              .contactPersonNameController.text,
+                                          phone: _model
+                                              .mobileNumberController.text,
+                                        );
+                                        if ((_model.contactCreate?.succeeded ??
+                                            true)) {
+                                          if (_model.imageBase64 != null &&
+                                              _model.imageBase64 != '') {
+                                            _model.contactProdileUpload =
+                                                await InventoryApiGroupGroup
+                                                    .contactProfileUploadCall
+                                                    .call(
+                                              authToken:
+                                                  FFAppState().accessToken,
+                                              domainUrl: FFAppState().DomainUrl,
+                                              image: _model.imageBase64,
+                                              contactId: ContactApiGroupGroup
+                                                  .contactsCreateCall
+                                                  .contactId(
+                                                (_model.contactCreate
+                                                        ?.jsonBody ??
+                                                    ''),
                                               ),
-                                            }.withoutNulls,
-                                          );
+                                            );
+                                          }
+                                          if (widget.string == 'forcreate') {
+                                            if (Navigator.of(context)
+                                                .canPop()) {
+                                              context.pop();
+                                            }
+                                            context.pushNamed(
+                                              'contact_page_list',
+                                              queryParameters: {
+                                                'contactType': serializeParam(
+                                                  'all',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
 
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Contact created successfully...',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          } else {
+                                            context.safePop();
+                                          }
+                                        } else {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'Contact created successfully...',
+                                                'Error While Create Contact',
                                                 style: TextStyle(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1729,15 +1760,13 @@ class _ContactCreatePageWidgetState extends State<ContactCreatePageWidget> {
                                                       .secondary,
                                             ),
                                           );
-                                        } else {
-                                          context.safePop();
                                         }
                                       } else {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Error While Create Contact',
+                                              'State is required',
                                               style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)

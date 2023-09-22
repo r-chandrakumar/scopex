@@ -146,10 +146,19 @@ class _RFQEditEditItemWidgetState extends State<RFQEditEditItemWidget> {
                 children: [
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5.0, 5.0, 5.0, 5.0),
-                    child: wrapWithModel(
-                      model: _model.backButttonComponentModel,
-                      updateCallback: () => setState(() {}),
-                      child: BackButttonComponentWidget(),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        Navigator.pop(context);
+                      },
+                      child: wrapWithModel(
+                        model: _model.backButttonComponentModel,
+                        updateCallback: () => setState(() {}),
+                        child: BackButttonComponentWidget(),
+                      ),
                     ),
                   ),
                   Flexible(

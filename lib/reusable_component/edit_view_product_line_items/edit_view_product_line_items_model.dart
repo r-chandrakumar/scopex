@@ -14,8 +14,14 @@ import 'package:provider/provider.dart';
 class EditViewProductLineItemsModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
+  // Stores action output result for [Backend Call - API (Accounting Line Product Details)] action in Icon widget.
+  ApiCallResponse? moveLineItemInvoiceDetailRes;
+  // Stores action output result for [Backend Call - API (Accounting Line Product Details)] action in Icon widget.
+  ApiCallResponse? moveLineInvoiceDetailRes;
   // Stores action output result for [Backend Call - API (Purchase Order Line Product Detail)] action in Icon widget.
   ApiCallResponse? orderLineProductDataResponse;
+  // Stores action output result for [Backend Call - API (Sale Order Line Product Detail)] action in Icon widget.
+  ApiCallResponse? quoteOrderLineProductDataResponse;
   // Stores action output result for [Backend Call - API (Purchase Order Line Product Delete)] action in Icon widget.
   ApiCallResponse? deleteRfqRes;
   // Stores action output result for [Backend Call - API (Purchase Order View)] action in Icon widget.

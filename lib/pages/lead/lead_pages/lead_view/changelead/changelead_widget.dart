@@ -16,10 +16,12 @@ class ChangeleadWidget extends StatefulWidget {
     Key? key,
     required this.leadid,
     required this.stage,
+    required this.leadname,
   }) : super(key: key);
 
   final int? leadid;
   final int? stage;
+  final String? leadname;
 
   @override
   _ChangeleadWidgetState createState() => _ChangeleadWidgetState();
@@ -214,6 +216,7 @@ class _ChangeleadWidgetState extends State<ChangeleadWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
+                                  Navigator.pop(context);
                                   _model.crmStageUpdate =
                                       await HymechApiGroupGroup
                                           .cRMStageUpdateCall
@@ -227,7 +230,27 @@ class _ChangeleadWidgetState extends State<ChangeleadWidget> {
                                   _shouldSetState = true;
                                   if ((_model.crmStageUpdate?.succeeded ??
                                       true)) {
-                                    context.safePop();
+                                    if (Navigator.of(context).canPop()) {
+                                      context.pop();
+                                    }
+                                    context.pushNamed(
+                                      'Leadview',
+                                      queryParameters: {
+                                        'leadid': serializeParam(
+                                          widget.leadid,
+                                          ParamType.int,
+                                        ),
+                                        'leadname': serializeParam(
+                                          widget.leadname,
+                                          ParamType.String,
+                                        ),
+                                        'type': serializeParam(
+                                          'opportunity',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(

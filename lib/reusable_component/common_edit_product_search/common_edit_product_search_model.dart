@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/accounting/invoice_pagess/invoice_edit/invoice_edit_add_item/invoice_edit_add_item_widget.dart';
 import '/pages/accounting/invoice_pagess/invoice_edit/invoice_edit_edit_item/invoice_edit_edit_item_widget.dart';
-import '/pages/accounting/invoice_pagess/vendor_pages/vendor_bill_edit_add_item/vendor_bill_edit_add_item_widget.dart';
+import '/pages/accounting/invoice_pagess/vendor_pages/vendor_edit/vendor_bill_edit_add_item/vendor_bill_edit_add_item_widget.dart';
 import '/pages/accounting/invoice_pagess/vendor_pages/vendor_edit/vendor_bill_edit_edit_item/vendor_bill_edit_edit_item_widget.dart';
 import '/pages/purchase/purchase_rfq_pages/purchase_rfq_edit/r_f_q_edit_edit_item/r_f_q_edit_edit_item_widget.dart';
 import '/pages/purchase/purchase_rfq_pages/r_f_q_edit_add_item/r_f_q_edit_add_item_widget.dart';

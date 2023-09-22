@@ -444,28 +444,50 @@ class _ERPDashboardWidgetState extends State<ERPDashboardWidget> {
                                           child: Text(
                                             valueOrDefault<String>(
                                               functions.amountSymbol(
-                                                  (functions.doubleToInteger(
-                                                              DashboadApiGroupGroup
+                                                  (functions.doubleToInteger(DashboadApiGroupGroup
+                                                                      .salesDashboardCall
+                                                                      .quotationTotal(
+                                                                    columnSalesDashboardResponse
+                                                                        .jsonBody,
+                                                                  ) !=
+                                                                  null
+                                                              ? DashboadApiGroupGroup
                                                                   .salesDashboardCall
                                                                   .quotationTotal(
-                                                            columnSalesDashboardResponse
-                                                                .jsonBody,
-                                                          ))! +
+                                                                  columnSalesDashboardResponse
+                                                                      .jsonBody,
+                                                                )
+                                                              : 0.0)! +
                                                           functions.doubleToInteger(
                                                               DashboadApiGroupGroup
-                                                                  .salesDashboardCall
-                                                                  .saleTotal(
-                                                            columnSalesDashboardResponse
-                                                                .jsonBody,
-                                                          ))! +
-                                                          functions.doubleToInteger(
-                                                              DashboadApiGroupGroup
+                                                                          .salesDashboardCall
+                                                                          .saleTotal(
+                                                                        columnSalesDashboardResponse
+                                                                            .jsonBody,
+                                                                      ) !=
+                                                                      null
+                                                                  ? DashboadApiGroupGroup
+                                                                      .salesDashboardCall
+                                                                      .saleTotal(
+                                                                      columnSalesDashboardResponse
+                                                                          .jsonBody,
+                                                                    )
+                                                                  : 0.0)! +
+                                                          functions.doubleToInteger(DashboadApiGroupGroup
+                                                                      .salesDashboardCall
+                                                                      .qsentTotal(
+                                                                    columnSalesDashboardResponse
+                                                                        .jsonBody,
+                                                                  ) !=
+                                                                  null
+                                                              ? DashboadApiGroupGroup
                                                                   .salesDashboardCall
                                                                   .qsentTotal(
                                                                     columnSalesDashboardResponse
                                                                         .jsonBody,
                                                                   )
-                                                                  .toDouble())!)
+                                                                  .toDouble()
+                                                              : 0.0)!)
                                                       .toString(),
                                                   FFAppState().currencySymbol),
                                               '-',

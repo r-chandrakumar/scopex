@@ -66,11 +66,8 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (FFAppState().accessToken != null && FFAppState().accessToken != '') {
-        setState(() {
-          _model.status = 2;
-        });
-      } else {
+      if (!(FFAppState().accessToken != null &&
+          FFAppState().accessToken != '')) {
         context.pushNamed('Login');
       }
     });
@@ -251,6 +248,106 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Expanded(
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 80.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondboxcolor,
+                                    borderRadius: BorderRadius.circular(11.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        HymechApiGroupGroup.leaveListCall
+                                            .paidOff(
+                                              listViewLeaveListResponse
+                                                  .jsonBody,
+                                            )
+                                            .toString(),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'p0uq27fd' /* Paid Off */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .rgb,
+                                                fontSize: 13.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 80.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .threeboxcolor,
+                                    borderRadius: BorderRadius.circular(11.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        HymechApiGroupGroup.leaveListCall
+                                            .unPaid(
+                                              listViewLeaveListResponse
+                                                  .jsonBody,
+                                            )
+                                            .toString(),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 4.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '9741ag2x' /* UnPaid */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .rgb,
+                                                fontSize: 13.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
@@ -289,7 +386,7 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'cxitatn9' /* Sick Leave */,
+                                              'cxitatn9' /* Sick */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -307,114 +404,7 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 80.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondboxcolor,
-                                      borderRadius: BorderRadius.circular(11.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          HymechApiGroupGroup.leaveListCall
-                                              .paidOff(
-                                                listViewLeaveListResponse
-                                                    .jsonBody,
-                                              )
-                                              .toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'p0uq27fd' /* Paid Off */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .rgb,
-                                                  fontSize: 13.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 80.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .threeboxcolor,
-                                    borderRadius: BorderRadius.circular(11.0),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        HymechApiGroupGroup.leaveListCall
-                                            .unPaid(
-                                              listViewLeaveListResponse
-                                                  .jsonBody,
-                                            )
-                                            .toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '9741ag2x' /* UnPaid Leaves */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .rgb,
-                                                fontSize: 13.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ].divide(SizedBox(width: 10.0)),
                           ),
                         ],
                       ),
@@ -455,8 +445,11 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFCBC5C5),
                           borderRadius: BorderRadius.circular(50.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            width: 1.0,
+                          ),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -495,10 +488,11 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: widget.status == '1'
+                                          color: _model.status == 1
                                               ? FlutterFlowTheme.of(context)
                                                   .white
-                                              : Color(0x00000000),
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -522,7 +516,7 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                 width: 100.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: widget.status == '4'
+                                  color: _model.status == 4
                                       ? FlutterFlowTheme.of(context)
                                           .recentActivityClr
                                       : Color(0x00000000),
@@ -538,10 +532,11 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: widget.status == '4'
+                                          color: _model.status == 4
                                               ? FlutterFlowTheme.of(context)
                                                   .white
-                                              : Color(0x00000000),
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -565,7 +560,7 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                 width: 100.0,
                                 height: 40.0,
                                 decoration: BoxDecoration(
-                                  color: widget.status == '2'
+                                  color: _model.status == 2
                                       ? FlutterFlowTheme.of(context)
                                           .recentActivityClr
                                       : Color(0x00000000),
@@ -575,16 +570,17 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                   alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      't9pmgr5f' /* sick */,
+                                      't9pmgr5f' /* Sick */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: widget.status == '2'
+                                          color: _model.status == 2
                                               ? FlutterFlowTheme.of(context)
                                                   .white
-                                              : Color(0x00000000),
+                                              : FlutterFlowTheme.of(context)
+                                                  .primaryText,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),

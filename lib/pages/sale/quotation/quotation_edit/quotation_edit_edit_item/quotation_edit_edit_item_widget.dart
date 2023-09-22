@@ -104,52 +104,6 @@ class _QuotationEditEditItemWidgetState
                   double.tryParse(_model.amountController.text))
               .toString();
         });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'update',
-              0,
-              'null',
-              0.0,
-              0.0,
-              0.0,
-              0,
-              SalesApiGroupGroup.saleOrderLineProductDetailCall.saleorderList(
-                (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-              ),
-              'sales')!;
-        });
-        FFAppState().update(() {
-          FFAppState().taxJson = functions.taxjson(
-              FFAppState().taxJson,
-              'tax_total',
-              0,
-              'null',
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'tax',
-                  SalesApiGroupGroup.saleOrderLineProductDetailCall
-                      .saleorderList(
-                    (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-                  ),
-                  'update',
-                  'sale'),
-              0.0,
-              functions.findTotalamount(
-                  double.tryParse(_model.subtotalController.text),
-                  'total',
-                  SalesApiGroupGroup.saleOrderLineProductDetailCall
-                      .saleorderList(
-                    (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-                  ),
-                  'update',
-                  'sale'),
-              0,
-              SalesApiGroupGroup.saleOrderLineProductDetailCall.saleorderList(
-                (_model.orderLineProductDataResponse?.jsonBody ?? ''),
-              ),
-              'update')!;
-        });
         setState(() {
           _model.subtotal = SalesApiGroupGroup.saleOrderLineProductDetailCall
               .priceSubTotal(

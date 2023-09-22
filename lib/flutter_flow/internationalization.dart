@@ -739,16 +739,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Leave List',
       'ta': '',
     },
-    'cxitatn9': {
-      'en': 'Sick Leave',
-      'ta': '',
-    },
     'p0uq27fd': {
       'en': 'Paid Off',
       'ta': '',
     },
     '9741ag2x': {
-      'en': 'UnPaid Leaves',
+      'en': 'UnPaid',
+      'ta': '',
+    },
+    'cxitatn9': {
+      'en': 'Sick',
       'ta': '',
     },
     '12jrva9g': {
@@ -764,7 +764,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     't9pmgr5f': {
-      'en': 'sick',
+      'en': 'Sick',
       'ta': '',
     },
     'bt15j3pp': {
@@ -1988,10 +1988,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'lav0ssau': {
       'en': 'Recent Activity',
-      'ta': '',
-    },
-    'ghu3yqap': {
-      'en': 'Schedule Activity',
       'ta': '',
     },
     'h27m75qm': {

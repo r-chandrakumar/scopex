@@ -302,14 +302,335 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 15.0, 0.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/Group_23992.png',
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    if (functions.jsonToString(
+                                                            getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Email') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons.email_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Call') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons.call,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Meeting') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons.meeting_room,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'To Do') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .edit_note_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Upload Document') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .upload_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Exception') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .warning_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (functions
+                                                            .jsonToString(
+                                                                getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.mail_activity_type.name''',
+                                                        )) ==
+                                                        'Reminder') {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .notifications_active_sharp,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      return Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            width: 2.0,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0,
+                                                                      5.0),
+                                                          child: Icon(
+                                                            Icons.call,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 35.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  },
                                                 ),
                                               ),
                                               Expanded(
@@ -348,54 +669,6 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                                       .caradTextColor,
                                                                 ),
                                                       ),
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.person_2,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 16.0,
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.isNull(
-                                                                  getJsonField(
-                                                                myActivityListItem,
-                                                                r'''$.res_partner.name''',
-                                                              ).toString()),
-                                                              '-',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .inputtextColor,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
                                                     ),
                                                   ],
                                                 ),

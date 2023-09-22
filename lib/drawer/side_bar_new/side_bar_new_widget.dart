@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/checkcheck_out_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -813,16 +813,18 @@ class _SideBarNewWidgetState extends State<SideBarNewWidget> {
                                     ),
                                   ],
                                 ),
-                                wrapWithModel(
-                                  model: _model.checkcheckOutModel,
-                                  updateCallback: () => setState(() {}),
-                                  updateOnChange: true,
-                                  child: CheckcheckOutWidget(),
-                                ),
                                 Divider(
                                   height: 1.0,
                                   thickness: 1.0,
                                   color: FlutterFlowTheme.of(context).hashColor,
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  child: custom_widgets.AttendanceStatus(
+                                    width: double.infinity,
+                                    height: 50.0,
+                                  ),
                                 ),
                               ],
                             ),

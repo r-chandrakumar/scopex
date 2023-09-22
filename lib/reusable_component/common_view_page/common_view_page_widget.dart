@@ -348,7 +348,7 @@ class _CommonViewPageWidgetState extends State<CommonViewPageWidget>
                                 Expanded(
                                   child: Container(
                                     width: double.infinity,
-                                    color: Colors.white,
+                                    color: Color(0x00000000),
                                     child: ExpandableNotifier(
                                       initialExpanded: false,
                                       child: ExpandablePanel(

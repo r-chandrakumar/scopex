@@ -6,3 +6,4 @@ export 'team_member_image.dart' show TeamMemberImage;
 export 'funnel_chart.dart' show FunnelChart;
 export 'image_with_base64.dart' show ImageWithBase64;
 export 'bar_chart.dart' show BarChart;
+export 'attendance_status.dart' show AttendanceStatus;

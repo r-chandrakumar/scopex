@@ -95,8 +95,30 @@ class _RecentActivityListWidgetState extends State<RecentActivityListWidget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('FloatingActionButton pressed ...');
+          onPressed: () async {
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              enableDrag: false,
+              context: context,
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () =>
+                      FocusScope.of(context).requestFocus(_model.unfocusNode),
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: Container(
+                      height: MediaQuery.sizeOf(context).height * 0.7,
+                      child: ScheduleMyActivityCopyWidget(
+                        leadid: widget.leadid,
+                        leadname: widget.leadname,
+                        date: getCurrentTimestamp,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           child: Icon(
@@ -150,86 +172,6 @@ class _RecentActivityListWidgetState extends State<RecentActivityListWidget>
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 5.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () => FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.7,
-                                            child: ScheduleMyActivityCopyWidget(
-                                              leadid: widget.leadid,
-                                              leadname: widget.leadname,
-                                              date: getCurrentTimestamp,
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'ghu3yqap' /* Schedule Activity */,
-                                ),
-                                options: FFButtonOptions(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context)
-                                      .activityButton,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color:
-                                            FlutterFlowTheme.of(context).white,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 0.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: FutureBuilder<ApiCallResponse>(

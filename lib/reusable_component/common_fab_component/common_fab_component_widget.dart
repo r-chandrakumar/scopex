@@ -6830,6 +6830,50 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   authToken: FFAppState().accessToken,
                                   domainUrl: FFAppState().DomainUrl,
                                   vat: '',
+                                  name: HymechApiGroupGroup.crmViewCall
+                                      .contactName(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  mobile: HymechApiGroupGroup.crmViewCall
+                                      .mobile(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  phone: HymechApiGroupGroup.crmViewCall
+                                      .mobile(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  email: HymechApiGroupGroup.crmViewCall
+                                      .email(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  street: HymechApiGroupGroup.crmViewCall
+                                      .street(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  zip: HymechApiGroupGroup.crmViewCall
+                                      .zip(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
+                                  supplierRank: 0,
+                                  customerRank: 1,
+                                  companyName: HymechApiGroupGroup.crmViewCall
+                                      .contactName(
+                                        (_model.leadtoOpportunity?.jsonBody ??
+                                            ''),
+                                      )
+                                      .toString(),
                                 );
                               }
 
@@ -6917,6 +6961,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           .stageid(
                                         opportunityCrmViewResponse.jsonBody,
                                       ),
+                                      leadname: widget.name!,
                                     ),
                                   );
                                 },

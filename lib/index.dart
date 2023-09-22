@@ -37,7 +37,7 @@ export '/pages/project/projects_details/projects_details_widget.dart'
     show ProjectsDetailsWidget;
 export '/pages/boqs/boq_view/boq_view_widget.dart' show BoqViewWidget;
 export '/pages/profile/my_profile/my_profile_widget.dart' show MyProfileWidget;
-export '/pages/lead/recent_activity_list/recent_activity_list_widget.dart'
+export '/pages/recent_activity_list/recent_activity_list_widget.dart'
     show RecentActivityListWidget;
 export '/pages/task/task_list/task_list_widget.dart' show TaskListWidget;
 export '/pages/boqs/b_o_q_descripition/b_o_q_descripition_widget.dart'
@@ -87,7 +87,7 @@ export '/pages/auth/spalashscreen/spalashscreen_widget.dart'
     show SpalashscreenWidget;
 export '/pages/contact/contact_pages/contact_list/contact_page_list/contact_page_list_widget.dart'
     show ContactPageListWidget;
-export '/pages/purchase/purchase_rfq_pages/purchase_rfq_edit/r_f_q_edit/r_f_q_edit_widget.dart'
+export '/pages/purchase/purchase_rfq_pages/r_f_q_edit/r_f_q_edit_widget.dart'
     show RFQEditWidget;
 export '/pages/purchase/purchase_rfq_pages/purchase_rfq_lists/purchase_rfq_lists_widget.dart'
     show PurchaseRfqListsWidget;
@@ -105,7 +105,7 @@ export '/pages/inventory/delivery_chellan_pages/delivery_chellan_list/delivery_c
     show DeliveryChallenListWidget;
 export '/pages/inventory/inventory_pages/inventory_list/inventory_list_page/inventory_list_page_widget.dart'
     show InventoryListPageWidget;
-export '/pages/accounting/invoice_pagess/vendor_bill_edit/vendor_bill_edit_widget.dart'
+export '/pages/accounting/invoice_pagess/vendor_pages/vendor_edit/vendor_bill_edit/vendor_bill_edit_widget.dart'
     show VendorBillEditWidget;
 export '/pages/purchase/purchase_rfq_pages/purchase_rfq_view/purchase_rfq_view/purchase_rfq_view_widget.dart'
     show PurchaseRfqViewWidget;

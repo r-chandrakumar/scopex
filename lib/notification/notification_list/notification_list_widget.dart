@@ -317,8 +317,8 @@ class _NotificationListWidgetState extends State<NotificationListWidget>
                                                   6.0, 6.0, 6.0, 6.0),
                                           child: Text(
                                             valueOrDefault<String>(
-                                              functions.changeDateTimeFormat(
-                                                  getJsonField(
+                                              functions
+                                                  .taskLogFormat(getJsonField(
                                                 notificationListsItem,
                                                 r'''$.create_date''',
                                               ).toString()),
