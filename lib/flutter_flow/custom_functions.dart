@@ -2915,8 +2915,6 @@ double? attendanceWorkedHours(String? checkInTime) {
   if (checkInTime == null || checkInTime == 'null') {
     return null;
   }
-  print("checkin");
-  print(checkInTime);
   final DateTime checkInDateTime =
       DateTime.parse(checkInTime).add(Duration(hours: 5, minutes: 30));
   final DateTime currentDateTime = DateTime.now();
@@ -3717,4 +3715,16 @@ int? jsonToInteger(dynamic value) {
   } else {
     return 0;
   }
+}
+
+String? attendanceCheckInHours() {
+  final DateTime currentDateTime = DateTime.now();
+  final Duration subtractedDuration = Duration(hours: 5, minutes: 30);
+  final DateTime updatedDateTime = currentDateTime.subtract(subtractedDuration);
+
+// You can format the updatedDateTime if desired
+  final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
+  final String formattedDateTime = formatter.format(updatedDateTime);
+
+  return formattedDateTime;
 }

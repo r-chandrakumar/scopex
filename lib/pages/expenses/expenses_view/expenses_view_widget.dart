@@ -10,7 +10,6 @@ import '/pages/expenses/viewexpshimmer/viewexpshimmer_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -262,8 +261,6 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
         context.goNamed('Login');
       }
     });
-
-    _model.textController ??= TextEditingController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -1031,11 +1028,16 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                             ),
                             Flexible(
                               child: Text(
-                                HymechApiGroupGroup.expenseViewCall
-                                    .unitamount(
-                                      columnExpenseViewResponse.jsonBody,
-                                    )
-                                    .toString(),
+                                valueOrDefault<String>(
+                                  functions.amountSymbol(
+                                      HymechApiGroupGroup.expenseViewCall
+                                          .unitamount(
+                                            columnExpenseViewResponse.jsonBody,
+                                          )
+                                          .toString(),
+                                      FFAppState().currencySymbol),
+                                  '-',
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -1093,11 +1095,16 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                             ),
                             Flexible(
                               child: Text(
-                                HymechApiGroupGroup.expenseViewCall
-                                    .quantity(
-                                      columnExpenseViewResponse.jsonBody,
-                                    )
-                                    .toString(),
+                                valueOrDefault<String>(
+                                  functions.amountSymbol(
+                                      HymechApiGroupGroup.expenseViewCall
+                                          .quantity(
+                                            columnExpenseViewResponse.jsonBody,
+                                          )
+                                          .toString(),
+                                      FFAppState().currencySymbol),
+                                  '-',
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -1165,11 +1172,17 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                   ),
                                   Flexible(
                                     child: Text(
-                                      HymechApiGroupGroup.expenseViewCall
-                                          .total(
-                                            columnExpenseViewResponse.jsonBody,
-                                          )
-                                          .toString(),
+                                      valueOrDefault<String>(
+                                        functions.amountSymbol(
+                                            HymechApiGroupGroup.expenseViewCall
+                                                .total(
+                                                  columnExpenseViewResponse
+                                                      .jsonBody,
+                                                )
+                                                .toString(),
+                                            FFAppState().currencySymbol),
+                                        '-',
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -1333,275 +1346,6 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 15.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Flexible(
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 10.0),
-                                              child: Container(
-                                                width: double.infinity,
-                                                color: Colors.white,
-                                                child: ExpandableNotifier(
-                                                  initialExpanded: false,
-                                                  child: ExpandablePanel(
-                                                    header: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'c8k63qe0' /* Add Log */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .displaySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 16.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    collapsed: Container(),
-                                                    expanded: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Form(
-                                                          key: _model.formKey,
-                                                          autovalidateMode:
-                                                              AutovalidateMode
-                                                                  .disabled,
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            8.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
-                                                                      child:
-                                                                          TextFormField(
-                                                                        controller:
-                                                                            _model.textController,
-                                                                        obscureText:
-                                                                            false,
-                                                                        decoration:
-                                                                            InputDecoration(
-                                                                          labelStyle:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
-                                                                          hintText:
-                                                                              FFLocalizations.of(context).getText(
-                                                                            '7cyh9sgl' /* Enter notes... */,
-                                                                          ),
-                                                                          hintStyle:
-                                                                              FlutterFlowTheme.of(context).labelMedium,
-                                                                          enabledBorder:
-                                                                              OutlineInputBorder(
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: FlutterFlowTheme.of(context).secondaryText,
-                                                                              width: 0.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                          focusedBorder:
-                                                                              OutlineInputBorder(
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              width: 0.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                          errorBorder:
-                                                                              OutlineInputBorder(
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              width: 0.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                          focusedErrorBorder:
-                                                                              OutlineInputBorder(
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              width: 0.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
-                                                                        keyboardType:
-                                                                            TextInputType.multiline,
-                                                                        validator: _model
-                                                                            .textControllerValidator
-                                                                            .asValidator(context),
-                                                                      ),
-                                                                    ),
-                                                                    Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          1.00,
-                                                                          0.00),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            10.0),
-                                                                        child:
-                                                                            FFButtonWidget(
-                                                                          onPressed:
-                                                                              () async {
-                                                                            if (_model.formKey.currentState == null ||
-                                                                                !_model.formKey.currentState!.validate()) {
-                                                                              return;
-                                                                            }
-                                                                            _model.lognotePostResponse =
-                                                                                await HymechApiGroupGroup.logNoteCreateCall.call(
-                                                                              domainUrl: FFAppState().DomainUrl,
-                                                                              authToken: FFAppState().accessToken,
-                                                                              leadId: widget.expenseId,
-                                                                              bodyData: _model.textController.text,
-                                                                              model: 'hr.expense',
-                                                                            );
-                                                                            if ((_model.lognotePostResponse?.succeeded ??
-                                                                                true)) {
-                                                                              setState(() => _model.apiRequestCompleter = null);
-                                                                              await _model.waitForApiRequestCompleted();
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'Log Note Saved Successfully',
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                              );
-                                                                              setState(() {
-                                                                                _model.textController?.clear();
-                                                                              });
-                                                                            }
-
-                                                                            setState(() {});
-                                                                          },
-                                                                          text:
-                                                                              FFLocalizations.of(context).getText(
-                                                                            'dsq5czco' /* Submit */,
-                                                                          ),
-                                                                          options:
-                                                                              FFButtonOptions(
-                                                                            height:
-                                                                                40.0,
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                24.0,
-                                                                                0.0,
-                                                                                24.0,
-                                                                                0.0),
-                                                                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                  fontFamily: 'Roboto',
-                                                                                  color: Colors.white,
-                                                                                ),
-                                                                            elevation:
-                                                                                3.0,
-                                                                            borderSide:
-                                                                                BorderSide(
-                                                                              color: Colors.transparent,
-                                                                              width: 1.0,
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    theme: ExpandableThemeData(
-                                                      tapHeaderToExpand: true,
-                                                      tapBodyToExpand: false,
-                                                      tapBodyToCollapse: false,
-                                                      headerAlignment:
-                                                          ExpandablePanelHeaderAlignment
-                                                              .center,
-                                                      hasIcon: true,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 0.0),

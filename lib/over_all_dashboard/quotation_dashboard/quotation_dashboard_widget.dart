@@ -323,6 +323,8 @@ class _QuotationDashboardWidgetState extends State<QuotationDashboardWidget> {
                                             15.0, 15.0, 15.0, 15.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Flexible(
                                               child: Column(

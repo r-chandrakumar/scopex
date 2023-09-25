@@ -865,7 +865,7 @@ class _DeliveryChellanCreatePageWidgetState
                                                                             title:
                                                                                 Text('Delete'),
                                                                             content:
-                                                                                Text('Do you want to remove this GRN Item?'),
+                                                                                Text('Do you want to remove this DC Item?'),
                                                                             actions: [
                                                                               TextButton(
                                                                                 onPressed: () => Navigator.pop(alertDialogContext, false),

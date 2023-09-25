@@ -1291,7 +1291,7 @@ class _RFQEditAddItemWidgetState extends State<RFQEditAddItemWidget> {
                                                   .showSnackBar(
                                                 SnackBar(
                                                   content: Text(
-                                                    'RFQ added item successfully...',
+                                                    'Item added successfully',
                                                     style: TextStyle(
                                                       color:
                                                           FlutterFlowTheme.of(

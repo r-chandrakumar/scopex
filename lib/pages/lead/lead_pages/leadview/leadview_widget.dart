@@ -1203,12 +1203,12 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                                     )
                                                                                     .toString(),
                                                                                 HymechApiGroupGroup.crmViewCall
-                                                                                    .zip(
+                                                                                    .city(
                                                                                       containerCrmViewResponse.jsonBody,
                                                                                     )
                                                                                     .toString(),
                                                                                 HymechApiGroupGroup.crmViewCall
-                                                                                    .city(
+                                                                                    .zip(
                                                                                       containerCrmViewResponse.jsonBody,
                                                                                     )
                                                                                     .toString())!,

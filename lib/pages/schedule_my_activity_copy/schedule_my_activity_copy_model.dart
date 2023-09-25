@@ -12,12 +12,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ScheduleMyActivityCopyModel extends FlutterFlowModel {
+  ///  Local state fields for this component.
+
+  String? search = '';
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for Model widget.
+  String? modelValue;
+  FormFieldController<String>? modelValueController;
   // State field(s) for lead widget.
   String? leadValue;
   FormFieldController<String>? leadValueController;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
   // State field(s) for activitytype widget.
   String? activitytypeValue1;
   FormFieldController<String>? activitytypeValueController1;
@@ -28,10 +38,6 @@ class ScheduleMyActivityCopyModel extends FlutterFlowModel {
   // State field(s) for summary widget.
   TextEditingController? summaryController;
   String? Function(BuildContext, String?)? summaryControllerValidator;
-  // Stores action output result for [Backend Call - API (Get Model Id)] action in Button widget.
-  ApiCallResponse? modelid;
-  // Stores action output result for [Backend Call - API (My Activity Create)] action in Button widget.
-  ApiCallResponse? activitycreate;
 
   /// Initialization and disposal methods.
 

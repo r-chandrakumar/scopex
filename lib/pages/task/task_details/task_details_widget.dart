@@ -1801,7 +1801,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                       SnackBar(
                                                                         content:
                                                                             Text(
-                                                                          'Success',
+                                                                          'Deleted Successfully',
                                                                           style:
                                                                               TextStyle(
                                                                             color:
@@ -2032,7 +2032,7 @@ class _TaskDetailsWidgetState extends State<TaskDetailsWidget> {
                                                                       SnackBar(
                                                                         content:
                                                                             Text(
-                                                                          'Success',
+                                                                          'Deleted Successfully',
                                                                           style:
                                                                               TextStyle(
                                                                             color:

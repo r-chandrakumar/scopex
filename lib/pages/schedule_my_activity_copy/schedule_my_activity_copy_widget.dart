@@ -92,7 +92,7 @@ class _ScheduleMyActivityCopyWidgetState
                               0.0, 13.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'a0ug3bzm' /* Schedule My Activity */,
+                              'fg7oaqnr' /* Schedule My Activity */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -106,115 +106,309 @@ class _ScheduleMyActivityCopyWidgetState
                         ),
                       ],
                     ),
-                    if (widget.leadid == null)
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'y1de9zmy' /* Lead */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 13.0,
-                                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'wqiq33dr' /* Model */,
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 13.0,
+                                  ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 12.0),
-                              child: FutureBuilder<ApiCallResponse>(
-                                future: HymechApiGroupGroup
-                                    .listOfLeadForActivityCall
-                                    .call(
-                                  authToken: FFAppState().accessToken,
-                                  domainUrl: FFAppState().DomainUrl,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Container(
-                                      width: double.infinity,
-                                      height: 50.0,
-                                      child: DropDownEmptyFullWidthWidget(),
-                                    );
-                                  }
-                                  final leadListOfLeadForActivityResponse =
-                                      snapshot.data!;
-                                  return FlutterFlowDropDown<String>(
-                                    controller: _model.leadValueController ??=
-                                        FormFieldController<String>(
-                                      _model.leadValue ??= '',
-                                    ),
-                                    options: (HymechApiGroupGroup
-                                            .listOfLeadForActivityCall
-                                            .leadid(
-                                      leadListOfLeadForActivityResponse
-                                          .jsonBody,
-                                    ) as List)
-                                        .map<String>((s) => s.toString())
-                                        .toList()!
-                                        .map((e) => e.toString())
-                                        .toList(),
-                                    optionLabels: (HymechApiGroupGroup
-                                            .listOfLeadForActivityCall
-                                            .leadname(
-                                      leadListOfLeadForActivityResponse
-                                          .jsonBody,
-                                    ) as List)
-                                        .map<String>((s) => s.toString())
-                                        .toList()!
-                                        .map((e) => e.toString())
-                                        .toList(),
-                                    onChanged: (val) =>
-                                        setState(() => _model.leadValue = val),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 12.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: HymechApiGroupGroup
+                                  .listOfLeadForActivityCall
+                                  .call(
+                                authToken: FFAppState().accessToken,
+                                domainUrl: FFAppState().DomainUrl,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Container(
                                     width: double.infinity,
                                     height: 50.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 16.0,
-                                        ),
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'xux0virr' /* Select Lead */,
-                                    ),
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: Color(0xFF7D7D7D),
-                                      size: 24.0,
-                                    ),
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    elevation: 0.0,
-                                    borderColor:
-                                        FlutterFlowTheme.of(context).hashColor,
-                                    borderWidth: 1.0,
-                                    borderRadius: 8.0,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
-                                    hidesUnderline: true,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
+                                    child: DropDownEmptyFullWidthWidget(),
                                   );
-                                },
-                              ),
+                                }
+                                final modelListOfLeadForActivityResponse =
+                                    snapshot.data!;
+                                return FlutterFlowDropDown<String>(
+                                  controller: _model.modelValueController ??=
+                                      FormFieldController<String>(
+                                    _model.modelValue ??= '',
+                                  ),
+                                  options: [
+                                    'crm.lead',
+                                    'sale.order',
+                                    'purchase.order',
+                                    'account.move',
+                                    'account.move.bill'
+                                  ],
+                                  optionLabels: [
+                                    FFLocalizations.of(context).getText(
+                                      '42jrz28y' /* lead */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'rybyz4rq' /* Sale Order */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '68leu4co' /* Purchase Order */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'x9l0qn62' /* Invoice */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '16yvus9b' /* Vendor Bill */,
+                                    )
+                                  ],
+                                  onChanged: (val) =>
+                                      setState(() => _model.modelValue = val),
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 16.0,
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'ryk8ymu8' /* Select Model */,
+                                  ),
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: Color(0xFF7D7D7D),
+                                    size: 24.0,
+                                  ),
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 0.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).hashColor,
+                                  borderWidth: 1.0,
+                                  borderRadius: 8.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 8.0, 8.0, 8.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
+                                );
+                              },
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Builder(
+                          builder: (context) {
+                            if (_model.modelValue == 'crm.lead') {
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '6r1fg5ob' /* Lead */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 13.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 12.0),
+                                    child: FutureBuilder<ApiCallResponse>(
+                                      future: HymechApiGroupGroup
+                                          .listOfLeadForActivityCall
+                                          .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Container(
+                                            width: double.infinity,
+                                            height: 50.0,
+                                            child:
+                                                DropDownEmptyFullWidthWidget(),
+                                          );
+                                        }
+                                        final leadListOfLeadForActivityResponse =
+                                            snapshot.data!;
+                                        return FlutterFlowDropDown<String>(
+                                          controller:
+                                              _model.leadValueController ??=
+                                                  FormFieldController<String>(
+                                            _model.leadValue ??= '',
+                                          ),
+                                          options: (HymechApiGroupGroup
+                                                  .listOfLeadForActivityCall
+                                                  .leadid(
+                                            leadListOfLeadForActivityResponse
+                                                .jsonBody,
+                                          ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!
+                                              .map((e) => e.toString())
+                                              .toList(),
+                                          optionLabels: (HymechApiGroupGroup
+                                                  .listOfLeadForActivityCall
+                                                  .leadname(
+                                            leadListOfLeadForActivityResponse
+                                                .jsonBody,
+                                          ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!
+                                              .map((e) => e.toString())
+                                              .toList(),
+                                          onChanged: (val) => setState(
+                                              () => _model.leadValue = val),
+                                          width: double.infinity,
+                                          height: 50.0,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 16.0,
+                                              ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '8vqqtc6g' /* Select Lead */,
+                                          ),
+                                          icon: Icon(
+                                            Icons.keyboard_arrow_down_rounded,
+                                            color: Color(0xFF7D7D7D),
+                                            size: 24.0,
+                                          ),
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          elevation: 0.0,
+                                          borderColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .hashColor,
+                                          borderWidth: 1.0,
+                                          borderRadius: 8.0,
+                                          margin:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 8.0, 8.0, 8.0),
+                                          hidesUnderline: true,
+                                          isSearchable: false,
+                                          isMultiSelect: false,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                            } else if (_model.modelValue == 'sale.order') {
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        '1fogl0uf' /* Hello World */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto',
+                                            fontSize: 13.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 12.0),
+                                    child: FlutterFlowDropDown<String>(
+                                      controller:
+                                          _model.dropDownValueController ??=
+                                              FormFieldController<String>(null),
+                                      options: [
+                                        FFLocalizations.of(context).getText(
+                                          'lbtr09hv' /* Option 1 */,
+                                        )
+                                      ],
+                                      onChanged: (val) => setState(
+                                          () => _model.dropDownValue = val),
+                                      height: 50.0,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                      hintText:
+                                          FFLocalizations.of(context).getText(
+                                        'mjawkuri' /* Please select... */,
+                                      ),
+                                      icon: Icon(
+                                        Icons.keyboard_arrow_down_rounded,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
+                                      ),
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      elevation: 0.0,
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .hashColor,
+                                      borderWidth: 1.0,
+                                      borderRadius: 8.0,
+                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 8.0, 8.0, 8.0),
+                                      hidesUnderline: true,
+                                      isSearchable: false,
+                                      isMultiSelect: false,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            } else {
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [],
+                              );
+                            }
+                          },
+                        ),
+                      ],
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,7 +418,7 @@ class _ScheduleMyActivityCopyWidgetState
                               0.0, 0.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'lohe9f2a' /* Activity Type */,
+                              'tj7ptphg' /* Activity Type */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -288,7 +482,7 @@ class _ScheduleMyActivityCopyWidgetState
                                       fontSize: 16.0,
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
-                                  'nrdh1hen' /* Select Type */,
+                                  'rzw93zqj' /* Select Type */,
                                 ),
                                 icon: Icon(
                                   Icons.keyboard_arrow_down_rounded,
@@ -311,104 +505,109 @@ class _ScheduleMyActivityCopyWidgetState
                             },
                           ),
                         ),
-                        if (widget.leadid != null)
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 10.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '704mtj84' /* Assigned To */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        fontSize: 13.0,
-                                      ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '7aad4rde' /* Assigned To */,
                                 ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 13.0,
+                                    ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 12.0),
-                                child: FutureBuilder<ApiCallResponse>(
-                                  future:
-                                      HymechApiGroupGroup.assignedToCall.call(
-                                    authToken: FFAppState().accessToken,
-                                    domainUrl: FFAppState().DomainUrl,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Container(
-                                        width: double.infinity,
-                                        height: 50.0,
-                                        child: DropDownEmptyFullWidthWidget(),
-                                      );
-                                    }
-                                    final activitytypeAssignedToResponse =
-                                        snapshot.data!;
-                                    return FlutterFlowDropDown<String>(
-                                      controller: _model
-                                              .activitytypeValueController2 ??=
-                                          FormFieldController<String>(
-                                        _model.activitytypeValue2 ??= '',
-                                      ),
-                                      options: (getJsonField(
-                                        activitytypeAssignedToResponse.jsonBody,
-                                        r'''$.res_users[:].id''',
-                                      ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!,
-                                      optionLabels: (HymechApiGroupGroup
-                                              .assignedToCall
-                                              .name(
-                                        activitytypeAssignedToResponse.jsonBody,
-                                      ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!,
-                                      onChanged: (val) => setState(() =>
-                                          _model.activitytypeValue2 = val),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
+                              child: FutureBuilder<ApiCallResponse>(
+                                future: HymechApiGroupGroup.assignedToCall.call(
+                                  authToken: FFAppState().accessToken,
+                                  domainUrl: FFAppState().DomainUrl,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Container(
                                       width: double.infinity,
                                       height: 50.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontSize: 16.0,
-                                          ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'yc0j43sd' /* Select Type */,
-                                      ),
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
-                                        color: Color(0xFF7D7D7D),
-                                        size: 24.0,
-                                      ),
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      elevation: 0.0,
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .hashColor,
-                                      borderWidth: 1.0,
-                                      borderRadius: 8.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      hidesUnderline: true,
-                                      isSearchable: false,
-                                      isMultiSelect: false,
+                                      child: DropDownEmptyFullWidthWidget(),
                                     );
-                                  },
-                                ),
+                                  }
+                                  final activitytypeAssignedToResponse =
+                                      snapshot.data!;
+                                  return FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.activitytypeValueController2 ??=
+                                            FormFieldController<String>(
+                                      _model.activitytypeValue2 ??= '',
+                                    ),
+                                    options: (getJsonField(
+                                      activitytypeAssignedToResponse.jsonBody,
+                                      r'''$.res_users[:].id''',
+                                    ) as List)
+                                        .map<String>((s) => s.toString())
+                                        .toList()!,
+                                    optionLabels: (HymechApiGroupGroup
+                                            .assignedToCall
+                                            .name(
+                                      activitytypeAssignedToResponse.jsonBody,
+                                    ) as List)
+                                        .map<String>((s) => s.toString())
+                                        .toList()!,
+                                    onChanged: (val) => setState(
+                                        () => _model.activitytypeValue2 = val),
+                                    width: double.infinity,
+                                    height: 50.0,
+                                    searchHintTextStyle:
+                                        FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          fontSize: 16.0,
+                                        ),
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'jrdvndy5' /* Select Type */,
+                                    ),
+                                    searchHintText:
+                                        FFLocalizations.of(context).getText(
+                                      'qfdsu1p1' /* Search for an item... */,
+                                    ),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: Color(0xFF7D7D7D),
+                                      size: 24.0,
+                                    ),
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 0.0,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).hashColor,
+                                    borderWidth: 1.0,
+                                    borderRadius: 8.0,
+                                    margin: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 8.0),
+                                    hidesUnderline: true,
+                                    isSearchable: true,
+                                    isMultiSelect: false,
+                                  );
+                                },
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                     Column(
@@ -420,7 +619,7 @@ class _ScheduleMyActivityCopyWidgetState
                               0.0, 0.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '8wy43dbe' /* Due Date */,
+                              'wqjgh9v0' /* Due Date */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -541,7 +740,7 @@ class _ScheduleMyActivityCopyWidgetState
                               0.0, 0.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'aw3vkou6' /* Summary */,
+                              '2jg3u9tw' /* Summary */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -559,7 +758,7 @@ class _ScheduleMyActivityCopyWidgetState
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: FFLocalizations.of(context).getText(
-                                'vkhpj1fz' /* write a summary */,
+                                'fydmpvbo' /* write a summary */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodySmall
@@ -640,7 +839,7 @@ class _ScheduleMyActivityCopyWidgetState
                                       context.safePop();
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      '4fv3mc32' /* Discard */,
+                                      'zunwrxce' /* Discard */,
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
@@ -679,110 +878,15 @@ class _ScheduleMyActivityCopyWidgetState
                                         8.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        var _shouldSetState = false;
                                         if (_model.formKey.currentState ==
                                                 null ||
                                             !_model.formKey.currentState!
                                                 .validate()) {
                                           return;
                                         }
-                                        _model.modelid =
-                                            await HymechApiGroupGroup
-                                                .getModelIdCall
-                                                .call(
-                                          authToken: FFAppState().accessToken,
-                                          domainUrl: FFAppState().DomainUrl,
-                                          modelName: 'crm.lead',
-                                        );
-                                        _shouldSetState = true;
-                                        _model.activitycreate =
-                                            await HymechApiGroupGroup
-                                                .myActivityCreateCall
-                                                .call(
-                                          authToken: FFAppState().accessToken,
-                                          summary:
-                                              _model.summaryController.text,
-                                          activityTypeId:
-                                              functions.changeStringToInt(
-                                                  _model.activitytypeValue1),
-                                          dateDeadline:
-                                              functions.changeDateFomat(
-                                                  _model.datePicked != null
-                                                      ? _model.datePicked
-                                                          ?.toString()
-                                                      : widget.date
-                                                          ?.toString()),
-                                          resModelId: HymechApiGroupGroup
-                                              .getModelIdCall
-                                              .id(
-                                            (_model.modelid?.jsonBody ?? ''),
-                                          ),
-                                          domainUrl: FFAppState().DomainUrl,
-                                          userId: widget.leadid != null
-                                              ? functions.changeStringToInt(
-                                                  _model.activitytypeValue2)
-                                              : FFAppState().userid,
-                                          leadId: widget.leadid != null
-                                              ? widget.leadid
-                                              : functions.changeStringToInt(
-                                                  _model.leadValue),
-                                        );
-                                        _shouldSetState = true;
-                                        if ((_model.activitycreate?.succeeded ??
-                                            true)) {
-                                          Navigator.pop(context);
-                                          if (widget.leadid != null) {
-                                            context.pushNamed(
-                                              'Leadview',
-                                              queryParameters: {
-                                                'leadid': serializeParam(
-                                                  widget.leadid,
-                                                  ParamType.int,
-                                                ),
-                                                'leadname': serializeParam(
-                                                  widget.leadname,
-                                                  ParamType.String,
-                                                ),
-                                                'type': serializeParam(
-                                                  'leadview',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          } else {
-                                            context.pushNamed(
-                                                'MyActivityCalendar');
-                                          }
-
-                                          if (_shouldSetState) setState(() {});
-                                          return;
-                                        } else {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text('Error'),
-                                                content: Text(
-                                                    'Error While Schedule Activity'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                          if (_shouldSetState) setState(() {});
-                                          return;
-                                        }
-
-                                        if (_shouldSetState) setState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'gq76dgy6' /* Schedule */,
+                                        'fmh8rpck' /* Schedule */,
                                       ),
                                       options: FFButtonOptions(
                                         height: 40.0,

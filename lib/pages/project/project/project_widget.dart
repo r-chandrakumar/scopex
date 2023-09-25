@@ -339,6 +339,10 @@ class _ProjectWidgetState extends State<ProjectWidget>
                                           ).toString(),
                                           ParamType.String,
                                         ),
+                                        'stageid': serializeParam(
+                                          1,
+                                          ParamType.int,
+                                        ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(

@@ -45,9 +45,6 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().taxJson = null;
-      });
       _model.moveLineInvoiceDetailRes =
           await AccountingApiGroupGroup.accountingLineProductDetailsCall.call(
         authToken: FFAppState().accessToken,
@@ -1341,7 +1338,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'Invoice item edited successfully...',
+                                                'Item edited successfully',
                                                 style: TextStyle(
                                                   color: FlutterFlowTheme.of(
                                                           context)

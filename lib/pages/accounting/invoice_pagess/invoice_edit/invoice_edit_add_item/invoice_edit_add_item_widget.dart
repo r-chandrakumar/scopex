@@ -1289,7 +1289,7 @@ class _InvoiceEditAddItemWidgetState extends State<InvoiceEditAddItemWidget> {
                                                 .showSnackBar(
                                               SnackBar(
                                                 content: Text(
-                                                  'Invoice item added successfully...',
+                                                  'Item added successfully',
                                                   style: TextStyle(
                                                     color: FlutterFlowTheme.of(
                                                             context)

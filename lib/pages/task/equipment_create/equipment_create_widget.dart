@@ -635,7 +635,8 @@ class _EquipmentCreateWidgetState extends State<EquipmentCreateWidget> {
                                         _model.addToEquipmentLineList(
                                             functions.addItemEquipment(
                                                 'add',
-                                                1.0,
+                                                double.tryParse(_model
+                                                    .qtyTextController.text),
                                                 FFAppState().ProductSearch,
                                                 _model.equipmentLineList
                                                     .toList())!);

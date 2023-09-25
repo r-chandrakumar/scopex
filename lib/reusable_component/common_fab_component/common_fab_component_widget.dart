@@ -315,7 +315,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Quotation deleted successfully',
+                                      'Quotation deleted Successfully',
                                       style: TextStyle(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -406,7 +406,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                             title:
                                                 Text('Convert to Sale Order'),
                                             content: Text(
-                                                'If you want to convert this quotaion to sale order?'),
+                                                'Do you want to convert to sale order?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -460,7 +460,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Quotation converted to sale order successfully',
+                                        'Sale order converted Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .white,
@@ -710,7 +710,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           return AlertDialog(
                                             title: Text('Cancel Confirmation'),
                                             content: Text(
-                                                'If you want to cancel this Quotation?'),
+                                                'Do you want to cancel Quotation?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -764,7 +764,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Successfully cancelled...',
+                                        'Cancelled Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -1623,7 +1623,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           return AlertDialog(
                                             title: Text('Delete RFQ'),
                                             content:
-                                                Text('If You Want Delete RFQ?'),
+                                                Text('Do you want delete RFQ?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -1751,7 +1751,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           title:
                                               Text('Convert to Purchase Order'),
                                           content: Text(
-                                              'If you want convert to Purchase Order?'),
+                                              'Do you want to convert to purchase order?'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -2058,7 +2058,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           return AlertDialog(
                                             title: Text('Cancel RFQ'),
                                             content: Text(
-                                                'If you want Cancel this RFQ?'),
+                                                'Do you want cancel this RFQ?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -2456,7 +2456,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Bill Converted',
+                                        'Bill Converted Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .white,
@@ -3634,7 +3634,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                             return AlertDialog(
                                               title: Text('Delete Invoice'),
                                               content: Text(
-                                                  'If  you Want Delete Invoice '),
+                                                  'Do you want delete invoice?'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -3693,7 +3693,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
-                                          'Deleted',
+                                          'Deleted Successfully',
                                           style: TextStyle(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -4062,7 +4062,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                             return AlertDialog(
                                               title: Text('Cancel the Invoice'),
                                               content: Text(
-                                                  'If you want cancel this  Invoice ?'),
+                                                  'Do you want cancel this Invoice?'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -4121,7 +4121,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
-                                          'Cancelled',
+                                          'Cancelled Successfully',
                                           style: TextStyle(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -4556,8 +4556,8 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
                                             title: Text('Delete Bill'),
-                                            content: Text(
-                                                'If  you Want Delete Bill '),
+                                            content:
+                                                Text('Do you want to delete?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -4608,7 +4608,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Deleted',
+                                        'Deleted Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -4699,7 +4699,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           return AlertDialog(
                                             title: Text('Convert to Bill'),
                                             content: Text(
-                                                'If you want convert to Bill ?'),
+                                                'Do you want convert to bill?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -4753,7 +4753,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Bill Converted successfully',
+                                        'Bill Converted Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -5141,8 +5141,8 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                         builder: (alertDialogContext) {
                                           return AlertDialog(
                                             title: Text('Cancel'),
-                                            content: Text(
-                                                'If you want to  Cancel ?'),
+                                            content:
+                                                Text('Do you want to cancel?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -5196,7 +5196,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Cancelled',
+                                        'Cancelled Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -6313,7 +6313,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                           return AlertDialog(
                                             title: Text('Opportunity'),
                                             content: Text(
-                                                'Do you want convert opportunity'),
+                                                'Do you want to convert to opportunity?'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -6366,7 +6366,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Opportunity Converted',
+                                        'Opportunity Converted Successfully',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .white,
@@ -6875,6 +6875,35 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       )
                                       .toString(),
                                 );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Converted Successfully',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Failed to convert',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
                               }
 
                               setState(() {});
@@ -6908,11 +6937,37 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                         .secondaryBackground,
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
-                                  child: Icon(
-                                    Icons.contacts_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Successfully',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .zambezi,
+                                        ),
+                                      );
+                                    },
+                                    child: Icon(
+                                      Icons.contacts_outlined,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 25.0,
+                                    ),
                                   ),
                                 ),
                               ],

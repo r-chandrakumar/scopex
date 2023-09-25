@@ -486,7 +486,9 @@ class _LeadOpportunityListWidgetState extends State<LeadOpportunityListWidget>
                                                 )
                                                     .toString()
                                                     .maybeHandleOverflow(
-                                                        maxChars: 12),
+                                                      maxChars: 15,
+                                                      replacement: '…',
+                                                    ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

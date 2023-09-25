@@ -9,7 +9,6 @@ import '/pages/attendance/attendance_shimmer/attendance_shimmer_widget.dart';
 import '/reusable_component/internet_icon_component/internet_icon_component_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/permissions_util.dart';
 import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +43,6 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
       if (_model.checkInterntConnection!) {
         if (FFAppState().accessToken != null &&
             FFAppState().accessToken != '') {
-          await requestPermission(notificationsPermission);
           setState(() {
             FFAppState().attendanceMonth = functions.getCurrentMonth()!;
             FFAppState().attendanceYear = functions.getCurrentYear()!;
@@ -258,441 +256,410 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
           ),
           body: SafeArea(
             top: true,
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      if (_model.loader == true)
+            child: Container(
+              width: double.infinity,
+              height: MediaQuery.sizeOf(context).height * 1.0,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).primaryBackground,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  if (_model.loader == true)
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/loading-gif.gif',
+                            width: 100.0,
+                            height: 100.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  if (_model.loader == false)
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/loading-gif.gif',
-                                width: 100.0,
-                                height: 100.0,
-                                fit: BoxFit.cover,
+                            if (_model.attendanceStatus == true)
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: LatLng(0.0, 0.0));
+                                  var _shouldSetState = false;
+                                  setState(() {
+                                    _model.loader = true;
+                                  });
+                                  _model.checkInandOutResult =
+                                      await HymechApiGroupGroup
+                                          .findCheckInOrOutCall
+                                          .call(
+                                    authToken: FFAppState().accessToken,
+                                    domainUrl: FFAppState().DomainUrl,
+                                  );
+                                  _shouldSetState = true;
+                                  _model.checkoutResult =
+                                      await HymechApiGroupGroup.checkOutCall
+                                          .call(
+                                    eq: HymechApiGroupGroup.findCheckInOrOutCall
+                                        .attendanceId(
+                                      (_model.checkInandOutResult?.jsonBody ??
+                                          ''),
+                                    ),
+                                    checkOut: functions.saveCurrentDateTime(),
+                                    locationOut:
+                                        currentUserLocationValue?.toString(),
+                                    authToken: FFAppState().accessToken,
+                                    workedHours:
+                                        functions.attendanceWorkedHours(
+                                            HymechApiGroupGroup
+                                                .findCheckInOrOutCall
+                                                .checkinTime(
+                                                  (_model.checkInandOutResult
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )
+                                                .toString()),
+                                    domainUrl: FFAppState().DomainUrl,
+                                  );
+                                  _shouldSetState = true;
+                                  if ((_model.checkoutResult?.succeeded ??
+                                      true)) {
+                                    FFAppState().update(() {
+                                      FFAppState().loginstatus = false;
+                                    });
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 1000));
+                                    setState(() {
+                                      _model.loader = false;
+                                      _model.attendanceStatus = false;
+                                    });
+                                    setState(() {
+                                      FFAppState().Attendence = false;
+                                    });
+                                    setState(() =>
+                                        _model.apiRequestCompleter1 = null);
+                                    await _model.waitForApiRequestCompleted1();
+                                    setState(() =>
+                                        _model.apiRequestCompleter2 = null);
+                                    await _model.waitForApiRequestCompleted2();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Check out sucessfully',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                    _model.instantTimerStart?.cancel();
+                                    _model.instantTimer?.cancel();
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  } else {
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                child: Image.asset(
+                                  'assets/images/checkouut.png',
+                                  width: 150.0,
+                                  height: 150.0,
+                                  fit: BoxFit.contain,
+                                ),
                               ),
-                            ),
+                            if (_model.attendanceStatus == false)
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: LatLng(0.0, 0.0));
+                                  var _shouldSetState = false;
+                                  setState(() {
+                                    _model.loader = true;
+                                  });
+                                  _model.checkinResult =
+                                      await HymechApiGroupGroup.checkinnewCall
+                                          .call(
+                                    authToken: FFAppState().accessToken,
+                                    checkIn: functions.saveCurrentDateTime(),
+                                    location:
+                                        currentUserLocationValue?.toString(),
+                                    domainUrl: FFAppState().DomainUrl,
+                                  );
+                                  _shouldSetState = true;
+                                  if ((_model.checkinResult?.succeeded ??
+                                      true)) {
+                                    FFAppState().update(() {
+                                      FFAppState().loginstatus = true;
+                                      FFAppState().attendanceid = getJsonField(
+                                        (_model.checkinResult?.jsonBody ?? ''),
+                                        r'''$.insert_hr_attendance.returning[0].id''',
+                                      );
+                                    });
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 1000));
+                                    setState(() {
+                                      _model.loader = false;
+                                      _model.attendanceStatus = true;
+                                    });
+                                    setState(() {
+                                      _model.checkIn =
+                                          functions.saveCurrentDateTime();
+                                    });
+                                    setState(() {
+                                      FFAppState().Attendence = true;
+                                    });
+                                    setState(() =>
+                                        _model.apiRequestCompleter1 = null);
+                                    await _model.waitForApiRequestCompleted1();
+                                    setState(() =>
+                                        _model.apiRequestCompleter2 = null);
+                                    await _model.waitForApiRequestCompleted2();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Check In Successfully',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                    null?.cancel();
+                                    null?.cancel();
+                                    _model.instantTimerStart =
+                                        InstantTimer.periodic(
+                                      duration: Duration(milliseconds: 1000),
+                                      callback: (timer) async {
+                                        setState(() {
+                                          _model.attendanceTime = functions
+                                              .attendanceWorkingHoursCalculation(
+                                                  _model.checkIn);
+                                        });
+                                        return;
+                                      },
+                                      startImmediately: true,
+                                    );
+                                  } else {
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                child: Image.asset(
+                                  'assets/images/checkin.png',
+                                  width: 150.0,
+                                  height: 150.0,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
                           ],
                         ),
-                      if (_model.loader == false)
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                if (_model.attendanceStatus == true)
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      currentUserLocationValue =
-                                          await getCurrentUserLocation(
-                                              defaultLocation:
-                                                  LatLng(0.0, 0.0));
-                                      var _shouldSetState = false;
-                                      setState(() {
-                                        _model.loader = true;
-                                      });
-                                      _model.checkInandOutResult =
-                                          await HymechApiGroupGroup
-                                              .findCheckInOrOutCall
-                                              .call(
-                                        authToken: FFAppState().accessToken,
-                                        domainUrl: FFAppState().DomainUrl,
-                                      );
-                                      _shouldSetState = true;
-                                      _model.apiCheckoutResult =
-                                          await HymechApiGroupGroup.checkOutCall
-                                              .call(
-                                        eq: HymechApiGroupGroup
-                                            .findCheckInOrOutCall
-                                            .attendanceId(
-                                          (_model.checkInandOutResult
-                                                  ?.jsonBody ??
-                                              ''),
-                                        ),
-                                        checkOut:
-                                            functions.saveCurrentDateTime(),
-                                        locationOut: currentUserLocationValue
-                                            ?.toString(),
-                                        authToken: FFAppState().accessToken,
-                                        workedHours:
-                                            functions.attendanceWorkedHours(
-                                                HymechApiGroupGroup
-                                                    .findCheckInOrOutCall
-                                                    .checkinTime(
-                                                      (_model.checkInandOutResult
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )
-                                                    .toString()),
-                                        domainUrl: FFAppState().DomainUrl,
-                                      );
-                                      _shouldSetState = true;
-                                      if ((_model
-                                              .apiCheckoutResult?.succeeded ??
-                                          true)) {
-                                        FFAppState().update(() {
-                                          FFAppState().loginstatus = false;
-                                        });
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 1000));
-                                        setState(() {
-                                          _model.loader = false;
-                                          _model.attendanceStatus = false;
-                                        });
-                                        setState(() {
-                                          FFAppState().Attendence = false;
-                                        });
-                                        setState(() =>
-                                            _model.apiRequestCompleter1 = null);
-                                        await _model
-                                            .waitForApiRequestCompleted1();
-                                        setState(() =>
-                                            _model.apiRequestCompleter2 = null);
-                                        await _model
-                                            .waitForApiRequestCompleted2();
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Check out sucessfully',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                        null?.cancel();
-                                        null?.cancel();
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      } else {
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-
-                                      if (_shouldSetState) setState(() {});
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/checkouut.png',
-                                      width: 150.0,
-                                      height: 150.0,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                if (_model.attendanceStatus == false)
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      currentUserLocationValue =
-                                          await getCurrentUserLocation(
-                                              defaultLocation:
-                                                  LatLng(0.0, 0.0));
-                                      var _shouldSetState = false;
-                                      setState(() {
-                                        _model.loader = true;
-                                      });
-                                      _model.checkinResult =
-                                          await HymechApiGroupGroup
-                                              .checkinnewCall
-                                              .call(
-                                        authToken: FFAppState().accessToken,
-                                        checkIn:
-                                            functions.saveCurrentDateTime(),
-                                        location: currentUserLocationValue
-                                            ?.toString(),
-                                        domainUrl: FFAppState().DomainUrl,
-                                      );
-                                      _shouldSetState = true;
-                                      if ((_model.checkinResult?.succeeded ??
-                                          true)) {
-                                        FFAppState().update(() {
-                                          FFAppState().loginstatus = true;
-                                          FFAppState().attendanceid =
-                                              getJsonField(
-                                            (_model.checkinResult?.jsonBody ??
-                                                ''),
-                                            r'''$.insert_hr_attendance.returning[0].id''',
-                                          );
-                                        });
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 1000));
-                                        setState(() {
-                                          _model.loader = false;
-                                          _model.attendanceStatus = true;
-                                        });
-                                        setState(() {
-                                          _model.checkIn =
-                                              functions.saveCurrentDateTime();
-                                        });
-                                        setState(() {
-                                          FFAppState().Attendence = true;
-                                        });
-                                        setState(() =>
-                                            _model.apiRequestCompleter1 = null);
-                                        await _model
-                                            .waitForApiRequestCompleted1();
-                                        setState(() =>
-                                            _model.apiRequestCompleter2 = null);
-                                        await _model
-                                            .waitForApiRequestCompleted2();
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Check In Successfully',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
-                                        null?.cancel();
-                                        _model.instantTimerStart?.cancel();
-                                        _model.instantTimerStart =
-                                            InstantTimer.periodic(
-                                          duration:
-                                              Duration(milliseconds: 1000),
-                                          callback: (timer) async {
-                                            setState(() {
-                                              _model.attendanceTime = functions
-                                                  .attendanceWorkingHoursCalculation(
-                                                      _model.checkIn);
-                                            });
-                                            return;
-                                          },
-                                          startImmediately: true,
-                                        );
-                                      } else {
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-
-                                      if (_shouldSetState) setState(() {});
-                                    },
-                                    child: Image.asset(
-                                      'assets/images/checkin.png',
-                                      width: 150.0,
-                                      height: 150.0,
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                              ],
-                            ),
-                            Text(
-                              FFAppState().loginstatus
-                                  ? 'Click To Check Out'
-                                  : 'Click To Check In',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
+                        Text(
+                          FFAppState().loginstatus
+                              ? 'Click To Check Out'
+                              : 'Click To Check In',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                            ),
-                          ],
                         ),
-                      FutureBuilder<ApiCallResponse>(
-                        future: (_model.apiRequestCompleter1 ??=
-                                Completer<ApiCallResponse>()
-                                  ..complete(HymechApiGroupGroup
-                                      .checkPresentAttendanceCall
-                                      .call(
-                                    authToken: FFAppState().accessToken,
-                                    domainUrl: FFAppState().DomainUrl,
-                                  )))
-                            .future,
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return AttendanceShimmerWidget();
-                          }
-                          final containerCheckPresentAttendanceResponse =
-                              snapshot.data!;
-                          return Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(),
-                            child: FutureBuilder<ApiCallResponse>(
-                              future: (_model.apiRequestCompleter2 ??=
-                                      Completer<ApiCallResponse>()
-                                        ..complete(HymechApiGroupGroup
-                                            .findCheckInOrOutCall
-                                            .call(
-                                          authToken: FFAppState().accessToken,
-                                          domainUrl: FFAppState().DomainUrl,
-                                        )))
-                                  .future,
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          Color(0xFF47E171),
+                      ],
+                    ),
+                  FutureBuilder<ApiCallResponse>(
+                    future: (_model.apiRequestCompleter1 ??=
+                            Completer<ApiCallResponse>()
+                              ..complete(HymechApiGroupGroup
+                                  .checkPresentAttendanceCall
+                                  .call(
+                                authToken: FFAppState().accessToken,
+                                domainUrl: FFAppState().DomainUrl,
+                              )))
+                        .future,
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return AttendanceShimmerWidget();
+                      }
+                      final containerCheckPresentAttendanceResponse =
+                          snapshot.data!;
+                      return Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(),
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: (_model.apiRequestCompleter2 ??=
+                                  Completer<ApiCallResponse>()
+                                    ..complete(HymechApiGroupGroup
+                                        .findCheckInOrOutCall
+                                        .call(
+                                      authToken: FFAppState().accessToken,
+                                      domainUrl: FFAppState().DomainUrl,
+                                    )))
+                              .future,
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color(0xFF47E171),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final rowFindCheckInOrOutResponse = snapshot.data!;
+                            return Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Flexible(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 9.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.clock,
+                                          color: Color(0xFFFBB876),
+                                          size: 30.0,
                                         ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                final rowFindCheckInOrOutResponse =
-                                    snapshot.data!;
-                                return Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Flexible(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 9.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.clock,
-                                              color: Color(0xFFFBB876),
-                                              size: 30.0,
-                                            ),
-                                          ),
-                                          Text(
-                                            valueOrDefault<String>(
-                                              HymechApiGroupGroup
-                                                          .checkPresentAttendanceCall
-                                                          .attendancelist(
-                                                            containerCheckPresentAttendanceResponse
+                                      Text(
+                                        valueOrDefault<String>(
+                                          HymechApiGroupGroup
+                                                      .checkPresentAttendanceCall
+                                                      .attendancelist(
+                                                        containerCheckPresentAttendanceResponse
+                                                            .jsonBody,
+                                                      )
+                                                      .length ==
+                                                  0
+                                              ? '- - : - -'
+                                              : functions
+                                                  .attendanceListTimeFormat(
+                                                      HymechApiGroupGroup
+                                                          .findCheckInOrOutCall
+                                                          .checkinTime(
+                                                            rowFindCheckInOrOutResponse
                                                                 .jsonBody,
                                                           )
-                                                          .length ==
-                                                      0
-                                                  ? '- - : - -'
-                                                  : functions
-                                                      .attendanceListTimeFormat(
-                                                          HymechApiGroupGroup
-                                                              .findCheckInOrOutCall
-                                                              .checkinTime(
-                                                                rowFindCheckInOrOutResponse
-                                                                    .jsonBody,
-                                                              )
-                                                              .toString()),
-                                              '- - : - -',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'poktd20e' /* Check In */,
-                                              ),
-                                              style:
+                                                          .toString()),
+                                          '- - : - -',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 14.0,
-                                                      ),
+                                                      .primaryText,
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                          ),
-                                        ],
                                       ),
-                                    ),
-                                    Flexible(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 9.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.clock,
-                                              color: Color(0xFFEF6D6F),
-                                              size: 30.0,
-                                            ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '1skbzld2' /* Check In */,
                                           ),
-                                          Text(
-                                            valueOrDefault<String>(
-                                              HymechApiGroupGroup
-                                                          .checkPresentAttendanceCall
-                                                          .attendancelist(
-                                                            containerCheckPresentAttendanceResponse
-                                                                .jsonBody,
-                                                          )
-                                                          .length ==
-                                                      0
-                                                  ? '- - : - -'
-                                                  : valueOrDefault<String>(
-                                                      (HymechApiGroupGroup
-                                                                      .findCheckInOrOutCall
-                                                                      .isCheckout(
-                                                                        rowFindCheckInOrOutResponse
-                                                                            .jsonBody,
-                                                                      )
-                                                                      .toString() ==
-                                                                  'null') &&
-                                                              (HymechApiGroupGroup
-                                                                      .findCheckInOrOutCall
-                                                                      .checkinTime(
-                                                                        rowFindCheckInOrOutResponse
-                                                                            .jsonBody,
-                                                                      )
-                                                                      .toString() !=
-                                                                  'null')
-                                                          ? '- - : - -'
-                                                          : functions.attendanceListTimeFormat(
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 14.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 9.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.clock,
+                                          color: Color(0xFFEF6D6F),
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          HymechApiGroupGroup
+                                                      .checkPresentAttendanceCall
+                                                      .attendancelist(
+                                                        containerCheckPresentAttendanceResponse
+                                                            .jsonBody,
+                                                      )
+                                                      .length ==
+                                                  0
+                                              ? '- - : - -'
+                                              : valueOrDefault<String>(
+                                                  (HymechApiGroupGroup
+                                                                  .findCheckInOrOutCall
+                                                                  .isCheckout(
+                                                                    rowFindCheckInOrOutResponse
+                                                                        .jsonBody,
+                                                                  )
+                                                                  .toString() ==
+                                                              'null') &&
+                                                          (HymechApiGroupGroup
+                                                                  .findCheckInOrOutCall
+                                                                  .checkinTime(
+                                                                    rowFindCheckInOrOutResponse
+                                                                        .jsonBody,
+                                                                  )
+                                                                  .toString() !=
+                                                              'null')
+                                                      ? '- - : - -'
+                                                      : functions
+                                                          .attendanceListTimeFormat(
                                                               HymechApiGroupGroup
                                                                   .findCheckInOrOutCall
                                                                   .isCheckout(
@@ -700,155 +667,144 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                                         .jsonBody,
                                                                   )
                                                                   .toString()),
-                                                      '- - : - -',
-                                                    ),
-                                              '- - : - -',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.bold,
+                                                  '- - : - -',
                                                 ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'ird0z0cp' /* Check Out */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 14.0,
-                                                      ),
+                                          '- - : - -',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                          ),
-                                        ],
                                       ),
-                                    ),
-                                    Flexible(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 9.0),
-                                            child: FaIcon(
-                                              FontAwesomeIcons.clock,
-                                              color: Color(0xFF80C29E),
-                                              size: 30.0,
-                                            ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'qyzuubc7' /* Check Out */,
                                           ),
-                                          Text(
-                                            valueOrDefault<String>(
-                                              HymechApiGroupGroup
-                                                          .checkPresentAttendanceCall
-                                                          .attendancelist(
-                                                            containerCheckPresentAttendanceResponse
-                                                                .jsonBody,
-                                                          )
-                                                          .length ==
-                                                      0
-                                                  ? '- - : - -'
-                                                  : ((HymechApiGroupGroup
-                                                                      .findCheckInOrOutCall
-                                                                      .checkinTime(
-                                                                        rowFindCheckInOrOutResponse
-                                                                            .jsonBody,
-                                                                      )
-                                                                      .toString() !=
-                                                                  null &&
-                                                              HymechApiGroupGroup
-                                                                      .findCheckInOrOutCall
-                                                                      .checkinTime(
-                                                                        rowFindCheckInOrOutResponse
-                                                                            .jsonBody,
-                                                                      )
-                                                                      .toString() !=
-                                                                  '') &&
-                                                          (HymechApiGroupGroup
-                                                                  .findCheckInOrOutCall
-                                                                  .isCheckout(
-                                                                    rowFindCheckInOrOutResponse
-                                                                        .jsonBody,
-                                                                  )
-                                                                  .toString() !=
-                                                              'null')
-                                                      ? functions
-                                                          .attendanceGerWorkingHours(
-                                                              HymechApiGroupGroup
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 14.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 9.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.clock,
+                                          color: Color(0xFF80C29E),
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                      Text(
+                                        valueOrDefault<String>(
+                                          HymechApiGroupGroup
+                                                      .checkPresentAttendanceCall
+                                                      .attendancelist(
+                                                        containerCheckPresentAttendanceResponse
+                                                            .jsonBody,
+                                                      )
+                                                      .length ==
+                                                  0
+                                              ? '- - : - -'
+                                              : ((HymechApiGroupGroup
                                                                   .findCheckInOrOutCall
                                                                   .checkinTime(
                                                                     rowFindCheckInOrOutResponse
                                                                         .jsonBody,
                                                                   )
-                                                                  .toString(),
-                                                              HymechApiGroupGroup
+                                                                  .toString() !=
+                                                              null &&
+                                                          HymechApiGroupGroup
                                                                   .findCheckInOrOutCall
-                                                                  .isCheckout(
+                                                                  .checkinTime(
                                                                     rowFindCheckInOrOutResponse
                                                                         .jsonBody,
                                                                   )
-                                                                  .toString())
-                                                      : (_model.attendanceTime !=
-                                                                  null &&
-                                                              _model.attendanceTime !=
-                                                                  ''
-                                                          ? _model
-                                                              .attendanceTime
-                                                          : '- - : - -')),
-                                              ' - - : - -',
+                                                                  .toString() !=
+                                                              '') &&
+                                                      (HymechApiGroupGroup
+                                                              .findCheckInOrOutCall
+                                                              .isCheckout(
+                                                                rowFindCheckInOrOutResponse
+                                                                    .jsonBody,
+                                                              )
+                                                              .toString() !=
+                                                          'null')
+                                                  ? functions
+                                                      .attendanceGerWorkingHours(
+                                                          HymechApiGroupGroup
+                                                              .findCheckInOrOutCall
+                                                              .checkinTime(
+                                                                rowFindCheckInOrOutResponse
+                                                                    .jsonBody,
+                                                              )
+                                                              .toString(),
+                                                          HymechApiGroupGroup
+                                                              .findCheckInOrOutCall
+                                                              .isCheckout(
+                                                                rowFindCheckInOrOutResponse
+                                                                    .jsonBody,
+                                                              )
+                                                              .toString())
+                                                  : (_model.attendanceTime !=
+                                                              null &&
+                                                          _model.attendanceTime !=
+                                                              ''
+                                                      ? _model.attendanceTime
+                                                      : '- - : - -')),
+                                          ' - - : - -',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'ljyxxo6w' /* Working Hours */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 14.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
                                       ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                    ],
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5a3xuj9w' /* Working Hours */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 14.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                      );
+                    },
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

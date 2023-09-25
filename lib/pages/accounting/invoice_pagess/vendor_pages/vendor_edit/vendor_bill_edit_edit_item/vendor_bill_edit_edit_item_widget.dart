@@ -46,9 +46,6 @@ class _VendorBillEditEditItemWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().taxJson = null;
-      });
       _model.moveLineInvoiceDetailRes =
           await AccountingApiGroupGroup.accountingLineProductDetailsCall.call(
         authToken: FFAppState().accessToken,
@@ -1224,7 +1221,7 @@ class _VendorBillEditEditItemWidgetState
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Vendor bill item edited successfully...',
+                                              'Item edited successfully',
                                               style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)

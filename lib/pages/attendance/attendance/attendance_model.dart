@@ -9,7 +9,6 @@ import '/pages/attendance/attendance_shimmer/attendance_shimmer_widget.dart';
 import '/reusable_component/internet_icon_component/internet_icon_component_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/permissions_util.dart';
 import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
@@ -41,17 +40,17 @@ class AttendanceModel extends FlutterFlowModel {
   InstantTimer? instantTimer;
   // Model for sideBar_new component.
   late SideBarNewModel sideBarNewModel;
+  // Model for menuComponent component.
+  late MenuComponentModel menuComponentModel;
   // Stores action output result for [Backend Call - API (FindCheckInOrOut)] action in Image widget.
   ApiCallResponse? checkInandOutResult;
   // Stores action output result for [Backend Call - API (CheckOut)] action in Image widget.
-  ApiCallResponse? apiCheckoutResult;
+  ApiCallResponse? checkoutResult;
   Completer<ApiCallResponse>? apiRequestCompleter1;
   Completer<ApiCallResponse>? apiRequestCompleter2;
   // Stores action output result for [Backend Call - API (checkinnew)] action in Image widget.
   ApiCallResponse? checkinResult;
   InstantTimer? instantTimerStart;
-  // Model for menuComponent component.
-  late MenuComponentModel menuComponentModel;
 
   /// Initialization and disposal methods.
 
@@ -64,8 +63,8 @@ class AttendanceModel extends FlutterFlowModel {
     unfocusNode.dispose();
     instantTimer?.cancel();
     sideBarNewModel.dispose();
-    instantTimerStart?.cancel();
     menuComponentModel.dispose();
+    instantTimerStart?.cancel();
   }
 
   /// Action blocks are added here.

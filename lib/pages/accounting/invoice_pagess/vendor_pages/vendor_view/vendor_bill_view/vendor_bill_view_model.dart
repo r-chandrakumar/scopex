@@ -18,7 +18,7 @@ import 'package:provider/provider.dart';
 class VendorBillViewModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  int? tabchange;
+  int? tabchange = 0;
 
   ///  State fields for stateful widgets in this page.
 

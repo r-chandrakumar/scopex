@@ -349,7 +349,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           context.pop();
                         }
                         context.pushNamed(
-                          'Grn_list_page',
+                          'Expenses_list',
                           queryParameters: {
                             'state': serializeParam(
                               'refused',

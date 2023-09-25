@@ -444,31 +444,43 @@ class _ExpensesListWidgetState extends State<ExpensesListWidget>
                                                   ),
                                                 ],
                                               ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  Text(
-                                                    'Rs.${getJsonField(
-                                                      expenseLIstItem,
-                                                      r'''$.total_amount''',
-                                                    ).toString()}',
-                                                    textAlign: TextAlign.end,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .rgb,
-                                                          fontSize: 20.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                  ),
-                                                ],
+                                              Flexible(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        functions.amountSymbol(
+                                                            getJsonField(
+                                                              expenseLIstItem,
+                                                              r'''$.total_amount''',
+                                                            ).toString(),
+                                                            FFAppState()
+                                                                .currencySymbol),
+                                                        '-',
+                                                      ),
+                                                      textAlign: TextAlign.end,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .rgb,
+                                                                fontSize: 20.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),

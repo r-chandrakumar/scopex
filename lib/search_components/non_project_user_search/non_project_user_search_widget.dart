@@ -186,7 +186,7 @@ class _NonProjectUserSearchWidgetState extends State<NonProjectUserSearchWidget>
               ),
             ),
           ),
-          Expanded(
+          Flexible(
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
               child: FutureBuilder<ApiCallResponse>(
@@ -217,12 +217,15 @@ class _NonProjectUserSearchWidgetState extends State<NonProjectUserSearchWidget>
                   final searchListNonProjectUsersResponse = snapshot.data!;
                   return Builder(
                     builder: (context) {
-                      final res = getJsonField(
-                        searchListNonProjectUsersResponse.jsonBody,
-                        r'''$''',
-                      ).toList();
+                      final res = HymechApiGroupGroup.nonProjectUsersCall
+                              .res(
+                                searchListNonProjectUsersResponse.jsonBody,
+                              )
+                              ?.toList() ??
+                          [];
                       return ListView.builder(
                         padding: EdgeInsets.zero,
+                        primary: false,
                         scrollDirection: Axis.vertical,
                         itemCount: res.length,
                         itemBuilder: (context, resIndex) {
@@ -272,7 +275,7 @@ class _NonProjectUserSearchWidgetState extends State<NonProjectUserSearchWidget>
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Expanded(
+                                      Flexible(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:

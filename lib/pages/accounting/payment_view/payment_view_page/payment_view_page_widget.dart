@@ -139,7 +139,10 @@ class _PaymentViewPageWidgetState extends State<PaymentViewPageWidget> {
             alignment: AlignmentDirectional(-1.00, 0.00),
             child: Text(
               valueOrDefault<String>(
-                widget.name,
+                functions.isNull(valueOrDefault<String>(
+                  widget.name,
+                  '-',
+                )),
                 '-',
               ),
               style: FlutterFlowTheme.of(context).displayMedium.override(

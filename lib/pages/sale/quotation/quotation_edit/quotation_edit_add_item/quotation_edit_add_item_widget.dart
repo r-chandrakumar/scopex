@@ -1268,7 +1268,7 @@ class _QuotationEditAddItemWidgetState
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'Quatation added item successfully...',
+                                                'Item added successfully',
                                                 style: TextStyle(
                                                   color: FlutterFlowTheme.of(
                                                           context)

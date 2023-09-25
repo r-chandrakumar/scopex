@@ -1193,7 +1193,7 @@ class _VendorBillEditAddItemWidgetState
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Vendor bill item added successfully...',
+                                              'Item added successfully',
                                               style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)

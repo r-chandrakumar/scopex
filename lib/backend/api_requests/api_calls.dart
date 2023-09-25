@@ -5813,24 +5813,34 @@ class NonProjectUsersCall {
   }) {
     final userId = _serializeList(userIdList);
 
+    final ffApiRequestBody = '''
+{
+  "_nin": ${userId}
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Non Project Users',
       apiUrl:
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_not_in_project',
-      callType: ApiCallType.GET,
+      callType: ApiCallType.POST,
       headers: {
         ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
-      params: {
-        '_nin': userId,
-      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
     );
   }
+
+  dynamic res(dynamic response) => getJsonField(
+        response,
+        r'''$.res_users''',
+        true,
+      );
 }
 
 class LeaveTypeCall {
@@ -6616,6 +6626,14 @@ class CommonApisGroupGroup {
   static SettingsCall settingsCall = SettingsCall();
   static AcitivitySwipeDateListCall acitivitySwipeDateListCall =
       AcitivitySwipeDateListCall();
+  static PurchaseDropdownActivityCall purchaseDropdownActivityCall =
+      PurchaseDropdownActivityCall();
+  static SaleDropdownActivityCall saleDropdownActivityCall =
+      SaleDropdownActivityCall();
+  static InvoiceDropdownActivityCall invoiceDropdownActivityCall =
+      InvoiceDropdownActivityCall();
+  static BillDropdownActivityCall billDropdownActivityCall =
+      BillDropdownActivityCall();
 }
 
 class PartnersListCall {
@@ -7711,6 +7729,142 @@ class AcitivitySwipeDateListCall {
   dynamic mailActivity(dynamic response) => getJsonField(
         response,
         r'''$.mail_activity''',
+        true,
+      );
+}
+
+class PurchaseDropdownActivityCall {
+  Future<ApiCallResponse> call({
+    String? domainUrl = '',
+    String? authToken = '',
+    String? search = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'PurchaseDropdownActivity',
+      apiUrl:
+          '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_rfq',
+      callType: ApiCallType.GET,
+      headers: {
+        ...CommonApisGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        '_iregex': search,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic purchaseDrop(dynamic response) => getJsonField(
+        response,
+        r'''$.purchase_order''',
+        true,
+      );
+}
+
+class SaleDropdownActivityCall {
+  Future<ApiCallResponse> call({
+    String? domainUrl = '',
+    String? authToken = '',
+    String? search = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'SaleDropdownActivity',
+      apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/sale_draft',
+      callType: ApiCallType.GET,
+      headers: {
+        ...CommonApisGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        '_iregex': search,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic saleOrderDrop(dynamic response) => getJsonField(
+        response,
+        r'''$.sale_order''',
+        true,
+      );
+  dynamic saleId(dynamic response) => getJsonField(
+        response,
+        r'''$.sale_order..id''',
+        true,
+      );
+  dynamic saleName(dynamic response) => getJsonField(
+        response,
+        r'''$.sale_order..name''',
+        true,
+      );
+}
+
+class InvoiceDropdownActivityCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? domainUrl = '',
+    String? search = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'InvoiceDropdownActivity',
+      apiUrl:
+          '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_draft',
+      callType: ApiCallType.GET,
+      headers: {
+        ...CommonApisGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        '_iregex': search,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic invoiceDrop(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move''',
+        true,
+      );
+}
+
+class BillDropdownActivityCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? domainUrl = '',
+    String? search = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'BillDropdownActivity',
+      apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/bill_draft',
+      callType: ApiCallType.GET,
+      headers: {
+        ...CommonApisGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        '_iregex': search,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic billDrop(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move''',
         true,
       );
 }

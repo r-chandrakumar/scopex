@@ -210,20 +210,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Attendance
   {
-    'poktd20e': {
-      'en': 'Check In',
-      'ta': 'செக் இன்',
-    },
-    'ird0z0cp': {
-      'en': 'Check Out',
-      'ta': 'சரிபார்',
-    },
-    'ljyxxo6w': {
-      'en': 'Working Hours',
-      'ta': 'வேலை நேரம்',
-    },
     'r9ugmlwy': {
       'en': 'Attendance',
+      'ta': '',
+    },
+    '1skbzld2': {
+      'en': 'Check In',
+      'ta': '',
+    },
+    'qyzuubc7': {
+      'en': 'Check Out',
+      'ta': '',
+    },
+    '5a3xuj9w': {
+      'en': 'Working Hours',
       'ta': '',
     },
     'nnjorjtx': {
@@ -836,30 +836,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '3d9wlrz5': {
       'en': 'Files',
-      'ta': '',
-    },
-    'c8k63qe0': {
-      'en': 'Add Log',
-      'ta': '',
-    },
-    'dlludh23': {
-      'en': '',
-      'ta': '',
-    },
-    '7cyh9sgl': {
-      'en': 'Enter notes...',
-      'ta': '',
-    },
-    'dsq5czco': {
-      'en': 'Submit',
-      'ta': '',
-    },
-    'iz21q8rk': {
-      'en': 'Field is required',
-      'ta': '',
-    },
-    'hwjlv352': {
-      'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
     'xe2t6t1g': {
@@ -2880,51 +2856,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Edit Quotations',
       'ta': '',
     },
-    's57ljd7v': {
+    'xawawlk2': {
       'en': 'Customer',
       'ta': '',
     },
-    'o6jz65rl': {
+    'v2lawg05': {
       'en': 'Payment Terms',
       'ta': '',
     },
-    'f97rcqal': {
+    'nbhxpj1e': {
       'en': 'Option 1',
       'ta': '',
     },
-    'ee0glszt': {
+    'hw3dfuab': {
       'en': 'Payment  Terms',
       'ta': '',
     },
-    'kcsv5sbp': {
+    'dfkjzt50': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    'zkc9v1vv': {
+    'o9p9w421': {
       'en': 'Quotation Date',
       'ta': '',
     },
-    '4312oc6o': {
+    'jern3rnr': {
       'en': 'Due Date',
       'ta': '',
     },
-    'u4xx8ae3': {
+    'o8khvjo1': {
       'en': 'Add Items',
       'ta': '',
     },
-    '4l0q1c5r': {
+    'n57l7ooi': {
       'en': 'Note',
       'ta': '',
     },
-    'wt45w1qj': {
+    'onrchs9m': {
       'en': 'Save',
       'ta': '',
     },
-    't7ppf6vn': {
+    '21zar48d': {
       'en': 'Field is required',
       'ta': '',
     },
-    '1eidvfv3': {
+    'gj9al7cd': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -3477,7 +3453,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Contact List ',
       'ta': '',
     },
-    'j5s3vvrn': {
+    'gbdcqqd9': {
       'en': 'call',
       'ta': '',
     },
@@ -5366,6 +5342,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1nyqilzu': {
       'en': 'Save',
+      'ta': '',
+    },
+    'adhfh9b5': {
+      'en': 'Field is required',
+      'ta': '',
+    },
+    'eytz4e37': {
+      'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
     '0cqe4m11': {
@@ -8556,6 +8540,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Notifications',
       'ta': '',
     },
+    '3ycw5h71': {
+      'en': 'Mark all as read',
+      'ta': '',
+    },
   },
   // sideBar_new
   {
@@ -8721,6 +8709,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0n9nju2x': {
       'en': 'Work orders',
+      'ta': '',
+    },
+    '4210glnd': {
+      'en': 'List View',
       'ta': '',
     },
     'brr8047i': {
@@ -9665,83 +9657,131 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ScheduleMyActivityCopy
   {
-    'a0ug3bzm': {
+    'fg7oaqnr': {
       'en': 'Schedule My Activity',
       'ta': '',
     },
-    'y1de9zmy': {
+    'wqiq33dr': {
+      'en': 'Model',
+      'ta': '',
+    },
+    '42jrz28y': {
+      'en': 'lead',
+      'ta': '',
+    },
+    'rybyz4rq': {
+      'en': 'Sale Order',
+      'ta': '',
+    },
+    '68leu4co': {
+      'en': 'Purchase Order',
+      'ta': '',
+    },
+    'x9l0qn62': {
+      'en': 'Invoice',
+      'ta': '',
+    },
+    '16yvus9b': {
+      'en': 'Vendor Bill',
+      'ta': '',
+    },
+    'ryk8ymu8': {
+      'en': 'Select Model',
+      'ta': '',
+    },
+    'mz8miqc2': {
+      'en': 'Search for an item...',
+      'ta': '',
+    },
+    '6r1fg5ob': {
       'en': 'Lead',
       'ta': '',
     },
-    '0q6ty70a': {
+    'javdg2j3': {
       'en': 'Option 1',
       'ta': '',
     },
-    'xux0virr': {
+    '8vqqtc6g': {
       'en': 'Select Lead',
       'ta': '',
     },
-    '0jalfc79': {
+    'i7gedhx6': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    'lohe9f2a': {
+    '1fogl0uf': {
+      'en': 'Hello World',
+      'ta': '',
+    },
+    'lbtr09hv': {
+      'en': 'Option 1',
+      'ta': '',
+    },
+    'mjawkuri': {
+      'en': 'Please select...',
+      'ta': '',
+    },
+    'f2nym0jq': {
+      'en': 'Search for an item...',
+      'ta': '',
+    },
+    'tj7ptphg': {
       'en': 'Activity Type',
       'ta': '',
     },
-    'gbtfoybv': {
+    'qwao6sye': {
       'en': 'Option 1',
       'ta': '',
     },
-    'nrdh1hen': {
+    'rzw93zqj': {
       'en': 'Select Type',
       'ta': '',
     },
-    '8bsioc7h': {
+    'gsnjubwk': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    '704mtj84': {
+    '7aad4rde': {
       'en': 'Assigned To',
       'ta': '',
     },
-    'bv5wi1ba': {
+    '4cmu88my': {
       'en': 'Option 1',
       'ta': '',
     },
-    'yc0j43sd': {
+    'jrdvndy5': {
       'en': 'Select Type',
       'ta': '',
     },
-    'va15dmx7': {
+    'qfdsu1p1': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    '8wy43dbe': {
+    'wqjgh9v0': {
       'en': 'Due Date',
       'ta': '',
     },
-    'aw3vkou6': {
+    '2jg3u9tw': {
       'en': 'Summary',
       'ta': '',
     },
-    'vkhpj1fz': {
+    'fydmpvbo': {
       'en': 'write a summary',
       'ta': '',
     },
-    '4fv3mc32': {
+    'zunwrxce': {
       'en': 'Discard',
       'ta': '',
     },
-    'gq76dgy6': {
+    'fmh8rpck': {
       'en': 'Schedule',
       'ta': '',
     },
-    'oxw11ztp': {
+    '8al4sg6s': {
       'en': 'Field is required',
       'ta': '',
     },
-    '02smycez': {
+    'i1u2z4ee': {
       'en': 'Please choose an option from the dropdown',
       'ta': '',
     },
@@ -10219,6 +10259,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ps5pistg': {
       'en': 'Not Started',
+      'ta': '',
+    },
+  },
+  // listViewCheck
+  {
+    '0q1duhqa': {
+      'en': 'Add Items',
       'ta': '',
     },
   },

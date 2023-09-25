@@ -125,6 +125,13 @@ class _FiltertaskProjectWidgetState extends State<FiltertaskProjectWidget> {
                                 widget.name,
                                 ParamType.String,
                               ),
+                              'stageid': serializeParam(
+                                getJsonField(
+                                  statusListItem,
+                                  r'''$.id''',
+                                ),
+                                ParamType.int,
+                              ),
                             }.withoutNulls,
                           );
                         },

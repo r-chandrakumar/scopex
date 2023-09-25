@@ -10,7 +10,6 @@ import '/pages/expenses/viewexpshimmer/viewexpshimmer_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -29,19 +28,13 @@ class ExpensesViewModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
   // Model for backButttonComponent component.
   late BackButttonComponentModel backButttonComponentModel;
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (Log Note Create)] action in Button widget.
-  ApiCallResponse? lognotePostResponse;
-  Completer<ApiCallResponse>? apiRequestCompleter;
   // Model for CommonLogNote component.
   late CommonLogNoteModel commonLogNoteModel;
   // Stores action output result for [Backend Call - API (Delete Attachment)] action in Icon widget.
   ApiCallResponse? deleteAttach;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (Delete Attachment)] action in Icon widget.
   ApiCallResponse? deleteAttached;
 
@@ -55,7 +48,6 @@ class ExpensesViewModel extends FlutterFlowModel {
 
   void dispose() {
     backButttonComponentModel.dispose();
-    textController?.dispose();
     commonLogNoteModel.dispose();
   }
 

@@ -430,11 +430,11 @@ class _TaskListWidgetState extends State<TaskListWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
@@ -444,7 +444,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Roboto',
-                                            fontSize: 13.0,
+                                            fontSize: 14.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -461,7 +461,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .appBarTextColor,
-                                              fontSize: 15.0,
+                                              fontSize: 14.0,
                                             ),
                                       ),
                                     ),
@@ -470,10 +470,11 @@ class _TaskListWidgetState extends State<TaskListWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 2.0, 0.0, 0.0),
+                                    0.0, 5.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Flexible(
@@ -493,7 +494,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
-                                                        fontSize: 13.0,
+                                                        fontSize: 14.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -516,7 +517,7 @@ class _TaskListWidgetState extends State<TaskListWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .appBarTextColor,
-                                                          fontSize: 15.0,
+                                                          fontSize: 14.0,
                                                         ),
                                               ),
                                             ),

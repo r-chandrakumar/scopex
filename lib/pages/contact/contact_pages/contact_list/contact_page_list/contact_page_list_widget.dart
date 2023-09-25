@@ -262,173 +262,180 @@ class _ContactPageListWidgetState extends State<ContactPageListWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: RefreshIndicator(
-            onRefresh: () async {
-              setState(() => _model.listViewPagingController?.refresh());
-              await _model.waitForOnePageForListView();
-            },
-            child: PagedListView<ApiPagingParams, dynamic>(
-              pagingController: _model.setListViewController(
-                (nextPageMarker) => ContactApiGroupGroup.contactsListCall.call(
-                  authToken: FFAppState().accessToken,
-                  limit: 20,
-                  offset: nextPageMarker.numItems,
-                  customerRank: () {
-                    if (widget.contactType == 'all') {
-                      return 0;
-                    } else if (widget.contactType == 'customer') {
-                      return 1;
-                    } else if (widget.contactType == 'supplier') {
-                      return 0;
-                    } else {
-                      return 1;
-                    }
-                  }(),
-                  supplierRank: () {
-                    if (widget.contactType == 'all') {
-                      return 0;
-                    } else if (widget.contactType == 'customer') {
-                      return 0;
-                    } else if (widget.contactType == 'supplier') {
-                      return 1;
-                    } else {
-                      return 1;
-                    }
-                  }(),
-                  domainUrl: FFAppState().DomainUrl,
-                ),
-              ),
-              padding: EdgeInsets.fromLTRB(
-                0,
-                0,
-                0,
-                75.0,
-              ),
-              shrinkWrap: true,
-              reverse: false,
-              scrollDirection: Axis.vertical,
-              builderDelegate: PagedChildBuilderDelegate<dynamic>(
-                // Customize what your widget looks like when it's loading the first page.
-                firstPageProgressIndicatorBuilder: (_) =>
-                    ContactListShimmerWidget(),
-                // Customize what your widget looks like when it's loading another page.
-                newPageProgressIndicatorBuilder: (_) =>
-                    ContactListShimmerWidget(),
-                noItemsFoundIndicatorBuilder: (_) => Center(
-                  child: Image.asset(
-                    'assets/images/New_Project_(2).png',
-                    width: 200.0,
-                    height: 200.0,
+          child: Container(
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            child: RefreshIndicator(
+              onRefresh: () async {
+                setState(() => _model.listViewPagingController?.refresh());
+                await _model.waitForOnePageForListView();
+              },
+              child: PagedListView<ApiPagingParams, dynamic>(
+                pagingController: _model.setListViewController(
+                  (nextPageMarker) =>
+                      ContactApiGroupGroup.contactsListCall.call(
+                    authToken: FFAppState().accessToken,
+                    limit: 20,
+                    offset: nextPageMarker.numItems,
+                    customerRank: () {
+                      if (widget.contactType == 'all') {
+                        return 0;
+                      } else if (widget.contactType == 'customer') {
+                        return 1;
+                      } else if (widget.contactType == 'supplier') {
+                        return 0;
+                      } else {
+                        return 1;
+                      }
+                    }(),
+                    supplierRank: () {
+                      if (widget.contactType == 'all') {
+                        return 0;
+                      } else if (widget.contactType == 'customer') {
+                        return 0;
+                      } else if (widget.contactType == 'supplier') {
+                        return 1;
+                      } else {
+                        return 1;
+                      }
+                    }(),
+                    domainUrl: FFAppState().DomainUrl,
                   ),
                 ),
-                itemBuilder: (context, _, contactListsApiIndex) {
-                  final contactListsApiItem = _model.listViewPagingController!
-                      .itemList![contactListsApiIndex];
-                  return Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed(
-                            'Contact_view_page_new',
-                            queryParameters: {
-                              'id': serializeParam(
-                                getJsonField(
-                                  contactListsApiItem,
-                                  r'''$.id''',
-                                ),
-                                ParamType.int,
-                              ),
-                              'name': serializeParam(
-                                getJsonField(
-                                  contactListsApiItem,
-                                  r'''$.name''',
-                                ).toString(),
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                          );
-                        },
-                        child: Slidable(
-                          endActionPane: ActionPane(
-                            motion: const ScrollMotion(),
-                            extentRatio: 0.25,
-                            children: [
-                              SlidableAction(
-                                label: FFLocalizations.of(context).getText(
-                                  'j5s3vvrn' /* call */,
-                                ),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).orangeColor1,
-                                icon: Icons.call,
-                                onPressed: (_) async {
-                                  await launchUrl(Uri(
-                                    scheme: 'tel',
-                                    path: getJsonField(
-                                      contactListsApiItem,
-                                      r'''$.mobile''',
-                                    ).toString(),
-                                  ));
-                                },
-                              ),
-                            ],
-                          ),
-                          child: ListTile(
-                            title: Text(
-                              valueOrDefault<String>(
-                                functions.nullcheckforDisplay(getJsonField(
-                                  contactListsApiItem,
-                                  r'''$.name''',
-                                ).toString()),
-                                '-',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .caradTextColor,
-                                    fontSize: 15.0,
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  0,
+                  0,
+                  75.0,
+                ),
+                shrinkWrap: true,
+                reverse: false,
+                scrollDirection: Axis.vertical,
+                builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                  // Customize what your widget looks like when it's loading the first page.
+                  firstPageProgressIndicatorBuilder: (_) =>
+                      ContactListShimmerWidget(),
+                  // Customize what your widget looks like when it's loading another page.
+                  newPageProgressIndicatorBuilder: (_) =>
+                      ContactListShimmerWidget(),
+                  noItemsFoundIndicatorBuilder: (_) => Center(
+                    child: Image.asset(
+                      'assets/images/New_Project_(2).png',
+                      width: 200.0,
+                      height: 200.0,
+                    ),
+                  ),
+                  itemBuilder: (context, _, contactListsApiIndex) {
+                    final contactListsApiItem = _model.listViewPagingController!
+                        .itemList![contactListsApiIndex];
+                    return Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'Contact_view_page_new',
+                              queryParameters: {
+                                'id': serializeParam(
+                                  getJsonField(
+                                    contactListsApiItem,
+                                    r'''$.id''',
                                   ),
-                            ),
-                            subtitle: Text(
-                              valueOrDefault<String>(
-                                functions.nullcheckforDisplay(getJsonField(
-                                  contactListsApiItem,
-                                  r'''$.mobile''',
-                                ).toString()),
-                                '-',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .inputtextColor,
-                                    fontSize: 11.0,
+                                  ParamType.int,
+                                ),
+                                'name': serializeParam(
+                                  getJsonField(
+                                    contactListsApiItem,
+                                    r'''$.name''',
+                                  ).toString(),
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Slidable(
+                            endActionPane: ActionPane(
+                              motion: const ScrollMotion(),
+                              extentRatio: 0.25,
+                              children: [
+                                SlidableAction(
+                                  label: FFLocalizations.of(context).getText(
+                                    'gbdcqqd9' /* call */,
                                   ),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).orangeColor1,
+                                  icon: Icons.call,
+                                  onPressed: (_) async {
+                                    await launchUrl(Uri(
+                                      scheme: 'tel',
+                                      path: getJsonField(
+                                        contactListsApiItem,
+                                        r'''$.mobile''',
+                                      ).toString(),
+                                    ));
+                                  },
+                                ),
+                              ],
                             ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 20.0,
-                            ),
-                            tileColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            dense: false,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(0.0),
+                            child: ListTile(
+                              title: Text(
+                                valueOrDefault<String>(
+                                  functions.nullcheckforDisplay(getJsonField(
+                                    contactListsApiItem,
+                                    r'''$.name''',
+                                  ).toString()),
+                                  '-',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .caradTextColor,
+                                      fontSize: 15.0,
+                                    ),
+                              ),
+                              subtitle: Text(
+                                valueOrDefault<String>(
+                                  functions.nullcheckforDisplay(getJsonField(
+                                    contactListsApiItem,
+                                    r'''$.mobile''',
+                                  ).toString()),
+                                  '-',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .inputtextColor,
+                                      fontSize: 11.0,
+                                    ),
+                              ),
+                              trailing: Icon(
+                                Icons.arrow_forward_ios,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 20.0,
+                              ),
+                              tileColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              dense: false,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ),

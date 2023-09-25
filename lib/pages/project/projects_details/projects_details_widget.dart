@@ -183,9 +183,23 @@ class _ProjectsDetailsWidgetState extends State<ProjectsDetailsWidget>
                         child: TeamAssignUserWidget(
                           projectid: widget.projectid!,
                           projectname: widget.projectname!,
-                          userid: HymechApiGroupGroup.projectTeamCall.userid(
-                            floatingActionButtonProjectTeamResponse.jsonBody,
-                          )!,
+                          userid: HymechApiGroupGroup.projectTeamCall
+                                      .projectuserroles(
+                                        floatingActionButtonProjectTeamResponse
+                                            .jsonBody,
+                                      )
+                                      .length >
+                                  0
+                              ? HymechApiGroupGroup.projectTeamCall.userid(
+                                  floatingActionButtonProjectTeamResponse
+                                      .jsonBody,
+                                )!
+                              : HymechApiGroupGroup.projectTeamCall
+                                  .projectuserroles(
+                                    floatingActionButtonProjectTeamResponse
+                                        .jsonBody,
+                                  )!
+                                  .cast<int>(),
                         ),
                       ),
                     );

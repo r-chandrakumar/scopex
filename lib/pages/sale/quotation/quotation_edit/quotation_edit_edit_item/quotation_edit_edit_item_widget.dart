@@ -46,9 +46,6 @@ class _QuotationEditEditItemWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().taxJson = null;
-      });
       _model.orderLineProductDataResponse =
           await SalesApiGroupGroup.saleOrderLineProductDetailCall.call(
         authToken: FFAppState().accessToken,
@@ -1291,7 +1288,7 @@ class _QuotationEditEditItemWidgetState
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Quatation edited item successfully...',
+                                              'Item edited successfully',
                                               style: TextStyle(
                                                 color:
                                                     FlutterFlowTheme.of(context)
