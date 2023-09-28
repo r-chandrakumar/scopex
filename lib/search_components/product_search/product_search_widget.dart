@@ -103,16 +103,27 @@ class _ProductSearchWidgetState extends State<ProductSearchWidget>
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            't2e3ay2u' /* Search for product */,
+                          labelStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'tgb8pbzq' /* Search... */,
                           ),
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -166,8 +177,9 @@ class _ProductSearchWidgetState extends State<ProductSearchWidget>
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
+                              color:
+                                  FlutterFlowTheme.of(context).inputtextColor,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
                         maxLines: null,

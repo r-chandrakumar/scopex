@@ -795,6 +795,7 @@ class _VendorBillEditEditItemWidgetState
                                                                   FFAppState()
                                                                       .taxJson,
                                                                   r'''$.taxnames''',
+                                                                  true,
                                                                 ),
                                                                 taxlistIndex,
                                                                 'value')

@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'notification_icon_widget.dart' show NotificationIconWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class NotificationIconModel extends FlutterFlowModel {
+class NotificationIconModel extends FlutterFlowModel<NotificationIconWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

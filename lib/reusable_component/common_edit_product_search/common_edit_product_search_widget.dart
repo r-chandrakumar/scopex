@@ -117,9 +117,6 @@ class _CommonEditProductSearchWidgetState
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            '1idmdswi' /* Search for product.. */,
-                          ),
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -127,6 +124,18 @@ class _CommonEditProductSearchWidgetState
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.normal,
                                   ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'zkxvjb3h' /* Search */,
+                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -177,8 +186,9 @@ class _CommonEditProductSearchWidgetState
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
+                              color:
+                                  FlutterFlowTheme.of(context).inputtextColor,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
                         maxLines: null,

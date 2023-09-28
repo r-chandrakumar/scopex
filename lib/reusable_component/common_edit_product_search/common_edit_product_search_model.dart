@@ -11,6 +11,8 @@ import '/pages/purchase/purchase_rfq_pages/r_f_q_edit_add_item/r_f_q_edit_add_it
 import '/pages/sale/quotation/quotation_edit/quotation_edit_add_item/quotation_edit_add_item_widget.dart';
 import '/pages/sale/quotation/quotation_edit/quotation_edit_edit_item/quotation_edit_edit_item_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'common_edit_product_search_widget.dart'
+    show CommonEditProductSearchWidget;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CommonEditProductSearchModel extends FlutterFlowModel {
+class CommonEditProductSearchModel
+    extends FlutterFlowModel<CommonEditProductSearchWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.

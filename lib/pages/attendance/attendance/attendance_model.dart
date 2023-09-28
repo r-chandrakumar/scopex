@@ -10,6 +10,7 @@ import '/pages/attendance/attendance_shimmer/attendance_shimmer_widget.dart';
 import '/reusable_component/internet_icon_component/internet_icon_component_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'attendance_widget.dart' show AttendanceWidget;
 import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AttendanceModel extends FlutterFlowModel {
+class AttendanceModel extends FlutterFlowModel<AttendanceWidget> {
   ///  Local state fields for this page.
 
   String? attendanceTime;

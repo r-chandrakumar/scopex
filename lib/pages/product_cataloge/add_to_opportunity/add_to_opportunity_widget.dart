@@ -299,12 +299,14 @@ class _AddToOpportunityWidgetState extends State<AddToOpportunityWidget> {
                                     options: (getJsonField(
                                       leadFromListLeadSourceResponse.jsonBody,
                                       r'''$.utm_source[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
                                     optionLabels: (getJsonField(
                                       leadFromListLeadSourceResponse.jsonBody,
                                       r'''$.utm_source[:].name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,

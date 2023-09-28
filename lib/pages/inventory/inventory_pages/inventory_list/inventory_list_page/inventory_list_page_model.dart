@@ -13,13 +13,14 @@ import '/pages/inventory/inventory_pages/inventory_list/inventory_list_filter/in
 import '/pages/inventory/inventory_pages/inventory_list/inventory_search/inventory_search_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'inventory_list_page_widget.dart' show InventoryListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class InventoryListPageModel extends FlutterFlowModel {
+class InventoryListPageModel extends FlutterFlowModel<InventoryListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -104,8 +104,18 @@ class _InventorySearchWidgetState extends State<InventorySearchWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: FFLocalizations.of(context).getText(
-                              'vy273lx5' /* Search for product */,
+                              'vy273lx5' /* Search... */,
                             ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'outfit',
+                                  color: FlutterFlowTheme.of(context)
+                                      .inputtextColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: false,
+                                ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -166,14 +176,16 @@ class _InventorySearchWidgetState extends State<InventorySearchWidget> {
                                   )
                                 : null,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'outfit',
-                                    color: Color(0xFF95A1AC),
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: false,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'outfit',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                                useGoogleFonts: false,
+                              ),
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),

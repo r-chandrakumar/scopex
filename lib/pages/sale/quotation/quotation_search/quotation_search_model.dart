@@ -4,12 +4,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'quotation_search_widget.dart' show QuotationSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class QuotationSearchModel extends FlutterFlowModel {
+class QuotationSearchModel extends FlutterFlowModel<QuotationSearchWidget> {
   ///  Local state fields for this component.
 
   String quotationsearch = '';

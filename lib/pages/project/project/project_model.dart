@@ -10,13 +10,14 @@ import '/pages/project/projectshimmer/projectshimmer_widget.dart';
 import '/pages/project/search_project/search_project_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'project_widget.dart' show ProjectWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ProjectModel extends FlutterFlowModel {
+class ProjectModel extends FlutterFlowModel<ProjectWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

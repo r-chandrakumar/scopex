@@ -7,13 +7,15 @@ import '/reusable_component/common_create_product_search/common_create_product_s
 import '/tax_files/tax_component/tax_component_widget.dart';
 import '/tax_files/tax_select_component/tax_select_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'common_create_add_item_widget.dart' show CommonCreateAddItemWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CommonCreateAddItemModel extends FlutterFlowModel {
+class CommonCreateAddItemModel
+    extends FlutterFlowModel<CommonCreateAddItemWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();

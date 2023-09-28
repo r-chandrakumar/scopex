@@ -12,11 +12,12 @@ import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/reusable_component/common_view_page/common_view_page_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'quotation_view_page_widget.dart' show QuotationViewPageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class QuotationViewPageModel extends FlutterFlowModel {
+class QuotationViewPageModel extends FlutterFlowModel<QuotationViewPageWidget> {
   ///  Local state fields for this page.
 
   int? tabchange = 0;

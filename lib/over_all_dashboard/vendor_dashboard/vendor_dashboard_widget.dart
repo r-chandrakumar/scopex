@@ -49,7 +49,9 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -237,6 +239,7 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                                 )
                                 ?.toList()),
                         r'''$.xLabels''',
+                        true,
                       ) as List)
                           .map<String>((s) => s.toString())
                           .toList(),
@@ -248,6 +251,7 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                                 )
                                 ?.toList()),
                         r'''$.yValues''',
+                        true,
                       ),
                     ),
                   ),
@@ -295,118 +299,148 @@ class _VendorDashboardWidgetState extends State<VendorDashboardWidget> {
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 10.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 60.0,
-                                            color: Color(0x0F000000),
-                                            offset: Offset(0.0, 10.0),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .hashColor,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Flexible(
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          functions.isNull(
-                                                              getJsonField(
-                                                            vendorItem,
-                                                            r'''$.res_partner.name''',
-                                                          ).toString()),
-                                                          '-',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                      ),
-                                                      Text(
-                                                        valueOrDefault<String>(
-                                                          functions
-                                                              .convertLeaveDateFormat(
-                                                                  getJsonField(
-                                                            vendorItem,
-                                                            r'''$.create_date''',
-                                                          ).toString()),
-                                                          '-',
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              fontSize: 14.0,
-                                                            ),
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 5.0)),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  valueOrDefault<String>(
-                                                    functions.amountSymbol(
-                                                        getJsonField(
-                                                          vendorItem,
-                                                          r'''$.amount_total''',
-                                                        ).toString(),
-                                                        FFAppState()
-                                                            .currencySymbol),
-                                                    '-',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ].divide(SizedBox(width: 5.0)),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'vendor_bill_view',
+                                          queryParameters: {
+                                            'id': serializeParam(
+                                              getJsonField(
+                                                vendorItem,
+                                                r'''$.id''',
+                                              ),
+                                              ParamType.int,
                                             ),
+                                            'name': serializeParam(
+                                              getJsonField(
+                                                vendorItem,
+                                                r'''$.name''',
+                                              ).toString(),
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 60.0,
+                                              color: Color(0x0F000000),
+                                              offset: Offset(0.0, 10.0),
+                                            )
                                           ],
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .hashColor,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Flexible(
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions.isNull(
+                                                                getJsonField(
+                                                              vendorItem,
+                                                              r'''$.res_partner.name''',
+                                                            ).toString()),
+                                                            '-',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            functions
+                                                                .convertLeaveDateFormat(
+                                                                    getJsonField(
+                                                              vendorItem,
+                                                              r'''$.create_date''',
+                                                            ).toString()),
+                                                            '-',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 14.0,
+                                                              ),
+                                                        ),
+                                                      ].divide(SizedBox(
+                                                          height: 5.0)),
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      functions.amountSymbol(
+                                                          getJsonField(
+                                                            vendorItem,
+                                                            r'''$.amount_total''',
+                                                          ).toString(),
+                                                          FFAppState()
+                                                              .currencySymbol),
+                                                      '-',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ].divide(SizedBox(width: 5.0)),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),

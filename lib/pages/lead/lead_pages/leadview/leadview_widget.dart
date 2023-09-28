@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/lead/lead_pages/lead_view/leadview_shimmer/leadview_shimmer_widget.dart';
-import '/pages/noactivity/noactivity_widget.dart';
 import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
@@ -58,7 +57,9 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -72,8 +73,9 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
               context: context,
               builder: (context) {
                 return GestureDetector(
-                  onTap: () =>
-                      FocusScope.of(context).requestFocus(_model.unfocusNode),
+                  onTap: () => _model.unfocusNode.canRequestFocus
+                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                      : FocusScope.of(context).unfocus(),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: CommonFabComponentWidget(
@@ -235,10 +237,10 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                     fontFamily:
                                                                         'Roboto',
                                                                     fontSize:
-                                                                        16.0,
+                                                                        15.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w600,
+                                                                            .w500,
                                                                   ),
                                                             ),
                                                             Flexible(
@@ -271,62 +273,32 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                           ],
                                                         ),
                                                       ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    8.0),
-                                                          ),
-                                                          border: Border.all(
-                                                            color: Color(
-                                                                0xFF39D23C),
-                                                          ),
+                                                      RatingBarIndicator(
+                                                        itemBuilder:
+                                                            (context, index) =>
+                                                                Icon(
+                                                          Icons.star_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
                                                         ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      5.0,
-                                                                      5.0,
-                                                                      5.0),
-                                                          child: Text(
-                                                            HymechApiGroupGroup
-                                                                .crmViewCall
-                                                                .stagename(
-                                                                  containerCrmViewResponse
-                                                                      .jsonBody,
-                                                                )
-                                                                .toString(),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .loginBtnColor1,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
+                                                        direction:
+                                                            Axis.horizontal,
+                                                        rating: functions
+                                                            .convertstringtoDouble(
+                                                                HymechApiGroupGroup
+                                                                    .crmViewCall
+                                                                    .priority(
+                                                                      containerCrmViewResponse
+                                                                          .jsonBody,
+                                                                    )
+                                                                    .toString())!,
+                                                        unratedColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent3,
+                                                        itemCount: 3,
+                                                        itemSize: 16.0,
                                                       ),
                                                     ],
                                                   ),
@@ -413,33 +385,6 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                             ],
                                                           ),
                                                         ],
-                                                      ),
-                                                      RatingBarIndicator(
-                                                        itemBuilder:
-                                                            (context, index) =>
-                                                                Icon(
-                                                          Icons.star_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                        ),
-                                                        direction:
-                                                            Axis.horizontal,
-                                                        rating: functions
-                                                            .convertstringtoDouble(
-                                                                HymechApiGroupGroup
-                                                                    .crmViewCall
-                                                                    .priority(
-                                                                      containerCrmViewResponse
-                                                                          .jsonBody,
-                                                                    )
-                                                                    .toString())!,
-                                                        unratedColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                        itemCount: 3,
-                                                        itemSize: 16.0,
                                                       ),
                                                     ],
                                                   ),
@@ -1462,11 +1407,16 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                               builder:
                                                                   (context) {
                                                                 return GestureDetector(
-                                                                  onTap: () => FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode),
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
                                                                       Padding(
                                                                     padding: MediaQuery
@@ -1693,7 +1643,11 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                             .take(5)
                                                             .toList();
                                                     if (activity.isEmpty) {
-                                                      return NoactivityWidget();
+                                                      return Center(
+                                                        child: Image.asset(
+                                                          'assets/images/New_Project_(2).png',
+                                                        ),
+                                                      );
                                                     }
                                                     return ListView.separated(
                                                       padding:
@@ -1883,19 +1837,19 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                   } else {
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 15.0, 0.0),
+                                          0.0, 10.0, 0.0, 0.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                1.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                        ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                                  0.0, 10.0, 0.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [

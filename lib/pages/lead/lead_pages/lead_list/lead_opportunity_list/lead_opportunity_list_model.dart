@@ -14,6 +14,7 @@ import '/pages/lead/lead_pages/lead_view/leadsshimmer/leadsshimmer_widget.dart';
 import '/search_components/opportunity_search/opportunity_search_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'lead_opportunity_list_widget.dart' show LeadOpportunityListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,7 +22,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LeadOpportunityListModel extends FlutterFlowModel {
+class LeadOpportunityListModel
+    extends FlutterFlowModel<LeadOpportunityListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

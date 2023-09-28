@@ -162,12 +162,14 @@ class _TaskStatusChangeWidgetState extends State<TaskStatusChangeWidget> {
                                     options: (getJsonField(
                                       stagesListStageTypesResponse.jsonBody,
                                       r'''$.project_task_type[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
                                     optionLabels: (getJsonField(
                                       stagesListStageTypesResponse.jsonBody,
                                       r'''$.project_task_type[:].name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,

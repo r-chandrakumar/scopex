@@ -16,13 +16,14 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/request_manager.dart';
 
 import 'dart:async';
+import 'task_details_widget.dart' show TaskDetailsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class TaskDetailsModel extends FlutterFlowModel {
+class TaskDetailsModel extends FlutterFlowModel<TaskDetailsWidget> {
   ///  Local state fields for this page.
 
   String? tasktime;
@@ -36,6 +37,8 @@ class TaskDetailsModel extends FlutterFlowModel {
   void removeFromAttachmentType(String item) => attachmentType.remove(item);
   void removeAtIndexFromAttachmentType(int index) =>
       attachmentType.removeAt(index);
+  void insertAtIndexInAttachmentType(int index, String item) =>
+      attachmentType.insert(index, item);
   void updateAttachmentTypeAtIndex(int index, Function(String) updateFn) =>
       attachmentType[index] = updateFn(attachmentType[index]);
 
@@ -43,6 +46,7 @@ class TaskDetailsModel extends FlutterFlowModel {
   void addToName(String item) => name.add(item);
   void removeFromName(String item) => name.remove(item);
   void removeAtIndexFromName(int index) => name.removeAt(index);
+  void insertAtIndexInName(int index, String item) => name.insert(index, item);
   void updateNameAtIndex(int index, Function(String) updateFn) =>
       name[index] = updateFn(name[index]);
 
@@ -50,6 +54,8 @@ class TaskDetailsModel extends FlutterFlowModel {
   void addToListbase64(String item) => listbase64.add(item);
   void removeFromListbase64(String item) => listbase64.remove(item);
   void removeAtIndexFromListbase64(int index) => listbase64.removeAt(index);
+  void insertAtIndexInListbase64(int index, String item) =>
+      listbase64.insert(index, item);
   void updateListbase64AtIndex(int index, Function(String) updateFn) =>
       listbase64[index] = updateFn(listbase64[index]);
 

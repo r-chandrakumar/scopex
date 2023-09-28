@@ -3,6 +3,7 @@ import '/components/contact_list_shimmer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'contact_list_search_widget.dart' show ContactListSearchWidget;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactListSearchModel extends FlutterFlowModel {
+class ContactListSearchModel extends FlutterFlowModel<ContactListSearchWidget> {
   ///  Local state fields for this component.
 
   String mobile = '';

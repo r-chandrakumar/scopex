@@ -1,11 +1,12 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'fab_component_pick_widget.dart' show FabComponentPickWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FabComponentPickModel extends FlutterFlowModel {
+class FabComponentPickModel extends FlutterFlowModel<FabComponentPickWidget> {
   ///  Local state fields for this component.
 
   int? id;

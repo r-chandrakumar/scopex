@@ -7,12 +7,15 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'sale_order_delivery_chellan_list_widget.dart'
+    show SaleOrderDeliveryChellanListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class SaleOrderDeliveryChellanListModel extends FlutterFlowModel {
+class SaleOrderDeliveryChellanListModel
+    extends FlutterFlowModel<SaleOrderDeliveryChellanListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

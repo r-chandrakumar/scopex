@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import '../../flutter_flow/flutter_flow_util.dart';
-
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -201,7 +200,6 @@ class MyServiceticketsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_service_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -223,9 +221,7 @@ class GetCustomerIdCall {
       apiUrl:
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/customer_name',
       callType: ApiCallType.GET,
-      headers: {
-        ...HymechApiGroupGroup.headers,
-      },
+      headers: {},
       params: {
         '_eq': eq,
       },
@@ -253,9 +249,7 @@ class GetProductIdCall {
       apiUrl:
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_name',
       callType: ApiCallType.GET,
-      headers: {
-        ...HymechApiGroupGroup.headers,
-      },
+      headers: {},
       params: {
         '_eq': eq,
       },
@@ -301,9 +295,7 @@ class ServiceCreateNewCall {
       apiUrl:
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_post',
       callType: ApiCallType.POST,
-      headers: {
-        ...HymechApiGroupGroup.headers,
-      },
+      headers: {},
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -330,9 +322,7 @@ class LoginCall {
       callName: 'Login',
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/login',
       callType: ApiCallType.POST,
-      headers: {
-        ...HymechApiGroupGroup.headers,
-      },
+      headers: {},
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -410,7 +400,6 @@ class DashboardFilterListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_info',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -435,7 +424,6 @@ class FindCheckInOrOutCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/check_in_out',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -486,7 +474,6 @@ class CheckOutCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/checkout',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -512,7 +499,6 @@ class AttendanceListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/attendance',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -545,7 +531,6 @@ class ServiceOrderCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_order',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -577,7 +562,6 @@ class ServiceOrderViewCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_order_log',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -695,7 +679,6 @@ class KanBanStageListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/kanban_stages',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -732,9 +715,7 @@ class GetIdWithKanbanNameCall {
       callName: 'GetIdWithKanbanName',
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/kaban_name',
       callType: ApiCallType.GET,
-      headers: {
-        ...HymechApiGroupGroup.headers,
-      },
+      headers: {},
       params: {
         '_eq': eq,
       },
@@ -769,7 +750,6 @@ class ServiceStageUpdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_update_stage',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -809,7 +789,6 @@ class AnswerSelectionCheckListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/checklist_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -835,7 +814,6 @@ class QuestionViewCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/question_view',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -903,7 +881,6 @@ class AnswerValueCheckListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/checklist_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -930,7 +907,6 @@ class QuestionListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_question_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -976,7 +952,6 @@ class QuestionViewWithpageNumberCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/question_view',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1038,7 +1013,6 @@ class StartVisitCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/actual',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1071,7 +1045,6 @@ class EndVisitCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/actual',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1100,7 +1073,6 @@ class LeaveListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/leaves',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1142,7 +1114,6 @@ class ListLeaveTypeCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_leave_type',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1206,7 +1177,6 @@ class CreateLeaveCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/post_leave',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1233,7 +1203,6 @@ class ExpenseListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1273,7 +1242,6 @@ class AttendanceGroupCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/attendance_group',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1321,7 +1289,6 @@ class ExpenseStoreCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/create_expense',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1352,7 +1319,6 @@ class ExpenseViewCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_view',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1447,7 +1413,6 @@ class ProductListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/product',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1486,7 +1451,6 @@ class AccountListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_journal_account',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1520,7 +1484,6 @@ class EmployeeListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_employee',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1554,7 +1517,6 @@ class MyTeamCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_team_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1599,7 +1561,6 @@ class SparePartsPostCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_accessories_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1625,7 +1586,6 @@ class SparePartsListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_service_parts',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1657,7 +1617,6 @@ class SparePartsDeleteCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_service_part',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1684,7 +1643,6 @@ class ServicePartsExistCheckCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/check_service_part_exist',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1718,7 +1676,6 @@ class ComplaintTypeCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/order_type',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1752,7 +1709,6 @@ class LocationListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/location_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1787,7 +1743,6 @@ class VehicleLIstCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/vehicle_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1821,7 +1776,6 @@ class LeaveInfoCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/leave_info',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -1905,7 +1859,6 @@ class ComplaintCreateCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/visit_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1939,7 +1892,6 @@ class ExpenseProductListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_expenses_product',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -1988,7 +1940,6 @@ class ServicePartUpdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_part_update',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2019,7 +1970,6 @@ class ComplaintUserAssignCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_assgin',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2044,7 +1994,6 @@ class UsersCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/fsm_person_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2083,7 +2032,6 @@ class ChangeAssignStatusCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/stage_assigned',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2109,7 +2057,6 @@ class VehicleServiceHistoryCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_vehicle_service',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2141,7 +2088,6 @@ class SeriveProblemsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_history',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2173,7 +2119,6 @@ class RequestPartListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_material_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2213,7 +2158,6 @@ class RequestPartCreateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_material_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2238,7 +2182,6 @@ class MasterServiceCommentCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_fsm_comment',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2272,7 +2215,6 @@ class ServiceProductListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_service_parts',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2296,7 +2238,6 @@ class GetServiceProductNameCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/get_product_name',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2327,7 +2268,6 @@ class GetProblemNameCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/get_problem_name',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2357,7 +2297,6 @@ class ListProblemsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_problems',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2398,7 +2337,6 @@ class UpdateOdometerCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/update_odometer',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2438,7 +2376,6 @@ class UpdateServiceProblemCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/update_service_problem',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2476,7 +2413,6 @@ class ProblemCreateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_problem_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2531,7 +2467,6 @@ class ServiceWithProblemsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/service_with_muti_problem_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2562,7 +2497,6 @@ class GetVehicleIdCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/fsm_vehicle_name',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2597,7 +2531,6 @@ class GetServiceNameCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/visit_sequence',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2629,7 +2562,6 @@ class UserTicketViewCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/ticket_view_by_user',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2666,7 +2598,6 @@ class ProjectListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -2689,7 +2620,6 @@ class TaskListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_lists',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2721,7 +2651,6 @@ class ProjectInfoCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_info',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2779,7 +2708,6 @@ class TaskInfoCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_info',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2904,7 +2832,6 @@ class ProjectTeamCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_team',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2950,7 +2877,6 @@ class TaskExpenseCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_expense',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -2982,7 +2908,6 @@ class TurnOffOrOnTaskCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_timer_on_off',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3029,7 +2954,6 @@ class StartTaskCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_start_time',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3070,7 +2994,6 @@ class StopTaskCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_end_time',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3099,7 +3022,6 @@ class AllTeamMembersCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/team_all',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3126,7 +3048,6 @@ class CustomerListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact _list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -3154,7 +3075,6 @@ class PartnerListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/partner_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3177,7 +3097,6 @@ class StageTypeCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_stage_types',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3207,7 +3126,6 @@ class TaskStageChangeCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_stage_change',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3232,7 +3150,6 @@ class DashboardHoldStatusCountCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_hold_status_count',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3260,7 +3177,6 @@ class DashboardInprogressCountCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_inprogress_count',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3288,7 +3204,6 @@ class DashboardNotStartedCountCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_not_started_count',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3316,7 +3231,6 @@ class DashboardTaskCompletedCountCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_task_completed_count',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3343,7 +3257,6 @@ class UserDetailsCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_profile',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3366,7 +3279,6 @@ class BOQListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_boq',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3396,7 +3308,6 @@ class ContactInfoCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact_info',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3449,7 +3360,6 @@ class ListCRMCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -3484,7 +3394,6 @@ class TaskListViewCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_task_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -3519,7 +3428,6 @@ class CrmViewCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_view',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -3657,7 +3565,6 @@ class CRMUpdateCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3689,7 +3596,6 @@ class CRMStageUpdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_lead_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3715,7 +3621,6 @@ class CrmEditDataCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_edit_data',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -3805,7 +3710,6 @@ class ListLeadSourceCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_lead_source',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3858,7 +3762,6 @@ class AddExpensesCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_expense_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3889,7 +3792,6 @@ class CheckInCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/checkin',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3920,7 +3822,6 @@ class CheckinnewCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/checkin',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3945,7 +3846,6 @@ class UserProjectsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_projects',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -3967,7 +3867,6 @@ class UserTaskCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_task',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4000,7 +3899,6 @@ class VendorListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/vendor_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4034,7 +3932,6 @@ class MyActivityListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_activity_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4068,7 +3965,6 @@ class GetModelIdCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/get_model_id',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4103,7 +3999,6 @@ class UserLeadListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_lead_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4152,7 +4047,6 @@ class MyActivityCreateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_activity_create',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4188,7 +4082,6 @@ class ActivityUpdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_update',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4214,7 +4107,6 @@ class ActivityDeleteCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_delete',
       callType: ApiCallType.DELETE,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4240,7 +4132,6 @@ class ListLeadActivityCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_lead_activity',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4271,7 +4162,6 @@ class ActivityTypesCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_types',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4305,7 +4195,6 @@ class ListCRMStageCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_crm_stage',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4339,7 +4228,6 @@ class CheckTaskOnCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/check_task_on',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4372,7 +4260,6 @@ class ListUserTaskCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_user_task',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4409,7 +4296,6 @@ class LeadSearchbyStageCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/lead_search_by_stage',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4434,7 +4320,6 @@ class ListStageTypesCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_stage_types',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4469,7 +4354,6 @@ class ProjectStateListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_state_wise_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4495,7 +4379,6 @@ class TimesheetlogCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/time_sheet_log',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4527,7 +4410,6 @@ class LeadsearchCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/lead_search_by_name',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4559,7 +4441,6 @@ class TasksearchCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_search_by_name',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4590,7 +4471,6 @@ class UserTaskStageCountCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_task_stage_count',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4660,7 +4540,6 @@ class CRMPostCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_post',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4684,7 +4563,6 @@ class MycrmteamCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_crm_team',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4717,7 +4595,6 @@ class ContactListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4756,7 +4633,6 @@ class CRMDashboardCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4897,7 +4773,6 @@ class MyProfileEditCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_profile_edit',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -4923,7 +4798,6 @@ class MyOpportunityCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/my_opportunity',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4961,7 +4835,6 @@ class OpportunityListDashboardCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/opportunity_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -4998,7 +4871,6 @@ class ExpenseFileAttachCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_attach',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5024,7 +4896,6 @@ class ExpenseEditDataCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_edit_data',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5123,7 +4994,6 @@ class ExpenseUpdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5153,7 +5023,6 @@ class ConvertOpportunityCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/convert_oppertunity',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5179,7 +5048,6 @@ class StageWiseTaskListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/stage_wise_task_list',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5211,7 +5079,6 @@ class CrmListStageWiseCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_list_stage_wise',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5242,7 +5109,6 @@ class CheckPresentAttendanceCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/check_present',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5272,7 +5138,6 @@ class OpportunitySearchCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/opportunity_search',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5302,7 +5167,6 @@ class AssignedToCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/res_users',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5347,7 +5211,6 @@ class AcitivityDateListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/acitivity_datelist',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5389,7 +5252,6 @@ class ActivityupdateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_update',
       callType: ApiCallType.PUT,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5415,7 +5277,6 @@ class ActivitydeleteCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_delete',
       callType: ApiCallType.DELETE,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5440,7 +5301,6 @@ class ListOfLeadForActivityCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/lead_list_activity',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5484,7 +5344,6 @@ class ActivityDetailsCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/activity_details',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5562,7 +5421,6 @@ class TaskTimerOnOffCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_timer',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5591,7 +5449,6 @@ class LogNoteListCall {
       apiUrl: '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/lead_log',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5631,7 +5488,6 @@ class LogNoteCreateCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/lead_log_create',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5665,7 +5521,6 @@ class LeaveRequestListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/manager_leave_list',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5705,7 +5560,6 @@ class LeaveAproveOrRejectCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/leave_approver',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5737,7 +5591,6 @@ class CheckLeaveTakenCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/date_wise_leave',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5773,7 +5626,6 @@ class ActivityMarkAsDoneCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/mark_as_done',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5809,7 +5661,6 @@ class ProjectUserAssignCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_user_update',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5841,7 +5692,6 @@ class NonProjectUsersCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/user_not_in_project',
       callType: ApiCallType.POST,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5872,7 +5722,6 @@ class LeaveTypeCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_leave_type',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -5902,7 +5751,6 @@ class UnAssignedLeadListCall {
           '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_unassigned_lead',
       callType: ApiCallType.GET,
       headers: {
-        ...HymechApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -5974,7 +5822,6 @@ class SaleOrderListCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_list',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6018,7 +5865,6 @@ class QuotationListCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_list',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6054,7 +5900,6 @@ class SaleOrderViewCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_details',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6217,7 +6062,6 @@ class SaleOrderCreateCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_post',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6269,7 +6113,6 @@ class SaleOrderLineProductPostCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/order_line_insert',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6295,7 +6138,6 @@ class SaleOrderLineProductDetailCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_line_list',
       callType: ApiCallType.GET,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -6419,7 +6261,6 @@ class SaleOrderLineProductUpdateCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/order_line_update',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6449,7 +6290,6 @@ class SaleOrderDeleteCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_sale_order',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6479,7 +6319,6 @@ class SaleOrderLineProductDeleteCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/order_line_delete',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6530,7 +6369,6 @@ class SaleOrderUpdateCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_update',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6562,7 +6400,6 @@ class ConvertToSaleOrderCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_state',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6594,7 +6431,6 @@ class SaleCountListCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_count_list',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6624,7 +6460,6 @@ class SaleInvoiceConversionCall {
           '${SalesApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_invoice_conversion',
       callType: ApiCallType.POST,
       headers: {
-        ...SalesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6704,7 +6539,6 @@ class PartnersListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/partner_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6743,7 +6577,6 @@ class PaymentTermListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/payment_terms_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6778,7 +6611,6 @@ class ProductSearchCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/product_search',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -6810,7 +6642,6 @@ class ProductDetailCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/product_template_line_data',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -6878,7 +6709,6 @@ class TaxListCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/get_tax',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6918,7 +6748,6 @@ class TaxDetailsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/account_tax_id',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -6956,7 +6785,6 @@ class SupplierListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/supplier_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -6995,7 +6823,6 @@ class EmpLoyeeListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/employee_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7018,7 +6845,6 @@ class AccountsListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/accounts_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7041,7 +6867,6 @@ class TaxListWithSearchCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/tax_search',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7073,7 +6898,6 @@ class DeleteOneSignalCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/delete_one_signal',
       callType: ApiCallType.DELETE,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7097,7 +6921,6 @@ class CountryListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/country_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7130,7 +6953,6 @@ class StateListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/country_based_states',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7172,7 +6994,6 @@ class BranchCompanyCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/branch_company',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7213,7 +7034,6 @@ class CompanyLoginCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/company_login',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7244,7 +7064,6 @@ class CustomerSearchCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/customer_search_dropdown',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7276,7 +7095,6 @@ class VendorSearchCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/vendor_search_dropdown',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7308,7 +7126,6 @@ class GetCustomerDetailsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/get_customer_id',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7339,7 +7156,6 @@ class GetCountryDetailsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/get_country_id',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7370,7 +7186,6 @@ class GetStateDetailsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/get_country_state_id',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7401,7 +7216,6 @@ class GetProductDetailsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/get_product_id',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7433,7 +7247,6 @@ class NotificationListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/notification_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7473,7 +7286,6 @@ class SaleEmailCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/sale_email',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7503,7 +7315,6 @@ class PurchaseEmailCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_email',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7533,7 +7344,6 @@ class InvoiceEmailCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_email',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7564,7 +7374,6 @@ class NotificationUpdateCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/Notification_update',
       callType: ApiCallType.PUT,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7600,7 +7409,6 @@ class TaskAttachCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/task_attach',
       callType: ApiCallType.PUT,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7626,7 +7434,6 @@ class DeleteAttachmentCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/delete_attachment',
       callType: ApiCallType.DELETE,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7652,7 +7459,6 @@ class TransferwarehouseCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/transfer_warehouse',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7682,7 +7488,6 @@ class ResusersCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/res_users',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7720,7 +7525,6 @@ class SalepersonUpdateCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/saleperson_update',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7752,7 +7556,6 @@ class SettingsCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/insert_dynamic_status',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7777,7 +7580,6 @@ class AcitivitySwipeDateListCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/acitivity_out_datelist',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -7807,7 +7609,6 @@ class PurchaseDropdownActivityCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_rfq',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7848,7 +7649,6 @@ class SaleDropdownActivityCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/sale_draft',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7890,7 +7690,6 @@ class InvoiceDropdownActivityCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_draft',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7931,7 +7730,6 @@ class BillDropdownActivityCall {
       apiUrl: '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/bill_draft',
       callType: ApiCallType.GET,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -7972,7 +7770,6 @@ class NotificationMarkAllCall {
           '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/list_notification_read',
       callType: ApiCallType.POST,
       headers: {
-        ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8039,7 +7836,6 @@ class RFQListCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_order_list',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8083,7 +7879,6 @@ class PurchaseOrderListCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_order_list',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8119,7 +7914,6 @@ class PurchaseOrderViewCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_view',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8253,7 +8047,6 @@ class PurchaseOrderCreateCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_order_post',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8279,7 +8072,6 @@ class PurchaseOrderLineProductDetailCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_order_line_list',
       callType: ApiCallType.GET,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -8390,7 +8182,6 @@ class PurchaseOrderLineProductUpdateCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/po_line_update',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8440,7 +8231,6 @@ class PurchaseOrderLineProductCreateCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/po_line_post',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8470,7 +8260,6 @@ class PurchaseOrderDeleteCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_purchase_order',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8500,7 +8289,6 @@ class PurchaseOrderLineProductDeleteCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_purchase_order_line',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8551,7 +8339,6 @@ class PurchaseOrderUpdateCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_update',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8583,7 +8370,6 @@ class ConvertToPurchaseOrderCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_state_update',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8613,7 +8399,6 @@ class PurchaseBillConversionCall {
           '${PurchaseApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_bill_conversion',
       callType: ApiCallType.POST,
       headers: {
-        ...PurchaseApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8687,7 +8472,6 @@ class InvoiceListCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_list',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8731,7 +8515,6 @@ class VendorBillListCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/vendor_bill_list',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8771,7 +8554,6 @@ class PaymentListCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/account_payment_list',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8807,7 +8589,6 @@ class InvoiceViewCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_details',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8894,7 +8675,6 @@ class VendorBillViewCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/vendor_bill_view',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -8998,7 +8778,6 @@ class PaymentViewCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/payment_details_view',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9091,7 +8870,6 @@ class InvoiceCreateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_post',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9142,7 +8920,6 @@ class VendorBillCreateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/vendor_bill_post',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9183,7 +8960,6 @@ class PaymentCreateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/payment_method_post',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9231,7 +9007,6 @@ class AccountingLineProductPostCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_product_line_post',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9257,7 +9032,6 @@ class AccountingLineProductDetailsCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/account_move_line_list',
       callType: ApiCallType.GET,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -9364,7 +9138,6 @@ class AccountingLineProductUpdateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/account_move_line_update',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9410,7 +9183,6 @@ class InvoiceUpdateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_update',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9456,7 +9228,6 @@ class VendorBillUpdateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_update',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9486,7 +9257,6 @@ class InvoiceDeleteCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_invoice',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9516,7 +9286,6 @@ class VendorBillDeleteCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_invoice',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9548,7 +9317,6 @@ class InvoiceStatusUpdateCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_state_update',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9578,7 +9346,6 @@ class AccountingLineProductDeleteCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/delete_invoice_product_line',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9615,7 +9382,6 @@ class ConvertToInvoiceCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_state_update',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9641,7 +9407,6 @@ class BankDetailsCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/customer_bankinfo',
       callType: ApiCallType.GET,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -9688,7 +9453,6 @@ class InvoicePayConversionCall {
           '${AccountingApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_pay_conversion',
       callType: ApiCallType.POST,
       headers: {
-        ...AccountingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9728,7 +9492,6 @@ class ExpensesListCall {
       apiUrl: '${ExpensesApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense',
       callType: ApiCallType.GET,
       headers: {
-        ...ExpensesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -9755,7 +9518,6 @@ class ExpensesViewCall {
           '${ExpensesApiGroupGroup.baseUrl}${domainUrl}/api/rest/expenses_view',
       callType: ApiCallType.GET,
       headers: {
-        ...ExpensesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -9785,7 +9547,6 @@ class ExpensesDeleteCall {
           '${ExpensesApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_delete',
       callType: ApiCallType.POST,
       headers: {
-        ...ExpensesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9835,7 +9596,6 @@ class ExpensesCreateCall {
           '${ExpensesApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_post',
       callType: ApiCallType.POST,
       headers: {
-        ...ExpensesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9887,7 +9647,6 @@ class ExpensesUpdateCall {
           '${ExpensesApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_update',
       callType: ApiCallType.POST,
       headers: {
-        ...ExpensesApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -9937,7 +9696,6 @@ class ContactsListCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact_list',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -9972,7 +9730,6 @@ class ContactsViewCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/get_partners_id',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10081,7 +9838,6 @@ class ContactsUpdateCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/contacts_update',
       callType: ApiCallType.POST,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -10134,7 +9890,6 @@ class ContactsCreateCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact_create',
       callType: ApiCallType.POST,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -10165,7 +9920,6 @@ class ContactSearchCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/search_contact',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10197,7 +9951,6 @@ class ContactSaleListCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/partner_id_sale_order_list',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10230,7 +9983,6 @@ class ContactInvoiceListCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/partner_id_invoice_list',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10263,7 +10015,6 @@ class ContactPurchaseListCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/partner_id_purchase_order_list',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10295,7 +10046,6 @@ class ContactAccountPaymentCall {
           '${ContactApiGroupGroup.baseUrl}${domainUrl}/api/rest/partner_id_account_payment',
       callType: ApiCallType.GET,
       headers: {
-        ...ContactApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10343,7 +10093,6 @@ class DashboardBillListCall {
           '${DashboadApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_bill_list',
       callType: ApiCallType.GET,
       headers: {
-        ...DashboadApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10371,7 +10120,6 @@ class OverAllDashboardCall {
           '${DashboadApiGroupGroup.baseUrl}${domainUrl}/api/rest/overall_dashboard',
       callType: ApiCallType.GET,
       headers: {
-        ...DashboadApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10464,7 +10212,6 @@ class DashboardInvoiceListCall {
           '${DashboadApiGroupGroup.baseUrl}${domainUrl}/api/rest/dashboard_invoice_list',
       callType: ApiCallType.GET,
       headers: {
-        ...DashboadApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10492,7 +10239,6 @@ class SalesDashboardCall {
           '${DashboadApiGroupGroup.baseUrl}${domainUrl}/api/rest/sales_dashboard',
       callType: ApiCallType.GET,
       headers: {
-        ...DashboadApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10574,7 +10320,6 @@ class PurchaseDashboardCall {
           '${DashboadApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_dashboard',
       callType: ApiCallType.GET,
       headers: {
-        ...DashboadApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10653,7 +10398,6 @@ class GrnListCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10688,7 +10432,6 @@ class DeliveryChallenListCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest//dc_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10732,7 +10475,6 @@ class InventoryListsCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_list',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -10764,7 +10506,6 @@ class GrnViewCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_product_details',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10854,7 +10595,6 @@ class GRNQuantityUpdateCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_quantity_update',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -10879,7 +10619,6 @@ class DeliveryChallanViewCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dc_view',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -10963,7 +10702,6 @@ class GRNStatusUpdateCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_state_update',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -10993,7 +10731,6 @@ class InventoryViewCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_details',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11049,7 +10786,6 @@ class OnhandviewCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/onhand_quantity',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11094,7 +10830,6 @@ class ForecastQuantityCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/forecast_quantity',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11129,7 +10864,6 @@ class PurchaseProductViewCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchased_product',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11169,7 +10903,6 @@ class SoldProductsCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/sold_products',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11226,7 +10959,6 @@ class GRNCreateCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_post',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11256,7 +10988,6 @@ class GRNPurchaseListCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/stock_picking_type',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11294,7 +11025,6 @@ class SourceLocationsCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dropdown_stock_picking_type',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11333,7 +11063,6 @@ class DestinationLocationsCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dropdown_stock_location',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11388,7 +11117,6 @@ class DeliveryChellanCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_post',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11432,7 +11160,6 @@ class InventoryCreateCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_create',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11462,7 +11189,6 @@ class InventoryCategoryCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_category_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11495,7 +11221,6 @@ class UnitOfMeasuresCall {
       apiUrl: '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/uom_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11536,7 +11261,6 @@ class InventoryImageCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_image_upload',
       callType: ApiCallType.PUT,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11568,7 +11292,6 @@ class ContactProfileUploadCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/contact_profile_upload',
       callType: ApiCallType.PUT,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11594,7 +11317,6 @@ class DcStockPickingTypeCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dropdown_stock_picking_type_dc',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11633,7 +11355,6 @@ class GRNStockPickingTypeCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dropdown_stock_picking_type_grn',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11682,7 +11403,6 @@ class PickListCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/picking_list',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11714,7 +11434,6 @@ class PurchaseOrderListSearchCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/all_purchase_records',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11746,7 +11465,6 @@ class SaleOrderListSearchCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/all_sale_records',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11778,7 +11496,6 @@ class PickSaleDetailCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/picking_sale_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11818,7 +11535,6 @@ class PickPurchaseDetailCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/picking_purchase_list',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11866,7 +11582,6 @@ class DCQuantityUpdateCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/dc_quantity_update',
       callType: ApiCallType.POST,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -11892,7 +11607,6 @@ class GRNConvertionCall {
           '${InventoryApiGroupGroup.baseUrl}${domainUrl}/api/rest/transfer_warehouse',
       callType: ApiCallType.GET,
       headers: {
-        ...InventoryApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11947,7 +11661,6 @@ class ProductsByCategoryCall {
           '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/products_in_category',
       callType: ApiCallType.GET,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -11983,7 +11696,6 @@ class ProductCategoryCall {
           '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/product_category_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12016,7 +11728,6 @@ class ProductDetailsCall {
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/product_details',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12123,7 +11834,6 @@ class AddToBookmarkCall {
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/add_fav',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12152,7 +11862,6 @@ class RemoveBookMarkCall {
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/remove_favourite',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12176,7 +11885,6 @@ class GetBookmarkListCall {
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/get_fav',
       callType: ApiCallType.GET,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12207,9 +11915,7 @@ class ProductDetailsOfflineCall {
       callName: 'Product Details Offline',
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/product_details',
       callType: ApiCallType.POST,
-      headers: {
-        ...CatalogueGroup.headers,
-      },
+      headers: {},
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
@@ -12236,7 +11942,6 @@ class ProductVariantsCall {
       apiUrl: '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/product_variants',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12282,7 +11987,6 @@ class GetProductIdWithNameCall {
           '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/product_name_search',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12326,7 +12030,6 @@ class GetIdByVariantCheckCall {
           '${CatalogueGroup.baseUrl}${domainUrl}/api/rest/attribute_variant',
       callType: ApiCallType.POST,
       headers: {
-        ...CatalogueGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12380,7 +12083,6 @@ class SaleOrderSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/sale_order_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12414,7 +12116,6 @@ class PurchaseOrderSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/purchase_order_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12447,7 +12148,6 @@ class CrmLeadSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/crm_lead_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12479,7 +12179,6 @@ class ExpenseSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/expense_search_by_name',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12511,7 +12210,6 @@ class ProjectSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/project_search_by_name',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12543,7 +12241,6 @@ class TaskSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/task_search_by_name',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12577,7 +12274,6 @@ class InvoiceRecordSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/invoice_record_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12611,7 +12307,6 @@ class PaymentSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/payment_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12643,7 +12338,6 @@ class GRNSearchCall {
       apiUrl: '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/grn_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12676,7 +12370,6 @@ class InventoryProductSearchCall {
           '${SearchApiGroupGroup.baseUrl}${domainUrl}/api/rest/product_search',
       callType: ApiCallType.GET,
       headers: {
-        ...SearchApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12718,7 +12411,7 @@ class HolidayListCall {
       apiUrl: '${CollegeManagementGroup.baseUrl}/holiday_list',
       callType: ApiCallType.GET,
       headers: {
-        ...CollegeManagementGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
       },
       params: {},
       returnBody: true,
@@ -12758,7 +12451,6 @@ class EquipmentListCall {
           '${MaterialRequestGroup.baseUrl}${domainUrl}/api/rest/req_equipment',
       callType: ApiCallType.GET,
       headers: {
-        ...MaterialRequestGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12788,7 +12480,6 @@ class EquipmentViewCall {
           '${MaterialRequestGroup.baseUrl}${domainUrl}/api/rest/list_equipment_of_requirement',
       callType: ApiCallType.GET,
       headers: {
-        ...MaterialRequestGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -12839,7 +12530,6 @@ class EquipmentCreateCall {
           '${MaterialRequestGroup.baseUrl}${domainUrl}/api/rest/equipment_post',
       callType: ApiCallType.POST,
       headers: {
-        ...MaterialRequestGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12884,7 +12574,6 @@ class WorkOrderListCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_work_order',
       callType: ApiCallType.GET,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12918,7 +12607,6 @@ class StartWorkOrderCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/start_work_order',
       callType: ApiCallType.PUT,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12948,7 +12636,6 @@ class PauseWorkOrderCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/pause_work_order',
       callType: ApiCallType.PUT,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -12978,7 +12665,6 @@ class DoneWorkOrderCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/done_work_order',
       callType: ApiCallType.PUT,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -13004,7 +12690,6 @@ class WorkOrderViewCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/view_workorder',
       callType: ApiCallType.GET,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13095,7 +12780,6 @@ class ManufactureOrderListCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/manufacture_order_list',
       callType: ApiCallType.GET,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -13125,7 +12809,6 @@ class ManufactureOrderViewCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/manufacturing_order_view',
       callType: ApiCallType.GET,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13193,7 +12876,6 @@ class WorkOrderIsOncheckCall {
           '${ManufacturingApiGroupGroup.baseUrl}${domainUrl}/api/rest/is_workorder_on',
       callType: ApiCallType.GET,
       headers: {
-        ...ManufacturingApiGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {},
@@ -13250,7 +12932,6 @@ class OpportunityListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/opportunity_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13307,7 +12988,6 @@ class PurchaseListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/purchase_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13364,7 +13044,6 @@ class QuotationListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/quotation_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13420,7 +13099,6 @@ class SaleListDashCall {
       apiUrl: '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/sale_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13477,7 +13155,6 @@ class InvoiceListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/dashboard_invoice_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13534,7 +13211,6 @@ class VendorBillListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/dashboard_bill_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13591,7 +13267,6 @@ class PaymentListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/payment_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {
@@ -13648,7 +13323,6 @@ class ExpenseListDashCall {
           '${OverallDashboardGroup.baseUrl}${domainUrl}/api/rest/expense_list',
       callType: ApiCallType.GET,
       headers: {
-        ...OverallDashboardGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
       params: {

@@ -12,6 +12,7 @@ import '/notification/notification_list/notification_list_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,8 +60,9 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
             context: context,
             builder: (context) {
               return GestureDetector(
-                onTap: () =>
-                    FocusScope.of(context).requestFocus(_model.unfocusNode),
+                onTap: () => _model.unfocusNode.canRequestFocus
+                    ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                    : FocusScope.of(context).unfocus(),
                 child: Padding(
                   padding: MediaQuery.viewInsetsOf(context),
                   child: ActivitySwipeWidget(),
@@ -87,7 +89,9 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -153,8 +157,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                     context: context,
                     builder: (context) {
                       return GestureDetector(
-                        onTap: () => FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode),
+                        onTap: () => _model.unfocusNode.canRequestFocus
+                            ? FocusScope.of(context)
+                                .requestFocus(_model.unfocusNode)
+                            : FocusScope.of(context).unfocus(),
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: NotificationListWidget(),
@@ -181,7 +187,9 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                   ..complete(DashboadApiGroupGroup.overAllDashboardCall.call(
                     authToken: FFAppState().accessToken,
                     domainUrl: FFAppState().DomainUrl,
-                    start: functions.beforeOneMonthDate(_model.month),
+                    start: _model.dropDownValue != 0
+                        ? functions.beforeOneMonthDate(_model.month)
+                        : _model.datePicked?.toString(),
                     end: functions.getTodayDate(),
                   )))
                 .future,
@@ -215,7 +223,6 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                           Flexible(
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.5,
-                              height: 30.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -243,7 +250,7 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                                                     FormFieldController<int>(
                                                   _model.dropDownValue ??= 1,
                                                 ),
-                                                options: [1, 3, 6, 12],
+                                                options: [1, 3, 6, 12, 0],
                                                 optionLabels: [
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -260,6 +267,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                                                   FFLocalizations.of(context)
                                                       .getText(
                                                     's9hh1i6t' /* Last 1 year */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'd8ptsymt' /* Custom */,
                                                   )
                                                 ],
                                                 onChanged: (val) async {
@@ -319,6 +330,134 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                                       ),
                                     ],
                                   ),
+                                  if (valueOrDefault<bool>(
+                                    _model.dropDownValue == 0,
+                                    false,
+                                  ))
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 4.0, 0.0, 0.0),
+                                                child: Material(
+                                                  color: Colors.transparent,
+                                                  elevation: 1.0,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  child: Container(
+                                                    width: 150.0,
+                                                    height: 30.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      border: Border.all(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .hashColor,
+                                                        width: 2.0,
+                                                      ),
+                                                    ),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        final _datePickedDate =
+                                                            await showDatePicker(
+                                                          context: context,
+                                                          initialDate:
+                                                              getCurrentTimestamp,
+                                                          firstDate:
+                                                              DateTime(1900),
+                                                          lastDate:
+                                                              getCurrentTimestamp,
+                                                        );
+
+                                                        if (_datePickedDate !=
+                                                            null) {
+                                                          safeSetState(() {
+                                                            _model.datePicked =
+                                                                DateTime(
+                                                              _datePickedDate
+                                                                  .year,
+                                                              _datePickedDate
+                                                                  .month,
+                                                              _datePickedDate
+                                                                  .day,
+                                                            );
+                                                          });
+                                                        }
+                                                        setState(() {
+                                                          _model.month = 0;
+                                                        });
+                                                        setState(() => _model
+                                                                .apiRequestCompleter =
+                                                            null);
+                                                        await _model
+                                                            .waitForApiRequestCompleted();
+                                                      },
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              _model.datePicked !=
+                                                                      null
+                                                                  ? functions.convertLeaveDateFormat(_model
+                                                                      .datePicked
+                                                                      ?.toString())
+                                                                  : 'Date',
+                                                              'Date',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium,
+                                                          ),
+                                                          Icon(
+                                                            Icons
+                                                                .calendar_month_rounded,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                            size: 24.0,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                 ],
                               ),
                             ),
@@ -342,7 +481,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'OpportunityDashboardList',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -474,7 +616,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'QuotationDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -606,7 +751,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'SalelistDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -738,7 +886,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'InvoiceDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -870,7 +1021,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'PurchaseDashboardList',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1002,7 +1156,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'PaymentDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1134,7 +1291,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'VendorDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1266,7 +1426,10 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'ExpenseDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  functions.beforeOneMonthDate(_model.month),
+                                  _model.dropDownValue != 0
+                                      ? functions
+                                          .beforeOneMonthDate(_model.month)
+                                      : _model.datePicked?.toString(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,

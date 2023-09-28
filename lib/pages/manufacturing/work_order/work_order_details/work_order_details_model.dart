@@ -8,12 +8,13 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/request_manager.dart';
 
 import 'dart:async';
+import 'work_order_details_widget.dart' show WorkOrderDetailsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class WorkOrderDetailsModel extends FlutterFlowModel {
+class WorkOrderDetailsModel extends FlutterFlowModel<WorkOrderDetailsWidget> {
   ///  Local state fields for this page.
 
   String? tasktime;

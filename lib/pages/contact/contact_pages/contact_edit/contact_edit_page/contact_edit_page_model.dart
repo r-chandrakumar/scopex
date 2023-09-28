@@ -6,11 +6,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'contact_edit_page_widget.dart' show ContactEditPageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ContactEditPageModel extends FlutterFlowModel {
+class ContactEditPageModel extends FlutterFlowModel<ContactEditPageWidget> {
   ///  Local state fields for this page.
 
   String imageBase64 = '';

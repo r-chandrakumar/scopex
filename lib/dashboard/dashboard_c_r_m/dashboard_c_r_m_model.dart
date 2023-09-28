@@ -14,13 +14,15 @@ import '/shimmer/crmshimmerdb/crmshimmerdb_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'dashboard_c_r_m_widget.dart' show DashboardCRMWidget;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DashboardCRMModel extends FlutterFlowModel {
+class DashboardCRMModel extends FlutterFlowModel<DashboardCRMWidget> {
   ///  Local state fields for this page.
 
   int? month = 1;
@@ -34,6 +36,7 @@ class DashboardCRMModel extends FlutterFlowModel {
   int? dropDownValue;
   FormFieldController<int>? dropDownValueController;
   Completer<ApiCallResponse>? apiRequestCompleter;
+  DateTime? datePicked;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

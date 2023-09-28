@@ -11,12 +11,13 @@ import '/notification/notification_list/notification_list_widget.dart';
 import '/pages/accounting/invoice_pagess/invoice_list/accounting_invoice_fliter/accounting_invoice_fliter_widget.dart';
 import '/pages/accounting/invoice_pagess/invoice_list/invoice_list_search/invoice_list_search_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
+import 'invoice_list_page_widget.dart' show InvoiceListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class InvoiceListPageModel extends FlutterFlowModel {
+class InvoiceListPageModel extends FlutterFlowModel<InvoiceListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

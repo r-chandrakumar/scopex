@@ -10,12 +10,14 @@ import '/reusable_component/create_product_items/create_product_items_widget.dar
 import '/search_components/supplier_search_component/supplier_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'purchase_rfq_create_new_widget.dart' show PurchaseRfqCreateNewWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PurchaseRfqCreateNewModel extends FlutterFlowModel {
+class PurchaseRfqCreateNewModel
+    extends FlutterFlowModel<PurchaseRfqCreateNewWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -166,7 +166,7 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                                 .override(
                                   fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
-                                      .appBarTextColor,
+                                      .inputtextColor,
                                   fontSize: 16.0,
                                 ),
                             enabledBorder: InputBorder.none,
@@ -178,7 +178,9 @@ class _TasksearchWidgetState extends State<TasksearchWidget>
                               .bodyMedium
                               .override(
                                 fontFamily: 'Roboto',
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
                               ),
                           validator: _model.textControllerValidator
                               .asValidator(context),

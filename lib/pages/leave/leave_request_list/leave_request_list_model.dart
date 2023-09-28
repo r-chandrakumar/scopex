@@ -7,12 +7,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/leave/leave_request_filter/leave_request_filter_widget.dart';
 import '/pages/leave/leavelistshimmer/leavelistshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'leave_request_list_widget.dart' show LeaveRequestListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LeaveRequestListModel extends FlutterFlowModel {
+class LeaveRequestListModel extends FlutterFlowModel<LeaveRequestListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

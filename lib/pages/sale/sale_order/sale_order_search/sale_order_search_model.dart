@@ -5,12 +5,13 @@ import '/pages/lead/lead_pages/lead_view/leadsshimmer/leadsshimmer_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'sale_order_search_widget.dart' show SaleOrderSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class SaleOrderSearchModel extends FlutterFlowModel {
+class SaleOrderSearchModel extends FlutterFlowModel<SaleOrderSearchWidget> {
   ///  Local state fields for this component.
 
   String? salesOrder = '';

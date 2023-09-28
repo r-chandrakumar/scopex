@@ -8,12 +8,13 @@ import '/flutter_flow/form_field_controller.dart';
 import '/pages/customers/lead_createshimmer/lead_createshimmer_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'leadedit_widget.dart' show LeadeditWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LeadeditModel extends FlutterFlowModel {
+class LeadeditModel extends FlutterFlowModel<LeadeditWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -52,9 +52,7 @@ class _CommonLogNoteWidgetState extends State<CommonLogNoteWidget> {
       children: [
         Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-          ),
+          decoration: BoxDecoration(),
           child: Builder(
             builder: (context) {
               final logMessage = widget.logmessage?.toList() ?? [];

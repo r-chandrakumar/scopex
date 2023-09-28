@@ -4,12 +4,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'rfq_search_component_widget.dart' show RfqSearchComponentWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class RfqSearchComponentModel extends FlutterFlowModel {
+class RfqSearchComponentModel
+    extends FlutterFlowModel<RfqSearchComponentWidget> {
   ///  Local state fields for this component.
 
   String rfqsearch = '';

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'pick_list_search_widget.dart' show PickListSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PickListSearchModel extends FlutterFlowModel {
+class PickListSearchModel extends FlutterFlowModel<PickListSearchWidget> {
   ///  Local state fields for this component.
 
   String partnergrnsearch = '';

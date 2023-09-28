@@ -11,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'product_details_new_widget.dart' show ProductDetailsNewWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,7 +19,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class ProductDetailsNewModel extends FlutterFlowModel {
+class ProductDetailsNewModel extends FlutterFlowModel<ProductDetailsNewWidget> {
   ///  Local state fields for this page.
 
   int? productVariantId = 0;
@@ -29,6 +30,8 @@ class ProductDetailsNewModel extends FlutterFlowModel {
   void addToVariants(int item) => variants.add(item);
   void removeFromVariants(int item) => variants.remove(item);
   void removeAtIndexFromVariants(int index) => variants.removeAt(index);
+  void insertAtIndexInVariants(int index, int item) =>
+      variants.insert(index, item);
   void updateVariantsAtIndex(int index, Function(int) updateFn) =>
       variants[index] = updateFn(variants[index]);
 

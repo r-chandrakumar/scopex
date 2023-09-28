@@ -10,13 +10,15 @@ import '/pages/project/projectshimmer/projectshimmer_widget.dart';
 import '/pages/project/search_project/search_project_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'manufacturing_order_widget.dart' show ManufacturingOrderWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ManufacturingOrderModel extends FlutterFlowModel {
+class ManufacturingOrderModel
+    extends FlutterFlowModel<ManufacturingOrderWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

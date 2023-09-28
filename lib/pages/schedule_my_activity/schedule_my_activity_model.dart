@@ -6,13 +6,15 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'schedule_my_activity_widget.dart' show ScheduleMyActivityWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ScheduleMyActivityModel extends FlutterFlowModel {
+class ScheduleMyActivityModel
+    extends FlutterFlowModel<ScheduleMyActivityWidget> {
   ///  Local state fields for this component.
 
   String? search = '';

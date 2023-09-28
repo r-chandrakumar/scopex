@@ -8,13 +8,15 @@ import '/pages/product_cataloge/bookmarked_product/bookmarked_product_widget.dar
 import '/pages/product_cataloge/category_menu_shimmer/category_menu_shimmer_widget.dart';
 import '/pages/product_cataloge/category_view_shimmer/category_view_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'categories_with_product_widget.dart' show CategoriesWithProductWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CategoriesWithProductModel extends FlutterFlowModel {
+class CategoriesWithProductModel
+    extends FlutterFlowModel<CategoriesWithProductWidget> {
   ///  Local state fields for this page.
 
   int? categoryid = 0;
@@ -23,6 +25,8 @@ class CategoriesWithProductModel extends FlutterFlowModel {
   void addToEmptyVariant(int item) => emptyVariant.add(item);
   void removeFromEmptyVariant(int item) => emptyVariant.remove(item);
   void removeAtIndexFromEmptyVariant(int index) => emptyVariant.removeAt(index);
+  void insertAtIndexInEmptyVariant(int index, int item) =>
+      emptyVariant.insert(index, item);
   void updateEmptyVariantAtIndex(int index, Function(int) updateFn) =>
       emptyVariant[index] = updateFn(emptyVariant[index]);
 

@@ -1,10 +1,12 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'internet_icon_component_widget.dart' show InternetIconComponentWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class InternetIconComponentModel extends FlutterFlowModel {
+class InternetIconComponentModel
+    extends FlutterFlowModel<InternetIconComponentWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

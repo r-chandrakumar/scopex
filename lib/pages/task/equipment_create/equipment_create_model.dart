@@ -5,12 +5,13 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/search_components/product_search/product_search_widget.dart';
 import '/search_components/project_search/project_search_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'equipment_create_widget.dart' show EquipmentCreateWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EquipmentCreateModel extends FlutterFlowModel {
+class EquipmentCreateModel extends FlutterFlowModel<EquipmentCreateWidget> {
   ///  Local state fields for this page.
 
   List<dynamic> equipmentLineList = [];
@@ -19,6 +20,8 @@ class EquipmentCreateModel extends FlutterFlowModel {
       equipmentLineList.remove(item);
   void removeAtIndexFromEquipmentLineList(int index) =>
       equipmentLineList.removeAt(index);
+  void insertAtIndexInEquipmentLineList(int index, dynamic item) =>
+      equipmentLineList.insert(index, item);
   void updateEquipmentLineListAtIndex(int index, Function(dynamic) updateFn) =>
       equipmentLineList[index] = updateFn(equipmentLineList[index]);
 

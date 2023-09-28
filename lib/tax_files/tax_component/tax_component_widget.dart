@@ -138,6 +138,7 @@ class _TaxComponentWidgetState extends State<TaxComponentWidget> {
                                               getJsonField(
                                                 FFAppState().taxJson,
                                                 r'''$.taxnames''',
+                                                true,
                                               ),
                                               taxListIndex,
                                               'value')

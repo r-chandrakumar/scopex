@@ -2752,6 +2752,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last 1 year',
       'ta': '',
     },
+    'hhl91l33': {
+      'en': 'Custom',
+      'ta': '',
+    },
     'y45w4h3l': {
       'en': '1',
       'ta': '',
@@ -3750,13 +3754,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Note',
       'ta': 'குறிப்பு',
     },
-    'vhblk306': {
-      'en': 'File Attachment',
-      'ta': 'கோப்பு இணைப்பு',
-    },
     'qekb874q': {
       'en': 'Gallery / Capture Picture',
       'ta': 'படம் பிடிக்கவும்',
+    },
+    'vhblk306': {
+      'en': 'File Attachment',
+      'ta': 'கோப்பு இணைப்பு',
     },
     'nift9rlz': {
       'en': 'Save',
@@ -6073,6 +6077,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last 1 year',
       'ta': '',
     },
+    'd8ptsymt': {
+      'en': 'Custom',
+      'ta': '',
+    },
     'sptj5dbz': {
       'en': '1',
       'ta': '',
@@ -7298,7 +7306,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Common_Create_Product_Search
   {
     'hz71gebp': {
-      'en': 'Search for product..',
+      'en': '',
+      'ta': '',
+    },
+    'nr42jun3': {
+      'en': 'Search...',
       'ta': '',
     },
   },
@@ -8512,7 +8524,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ContactSelectSearchComponent
   {
     'r7ias5m9': {
-      'en': 'Search for Contact',
+      'en': '',
+      'ta': '',
+    },
+    '8vrt7dnu': {
+      'en': 'Search...',
       'ta': '',
     },
   },
@@ -8537,7 +8553,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // StateSearch
   {
     '844agmxa': {
-      'en': 'Search for State',
+      'en': '',
+      'ta': '',
+    },
+    '5g0tlqha': {
+      'en': 'Search state',
       'ta': '',
     },
   },
@@ -8563,20 +8583,28 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Inventory_Search
   {
     'vy273lx5': {
-      'en': 'Search for product',
+      'en': 'Search...',
       'ta': '',
     },
   },
   // Common_Edit_Product_Search
   {
     '1idmdswi': {
-      'en': 'Search for product..',
+      'en': '',
+      'ta': '',
+    },
+    'zkxvjb3h': {
+      'en': 'Search',
       'ta': '',
     },
   },
   // SupplierSearchComponent
   {
     'zcnaz7k6': {
+      'en': '',
+      'ta': '',
+    },
+    '472kkxd1': {
       'en': 'Search for supplier',
       'ta': '',
     },
@@ -9283,7 +9311,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ProductSearch
   {
     't2e3ay2u': {
-      'en': 'Search for product',
+      'en': '',
+      'ta': '',
+    },
+    'tgb8pbzq': {
+      'en': 'Search...',
       'ta': '',
     },
   },
@@ -9317,7 +9349,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // ProjectSearch
   {
     'iybz7cmi': {
-      'en': 'Search for project',
+      'en': '',
+      'ta': '',
+    },
+    'jgrpebph': {
+      'en': 'Search...',
       'ta': '',
     },
   },
@@ -10046,14 +10082,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // PurchaseOrderListSearch
   {
     'o2ipsd4r': {
-      'en': 'Search for purchase order',
+      'en': '',
+      'ta': '',
+    },
+    '99vrb8qk': {
+      'en': 'Search...',
       'ta': '',
     },
   },
   // SaleOrderListSearch
   {
     '6lwseatg': {
-      'en': 'Search for sale order',
+      'en': '',
+      'ta': '',
+    },
+    'hsbnqqna': {
+      'en': 'Search...',
       'ta': '',
     },
   },
@@ -10139,7 +10183,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // UserSearch
   {
     '794rkw46': {
-      'en': 'Search for customer',
+      'en': '',
+      'ta': '',
+    },
+    'amhrsqf7': {
+      'en': 'Search',
       'ta': '',
     },
   },

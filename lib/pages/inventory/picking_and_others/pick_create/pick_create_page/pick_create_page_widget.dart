@@ -65,7 +65,9 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -176,6 +178,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       pickingTypeGRNPurchaseListResponse
                                           .jsonBody,
                                       r'''$.stock_picking_type..id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -183,6 +186,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       pickingTypeGRNPurchaseListResponse
                                           .jsonBody,
                                       r'''$.stock_picking_type..name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -261,8 +265,11 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                 context: context,
                                 builder: (context) {
                                   return GestureDetector(
-                                    onTap: () => FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode),
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: PurchaseOrderListSearchWidget(),
@@ -354,8 +361,11 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                 context: context,
                                 builder: (context) {
                                   return GestureDetector(
-                                    onTap: () => FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode),
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: SaleOrderListSearchWidget(),
@@ -465,6 +475,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       locationDestinationLocationsResponse
                                           .jsonBody,
                                       r'''$.stock_location[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -472,6 +483,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       locationDestinationLocationsResponse
                                           .jsonBody,
                                       r'''$.stock_location[:].complete_name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -568,6 +580,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       destLocationDestinationLocationsResponse
                                           .jsonBody,
                                       r'''$.stock_location[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -575,6 +588,7 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                       destLocationDestinationLocationsResponse
                                           .jsonBody,
                                       r'''$.stock_location[:].complete_name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -758,9 +772,13 @@ class _PickCreatePageWidgetState extends State<PickCreatePageWidget> {
                                         context: context,
                                         builder: (context) {
                                           return GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode),
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),

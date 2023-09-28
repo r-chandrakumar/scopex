@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'recent_activity_list_widget.dart' show RecentActivityListWidget;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -15,7 +16,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class RecentActivityListModel extends FlutterFlowModel {
+class RecentActivityListModel
+    extends FlutterFlowModel<RecentActivityListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

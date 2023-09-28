@@ -7,19 +7,21 @@ import '/pages/inventory/delivery_chellan_pages/delivery_chellan_view/delivery_c
 import '/pages/inventory/grn_pages/grn_view/grn_qty_text_box/grn_qty_text_box_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'd_c_pick_view_page_widget.dart' show DCPickViewPageWidget;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DCPickViewPageModel extends FlutterFlowModel {
+class DCPickViewPageModel extends FlutterFlowModel<DCPickViewPageWidget> {
   ///  Local state fields for this page.
 
   List<double> qty = [];
   void addToQty(double item) => qty.add(item);
   void removeFromQty(double item) => qty.remove(item);
   void removeAtIndexFromQty(int index) => qty.removeAt(index);
+  void insertAtIndexInQty(int index, double item) => qty.insert(index, item);
   void updateQtyAtIndex(int index, Function(double) updateFn) =>
       qty[index] = updateFn(qty[index]);
 

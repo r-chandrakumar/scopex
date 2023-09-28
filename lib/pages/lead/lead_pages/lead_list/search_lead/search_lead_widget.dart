@@ -142,6 +142,16 @@ class _SearchLeadWidgetState extends State<SearchLeadWidget>
                             hintText: FFLocalizations.of(context).getText(
                               'dpvno92p' /* Search... */,
                             ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'outfit',
+                                  color: FlutterFlowTheme.of(context)
+                                      .inputtextColor,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: false,
+                                ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -202,14 +212,16 @@ class _SearchLeadWidgetState extends State<SearchLeadWidget>
                                   )
                                 : null,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'outfit',
-                                    color: Color(0xFF95A1AC),
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: false,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'outfit',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                                useGoogleFonts: false,
+                              ),
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),
@@ -343,59 +355,9 @@ class _SearchLeadWidgetState extends State<SearchLeadWidget>
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF2101A4),
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(8.0),
-                                                bottomRight:
-                                                    Radius.circular(0.0),
-                                                topLeft: Radius.circular(0.0),
-                                                topRight: Radius.circular(8.0),
-                                              ),
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 5.0, 8.0, 5.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    crmleadItem,
-                                                    r'''$.crm_stage.name''',
-                                                  ).toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .white,
-                                                        fontSize: 13.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 6.0, 10.0, 10.0),
+                                            10.0, 10.0, 10.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [

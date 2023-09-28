@@ -2,13 +2,16 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'delivery_challan_view_page_loader_widget.dart'
+    show DeliveryChallanViewPageLoaderWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DeliveryChallanViewPageLoaderModel extends FlutterFlowModel {
+class DeliveryChallanViewPageLoaderModel
+    extends FlutterFlowModel<DeliveryChallanViewPageLoaderWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

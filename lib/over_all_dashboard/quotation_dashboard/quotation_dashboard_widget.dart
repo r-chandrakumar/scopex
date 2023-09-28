@@ -50,7 +50,9 @@ class _QuotationDashboardWidgetState extends State<QuotationDashboardWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -238,6 +240,7 @@ class _QuotationDashboardWidgetState extends State<QuotationDashboardWidget> {
                                 )
                                 ?.toList()),
                         r'''$.xLabels''',
+                        true,
                       ) as List)
                           .map<String>((s) => s.toString())
                           .toList(),
@@ -249,6 +252,7 @@ class _QuotationDashboardWidgetState extends State<QuotationDashboardWidget> {
                                 )
                                 ?.toList()),
                         r'''$.yValues''',
+                        true,
                       ),
                     ),
                   ),
@@ -298,106 +302,141 @@ class _QuotationDashboardWidgetState extends State<QuotationDashboardWidget> {
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 10.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 60.0,
-                                            color: Color(0x0F000000),
-                                            offset: Offset(0.0, 10.0),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        border: Border.all(
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'quotation_view_page',
+                                          queryParameters: {
+                                            'id': serializeParam(
+                                              getJsonField(
+                                                quotationItem,
+                                                r'''$.id''',
+                                              ),
+                                              ParamType.int,
+                                            ),
+                                            'name': serializeParam(
+                                              getJsonField(
+                                                quotationItem,
+                                                r'''$.name''',
+                                              ).toString(),
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .hashColor,
+                                              .secondaryBackground,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 60.0,
+                                              color: Color(0x0F000000),
+                                              offset: Offset(0.0, 10.0),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .hashColor,
+                                          ),
                                         ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Flexible(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      functions
-                                                          .isNull(getJsonField(
-                                                        quotationItem,
-                                                        r'''$.res_partner.name''',
-                                                      ).toString()),
-                                                      '-',
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 15.0, 15.0, 15.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Flexible(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        functions.isNull(
+                                                            getJsonField(
+                                                          quotationItem,
+                                                          r'''$.res_partner.name''',
+                                                        ).toString()),
+                                                        '-',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 16.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        functions
+                                                            .convertLeaveDateFormat(
+                                                                getJsonField(
+                                                          quotationItem,
+                                                          r'''$.date_order''',
+                                                        ).toString()),
+                                                        '-',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 14.0,
+                                                              ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 5.0)),
+                                                ),
+                                              ),
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  functions.amountSymbol(
+                                                      getJsonField(
+                                                        quotationItem,
+                                                        r'''$.amount_total''',
+                                                      ).toString(),
+                                                      FFAppState()
+                                                          .currencySymbol),
+                                                  '-',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
                                                           fontSize: 16.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                  ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      functions
-                                                          .convertLeaveDateFormat(
-                                                              getJsonField(
-                                                        quotationItem,
-                                                        r'''$.date_order''',
-                                                      ).toString()),
-                                                      '-',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 14.0,
-                                                        ),
-                                                  ),
-                                                ].divide(SizedBox(height: 5.0)),
                                               ),
-                                            ),
-                                            Text(
-                                              valueOrDefault<String>(
-                                                functions.amountSymbol(
-                                                    getJsonField(
-                                                      quotationItem,
-                                                      r'''$.amount_total''',
-                                                    ).toString(),
-                                                    FFAppState()
-                                                        .currencySymbol),
-                                                '-',
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    fontSize: 16.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                            ),
-                                          ].divide(SizedBox(width: 5.0)),
+                                            ].divide(SizedBox(width: 5.0)),
+                                          ),
                                         ),
                                       ),
                                     ),

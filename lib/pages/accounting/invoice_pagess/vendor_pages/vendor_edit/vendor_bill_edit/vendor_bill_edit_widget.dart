@@ -112,7 +112,9 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -274,10 +276,13 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                                 builder:
                                                                     (context) {
                                                                   return GestureDetector(
-                                                                    onTap: () => FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(
-                                                                            _model.unfocusNode),
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -1008,11 +1013,16 @@ class _VendorBillEditWidgetState extends State<VendorBillEditWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return GestureDetector(
-                                                                onTap: () => FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode),
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(

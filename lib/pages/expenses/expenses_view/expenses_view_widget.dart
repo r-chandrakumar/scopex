@@ -1229,10 +1229,7 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                       });
                                     },
                                     child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
+                                      decoration: BoxDecoration(),
                                       child: Align(
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
@@ -1289,10 +1286,7 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                       });
                                     },
                                     child: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
+                                      decoration: BoxDecoration(),
                                       child: Align(
                                         alignment:
                                             AlignmentDirectional(0.00, 0.00),
@@ -1403,287 +1397,77 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                                 return Container(
                                                   width: 100.0,
                                                   height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                await showModalBottomSheet(
-                                                                  isScrollControlled:
-                                                                      true,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  enableDrag:
-                                                                      false,
-                                                                  useSafeArea:
-                                                                      true,
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (context) {
-                                                                    return Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          PDFViewWidget(
-                                                                        pdfurl: functions.convertAttachmentUrl(
-                                                                            FFAppState().WebUrl,
-                                                                            getJsonField(
-                                                                              attachItem,
-                                                                              r'''$.id''',
-                                                                            ),
-                                                                            'ir.attachment')!,
-                                                                        title:
-                                                                            getJsonField(
-                                                                          attachItem,
-                                                                          r'''$.name''',
-                                                                        ).toString(),
-                                                                        shareFile:
-                                                                            false,
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ).then((value) =>
-                                                                    safeSetState(
-                                                                        () {}));
-                                                              },
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child:
-                                                                    Image.asset(
-                                                                  'assets/images/pdf.jpg',
-                                                                  width: 60.0,
-                                                                  height: 60.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Flexible(
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    attachItem,
-                                                                    r'''$.name''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          _model.deleteAttach =
-                                                              await CommonApisGroupGroup
-                                                                  .deleteAttachmentCall
-                                                                  .call(
-                                                            authToken:
-                                                                FFAppState()
-                                                                    .accessToken,
-                                                            domainUrl:
-                                                                FFAppState()
-                                                                    .DomainUrl,
-                                                            attachmentId:
-                                                                getJsonField(
-                                                              attachItem,
-                                                              r'''$.id''',
-                                                            ),
-                                                          );
-                                                          if ((_model
-                                                                  .deleteAttach
-                                                                  ?.succeeded ??
-                                                              true)) {
-                                                            setState(() => _model
-                                                                    .apiRequestCompleter =
-                                                                null);
-                                                            await _model
-                                                                .waitForApiRequestCompleted();
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Success',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Error',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
-                                                            );
-                                                          }
-
-                                                          setState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.delete,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          size: 24.0,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              } else {
-                                                return Container(
-                                                  width: 100.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                await Navigator
-                                                                    .push(
-                                                                  context,
-                                                                  PageTransition(
-                                                                    type: PageTransitionType
-                                                                        .fade,
-                                                                    child:
-                                                                        FlutterFlowExpandedImageView(
-                                                                      image: Image
-                                                                          .network(
-                                                                        functions.attachmentconvertor(
-                                                                            getJsonField(
-                                                                              attachItem,
-                                                                              r'''$.id''',
-                                                                            ),
-                                                                            'ir.attachment',
-                                                                            FFAppState().WebUrl)!,
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                      allowRotation:
-                                                                          false,
-                                                                      tag: functions.attachmentconvertor(
-                                                                          getJsonField(
+                                                  decoration: BoxDecoration(),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                15.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    useSafeArea:
+                                                                        true,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            PDFViewWidget(
+                                                                          pdfurl: functions.convertAttachmentUrl(
+                                                                              FFAppState().WebUrl,
+                                                                              getJsonField(
+                                                                                attachItem,
+                                                                                r'''$.id''',
+                                                                              ),
+                                                                              'ir.attachment')!,
+                                                                          title:
+                                                                              getJsonField(
                                                                             attachItem,
-                                                                            r'''$.id''',
-                                                                          ),
-                                                                          'ir.attachment',
-                                                                          FFAppState().WebUrl)!,
-                                                                      useHeroAnimation:
-                                                                          true,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                              child: Hero(
-                                                                tag: functions
-                                                                    .attachmentconvertor(
-                                                                        getJsonField(
-                                                                          attachItem,
-                                                                          r'''$.id''',
+                                                                            r'''$.name''',
+                                                                          ).toString(),
+                                                                          shareFile:
+                                                                              false,
                                                                         ),
-                                                                        'ir.attachment',
-                                                                        FFAppState()
-                                                                            .WebUrl)!,
-                                                                transitionOnUserGestures:
-                                                                    true,
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                },
                                                                 child:
                                                                     ClipRRect(
                                                                   borderRadius:
@@ -1691,139 +1475,354 @@ class _ExpensesViewWidgetState extends State<ExpensesViewWidget>
                                                                           .circular(
                                                                               8.0),
                                                                   child: Image
-                                                                      .network(
-                                                                    functions.attachmentconvertor(
-                                                                        getJsonField(
-                                                                          attachItem,
-                                                                          r'''$.id''',
-                                                                        ),
-                                                                        'ir.attachment',
-                                                                        FFAppState().WebUrl)!,
-                                                                    width: 60.0,
+                                                                      .asset(
+                                                                    'assets/images/pdf.jpg',
+                                                                    width: 50.0,
                                                                     height:
-                                                                        60.0,
+                                                                        50.0,
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                            Flexible(
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
+                                                              Flexible(
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                      attachItem,
+                                                                      r'''$.name''',
+                                                                    ).toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            _model.deleteAttach =
+                                                                await CommonApisGroupGroup
+                                                                    .deleteAttachmentCall
+                                                                    .call(
+                                                              authToken:
+                                                                  FFAppState()
+                                                                      .accessToken,
+                                                              domainUrl:
+                                                                  FFAppState()
+                                                                      .DomainUrl,
+                                                              attachmentId:
                                                                   getJsonField(
-                                                                    attachItem,
-                                                                    r'''$.name''',
-                                                                  ).toString(),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          _model.deleteAttached =
-                                                              await CommonApisGroupGroup
-                                                                  .deleteAttachmentCall
-                                                                  .call(
-                                                            authToken:
-                                                                FFAppState()
-                                                                    .accessToken,
-                                                            domainUrl:
-                                                                FFAppState()
-                                                                    .DomainUrl,
-                                                            attachmentId:
-                                                                getJsonField(
-                                                              attachItem,
-                                                              r'''$.id''',
-                                                            ),
-                                                          );
-                                                          if ((_model
-                                                                  .deleteAttached
-                                                                  ?.succeeded ??
-                                                              true)) {
-                                                            setState(() => _model
-                                                                    .apiRequestCompleter =
-                                                                null);
-                                                            await _model
-                                                                .waitForApiRequestCompleted();
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Success',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
+                                                                attachItem,
+                                                                r'''$.id''',
                                                               ),
                                                             );
-                                                          } else {
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Error',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
+                                                            if ((_model
+                                                                    .deleteAttach
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              setState(() =>
+                                                                  _model.apiRequestCompleter =
+                                                                      null);
+                                                              await _model
+                                                                  .waitForApiRequestCompleted();
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Success',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
                                                                   ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
                                                                 ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                              ),
-                                                            );
-                                                          }
+                                                              );
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Error',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
 
-                                                          setState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.delete,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          size: 24.0,
+                                                            setState(() {});
+                                                          },
+                                                          child: Icon(
+                                                            Icons.delete,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            size: 24.0,
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Container(
+                                                  width: 100.0,
+                                                  height: 100.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                15.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await Navigator
+                                                                      .push(
+                                                                    context,
+                                                                    PageTransition(
+                                                                      type: PageTransitionType
+                                                                          .fade,
+                                                                      child:
+                                                                          FlutterFlowExpandedImageView(
+                                                                        image: Image
+                                                                            .network(
+                                                                          functions.attachmentconvertor(
+                                                                              getJsonField(
+                                                                                attachItem,
+                                                                                r'''$.id''',
+                                                                              ),
+                                                                              'ir.attachment',
+                                                                              FFAppState().WebUrl)!,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                        allowRotation:
+                                                                            false,
+                                                                        tag: functions.attachmentconvertor(
+                                                                            getJsonField(
+                                                                              attachItem,
+                                                                              r'''$.id''',
+                                                                            ),
+                                                                            'ir.attachment',
+                                                                            FFAppState().WebUrl)!,
+                                                                        useHeroAnimation:
+                                                                            true,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Hero(
+                                                                  tag: functions.attachmentconvertor(
+                                                                      getJsonField(
+                                                                        attachItem,
+                                                                        r'''$.id''',
+                                                                      ),
+                                                                      'ir.attachment',
+                                                                      FFAppState().WebUrl)!,
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      functions.attachmentconvertor(
+                                                                          getJsonField(
+                                                                            attachItem,
+                                                                            r'''$.id''',
+                                                                          ),
+                                                                          'ir.attachment',
+                                                                          FFAppState().WebUrl)!,
+                                                                      width:
+                                                                          50.0,
+                                                                      height:
+                                                                          50.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              Flexible(
+                                                                child: Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    getJsonField(
+                                                                      attachItem,
+                                                                      r'''$.name''',
+                                                                    ).toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            _model.deleteAttached =
+                                                                await CommonApisGroupGroup
+                                                                    .deleteAttachmentCall
+                                                                    .call(
+                                                              authToken:
+                                                                  FFAppState()
+                                                                      .accessToken,
+                                                              domainUrl:
+                                                                  FFAppState()
+                                                                      .DomainUrl,
+                                                              attachmentId:
+                                                                  getJsonField(
+                                                                attachItem,
+                                                                r'''$.id''',
+                                                              ),
+                                                            );
+                                                            if ((_model
+                                                                    .deleteAttached
+                                                                    ?.succeeded ??
+                                                                true)) {
+                                                              setState(() =>
+                                                                  _model.apiRequestCompleter =
+                                                                      null);
+                                                              await _model
+                                                                  .waitForApiRequestCompleted();
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Success',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Error',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                ),
+                                                              );
+                                                            }
+
+                                                            setState(() {});
+                                                          },
+                                                          child: Icon(
+                                                            Icons.delete,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 );
                                               }

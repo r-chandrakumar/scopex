@@ -6,13 +6,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/task/task_list_shimmer/task_list_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'user_task_widget.dart' show UserTaskWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class UserTaskModel extends FlutterFlowModel {
+class UserTaskModel extends FlutterFlowModel<UserTaskWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

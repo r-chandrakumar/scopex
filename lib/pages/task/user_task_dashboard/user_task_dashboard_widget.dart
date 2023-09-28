@@ -345,7 +345,9 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -1081,6 +1083,7 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
                                                           0.82,
                                                   lineHeight: 16.0,
                                                   animation: true,
+                                                  animateFromLastPercent: true,
                                                   progressColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1109,6 +1112,7 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
                                                           0.3,
                                                   lineHeight: 16.0,
                                                   animation: true,
+                                                  animateFromLastPercent: true,
                                                   progressColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1283,6 +1287,7 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
                                                           0.82,
                                                   lineHeight: 16.0,
                                                   animation: true,
+                                                  animateFromLastPercent: true,
                                                   progressColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1311,6 +1316,7 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
                                                           0.3,
                                                   lineHeight: 16.0,
                                                   animation: true,
+                                                  animateFromLastPercent: true,
                                                   progressColor:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -1379,6 +1385,7 @@ class _UserTaskDashboardWidgetState extends State<UserTaskDashboardWidget>
                                   if (functions.arrayValue(getJsonField(
                                         columnListUserTaskResponse.jsonBody,
                                         r'''$.project_task[:].name''',
+                                        true,
                                       )) ??
                                       true)
                                     Padding(

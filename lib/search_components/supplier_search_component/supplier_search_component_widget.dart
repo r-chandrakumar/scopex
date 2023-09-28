@@ -104,9 +104,6 @@ class _SupplierSearchComponentWidgetState
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            'zcnaz7k6' /* Search for supplier */,
-                          ),
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -114,6 +111,18 @@ class _SupplierSearchComponentWidgetState
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.normal,
                                   ),
+                          hintText: FFLocalizations.of(context).getText(
+                            '472kkxd1' /* Search for supplier */,
+                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -167,8 +176,9 @@ class _SupplierSearchComponentWidgetState
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
+                              color:
+                                  FlutterFlowTheme.of(context).inputtextColor,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
                         maxLines: null,

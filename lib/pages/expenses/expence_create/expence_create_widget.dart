@@ -160,12 +160,14 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                 options: (getJsonField(
                                   projectnameUserProjectsResponse.jsonBody,
                                   r'''$.project_project[:].id''',
+                                  true,
                                 ) as List)
                                     .map<String>((s) => s.toString())
                                     .toList()!,
                                 optionLabels: (getJsonField(
                                   projectnameUserProjectsResponse.jsonBody,
                                   r'''$.project_project[:].name''',
+                                  true,
                                 ) as List)
                                     .map<String>((s) => s.toString())
                                     .toList()!,
@@ -270,12 +272,14 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                     options: (getJsonField(
                                       tasknameUserTaskResponse.jsonBody,
                                       r'''$.project_task[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
                                     optionLabels: (getJsonField(
                                       tasknameUserTaskResponse.jsonBody,
                                       r'''$.project_task[:].name''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,
@@ -387,6 +391,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                         expenseCategoryProductExpenseProductListResponse
                                             .jsonBody,
                                         r'''$.product_template[:].product_products[:].id''',
+                                        true,
                                       ) as List)
                                           .map<String>((s) => s.toString())
                                           .toList()!,
@@ -394,6 +399,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                         expenseCategoryProductExpenseProductListResponse
                                             .jsonBody,
                                         r'''$.product_template[:].name''',
+                                        true,
                                       ) as List)
                                           .map<String>((s) => s.toString())
                                           .toList()!,
@@ -1553,7 +1559,12 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                               builder: (context) {
                                 final fileAttachment = _model.name.toList();
                                 return ListView.separated(
-                                  padding: EdgeInsets.zero,
+                                  padding: EdgeInsets.fromLTRB(
+                                    0,
+                                    0,
+                                    0,
+                                    15.0,
+                                  ),
                                   primary: false,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
@@ -1569,7 +1580,7 @@ class _ExpenceCreateWidgetState extends State<ExpenceCreateWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         borderRadius:
-                                            BorderRadius.circular(5.0),
+                                            BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(

@@ -8,6 +8,7 @@ import '/pages/lead/lead_pages/lead_view/changelead/changelead_widget.dart';
 import '/reusable_component/f_a_b_empty_component_shimmer/f_a_b_empty_component_shimmer_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'common_fab_component_widget.dart' show CommonFabComponentWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,7 +16,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CommonFabComponentModel extends FlutterFlowModel {
+class CommonFabComponentModel
+    extends FlutterFlowModel<CommonFabComponentWidget> {
   ///  Local state fields for this component.
 
   int? id;

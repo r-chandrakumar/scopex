@@ -2,12 +2,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/reusable_component/common_create_edit_item/common_create_edit_item_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'create_product_items_widget.dart' show CreateProductItemsWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateProductItemsModel extends FlutterFlowModel {
+class CreateProductItemsModel
+    extends FlutterFlowModel<CreateProductItemsWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

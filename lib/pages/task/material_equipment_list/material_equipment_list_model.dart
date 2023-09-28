@@ -6,11 +6,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'material_equipment_list_widget.dart' show MaterialEquipmentListWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class MaterialEquipmentListModel extends FlutterFlowModel {
+class MaterialEquipmentListModel
+    extends FlutterFlowModel<MaterialEquipmentListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

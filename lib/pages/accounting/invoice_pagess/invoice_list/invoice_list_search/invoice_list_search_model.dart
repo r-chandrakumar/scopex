@@ -4,12 +4,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'invoice_list_search_widget.dart' show InvoiceListSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class InvoiceListSearchModel extends FlutterFlowModel {
+class InvoiceListSearchModel extends FlutterFlowModel<InvoiceListSearchWidget> {
   ///  Local state fields for this component.
 
   String searchinvoice = '';

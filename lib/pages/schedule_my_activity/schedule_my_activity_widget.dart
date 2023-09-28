@@ -433,6 +433,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             saleSaleDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.sale_order..id''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -440,6 +441,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             saleSaleDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.sale_order..name''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -544,6 +546,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                           purchasePurchaseDropdownActivityResponse
                                               .jsonBody,
                                           r'''$.purchase_order..id''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -551,6 +554,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                           purchasePurchaseDropdownActivityResponse
                                               .jsonBody,
                                           r'''$.purchase_order..name''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -655,6 +659,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             invoiceInvoiceDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.account_move..id''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -662,6 +667,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             invoiceInvoiceDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.account_move..name''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -770,6 +776,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             vendorBillBillDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.account_move..id''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -777,6 +784,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                             vendorBillBillDropdownActivityResponse
                                                 .jsonBody,
                                             r'''$.account_move..name''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -980,6 +988,7 @@ class _ScheduleMyActivityWidgetState extends State<ScheduleMyActivityWidget> {
                                     options: (getJsonField(
                                       userAssignedToResponse.jsonBody,
                                       r'''$.res_users[:].id''',
+                                      true,
                                     ) as List)
                                         .map<String>((s) => s.toString())
                                         .toList()!,

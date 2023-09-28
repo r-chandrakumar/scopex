@@ -9,13 +9,14 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/task/task_list_shimmer/task_list_shimmer_widget.dart';
 import '/pages/task/tasksearch/tasksearch_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'dashboard_tasklist_widget.dart' show DashboardTasklistWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DashboardTasklistModel extends FlutterFlowModel {
+class DashboardTasklistModel extends FlutterFlowModel<DashboardTasklistWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

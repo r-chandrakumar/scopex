@@ -11,16 +11,18 @@ import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'c_e_o_dashboard_widget.dart' show CEODashboardWidget;
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CEODashboardModel extends FlutterFlowModel {
+class CEODashboardModel extends FlutterFlowModel<CEODashboardWidget> {
   ///  Local state fields for this page.
 
-  int? month;
+  int? month = 1;
 
   ///  State fields for stateful widgets in this page.
 
@@ -31,6 +33,7 @@ class CEODashboardModel extends FlutterFlowModel {
   int? dropDownValue;
   FormFieldController<int>? dropDownValueController;
   Completer<ApiCallResponse>? apiRequestCompleter;
+  DateTime? datePicked;
   // Model for menuComponent component.
   late MenuComponentModel menuComponentModel;
   // Model for notification_icon component.

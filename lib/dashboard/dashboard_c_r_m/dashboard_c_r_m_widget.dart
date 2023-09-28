@@ -14,6 +14,7 @@ import '/shimmer/crmshimmerdb/crmshimmerdb_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -321,7 +322,9 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
       Color(0xFF333EBA)
     ];
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -387,8 +390,10 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                     context: context,
                     builder: (context) {
                       return GestureDetector(
-                        onTap: () => FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode),
+                        onTap: () => _model.unfocusNode.canRequestFocus
+                            ? FocusScope.of(context)
+                                .requestFocus(_model.unfocusNode)
+                            : FocusScope.of(context).unfocus(),
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: NotificationListWidget(),
@@ -424,7 +429,9 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
             future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
                   ..complete(HymechApiGroupGroup.cRMDashboardCall.call(
                     authToken: FFAppState().accessToken,
-                    duration: functions.beforeOneMonthDate(_model.month),
+                    duration: _model.dropDownValue != 0
+                        ? functions.beforeOneMonthDate(_model.month)
+                        : _model.datePicked?.toString(),
                     domainUrl: FFAppState().DomainUrl,
                   )))
                 .future,
@@ -456,7 +463,7 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
-                                    height: 30.0,
+                                    height: 70.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -488,7 +495,7 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                         _model.dropDownValue ??=
                                                             1,
                                                       ),
-                                                      options: [1, 3, 6, 12],
+                                                      options: [1, 3, 6, 12, 0],
                                                       optionLabels: [
                                                         FFLocalizations.of(
                                                                 context)
@@ -509,6 +516,11 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                                                 context)
                                                             .getText(
                                                           'ch57dhzr' /* Last 1 year */,
+                                                        ),
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'hhl91l33' /* Custom */,
                                                         )
                                                       ],
                                                       onChanged: (val) async {
@@ -575,6 +587,149 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                             ),
                                           ],
                                         ),
+                                        if (valueOrDefault<bool>(
+                                          _model.dropDownValue == 0,
+                                          false,
+                                        ))
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Material(
+                                                        color:
+                                                            Colors.transparent,
+                                                        elevation: 1.0,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: Container(
+                                                          width: 150.0,
+                                                          height: 30.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            border: Border.all(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .hashColor,
+                                                              width: 2.0,
+                                                            ),
+                                                          ),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              final _datePickedDate =
+                                                                  await showDatePicker(
+                                                                context:
+                                                                    context,
+                                                                initialDate:
+                                                                    getCurrentTimestamp,
+                                                                firstDate:
+                                                                    DateTime(
+                                                                        1900),
+                                                                lastDate:
+                                                                    getCurrentTimestamp,
+                                                              );
+
+                                                              if (_datePickedDate !=
+                                                                  null) {
+                                                                safeSetState(
+                                                                    () {
+                                                                  _model.datePicked =
+                                                                      DateTime(
+                                                                    _datePickedDate
+                                                                        .year,
+                                                                    _datePickedDate
+                                                                        .month,
+                                                                    _datePickedDate
+                                                                        .day,
+                                                                  );
+                                                                });
+                                                              }
+                                                              setState(() {
+                                                                _model.month =
+                                                                    0;
+                                                              });
+                                                              setState(() =>
+                                                                  _model.apiRequestCompleter =
+                                                                      null);
+                                                              await _model
+                                                                  .waitForApiRequestCompleted();
+                                                            },
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    _model.datePicked !=
+                                                                            null
+                                                                        ? functions.convertLeaveDateFormat(_model
+                                                                            .datePicked
+                                                                            ?.toString())
+                                                                        : 'Date',
+                                                                    'Date',
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium,
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .calendar_month_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                       ],
                                     ),
                                   ),
@@ -1535,8 +1690,12 @@ class _DashboardCRMWidgetState extends State<DashboardCRMWidget>
                                               ParamType.String,
                                             ),
                                             'duration': serializeParam(
-                                              functions.beforeOneMonthDate(
-                                                  _model.month),
+                                              _model.dropDownValue != 0
+                                                  ? functions
+                                                      .beforeOneMonthDate(
+                                                          _model.month)
+                                                  : _model.datePicked
+                                                      ?.toString(),
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,

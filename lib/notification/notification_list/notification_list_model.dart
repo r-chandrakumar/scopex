@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/notification/notification_shimmer/notification_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'notification_list_widget.dart' show NotificationListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -12,7 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class NotificationListModel extends FlutterFlowModel {
+class NotificationListModel extends FlutterFlowModel<NotificationListWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (Notification Mark All)] action in Icon widget.

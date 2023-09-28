@@ -9,13 +9,14 @@ import '/reusable_component/common_create_product_search/common_create_product_s
 import '/search_components/customer_search_component/customer_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'g_r_n_create_page_widget.dart' show GRNCreatePageWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class GRNCreatePageModel extends FlutterFlowModel {
+class GRNCreatePageModel extends FlutterFlowModel<GRNCreatePageWidget> {
   ///  Local state fields for this page.
 
   dynamic grnitems;

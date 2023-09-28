@@ -10,13 +10,14 @@ import '/reusable_component/edit_view_product_line_items/edit_view_product_line_
 import '/search_components/customer_search_component/customer_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'invoice_edit_page_widget.dart' show InvoiceEditPageWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class InvoiceEditPageModel extends FlutterFlowModel {
+class InvoiceEditPageModel extends FlutterFlowModel<InvoiceEditPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

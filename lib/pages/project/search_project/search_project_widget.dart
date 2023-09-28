@@ -157,7 +157,13 @@ class _SearchProjectWidgetState extends State<SearchProjectWidget>
                             hintText: FFLocalizations.of(context).getText(
                               '9w4a9vel' /* Search... */,
                             ),
-                            hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: FlutterFlowTheme.of(context)
+                                      .inputtextColor,
+                                ),
                             enabledBorder: InputBorder.none,
                             focusedBorder: InputBorder.none,
                             errorBorder: InputBorder.none,
@@ -182,7 +188,13 @@ class _SearchProjectWidgetState extends State<SearchProjectWidget>
                                   )
                                 : null,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                              ),
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),

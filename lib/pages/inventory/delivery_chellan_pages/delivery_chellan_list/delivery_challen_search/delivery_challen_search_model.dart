@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'delivery_challen_search_widget.dart' show DeliveryChallenSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,7 +13,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class DeliveryChallenSearchModel extends FlutterFlowModel {
+class DeliveryChallenSearchModel
+    extends FlutterFlowModel<DeliveryChallenSearchWidget> {
   ///  Local state fields for this component.
 
   String deliverychallensearch = '';

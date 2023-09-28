@@ -4,12 +4,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/inventory/grn_pages/grn_view/inventory_list_shimmer/inventory_list_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'inventory_search_widget.dart' show InventorySearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class InventorySearchModel extends FlutterFlowModel {
+class InventorySearchModel extends FlutterFlowModel<InventorySearchWidget> {
   ///  Local state fields for this component.
 
   String search = '';

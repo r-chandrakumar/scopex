@@ -9,13 +9,14 @@ import '/flutter_flow/upload_data.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'inventory_create_widget.dart' show InventoryCreateWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class InventoryCreateModel extends FlutterFlowModel {
+class InventoryCreateModel extends FlutterFlowModel<InventoryCreateWidget> {
   ///  Local state fields for this page.
 
   String? base64String;

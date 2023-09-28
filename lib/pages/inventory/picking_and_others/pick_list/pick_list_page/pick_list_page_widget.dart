@@ -69,7 +69,9 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).appBarColor,
@@ -83,8 +85,9 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
               context: context,
               builder: (context) {
                 return GestureDetector(
-                  onTap: () =>
-                      FocusScope.of(context).requestFocus(_model.unfocusNode),
+                  onTap: () => _model.unfocusNode.canRequestFocus
+                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                      : FocusScope.of(context).unfocus(),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
@@ -177,8 +180,10 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                         context: context,
                         builder: (context) {
                           return GestureDetector(
-                            onTap: () => FocusScope.of(context)
-                                .requestFocus(_model.unfocusNode),
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: NotificationListWidget(),
@@ -217,8 +222,10 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                         context: context,
                         builder: (context) {
                           return GestureDetector(
-                            onTap: () => FocusScope.of(context)
-                                .requestFocus(_model.unfocusNode),
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: PickFilterComponentWidget(
@@ -259,8 +266,10 @@ class _PickListPageWidgetState extends State<PickListPageWidget> {
                         context: context,
                         builder: (context) {
                           return GestureDetector(
-                            onTap: () => FocusScope.of(context)
-                                .requestFocus(_model.unfocusNode),
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: PickListSearchWidget(),

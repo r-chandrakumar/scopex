@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'activity_swipe_widget.dart' show ActivitySwipeWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -11,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 
-class ActivitySwipeModel extends FlutterFlowModel {
+class ActivitySwipeModel extends FlutterFlowModel<ActivitySwipeWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for SwipeableStack widget.

@@ -6343,7 +6343,15 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                   if (Navigator.of(context).canPop()) {
                                     context.pop();
                                   }
-                                  context.pushNamed('Leadlist');
+                                  context.pushNamed(
+                                    'LeadOpportunityList',
+                                    queryParameters: {
+                                      'stageId': serializeParam(
+                                        1,
+                                        ParamType.int,
+                                      ),
+                                    }.withoutNulls,
+                                  );
 
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(

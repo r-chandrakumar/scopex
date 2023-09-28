@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/team/team_shimmer/team_shimmer_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'c_r_m_team_widget.dart' show CRMTeamWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -14,7 +15,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CRMTeamModel extends FlutterFlowModel {
+class CRMTeamModel extends FlutterFlowModel<CRMTeamWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

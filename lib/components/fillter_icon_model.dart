@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'fillter_icon_widget.dart' show FillterIconWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FillterIconModel extends FlutterFlowModel {
+class FillterIconModel extends FlutterFlowModel<FillterIconWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

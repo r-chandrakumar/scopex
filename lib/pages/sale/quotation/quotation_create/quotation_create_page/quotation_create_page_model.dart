@@ -10,13 +10,15 @@ import '/reusable_component/create_product_items/create_product_items_widget.dar
 import '/search_components/customer_search_component/customer_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'quotation_create_page_widget.dart' show QuotationCreatePageWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class QuotationCreatePageModel extends FlutterFlowModel {
+class QuotationCreatePageModel
+    extends FlutterFlowModel<QuotationCreatePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

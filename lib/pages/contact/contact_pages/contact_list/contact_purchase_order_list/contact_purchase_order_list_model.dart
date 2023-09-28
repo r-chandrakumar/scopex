@@ -6,11 +6,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'contact_purchase_order_list_widget.dart'
+    show ContactPurchaseOrderListWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ContactPurchaseOrderListModel extends FlutterFlowModel {
+class ContactPurchaseOrderListModel
+    extends FlutterFlowModel<ContactPurchaseOrderListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

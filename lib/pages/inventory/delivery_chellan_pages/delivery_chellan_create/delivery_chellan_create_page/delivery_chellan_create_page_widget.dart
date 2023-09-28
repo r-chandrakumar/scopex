@@ -63,7 +63,9 @@ class _DeliveryChellanCreatePageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -178,8 +180,11 @@ class _DeliveryChellanCreatePageWidgetState
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
-                                      onTap: () => FocusScope.of(context)
-                                          .requestFocus(_model.unfocusNode),
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
@@ -355,6 +360,7 @@ class _DeliveryChellanCreatePageWidgetState
                                           locationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].id''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -362,6 +368,7 @@ class _DeliveryChellanCreatePageWidgetState
                                           locationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].complete_name''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -460,6 +467,7 @@ class _DeliveryChellanCreatePageWidgetState
                                           destLocationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].id''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -467,6 +475,7 @@ class _DeliveryChellanCreatePageWidgetState
                                           destLocationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].complete_name''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -653,10 +662,13 @@ class _DeliveryChellanCreatePageWidgetState
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
                                                       .requestFocus(
-                                                          _model.unfocusNode),
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(

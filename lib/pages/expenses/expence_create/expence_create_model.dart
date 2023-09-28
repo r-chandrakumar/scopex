@@ -9,6 +9,7 @@ import '/flutter_flow/upload_data.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'expence_create_widget.dart' show ExpenceCreateWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ExpenceCreateModel extends FlutterFlowModel {
+class ExpenceCreateModel extends FlutterFlowModel<ExpenceCreateWidget> {
   ///  Local state fields for this page.
 
   double? unit;
@@ -30,6 +31,8 @@ class ExpenceCreateModel extends FlutterFlowModel {
   void removeFromAttachmentType(String item) => attachmentType.remove(item);
   void removeAtIndexFromAttachmentType(int index) =>
       attachmentType.removeAt(index);
+  void insertAtIndexInAttachmentType(int index, String item) =>
+      attachmentType.insert(index, item);
   void updateAttachmentTypeAtIndex(int index, Function(String) updateFn) =>
       attachmentType[index] = updateFn(attachmentType[index]);
 
@@ -37,6 +40,7 @@ class ExpenceCreateModel extends FlutterFlowModel {
   void addToName(String item) => name.add(item);
   void removeFromName(String item) => name.remove(item);
   void removeAtIndexFromName(int index) => name.removeAt(index);
+  void insertAtIndexInName(int index, String item) => name.insert(index, item);
   void updateNameAtIndex(int index, Function(String) updateFn) =>
       name[index] = updateFn(name[index]);
 
@@ -44,6 +48,8 @@ class ExpenceCreateModel extends FlutterFlowModel {
   void addToListBase64(String item) => listBase64.add(item);
   void removeFromListBase64(String item) => listBase64.remove(item);
   void removeAtIndexFromListBase64(int index) => listBase64.removeAt(index);
+  void insertAtIndexInListBase64(int index, String item) =>
+      listBase64.insert(index, item);
   void updateListBase64AtIndex(int index, Function(String) updateFn) =>
       listBase64[index] = updateFn(listBase64[index]);
 

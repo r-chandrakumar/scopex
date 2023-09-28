@@ -106,13 +106,15 @@ class _CountrySearchWidgetState extends State<CountrySearchWidget>
                           labelText: FFLocalizations.of(context).getText(
                             'hac9b2mj' /* Search for Country */,
                           ),
-                          labelStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                          labelStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -166,8 +168,9 @@ class _CountrySearchWidgetState extends State<CountrySearchWidget>
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
+                              color:
+                                  FlutterFlowTheme.of(context).inputtextColor,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
                         maxLines: null,

@@ -7,12 +7,13 @@ import '/pages/leave/leaveinfoshimmer/leaveinfoshimmer_widget.dart';
 import '/pages/leave/refuse_leave/refuse_leave_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'leave_info_widget.dart' show LeaveInfoWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LeaveInfoModel extends FlutterFlowModel {
+class LeaveInfoModel extends FlutterFlowModel<LeaveInfoWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

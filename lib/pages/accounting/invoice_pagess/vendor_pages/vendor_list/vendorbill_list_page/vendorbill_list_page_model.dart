@@ -13,13 +13,15 @@ import '/pages/accounting/invoice_pagess/vendor_pages/vendor_list/accounting_ven
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'vendorbill_list_page_widget.dart' show VendorbillListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class VendorbillListPageModel extends FlutterFlowModel {
+class VendorbillListPageModel
+    extends FlutterFlowModel<VendorbillListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

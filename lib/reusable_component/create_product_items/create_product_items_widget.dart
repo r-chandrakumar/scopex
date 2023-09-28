@@ -402,6 +402,7 @@ class _CreateProductItemsWidgetState extends State<CreateProductItemsWidget> {
                             functions.taxNamesDisplaySequencial((getJsonField(
                               addItemProductListItem,
                               r'''$.taxjson.taxnames''',
+                              true,
                             ) as List)
                                 .map<String>((s) => s.toString())
                                 .toList()),
@@ -435,6 +436,7 @@ class _CreateProductItemsWidgetState extends State<CreateProductItemsWidget> {
                                             (getJsonField(
                                           addItemProductListItem,
                                           r'''$.taxjson.taxnames''',
+                                          true,
                                         ) as List)
                                                 .map<String>(
                                                     (s) => s.toString())

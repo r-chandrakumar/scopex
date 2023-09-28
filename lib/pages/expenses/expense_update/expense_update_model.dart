@@ -5,8 +5,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'expense_update_widget.dart' show ExpenseUpdateWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +17,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ExpenseUpdateModel extends FlutterFlowModel {
+class ExpenseUpdateModel extends FlutterFlowModel<ExpenseUpdateWidget> {
   ///  Local state fields for this page.
 
   double? total;
@@ -22,6 +25,33 @@ class ExpenseUpdateModel extends FlutterFlowModel {
   double? unit;
 
   double? qty;
+
+  List<String> attachmentType = [];
+  void addToAttachmentType(String item) => attachmentType.add(item);
+  void removeFromAttachmentType(String item) => attachmentType.remove(item);
+  void removeAtIndexFromAttachmentType(int index) =>
+      attachmentType.removeAt(index);
+  void insertAtIndexInAttachmentType(int index, String item) =>
+      attachmentType.insert(index, item);
+  void updateAttachmentTypeAtIndex(int index, Function(String) updateFn) =>
+      attachmentType[index] = updateFn(attachmentType[index]);
+
+  List<String> name = [];
+  void addToName(String item) => name.add(item);
+  void removeFromName(String item) => name.remove(item);
+  void removeAtIndexFromName(int index) => name.removeAt(index);
+  void insertAtIndexInName(int index, String item) => name.insert(index, item);
+  void updateNameAtIndex(int index, Function(String) updateFn) =>
+      name[index] = updateFn(name[index]);
+
+  List<String> listBase64 = [];
+  void addToListBase64(String item) => listBase64.add(item);
+  void removeFromListBase64(String item) => listBase64.remove(item);
+  void removeAtIndexFromListBase64(int index) => listBase64.removeAt(index);
+  void insertAtIndexInListBase64(int index, String item) =>
+      listBase64.insert(index, item);
+  void updateListBase64AtIndex(int index, Function(String) updateFn) =>
+      listBase64[index] = updateFn(listBase64[index]);
 
   ///  State fields for stateful widgets in this page.
 
@@ -104,6 +134,18 @@ class ExpenseUpdateModel extends FlutterFlowModel {
     return null;
   }
 
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - uploadFileTobase64] action in Button widget.
+  String? uploadImageFile;
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - uploadFileTobase64] action in FileButton widget.
+  String? uploadedPdfFile;
   // Stores action output result for [Backend Call - API (Expense Update)] action in SaveButton widget.
   ApiCallResponse? update;
 

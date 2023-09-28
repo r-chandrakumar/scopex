@@ -10,13 +10,14 @@ import '/search_components/purchase_order_list_search/purchase_order_list_search
 import '/search_components/sale_order_list_search/sale_order_list_search_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'pick_create_page_widget.dart' show PickCreatePageWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PickCreatePageModel extends FlutterFlowModel {
+class PickCreatePageModel extends FlutterFlowModel<PickCreatePageWidget> {
   ///  Local state fields for this page.
 
   dynamic grnitems;

@@ -10,13 +10,14 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'project_dashboard_widget.dart' show ProjectDashboardWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ProjectDashboardModel extends FlutterFlowModel {
+class ProjectDashboardModel extends FlutterFlowModel<ProjectDashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

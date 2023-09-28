@@ -13,13 +13,14 @@ import '/pages/inventory/grn_pages/grn_list/g_r_n_filter_component/g_r_n_filter_
 import '/pages/inventory/grn_pages/grn_list/grn_list_search/grn_list_search_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'grn_list_page_widget.dart' show GrnListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class GrnListPageModel extends FlutterFlowModel {
+class GrnListPageModel extends FlutterFlowModel<GrnListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -2,12 +2,13 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'bookmarked_product_widget.dart' show BookmarkedProductWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class BookmarkedProductModel extends FlutterFlowModel {
+class BookmarkedProductModel extends FlutterFlowModel<BookmarkedProductWidget> {
   ///  State fields for stateful widgets in this component.
 
   Completer<ApiCallResponse>? apiRequestCompleter;

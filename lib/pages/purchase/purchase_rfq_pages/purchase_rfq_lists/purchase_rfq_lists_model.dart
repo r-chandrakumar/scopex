@@ -13,13 +13,14 @@ import '/pages/purchase/purchase_rfq_pages/purchase_rfq_list/filter_rfq/filter_r
 import '/pages/purchase/purchase_rfq_pages/purchase_rfq_list/rfq_search_component/rfq_search_component_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'purchase_rfq_lists_widget.dart' show PurchaseRfqListsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class PurchaseRfqListsModel extends FlutterFlowModel {
+class PurchaseRfqListsModel extends FlutterFlowModel<PurchaseRfqListsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -111,7 +111,9 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -290,10 +292,13 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                 builder:
                                                                     (context) {
                                                                   return GestureDetector(
-                                                                    onTap: () => FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(
-                                                                            _model.unfocusNode),
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
                                                                         Padding(
                                                                       padding: MediaQuery
@@ -486,6 +491,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                   paymenttermsPaymentTermListResponse
                                                                       .jsonBody,
                                                                   r'''$.account_payment_term..id''',
+                                                                  true,
                                                                 ) as List)
                                                                         .map<String>((s) =>
                                                                             s.toString())
@@ -495,6 +501,7 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                                   paymenttermsPaymentTermListResponse
                                                                       .jsonBody,
                                                                   r'''$.account_payment_term..name''',
+                                                                  true,
                                                                 ) as List)
                                                                         .map<String>((s) =>
                                                                             s.toString())
@@ -1018,11 +1025,16 @@ class _RFQEditWidgetState extends State<RFQEditWidget> {
                                                             context: context,
                                                             builder: (context) {
                                                               return GestureDetector(
-                                                                onTap: () => FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode),
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
                                                                 child: Padding(
                                                                   padding: MediaQuery
                                                                       .viewInsetsOf(

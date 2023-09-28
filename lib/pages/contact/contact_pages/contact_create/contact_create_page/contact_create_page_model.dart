@@ -10,13 +10,14 @@ import '/search_components/country_search/country_search_widget.dart';
 import '/search_components/state_search/state_search_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'contact_create_page_widget.dart' show ContactCreatePageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ContactCreatePageModel extends FlutterFlowModel {
+class ContactCreatePageModel extends FlutterFlowModel<ContactCreatePageWidget> {
   ///  Local state fields for this page.
 
   String imageBase64 = '';

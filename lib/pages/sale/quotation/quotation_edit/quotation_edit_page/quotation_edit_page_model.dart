@@ -12,13 +12,14 @@ import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.da
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/request_manager.dart';
 
+import 'quotation_edit_page_widget.dart' show QuotationEditPageWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class QuotationEditPageModel extends FlutterFlowModel {
+class QuotationEditPageModel extends FlutterFlowModel<QuotationEditPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

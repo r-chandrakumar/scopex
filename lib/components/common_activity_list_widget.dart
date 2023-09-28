@@ -81,7 +81,7 @@ class _CommonActivityListWidgetState extends State<CommonActivityListWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 3.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 15.0, 5.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [

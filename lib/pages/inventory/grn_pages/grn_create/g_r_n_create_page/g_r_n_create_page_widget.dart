@@ -62,7 +62,9 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -178,8 +180,11 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
-                                      onTap: () => FocusScope.of(context)
-                                          .requestFocus(_model.unfocusNode),
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
@@ -356,6 +361,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           locationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].id''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -363,6 +369,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           locationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].complete_name''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -461,6 +468,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           destLocationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].id''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -468,6 +476,7 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           destLocationDestinationLocationsResponse
                                               .jsonBody,
                                           r'''$.stock_location[:].complete_name''',
+                                          true,
                                         ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()!,
@@ -654,10 +663,13 @@ class _GRNCreatePageWidgetState extends State<GRNCreatePageWidget> {
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
                                                       .requestFocus(
-                                                          _model.unfocusNode),
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
                                               child: Padding(
                                                 padding:
                                                     MediaQuery.viewInsetsOf(

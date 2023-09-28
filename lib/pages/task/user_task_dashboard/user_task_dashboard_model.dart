@@ -10,6 +10,7 @@ import '/pages/task/task_list_shimmer/task_list_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/request_manager.dart';
 
+import 'user_task_dashboard_widget.dart' show UserTaskDashboardWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -17,7 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class UserTaskDashboardModel extends FlutterFlowModel {
+class UserTaskDashboardModel extends FlutterFlowModel<UserTaskDashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

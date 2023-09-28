@@ -3,12 +3,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'tax_select_component_widget.dart' show TaxSelectComponentWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class TaxSelectComponentModel extends FlutterFlowModel {
+class TaxSelectComponentModel
+    extends FlutterFlowModel<TaxSelectComponentWidget> {
   ///  Local state fields for this component.
 
   String? search;

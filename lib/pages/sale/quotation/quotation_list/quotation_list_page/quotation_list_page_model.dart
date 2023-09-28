@@ -13,13 +13,14 @@ import '/pages/sale/quotation/filter_quotations/filter_quotations_widget.dart';
 import '/pages/sale/quotation/quotation_search/quotation_search_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'quotation_list_page_widget.dart' show QuotationListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class QuotationListPageModel extends FlutterFlowModel {
+class QuotationListPageModel extends FlutterFlowModel<QuotationListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

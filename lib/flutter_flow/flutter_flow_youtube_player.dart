@@ -43,6 +43,7 @@ class FlutterFlowYoutubePlayer extends StatefulWidget {
     this.showControls = true,
     this.showFullScreen = false,
     this.pauseOnNavigate = true,
+    this.strictRelatedVideos = false,
   });
 
   final String url;
@@ -54,6 +55,7 @@ class FlutterFlowYoutubePlayer extends StatefulWidget {
   final bool showControls;
   final bool showFullScreen;
   final bool pauseOnNavigate;
+  final bool strictRelatedVideos;
 
   @override
   State<FlutterFlowYoutubePlayer> createState() =>
@@ -138,18 +140,19 @@ class _FlutterFlowYoutubePlayerState extends State<FlutterFlowYoutubePlayer>
           loop: widget.looping,
           showControls: widget.showControls,
           showFullscreenButton: widget.showFullScreen,
+          strictRelatedVideos: widget.strictRelatedVideos,
         ),
       );
     }
     if (handleFullScreen) {
-      _controller!.onFullscreenChange = (fullScreen) {
+      _controller!.setFullScreenListener((fullScreen) {
         if (fullScreen) {
           _youtubeFullScreenControllerMap[_videoId!] = _controller!;
           _youtubeWrapper!.updateYoutubePlayer(_controller, _videoId);
         } else {
           _youtubeWrapper!.updateYoutubePlayer();
         }
-      };
+      });
     }
   }
 

@@ -9,6 +9,7 @@ import '/pages/leave/leavelistboxshimmer/leavelistboxshimmer_widget.dart';
 import '/pages/leave/leavelistshimmer/leavelistshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'leave_list_widget.dart' show LeaveListWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LeaveListModel extends FlutterFlowModel {
+class LeaveListModel extends FlutterFlowModel<LeaveListWidget> {
   ///  Local state fields for this page.
 
   int? status = 1;

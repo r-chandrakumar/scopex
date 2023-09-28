@@ -238,6 +238,7 @@ class _TaxSelectComponentWidgetState extends State<TaxSelectComponentWidget> {
                                                 getJsonField(
                                                   FFAppState().taxJson,
                                                   r'''$.taxid''',
+                                                  true,
                                                 ),
                                                 getJsonField(
                                                   taxListItem,
@@ -322,6 +323,7 @@ class _TaxSelectComponentWidgetState extends State<TaxSelectComponentWidget> {
                                                             FFAppState()
                                                                 .taxJson,
                                                             r'''$.taxid''',
+                                                            true,
                                                           ),
                                                           getJsonField(
                                                             taxListItem,

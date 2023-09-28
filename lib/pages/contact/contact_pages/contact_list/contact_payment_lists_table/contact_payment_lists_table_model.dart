@@ -5,11 +5,14 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
+import 'contact_payment_lists_table_widget.dart'
+    show ContactPaymentListsTableWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ContactPaymentListsTableModel extends FlutterFlowModel {
+class ContactPaymentListsTableModel
+    extends FlutterFlowModel<ContactPaymentListsTableWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

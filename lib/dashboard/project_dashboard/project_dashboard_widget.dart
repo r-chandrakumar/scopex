@@ -143,7 +143,9 @@ class _ProjectDashboardWidgetState extends State<ProjectDashboardWidget>
       Color(0x8B539A80)
     ];
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -211,8 +213,10 @@ class _ProjectDashboardWidgetState extends State<ProjectDashboardWidget>
                       context: context,
                       builder: (context) {
                         return GestureDetector(
-                          onTap: () => FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode),
+                          onTap: () => _model.unfocusNode.canRequestFocus
+                              ? FocusScope.of(context)
+                                  .requestFocus(_model.unfocusNode)
+                              : FocusScope.of(context).unfocus(),
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
                             child: NotificationListWidget(),

@@ -11,12 +11,13 @@ import '/reusable_component/common_fab_component/common_fab_component_widget.dar
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'payment_view_page_widget.dart' show PaymentViewPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PaymentViewPageModel extends FlutterFlowModel {
+class PaymentViewPageModel extends FlutterFlowModel<PaymentViewPageWidget> {
   ///  Local state fields for this page.
 
   int? tabchange = 0;

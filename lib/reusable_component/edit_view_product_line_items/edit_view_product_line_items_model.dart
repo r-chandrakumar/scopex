@@ -6,12 +6,15 @@ import '/pages/accounting/invoice_pagess/vendor_pages/vendor_edit/vendor_bill_ed
 import '/pages/purchase/purchase_rfq_pages/purchase_rfq_edit/r_f_q_edit_edit_item/r_f_q_edit_edit_item_widget.dart';
 import '/pages/sale/quotation/quotation_edit/quotation_edit_edit_item/quotation_edit_edit_item_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'edit_view_product_line_items_widget.dart'
+    show EditViewProductLineItemsWidget;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class EditViewProductLineItemsModel extends FlutterFlowModel {
+class EditViewProductLineItemsModel
+    extends FlutterFlowModel<EditViewProductLineItemsWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (Accounting Line Product Details)] action in Icon widget.

@@ -10,13 +10,14 @@ import '/reusable_component/edit_view_product_line_items/edit_view_product_line_
 import '/search_components/supplier_search_component/supplier_search_component_widget.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'vendor_bill_edit_widget.dart' show VendorBillEditWidget;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class VendorBillEditModel extends FlutterFlowModel {
+class VendorBillEditModel extends FlutterFlowModel<VendorBillEditWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

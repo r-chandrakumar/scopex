@@ -5,7 +5,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -65,7 +67,9 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -200,6 +204,7 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                                             expenseCategoryProductExpenseProductListResponse
                                                 .jsonBody,
                                             r'''$.product_template[:].product_products[:].id''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -207,6 +212,7 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                                             expenseCategoryProductExpenseProductListResponse
                                                 .jsonBody,
                                             r'''$.product_template[:].name''',
+                                            true,
                                           ) as List)
                                               .map<String>((s) => s.toString())
                                               .toList()!,
@@ -1377,80 +1383,296 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('FileButton pressed ...');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'vhblk306' /* File Attachment */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFF5F2FC),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.black,
+                            Builder(
+                              builder: (context) {
+                                final fileAttachment1 = _model.name.toList();
+                                return ListView.separated(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: fileAttachment1.length,
+                                  separatorBuilder: (_, __) =>
+                                      SizedBox(height: 10.0),
+                                  itemBuilder: (context, fileAttachment1Index) {
+                                    final fileAttachment1Item =
+                                        fileAttachment1[fileAttachment1Index];
+                                    return Container(
+                                      width: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 10.0, 10.0, 10.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            if (_model.attachmentType[
+                                                    fileAttachment1Index] ==
+                                                'document')
+                                              Icon(
+                                                Icons.picture_as_pdf_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 24.0,
+                                              ),
+                                            if (_model.attachmentType[
+                                                    fileAttachment1Index] ==
+                                                'image')
+                                              Icon(
+                                                Icons.image_sharp,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 24.0,
+                                              ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                fileAttachment1Item,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    1.00, 0.00),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      setState(() {
+                                                        _model.removeAtIndexFromAttachmentType(
+                                                            fileAttachment1Index);
+                                                      });
+                                                    },
+                                                    child: Icon(
+                                                      Icons.delete_outline,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                            FFButtonWidget(
+                              onPressed: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    selectedMedia.every((m) =>
+                                        validateFileFormat(
+                                            m.storagePath, context))) {
+                                  setState(
+                                      () => _model.isDataUploading1 = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
+
+                                  try {
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading file...',
+                                      showLoading: true,
+                                    );
+                                    selectedUploadedFiles = selectedMedia
+                                        .map((m) => FFUploadedFile(
+                                              name:
+                                                  m.storagePath.split('/').last,
+                                              bytes: m.bytes,
+                                              height: m.dimensions?.height,
+                                              width: m.dimensions?.width,
+                                              blurHash: m.blurHash,
+                                            ))
+                                        .toList();
+                                  } finally {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    _model.isDataUploading1 = false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                      selectedMedia.length) {
+                                    setState(() {
+                                      _model.uploadedLocalFile1 =
+                                          selectedUploadedFiles.first;
+                                    });
+                                    showUploadMessage(context, 'Success!');
+                                  } else {
+                                    setState(() {});
+                                    showUploadMessage(
+                                        context, 'Failed to upload data');
+                                    return;
+                                  }
+                                }
+
+                                if (_model.uploadedLocalFile1 != null &&
+                                    (_model.uploadedLocalFile1.bytes
+                                            ?.isNotEmpty ??
+                                        false)) {
+                                  _model.uploadImageFile =
+                                      await actions.uploadFileTobase64(
+                                    _model.uploadedLocalFile1,
+                                  );
+                                  setState(() {
+                                    _model.addToAttachmentType('image');
+                                    _model.addToName('Image');
+                                    _model.addToListBase64(
+                                        _model.uploadImageFile!);
+                                  });
+                                }
+
+                                setState(() {});
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'qekb874q' /* Gallery / Capture Picture */,
+                              ),
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 15.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).hashColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Colors.black,
+                                    ),
+                                elevation: 1.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
                                 ),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'qekb874q' /* Gallery / Capture Picture */,
+                            FFButtonWidget(
+                              onPressed: () async {
+                                final selectedFiles = await selectFiles(
+                                  allowedExtensions: ['pdf'],
+                                  multiFile: false,
+                                );
+                                if (selectedFiles != null) {
+                                  setState(
+                                      () => _model.isDataUploading2 = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
+
+                                  try {
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading file...',
+                                      showLoading: true,
+                                    );
+                                    selectedUploadedFiles = selectedFiles
+                                        .map((m) => FFUploadedFile(
+                                              name:
+                                                  m.storagePath.split('/').last,
+                                              bytes: m.bytes,
+                                            ))
+                                        .toList();
+                                  } finally {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    _model.isDataUploading2 = false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                      selectedFiles.length) {
+                                    setState(() {
+                                      _model.uploadedLocalFile2 =
+                                          selectedUploadedFiles.first;
+                                    });
+                                    showUploadMessage(
+                                      context,
+                                      'Success!',
+                                    );
+                                  } else {
+                                    setState(() {});
+                                    showUploadMessage(
+                                      context,
+                                      'Failed to upload file',
+                                    );
+                                    return;
+                                  }
+                                }
+
+                                if (_model.uploadedLocalFile2 != null &&
+                                    (_model.uploadedLocalFile2.bytes
+                                            ?.isNotEmpty ??
+                                        false)) {
+                                  _model.uploadedPdfFile =
+                                      await actions.uploadFileTobase64(
+                                    _model.uploadedLocalFile2,
+                                  );
+                                  setState(() {
+                                    _model.addToAttachmentType('document');
+                                    _model.addToName('Document');
+                                    _model.addToListBase64(
+                                        _model.uploadedPdfFile!);
+                                  });
+                                }
+
+                                setState(() {});
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'vhblk306' /* File Attachment */,
+                              ),
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 15.0, 0.0, 15.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).hashColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: Colors.black,
+                                    ),
+                                elevation: 1.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
                                 ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 15.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFF5F2FC),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Roboto',
-                                        color: Colors.black,
-                                      ),
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ],
+                          ].divide(SizedBox(height: 10.0)),
                         ),
                       ),
                       Padding(

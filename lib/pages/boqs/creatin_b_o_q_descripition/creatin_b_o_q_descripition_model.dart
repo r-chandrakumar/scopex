@@ -2,11 +2,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'creatin_b_o_q_descripition_widget.dart'
+    show CreatinBOQDescripitionWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreatinBOQDescripitionModel extends FlutterFlowModel {
+class CreatinBOQDescripitionModel
+    extends FlutterFlowModel<CreatinBOQDescripitionWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

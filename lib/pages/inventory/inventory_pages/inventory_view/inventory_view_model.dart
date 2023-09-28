@@ -7,13 +7,14 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/inventory/inventory_pages/inventory_view/inventory_view_container_shimmer/inventory_view_container_shimmer_widget.dart';
 import '/pages/inventory/inventory_pages/inventory_view/inventory_view_page_loader/inventory_view_page_loader_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'inventory_view_widget.dart' show InventoryViewWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class InventoryViewModel extends FlutterFlowModel {
+class InventoryViewModel extends FlutterFlowModel<InventoryViewWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -103,9 +103,6 @@ class _ProjectSearchWidgetState extends State<ProjectSearchWidget>
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: FFLocalizations.of(context).getText(
-                            'iybz7cmi' /* Search for project */,
-                          ),
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -113,6 +110,18 @@ class _ProjectSearchWidgetState extends State<ProjectSearchWidget>
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.normal,
                                   ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'jgrpebph' /* Search... */,
+                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color:
+                                    FlutterFlowTheme.of(context).inputtextColor,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -166,8 +175,9 @@ class _ProjectSearchWidgetState extends State<ProjectSearchWidget>
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Plus Jakarta Sans',
-                              color: Color(0xFF14181B),
-                              fontSize: 14.0,
+                              color:
+                                  FlutterFlowTheme.of(context).inputtextColor,
+                              fontSize: 16.0,
                               fontWeight: FontWeight.normal,
                             ),
                         maxLines: null,

@@ -14,13 +14,14 @@ import '/pages/inventory/picking_and_others/pick_list/pick_list_search/pick_list
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'pick_list_page_widget.dart' show PickListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class PickListPageModel extends FlutterFlowModel {
+class PickListPageModel extends FlutterFlowModel<PickListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

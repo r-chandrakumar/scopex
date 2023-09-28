@@ -2,13 +2,15 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'notification_shimmer_widget.dart' show NotificationShimmerWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class NotificationShimmerModel extends FlutterFlowModel {
+class NotificationShimmerModel
+    extends FlutterFlowModel<NotificationShimmerWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

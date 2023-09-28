@@ -5,6 +5,7 @@ import '/reusable_component/view_product_item_accounting/view_product_item_accou
 import '/reusable_component/view_product_item_purchase/view_product_item_purchase_widget.dart';
 import '/reusable_component/view_product_item_sales/view_product_item_sales_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'common_view_page_widget.dart' show CommonViewPageWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,7 +13,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CommonViewPageModel extends FlutterFlowModel {
+class CommonViewPageModel extends FlutterFlowModel<CommonViewPageWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Model for ViewProductItemAccounting component.

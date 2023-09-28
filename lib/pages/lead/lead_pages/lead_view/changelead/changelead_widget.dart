@@ -160,12 +160,14 @@ class _ChangeleadWidgetState extends State<ChangeleadWidget> {
                                       options: (getJsonField(
                                         stagesListCRMStageResponse.jsonBody,
                                         r'''$.crm_stage[:].id''',
+                                        true,
                                       ) as List)
                                           .map<String>((s) => s.toString())
                                           .toList()!,
                                       optionLabels: (getJsonField(
                                         stagesListCRMStageResponse.jsonBody,
                                         r'''$.crm_stage[:].name''',
+                                        true,
                                       ) as List)
                                           .map<String>((s) => s.toString())
                                           .toList()!,

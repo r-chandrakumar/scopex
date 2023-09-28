@@ -1272,6 +1272,7 @@ class _EditViewProductLineItemsWidgetState
                         functions.taxNamesDisplaySequencial((getJsonField(
                           editItemProductListItem,
                           r'''$.taxnames''',
+                          true,
                         ) as List)
                             .map<String>((s) => s.toString())
                             .toList()),
@@ -1305,6 +1306,7 @@ class _EditViewProductLineItemsWidgetState
                                         (getJsonField(
                                       editItemProductListItem,
                                       r'''$.taxnames''',
+                                      true,
                                     ) as List)
                                             .map<String>((s) => s.toString())
                                             .toList()),

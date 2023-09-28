@@ -12,6 +12,7 @@ import '/pages/team/team_shimmer/team_shimmer_widget.dart';
 import '/shimmer/projectdetailcardshimmer/projectdetailcardshimmer_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'projects_details_widget.dart' show ProjectsDetailsWidget;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,7 +21,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ProjectsDetailsModel extends FlutterFlowModel {
+class ProjectsDetailsModel extends FlutterFlowModel<ProjectsDetailsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

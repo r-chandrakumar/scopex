@@ -13,13 +13,15 @@ import '/pages/inventory/delivery_chellan_pages/delivery_chellan_list/delivery_c
 import '/pages/inventory/delivery_chellan_pages/delivery_chellan_list/deliverychallan_filter_component/deliverychallan_filter_component_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'delivery_challen_list_widget.dart' show DeliveryChallenListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class DeliveryChallenListModel extends FlutterFlowModel {
+class DeliveryChallenListModel
+    extends FlutterFlowModel<DeliveryChallenListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

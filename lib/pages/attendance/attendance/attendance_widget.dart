@@ -144,8 +144,9 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
             return Material(
               color: Colors.transparent,
               child: GestureDetector(
-                onTap: () =>
-                    FocusScope.of(context).requestFocus(_model.unfocusNode),
+                onTap: () => _model.unfocusNode.canRequestFocus
+                    ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                    : FocusScope.of(context).unfocus(),
                 child: InternetIconComponentWidget(),
               ),
             );
@@ -170,7 +171,9 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
 
     return Builder(
       builder: (context) => GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+        onTap: () => _model.unfocusNode.canRequestFocus
+            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+            : FocusScope.of(context).unfocus(),
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -381,10 +384,13 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                           return Material(
                                             color: Colors.transparent,
                                             child: GestureDetector(
-                                              onTap: () =>
-                                                  FocusScope.of(context)
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
                                                       .requestFocus(
-                                                          _model.unfocusNode),
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
                                               child: CheckinPopupWidget(
                                                 type: 'checkout',
                                               ),
@@ -500,9 +506,13 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                         return Material(
                                           color: Colors.transparent,
                                           child: GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode),
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
                                             child: CheckinPopupWidget(
                                               type: 'checkin',
                                             ),

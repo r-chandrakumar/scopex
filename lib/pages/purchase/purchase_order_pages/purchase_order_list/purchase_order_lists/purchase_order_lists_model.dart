@@ -12,13 +12,15 @@ import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/pages/purchase/purchase_order_pages/purchase_order_list/purchase_order_filter/purchase_order_filter_widget.dart';
 import '/pages/purchase/purchase_order_pages/purchase_order_search/purchase_order_search_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
+import 'purchase_order_lists_widget.dart' show PurchaseOrderListsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class PurchaseOrderListsModel extends FlutterFlowModel {
+class PurchaseOrderListsModel
+    extends FlutterFlowModel<PurchaseOrderListsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

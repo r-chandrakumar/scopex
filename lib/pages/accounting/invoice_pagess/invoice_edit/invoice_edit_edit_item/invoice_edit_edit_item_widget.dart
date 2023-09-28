@@ -829,6 +829,7 @@ class _InvoiceEditEditItemWidgetState extends State<InvoiceEditEditItemWidget> {
                                                                   FFAppState()
                                                                       .taxJson,
                                                                   r'''$.taxnames''',
+                                                                  true,
                                                                 ),
                                                                 taxlistIndex,
                                                                 'value')

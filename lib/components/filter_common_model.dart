@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'filter_common_widget.dart' show FilterCommonWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FilterCommonModel extends FlutterFlowModel {
+class FilterCommonModel extends FlutterFlowModel<FilterCommonWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

@@ -12,6 +12,7 @@ import '/notification/notification_list/notification_list_widget.dart';
 import '/pages/contact/contact_pages/contact_list/contact_filter/contact_filter_widget.dart';
 import '/pages/contact/contact_pages/contact_list/contact_list_search/contact_list_search_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'contact_page_list_widget.dart' show ContactPageListWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -20,7 +21,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPageListModel extends FlutterFlowModel {
+class ContactPageListModel extends FlutterFlowModel<ContactPageListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

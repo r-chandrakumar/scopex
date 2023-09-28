@@ -10,12 +10,13 @@ import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'e_r_p_dashboard_widget.dart' show ERPDashboardWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ERPDashboardModel extends FlutterFlowModel {
+class ERPDashboardModel extends FlutterFlowModel<ERPDashboardWidget> {
   ///  Local state fields for this page.
 
   int? month = 1;

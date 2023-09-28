@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/attendance/attendance_historyshimmer/attendance_historyshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'attendance_history_widget.dart' show AttendanceHistoryWidget;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -14,7 +15,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class AttendanceHistoryModel extends FlutterFlowModel {
+class AttendanceHistoryModel extends FlutterFlowModel<AttendanceHistoryWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

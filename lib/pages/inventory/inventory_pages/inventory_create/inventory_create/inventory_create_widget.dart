@@ -60,7 +60,9 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -636,6 +638,7 @@ class _InventoryCreateWidgetState extends State<InventoryCreateWidget> {
                                                           measuresUnitOfMeasuresResponse
                                                               .jsonBody,
                                                           r'''$.uom_uom[:].id''',
+                                                          true,
                                                         ) as List)
                                                             .map<String>((s) =>
                                                                 s.toString())

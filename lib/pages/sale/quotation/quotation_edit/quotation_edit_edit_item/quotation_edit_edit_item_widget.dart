@@ -805,6 +805,7 @@ class _QuotationEditEditItemWidgetState
                                                               FFAppState()
                                                                   .taxJson,
                                                               r'''$.taxnames''',
+                                                              true,
                                                             ),
                                                             taxlistIndex,
                                                             'value')

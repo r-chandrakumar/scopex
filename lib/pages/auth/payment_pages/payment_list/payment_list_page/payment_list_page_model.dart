@@ -14,6 +14,7 @@ import '/pages/auth/payment_pages/payment_list/payment_search/payment_search_wid
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'payment_list_page_widget.dart' show PaymentListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,7 +22,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class PaymentListPageModel extends FlutterFlowModel {
+class PaymentListPageModel extends FlutterFlowModel<PaymentListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

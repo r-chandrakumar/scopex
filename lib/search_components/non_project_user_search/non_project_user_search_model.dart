@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
+import 'non_project_user_search_widget.dart' show NonProjectUserSearchWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -11,7 +12,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class NonProjectUserSearchModel extends FlutterFlowModel {
+class NonProjectUserSearchModel
+    extends FlutterFlowModel<NonProjectUserSearchWidget> {
   ///  Local state fields for this component.
 
   String? searchnew = '';

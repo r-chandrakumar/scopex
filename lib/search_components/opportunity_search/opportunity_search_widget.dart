@@ -150,6 +150,16 @@ class _OpportunitySearchWidgetState extends State<OpportunitySearchWidget>
                               hintText: FFLocalizations.of(context).getText(
                                 'yay4nwh8' /* Search... */,
                               ),
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'outfit',
+                                    color: FlutterFlowTheme.of(context)
+                                        .inputtextColor,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
+                                  ),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
@@ -215,7 +225,8 @@ class _OpportunitySearchWidgetState extends State<OpportunitySearchWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'outfit',
-                                  color: Color(0xFF95A1AC),
+                                  color: FlutterFlowTheme.of(context)
+                                      .inputtextColor,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.normal,
                                   useGoogleFonts: false,

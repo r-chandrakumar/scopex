@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'customer_search_component_widget.dart'
+    show CustomerSearchComponentWidget;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CustomerSearchComponentModel extends FlutterFlowModel {
+class CustomerSearchComponentModel
+    extends FlutterFlowModel<CustomerSearchComponentWidget> {
   ///  Local state fields for this component.
 
   String? search;

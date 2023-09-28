@@ -10,16 +10,17 @@ import '/notification/notification_icon/notification_icon_widget.dart';
 import '/notification/notification_list/notification_list_widget.dart';
 import '/pages/expenses/expshimmer/expshimmer_widget.dart';
 import '/pages/sale/quotation/quotation_list/filter_sale_order/filter_sale_order_widget.dart';
-import '/pages/sale/sale_order/sale_order_list/sale_order_search/sale_order_search_widget.dart';
+import '/pages/sale/sale_order/sale_order_search/sale_order_search_widget.dart';
 import '/reusable_component/list_page_container/list_page_container_widget.dart';
 import 'dart:async';
+import 'sale_order_list_page_widget.dart' show SaleOrderListPageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-class SaleOrderListPageModel extends FlutterFlowModel {
+class SaleOrderListPageModel extends FlutterFlowModel<SaleOrderListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
