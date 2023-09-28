@@ -184,19 +184,6 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 10.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
                                         Builder(
                                           builder: (context) {
                                             if (functions
@@ -358,6 +345,180 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                             }
                                           },
                                         ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Email') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.email_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Call') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.call,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Meeting') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.meeting_room,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'To Do') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.edit_note_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Upload Document') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.upload_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Exception') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.warning_rounded,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else if (functions
+                                                    .jsonToString(getJsonField(
+                                                  activityItem,
+                                                  r'''$.mail_activity_type.name''',
+                                                )) ==
+                                                'Reminder') {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons
+                                                      .notifications_active_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            } else {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Icon(
+                                                  Icons.call,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  size: 65.0,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
                                         Flexible(
                                           child: Padding(
                                             padding:
@@ -388,6 +549,7 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 150.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -419,7 +581,7 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                                     functions
                                                         .isNull(getJsonField(
                                                       activityItem,
-                                                      r'''$.res_name''',
+                                                      r'''$.ir_model.name''',
                                                     ).toString())!,
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
@@ -462,9 +624,13 @@ class _ActivitySwipeWidgetState extends State<ActivitySwipeWidget>
                                                   child: Text(
                                                     functions
                                                         .isNull(getJsonField(
-                                                      activityItem,
-                                                      r'''$.summary''',
-                                                    ).toString())!,
+                                                          activityItem,
+                                                          r'''$.summary''',
+                                                        ).toString())!
+                                                        .maybeHandleOverflow(
+                                                          maxChars: 200,
+                                                          replacement: '…',
+                                                        ),
                                                     textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)

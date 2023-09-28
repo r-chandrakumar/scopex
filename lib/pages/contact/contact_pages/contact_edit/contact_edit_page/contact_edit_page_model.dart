@@ -3,12 +3,18 @@ import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ContactEditPageModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  String imageBase64 = '';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -34,8 +40,16 @@ class ContactEditPageModel extends FlutterFlowModel {
   // State field(s) for street widget.
   TextEditingController? streetController;
   String? Function(BuildContext, String?)? streetControllerValidator;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - uploadFileTobase64] action in UploadButton widget.
+  String? uploadfile;
   // Stores action output result for [Backend Call - API (Contacts Update)] action in Button widget.
   ApiCallResponse? contactUpdateResponse;
+  // Stores action output result for [Backend Call - API (Contact Profile Upload)] action in Button widget.
+  ApiCallResponse? contactProdileUpload;
 
   /// Initialization and disposal methods.
 

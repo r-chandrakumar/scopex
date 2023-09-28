@@ -1966,7 +1966,7 @@ class _CreateLeadWidgetState extends State<CreateLeadWidget> {
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Lead  created successfully...',
+                                            'Lead created successfully',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)

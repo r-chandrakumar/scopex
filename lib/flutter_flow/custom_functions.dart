@@ -56,37 +56,6 @@ String? attachmentconvertor(
   return imageurl;
 }
 
-dynamic addProblemListStore(
-  String? problemList,
-  int? problemId,
-) {
-  if (problemList == null || problemList == '' || problemList == 'null') {
-    problemList = '{"data":[]}';
-  }
-  // if (problemId != null && problemName != null) {
-  //   problemList.add({
-  //     'problemId': problemId,
-  //     'problemName': problemName,
-  //   });
-  // }
-
-  final existingData = jsonDecode(problemList!);
-
-  // Add new product and quantity to the existing data
-  final newProduct = {
-    "comment": null,
-    "select_comment": null,
-    "problem_id": problemId,
-    "status": null
-  };
-  existingData['data'].add(newProduct);
-
-  // Convert the updated map back to JSON string
-  final updatedJsonString = jsonEncode(existingData);
-
-  return updatedJsonString;
-}
-
 String? changeDateFomat(String? logdate) {
   // change date format of given date argument
   if (logdate == 'null' || logdate == null || logdate == '' || logdate == '-') {
@@ -713,33 +682,6 @@ String? ticketStatusSwitchName(String? status) {
     default:
       return '-';
   }
-}
-
-dynamic addProblemList(
-  dynamic problemList,
-  int? problemId,
-  String? problemName,
-) {
-  if (problemList == null || problemList == '' || problemList == 'null') {
-    problemList = '[]';
-  }
-  // if (problemId != null && problemName != null) {
-  //   problemList.add({
-  //     'problemId': problemId,
-  //     'problemName': problemName,
-  //   });
-  // }
-
-  final existingData = jsonDecode(problemList!);
-
-  // Add new product and quantity to the existing data
-  final newProduct = {'name': problemName, 'id': problemId};
-  existingData.add(newProduct);
-
-  // Convert the updated map back to JSON string
-  final updatedJsonString = jsonEncode(existingData);
-
-  return updatedJsonString;
 }
 
 dynamic removeSpecialWordsProblem(String? problemList) {
@@ -3326,7 +3268,7 @@ dynamic dashboardXandYaxisCalculation(List<dynamic>? node) {
     if (data["amount"] != null &&
         data["amount"] != 'null' &&
         data["amount"] != "") {
-      inamount = data["amount"];
+      inamount = data["amount"].toDouble();
     }
     final double amount = inamount.toDouble();
     datewise.add(date);
@@ -3727,4 +3669,23 @@ String? attendanceCheckInHours() {
   final String formattedDateTime = formatter.format(updatedDateTime);
 
   return formattedDateTime;
+}
+
+String? imageLogo(
+  int? id,
+  String? model,
+  String? url,
+) {
+  if (id == null) {
+    return null;
+  }
+
+  if (model == null) {
+    return null;
+  }
+
+  String? imageurl =
+      'https://${url}/web/image?model=${model}&id=${id}&field=logo';
+  print(imageurl);
+  return imageurl;
 }

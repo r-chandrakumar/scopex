@@ -354,221 +354,6 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                                           }
                                                         },
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    20.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          children: [
-                                                            if (CatalogueGroup
-                                                                    .productDetailsCall
-                                                                    .bookMark(
-                                                                      productDetailsNewProductDetailsResponse
-                                                                          .jsonBody,
-                                                                    )
-                                                                    .length ==
-                                                                0)
-                                                              Flexible(
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          1.00,
-                                                                          0.00),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      _model.addBookmarkResule = await CatalogueGroup
-                                                                          .addToBookmarkCall
-                                                                          .call(
-                                                                        domainUrl:
-                                                                            FFAppState().DomainUrl,
-                                                                        authToken:
-                                                                            FFAppState().accessToken,
-                                                                        productId: _model.productVariantId ==
-                                                                                0
-                                                                            ? widget.id
-                                                                            : _model.productVariantId,
-                                                                      );
-                                                                      if ((_model
-                                                                              .addBookmarkResule
-                                                                              ?.succeeded ??
-                                                                          true)) {
-                                                                        ScaffoldMessenger.of(context)
-                                                                            .showSnackBar(
-                                                                          SnackBar(
-                                                                            content:
-                                                                                Text(
-                                                                              'Added To Bookmark',
-                                                                              style: TextStyle(
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                              ),
-                                                                            ),
-                                                                            duration:
-                                                                                Duration(milliseconds: 4000),
-                                                                            backgroundColor:
-                                                                                FlutterFlowTheme.of(context).success,
-                                                                          ),
-                                                                        );
-                                                                        setState(() =>
-                                                                            _model.apiRequestCompleter =
-                                                                                null);
-                                                                        await _model
-                                                                            .waitForApiRequestCompleted();
-                                                                      } else {
-                                                                        ScaffoldMessenger.of(context)
-                                                                            .showSnackBar(
-                                                                          SnackBar(
-                                                                            content:
-                                                                                Text(
-                                                                              'Failed To add Bookmark',
-                                                                              style: TextStyle(
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                              ),
-                                                                            ),
-                                                                            duration:
-                                                                                Duration(milliseconds: 4000),
-                                                                            backgroundColor:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                          ),
-                                                                        );
-                                                                      }
-
-                                                                      setState(
-                                                                          () {});
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons
-                                                                          .bookmark_border,
-                                                                      size:
-                                                                          24.0,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            if (CatalogueGroup
-                                                                    .productDetailsCall
-                                                                    .bookMark(
-                                                                      productDetailsNewProductDetailsResponse
-                                                                          .jsonBody,
-                                                                    )
-                                                                    .length >
-                                                                0)
-                                                              InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  _model.removeBookmarkResule =
-                                                                      await CatalogueGroup
-                                                                          .removeBookMarkCall
-                                                                          .call(
-                                                                    productId: _model.productVariantId ==
-                                                                            0
-                                                                        ? widget
-                                                                            .id
-                                                                        : _model
-                                                                            .productVariantId,
-                                                                    authToken:
-                                                                        FFAppState()
-                                                                            .accessToken,
-                                                                    domainUrl:
-                                                                        FFAppState()
-                                                                            .DomainUrl,
-                                                                  );
-                                                                  if ((_model
-                                                                          .removeBookmarkResule
-                                                                          ?.succeeded ??
-                                                                      true)) {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Removed from Bookmark',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                          ),
-                                                                        ),
-                                                                        duration:
-                                                                            Duration(milliseconds: 4000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).success,
-                                                                      ),
-                                                                    );
-                                                                    setState(() =>
-                                                                        _model.apiRequestCompleter =
-                                                                            null);
-                                                                    await _model
-                                                                        .waitForApiRequestCompleted();
-                                                                  } else {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .showSnackBar(
-                                                                      SnackBar(
-                                                                        content:
-                                                                            Text(
-                                                                          'Failed to remove from Bookmark',
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                          ),
-                                                                        ),
-                                                                        duration:
-                                                                            Duration(milliseconds: 4000),
-                                                                        backgroundColor:
-                                                                            FlutterFlowTheme.of(context).error,
-                                                                      ),
-                                                                    );
-                                                                  }
-
-                                                                  setState(
-                                                                      () {});
-                                                                },
-                                                                child: Icon(
-                                                                  Icons
-                                                                      .bookmark_outlined,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  size: 24.0,
-                                                                ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ),
                                                     ],
                                                   ),
                                                 ],
@@ -787,7 +572,7 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                _model.removeBookmarkResule1 =
+                                                _model.removeBookmarkResule =
                                                     await CatalogueGroup
                                                         .removeBookMarkCall
                                                         .call(
@@ -1031,10 +816,14 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                                                     .jsonBody,
                                                               ),
                                                             );
-                                                            if ((_model
-                                                                    .variantIdResult
-                                                                    ?.succeeded ??
-                                                                true)) {
+                                                            if (CatalogueGroup
+                                                                    .getIdByVariantCheckCall
+                                                                    .productId(
+                                                                  (_model.variantIdResult
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ) !=
+                                                                null) {
                                                               setState(() {
                                                                 _model.productVariantId =
                                                                     CatalogueGroup
@@ -1053,6 +842,41 @@ class _ProductDetailsNewWidgetState extends State<ProductDetailsNewWidget> {
                                                                         ''),
                                                                   ) !=
                                                                   null) {
+                                                                _model.productDetails =
+                                                                    await CatalogueGroup
+                                                                        .productDetailsCall
+                                                                        .call(
+                                                                  authToken:
+                                                                      FFAppState()
+                                                                          .accessToken,
+                                                                  eq: CatalogueGroup
+                                                                      .getIdByVariantCheckCall
+                                                                      .productId(
+                                                                    (_model.variantIdResult
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ),
+                                                                  domainUrl:
+                                                                      FFAppState()
+                                                                          .DomainUrl,
+                                                                );
+                                                                if ((_model
+                                                                        .productDetails
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {
+                                                                    FFAppState().ProductImages = functions
+                                                                        .imageAndVideoByList(CatalogueGroup.productDetailsCall
+                                                                            .productimage(
+                                                                              (_model.productDetails?.jsonBody ?? ''),
+                                                                            )
+                                                                            ?.toList())!
+                                                                        .toList()
+                                                                        .cast<dynamic>();
+                                                                  });
+                                                                }
                                                                 setState(() =>
                                                                     _model.apiRequestCompleter =
                                                                         null);

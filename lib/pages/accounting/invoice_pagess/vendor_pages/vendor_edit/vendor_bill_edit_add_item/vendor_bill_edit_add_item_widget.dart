@@ -616,6 +616,7 @@ class _VendorBillEditAddItemWidgetState
                                     child: TextFormField(
                                       controller: _model.unitController,
                                       autofocus: true,
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)

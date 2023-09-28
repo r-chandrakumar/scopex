@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/checkin_popup_widget.dart';
 import '/components/menu_component_widget.dart';
 import '/drawer/side_bar_new/side_bar_new_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -292,199 +293,232 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             if (_model.attendanceStatus == true)
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  currentUserLocationValue =
-                                      await getCurrentUserLocation(
-                                          defaultLocation: LatLng(0.0, 0.0));
-                                  var _shouldSetState = false;
-                                  setState(() {
-                                    _model.loader = true;
-                                  });
-                                  _model.checkInandOutResult =
-                                      await HymechApiGroupGroup
-                                          .findCheckInOrOutCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  _shouldSetState = true;
-                                  _model.checkoutResult =
-                                      await HymechApiGroupGroup.checkOutCall
-                                          .call(
-                                    eq: HymechApiGroupGroup.findCheckInOrOutCall
-                                        .attendanceId(
-                                      (_model.checkInandOutResult?.jsonBody ??
-                                          ''),
-                                    ),
-                                    checkOut: functions.saveCurrentDateTime(),
-                                    locationOut:
-                                        currentUserLocationValue?.toString(),
-                                    authToken: FFAppState().accessToken,
-                                    workedHours:
-                                        functions.attendanceWorkedHours(
-                                            HymechApiGroupGroup
-                                                .findCheckInOrOutCall
-                                                .checkinTime(
-                                                  (_model.checkInandOutResult
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )
-                                                .toString()),
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  _shouldSetState = true;
-                                  if ((_model.checkoutResult?.succeeded ??
-                                      true)) {
-                                    FFAppState().update(() {
-                                      FFAppState().loginstatus = false;
-                                    });
-                                    await Future.delayed(
-                                        const Duration(milliseconds: 1000));
+                              Builder(
+                                builder: (context) => InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    currentUserLocationValue =
+                                        await getCurrentUserLocation(
+                                            defaultLocation: LatLng(0.0, 0.0));
+                                    var _shouldSetState = false;
                                     setState(() {
-                                      _model.loader = false;
-                                      _model.attendanceStatus = false;
+                                      _model.loader = true;
                                     });
-                                    setState(() {
-                                      FFAppState().Attendence = false;
-                                    });
-                                    setState(() =>
-                                        _model.apiRequestCompleter1 = null);
-                                    await _model.waitForApiRequestCompleted1();
-                                    setState(() =>
-                                        _model.apiRequestCompleter2 = null);
-                                    await _model.waitForApiRequestCompleted2();
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Check out sucessfully',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
+                                    _model.checkInandOutResult =
+                                        await HymechApiGroupGroup
+                                            .findCheckInOrOutCall
+                                            .call(
+                                      authToken: FFAppState().accessToken,
+                                      domainUrl: FFAppState().DomainUrl,
                                     );
-                                    _model.instantTimerStart?.cancel();
-                                    _model.instantTimer?.cancel();
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  } else {
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
+                                    _shouldSetState = true;
+                                    _model.checkoutResult =
+                                        await HymechApiGroupGroup.checkOutCall
+                                            .call(
+                                      eq: HymechApiGroupGroup
+                                          .findCheckInOrOutCall
+                                          .attendanceId(
+                                        (_model.checkInandOutResult?.jsonBody ??
+                                            ''),
+                                      ),
+                                      checkOut: functions.saveCurrentDateTime(),
+                                      locationOut:
+                                          currentUserLocationValue?.toString(),
+                                      authToken: FFAppState().accessToken,
+                                      workedHours:
+                                          functions.attendanceWorkedHours(
+                                              HymechApiGroupGroup
+                                                  .findCheckInOrOutCall
+                                                  .checkinTime(
+                                                    (_model.checkInandOutResult
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )
+                                                  .toString()),
+                                      domainUrl: FFAppState().DomainUrl,
+                                    );
+                                    _shouldSetState = true;
+                                    if ((_model.checkoutResult?.succeeded ??
+                                        true)) {
+                                      FFAppState().update(() {
+                                        FFAppState().loginstatus = false;
+                                      });
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 1000));
+                                      setState(() {
+                                        _model.loader = false;
+                                        _model.attendanceStatus = false;
+                                      });
+                                      setState(() {
+                                        FFAppState().Attendence = false;
+                                      });
+                                      setState(() =>
+                                          _model.apiRequestCompleter1 = null);
+                                      await _model
+                                          .waitForApiRequestCompleted1();
+                                      setState(() =>
+                                          _model.apiRequestCompleter2 = null);
+                                      await _model
+                                          .waitForApiRequestCompleted2();
+                                      _model.instantTimerStart?.cancel();
+                                      _model.instantTimer?.cancel();
+                                      await showAlignedDialog(
+                                        context: context,
+                                        isGlobal: true,
+                                        avoidOverflow: false,
+                                        targetAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        followerAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        builder: (dialogContext) {
+                                          return Material(
+                                            color: Colors.transparent,
+                                            child: GestureDetector(
+                                              onTap: () =>
+                                                  FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode),
+                                              child: CheckinPopupWidget(
+                                                type: 'checkout',
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
 
-                                  if (_shouldSetState) setState(() {});
-                                },
-                                child: Image.asset(
-                                  'assets/images/checkouut.png',
-                                  width: 150.0,
-                                  height: 150.0,
-                                  fit: BoxFit.contain,
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    } else {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+
+                                    if (_shouldSetState) setState(() {});
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/checkouut.png',
+                                    width: 150.0,
+                                    height: 150.0,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
                             if (_model.attendanceStatus == false)
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  currentUserLocationValue =
-                                      await getCurrentUserLocation(
-                                          defaultLocation: LatLng(0.0, 0.0));
-                                  var _shouldSetState = false;
-                                  setState(() {
-                                    _model.loader = true;
-                                  });
-                                  _model.checkinResult =
-                                      await HymechApiGroupGroup.checkinnewCall
-                                          .call(
-                                    authToken: FFAppState().accessToken,
-                                    checkIn: functions.saveCurrentDateTime(),
-                                    location:
-                                        currentUserLocationValue?.toString(),
-                                    domainUrl: FFAppState().DomainUrl,
-                                  );
-                                  _shouldSetState = true;
-                                  if ((_model.checkinResult?.succeeded ??
-                                      true)) {
-                                    FFAppState().update(() {
-                                      FFAppState().loginstatus = true;
-                                      FFAppState().attendanceid = getJsonField(
-                                        (_model.checkinResult?.jsonBody ?? ''),
-                                        r'''$.insert_hr_attendance.returning[0].id''',
+                              Builder(
+                                builder: (context) => InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    currentUserLocationValue =
+                                        await getCurrentUserLocation(
+                                            defaultLocation: LatLng(0.0, 0.0));
+                                    var _shouldSetState = false;
+                                    setState(() {
+                                      _model.loader = true;
+                                    });
+                                    _model.checkinResult =
+                                        await HymechApiGroupGroup.checkinnewCall
+                                            .call(
+                                      authToken: FFAppState().accessToken,
+                                      checkIn: functions.saveCurrentDateTime(),
+                                      location:
+                                          currentUserLocationValue?.toString(),
+                                      domainUrl: FFAppState().DomainUrl,
+                                    );
+                                    _shouldSetState = true;
+                                    if ((_model.checkinResult?.succeeded ??
+                                        true)) {
+                                      FFAppState().update(() {
+                                        FFAppState().loginstatus = true;
+                                        FFAppState().attendanceid =
+                                            getJsonField(
+                                          (_model.checkinResult?.jsonBody ??
+                                              ''),
+                                          r'''$.insert_hr_attendance.returning[0].id''',
+                                        );
+                                      });
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 1000));
+                                      setState(() {
+                                        _model.loader = false;
+                                        _model.attendanceStatus = true;
+                                      });
+                                      setState(() {
+                                        _model.checkIn =
+                                            functions.saveCurrentDateTime();
+                                      });
+                                      setState(() {
+                                        FFAppState().Attendence = true;
+                                      });
+                                      setState(() =>
+                                          _model.apiRequestCompleter1 = null);
+                                      await _model
+                                          .waitForApiRequestCompleted1();
+                                      setState(() =>
+                                          _model.apiRequestCompleter2 = null);
+                                      await _model
+                                          .waitForApiRequestCompleted2();
+                                      null?.cancel();
+                                      null?.cancel();
+                                      _model.instantTimerStart =
+                                          InstantTimer.periodic(
+                                        duration: Duration(milliseconds: 1000),
+                                        callback: (timer) async {
+                                          setState(() {
+                                            _model.attendanceTime = functions
+                                                .attendanceWorkingHoursCalculation(
+                                                    _model.checkIn);
+                                          });
+                                        },
+                                        startImmediately: true,
                                       );
-                                    });
-                                    await Future.delayed(
-                                        const Duration(milliseconds: 1000));
-                                    setState(() {
-                                      _model.loader = false;
-                                      _model.attendanceStatus = true;
-                                    });
-                                    setState(() {
-                                      _model.checkIn =
-                                          functions.saveCurrentDateTime();
-                                    });
-                                    setState(() {
-                                      FFAppState().Attendence = true;
-                                    });
-                                    setState(() =>
-                                        _model.apiRequestCompleter1 = null);
-                                    await _model.waitForApiRequestCompleted1();
-                                    setState(() =>
-                                        _model.apiRequestCompleter2 = null);
-                                    await _model.waitForApiRequestCompleted2();
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Check In Successfully',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                    null?.cancel();
-                                    null?.cancel();
-                                    _model.instantTimerStart =
-                                        InstantTimer.periodic(
-                                      duration: Duration(milliseconds: 1000),
-                                      callback: (timer) async {
-                                        setState(() {
-                                          _model.attendanceTime = functions
-                                              .attendanceWorkingHoursCalculation(
-                                                  _model.checkIn);
-                                        });
-                                        return;
-                                      },
-                                      startImmediately: true,
-                                    );
-                                  } else {
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
+                                    } else {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
 
-                                  if (_shouldSetState) setState(() {});
-                                },
-                                child: Image.asset(
-                                  'assets/images/checkin.png',
-                                  width: 150.0,
-                                  height: 150.0,
-                                  fit: BoxFit.contain,
+                                    await showAlignedDialog(
+                                      context: context,
+                                      isGlobal: true,
+                                      avoidOverflow: false,
+                                      targetAnchor: AlignmentDirectional(
+                                              0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      followerAnchor: AlignmentDirectional(
+                                              0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      builder: (dialogContext) {
+                                        return Material(
+                                          color: Colors.transparent,
+                                          child: GestureDetector(
+                                            onTap: () => FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode),
+                                            child: CheckinPopupWidget(
+                                              type: 'checkin',
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => setState(() {}));
+
+                                    if (_shouldSetState) setState(() {});
+                                  },
+                                  child: Image.asset(
+                                    'assets/images/checkin.png',
+                                    width: 150.0,
+                                    height: 150.0,
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
                           ],

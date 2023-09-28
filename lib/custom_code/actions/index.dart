@@ -6,5 +6,5 @@ export 'one_signal_new.dart' show oneSignalNew;
 export 'download_pdf_from_url.dart' show downloadPdfFromUrl;
 export 'upload_file_tobase64.dart' show uploadFileTobase64;
 export 'request_storage_permission.dart' show requestStoragePermission;
-export 'attendance_subscription.dart' show attendanceSubscription;
+export 'notification_subscription.dart' show notificationSubscription;
 export 'in_app_update_request.dart' show inAppUpdateRequest;

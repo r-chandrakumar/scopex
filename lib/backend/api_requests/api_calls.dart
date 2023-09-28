@@ -186,6 +186,8 @@ class HymechApiGroupGroup {
   static ProjectUserAssignCall projectUserAssignCall = ProjectUserAssignCall();
   static NonProjectUsersCall nonProjectUsersCall = NonProjectUsersCall();
   static LeaveTypeCall leaveTypeCall = LeaveTypeCall();
+  static UnAssignedLeadListCall unAssignedLeadListCall =
+      UnAssignedLeadListCall();
 }
 
 class MyServiceticketsCall {
@@ -1859,6 +1861,14 @@ class LeaveInfoCall {
   dynamic leaveType(dynamic response) => getJsonField(
         response,
         r'''$.hr_leave[:].hr_leave_type.name''',
+      );
+  dynamic half(dynamic response) => getJsonField(
+        response,
+        r'''$.hr_leave[:].request_unit_half''',
+      );
+  dynamic permission(dynamic response) => getJsonField(
+        response,
+        r'''$.hr_leave[:].request_unit_hours''',
       );
 }
 
@@ -4078,7 +4088,7 @@ class GetModelIdCall {
       );
   dynamic id(dynamic response) => getJsonField(
         response,
-        r'''$.model_id.result.model_id''',
+        r'''$.ir_model[:].id''',
       );
 }
 
@@ -4763,10 +4773,6 @@ class CRMDashboardCall {
         response,
         r'''$.lead_count.aggregate.count''',
       );
-  dynamic opportunitycount(dynamic response) => getJsonField(
-        response,
-        r'''$.oppertunity_count.aggregate.count''',
-      );
   dynamic unassignedleadcount(dynamic response) => getJsonField(
         response,
         r'''$.unassigned_lead.aggregate.count''',
@@ -4854,6 +4860,14 @@ class CRMDashboardCall {
         response,
         r'''$.stage_wise_lead_count.nodes[:].crm_leads_aggregate.aggregate.sum.expected_revenue''',
         true,
+      );
+  dynamic leadWon(dynamic response) => getJsonField(
+        response,
+        r'''$.lead_won[:].crm_leads_aggregate.aggregate.count''',
+      );
+  dynamic opportunitycount(dynamic response) => getJsonField(
+        response,
+        r'''$.opportunity_count.aggregate.count''',
       );
 }
 
@@ -5523,6 +5537,10 @@ class ActivityDetailsCall {
         response,
         r'''$.mail_activity[:].lead.name''',
       );
+  dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity[:].res_name''',
+      );
 }
 
 class TaskTimerOnOffCall {
@@ -5872,6 +5890,38 @@ class LeaveTypeCall {
       );
 }
 
+class UnAssignedLeadListCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? domainUrl = '',
+    String? duration = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'UnAssignedLeadList',
+      apiUrl:
+          '${HymechApiGroupGroup.baseUrl}${domainUrl}/api/rest/list_unassigned_lead',
+      callType: ApiCallType.GET,
+      headers: {
+        ...HymechApiGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {
+        'duration': duration,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  dynamic leadlist(dynamic response) => getJsonField(
+        response,
+        r'''$.crm_lead''',
+        true,
+      );
+}
+
 /// End HymechApiGroup Group Code
 
 /// Start Sales Api Group Group Code
@@ -6108,6 +6158,11 @@ class SaleOrderViewCall {
   dynamic stockPickStatus(dynamic response) => getJsonField(
         response,
         r'''$.stock_picking[:].state''',
+      );
+  dynamic myActivity(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity''',
+        true,
       );
 }
 
@@ -6634,6 +6689,8 @@ class CommonApisGroupGroup {
       InvoiceDropdownActivityCall();
   static BillDropdownActivityCall billDropdownActivityCall =
       BillDropdownActivityCall();
+  static NotificationMarkAllCall notificationMarkAllCall =
+      NotificationMarkAllCall();
 }
 
 class PartnersListCall {
@@ -7367,6 +7424,8 @@ class NotificationListCall {
   Future<ApiCallResponse> call({
     String? authToken = '',
     String? domainUrl = '',
+    int? limit,
+    int? offset,
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Notification List',
@@ -7377,7 +7436,10 @@ class NotificationListCall {
         ...CommonApisGroupGroup.headers,
         'Authorization': 'Bearer ${authToken}',
       },
-      params: {},
+      params: {
+        'offset': offset,
+        'limit': limit,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -7763,6 +7825,16 @@ class PurchaseDropdownActivityCall {
         r'''$.purchase_order''',
         true,
       );
+  dynamic purchaseId(dynamic response) => getJsonField(
+        response,
+        r'''$.purchase_order..id''',
+        true,
+      );
+  dynamic purchaseName(dynamic response) => getJsonField(
+        response,
+        r'''$.purchase_order..name''',
+        true,
+      );
 }
 
 class SaleDropdownActivityCall {
@@ -7836,6 +7908,16 @@ class InvoiceDropdownActivityCall {
         r'''$.account_move''',
         true,
       );
+  dynamic invoiceId(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move..id''',
+        true,
+      );
+  dynamic invoiceName(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move..name''',
+        true,
+      );
 }
 
 class BillDropdownActivityCall {
@@ -7867,6 +7949,40 @@ class BillDropdownActivityCall {
         r'''$.account_move''',
         true,
       );
+  dynamic billId(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move..id''',
+        true,
+      );
+  dynamic billName(dynamic response) => getJsonField(
+        response,
+        r'''$.account_move..name''',
+        true,
+      );
+}
+
+class NotificationMarkAllCall {
+  Future<ApiCallResponse> call({
+    String? authToken = '',
+    String? domainUrl = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Notification Mark All',
+      apiUrl:
+          '${CommonApisGroupGroup.baseUrl}${domainUrl}/api/rest/list_notification_read',
+      callType: ApiCallType.POST,
+      headers: {
+        ...CommonApisGroupGroup.headers,
+        'Authorization': 'Bearer ${authToken}',
+      },
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
 }
 
 /// End Common Apis Group Group Code
@@ -8091,6 +8207,11 @@ class PurchaseOrderViewCall {
   dynamic stockStatus(dynamic response) => getJsonField(
         response,
         r'''$.purchase_order[:].purchase_order_stock_picking_rels[:].stock_picking.state''',
+      );
+  dynamic myActivity(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity''',
+        true,
       );
 }
 
@@ -8750,6 +8871,11 @@ class InvoiceViewCall {
         r'''$.mail_message''',
         true,
       );
+  dynamic myActivity(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity''',
+        true,
+      );
 }
 
 class VendorBillViewCall {
@@ -8849,6 +8975,11 @@ class VendorBillViewCall {
         r'''$.mail_message''',
         true,
       );
+  dynamic myActivity(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity''',
+        true,
+      );
 }
 
 class PaymentViewCall {
@@ -8916,6 +9047,11 @@ class PaymentViewCall {
   dynamic accountPaymentMethod(dynamic response) => getJsonField(
         response,
         r'''$.account_payment[:].account_payment_method.name''',
+      );
+  dynamic myActivity(dynamic response) => getJsonField(
+        response,
+        r'''$.mail_activity''',
+        true,
       );
 }
 
@@ -11911,17 +12047,17 @@ class ProductDetailsCall {
       );
   dynamic productimage(dynamic response) => getJsonField(
         response,
-        r'''$.product_product[:].product_template.product_images''',
+        r'''$.product_product[:].product_images''',
         true,
       );
   dynamic productimages(dynamic response) => getJsonField(
         response,
-        r'''$.product_product[:].product_template.product_images[:].id''',
+        r'''$.product_product[:].product_images[:].id''',
         true,
       );
   dynamic productvideo(dynamic response) => getJsonField(
         response,
-        r'''$.product_product[:].product_template.product_images[:].video_url''',
+        r'''$.product_product[:].product_images[:].video_url''',
         true,
       );
   dynamic categoryname(dynamic response) => getJsonField(

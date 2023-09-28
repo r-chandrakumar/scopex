@@ -62,8 +62,7 @@ Future<bool> downloadPdfFromUrl(
         context: context,
         builder: (context) => AlertDialog(
           title: Text('Download Complete'),
-          content:
-              Text('File Downloaded successfully and store in storage path'),
+          content: Text('File Downloaded'),
           actions: [
             TextButton(
               onPressed: () {

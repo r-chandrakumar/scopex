@@ -3,6 +3,8 @@ import '/components/back_buttton_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1338,6 +1340,304 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Builder(
+                                                  builder: (context) {
+                                                    if (_model.imageBase64 !=
+                                                            null &&
+                                                        _model.imageBase64 !=
+                                                            '') {
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  setState(() {
+                                                                    _model.imageBase64 =
+                                                                        '';
+                                                                  });
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.close,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: Image.memory(
+                                                              _model.uploadedLocalFile
+                                                                      .bytes ??
+                                                                  Uint8List
+                                                                      .fromList(
+                                                                          []),
+                                                              width: 100.0,
+                                                              height: 100.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    } else {
+                                                      return Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child:
+                                                                Image.network(
+                                                              functions.imageconverter(
+                                                                  widget.id,
+                                                                  'res.partner',
+                                                                  FFAppState()
+                                                                      .WebUrl)!,
+                                                              width: 100.0,
+                                                              height: 100.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    }
+                                                  },
+                                                ),
+                                              ].divide(SizedBox(width: 8.0)),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 15.0, 0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      final selectedMedia =
+                                                          await selectMedia(
+                                                        mediaSource: MediaSource
+                                                            .photoGallery,
+                                                        multiImage: false,
+                                                      );
+                                                      if (selectedMedia !=
+                                                              null &&
+                                                          selectedMedia.every((m) =>
+                                                              validateFileFormat(
+                                                                  m.storagePath,
+                                                                  context))) {
+                                                        setState(() => _model
+                                                                .isDataUploading =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+
+                                                        try {
+                                                          showUploadMessage(
+                                                            context,
+                                                            'Uploading file...',
+                                                            showLoading: true,
+                                                          );
+                                                          selectedUploadedFiles =
+                                                              selectedMedia
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        height: m
+                                                                            .dimensions
+                                                                            ?.height,
+                                                                        width: m
+                                                                            .dimensions
+                                                                            ?.width,
+                                                                        blurHash:
+                                                                            m.blurHash,
+                                                                      ))
+                                                                  .toList();
+                                                        } finally {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .hideCurrentSnackBar();
+                                                          _model.isDataUploading =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedMedia
+                                                                .length) {
+                                                          setState(() {
+                                                            _model.uploadedLocalFile =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                          });
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Success!');
+                                                        } else {
+                                                          setState(() {});
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Failed to upload data');
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      if (_model.uploadedLocalFile !=
+                                                              null &&
+                                                          (_model
+                                                                  .uploadedLocalFile
+                                                                  .bytes
+                                                                  ?.isNotEmpty ??
+                                                              false)) {
+                                                        _model.uploadfile =
+                                                            await actions
+                                                                .uploadFileTobase64(
+                                                          _model
+                                                              .uploadedLocalFile,
+                                                        );
+                                                        setState(() {
+                                                          _model.imageBase64 =
+                                                              _model
+                                                                  .uploadfile!;
+                                                        });
+                                                      } else {
+                                                        setState(() {
+                                                          _model.imageBase64 =
+                                                              '';
+                                                        });
+                                                      }
+
+                                                      setState(() {});
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'j1db3tgf' /* Upload */,
+                                                    ),
+                                                    icon: Icon(
+                                                      Icons
+                                                          .file_upload_outlined,
+                                                      size: 15.0,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .uploadButton,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'cnh1rty0' /* If you want profile update? */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 14.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 20.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1392,26 +1692,81 @@ class _ContactEditPageWidgetState extends State<ContactEditPageWidget> {
                                                               .contactUpdateResponse
                                                               ?.succeeded ??
                                                           true)) {
-                                                        if (Navigator.of(
-                                                                context)
-                                                            .canPop()) {
-                                                          context.pop();
+                                                        if (_model.imageBase64 !=
+                                                                null &&
+                                                            _model.imageBase64 !=
+                                                                '') {
+                                                          _model.contactProdileUpload =
+                                                              await InventoryApiGroupGroup
+                                                                  .contactProfileUploadCall
+                                                                  .call(
+                                                            authToken:
+                                                                FFAppState()
+                                                                    .accessToken,
+                                                            domainUrl:
+                                                                FFAppState()
+                                                                    .DomainUrl,
+                                                            image: _model
+                                                                .imageBase64,
+                                                            contactId:
+                                                                widget.id,
+                                                          );
+                                                          if ((_model
+                                                                  .contactProdileUpload
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            if (Navigator.of(
+                                                                    context)
+                                                                .canPop()) {
+                                                              context.pop();
+                                                            }
+                                                            context.pushNamed(
+                                                              'contact_page_list',
+                                                              queryParameters: {
+                                                                'contactType':
+                                                                    serializeParam(
+                                                                  'customer',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          } else {
+                                                            if (Navigator.of(
+                                                                    context)
+                                                                .canPop()) {
+                                                              context.pop();
+                                                            }
+                                                            context.pushNamed(
+                                                              'contact_page_list',
+                                                              queryParameters: {
+                                                                'contactType':
+                                                                    serializeParam(
+                                                                  'customer',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          }
+                                                        } else {
+                                                          if (Navigator.of(
+                                                                  context)
+                                                              .canPop()) {
+                                                            context.pop();
+                                                          }
+                                                          context.pushNamed(
+                                                            'contact_page_list',
+                                                            queryParameters: {
+                                                              'contactType':
+                                                                  serializeParam(
+                                                                'customer',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
                                                         }
-                                                        context.pushNamed(
-                                                          'Contact_view_page_new',
-                                                          queryParameters: {
-                                                            'id':
-                                                                serializeParam(
-                                                              widget.id,
-                                                              ParamType.int,
-                                                            ),
-                                                            'name':
-                                                                serializeParam(
-                                                              widget.name,
-                                                              ParamType.String,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
 
                                                         ScaffoldMessenger.of(
                                                                 context)

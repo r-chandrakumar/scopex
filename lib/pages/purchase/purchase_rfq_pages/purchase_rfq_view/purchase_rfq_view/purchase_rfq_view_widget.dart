@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
+import '/components/common_activity_list_widget.dart';
 import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/sale/quotation/quotation_view/quotation_view_page_loader/quotation_view_page_loader_widget.dart';
+import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/reusable_component/common_view_page/common_view_page_widget.dart';
@@ -419,7 +421,107 @@ class _PurchaseRfqViewWidgetState extends State<PurchaseRfqViewWidget> {
                                     15.0, 0.0, 15.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  children: [],
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                useSafeArea: true,
+                                                context: context,
+                                                builder: (context) {
+                                                  return GestureDetector(
+                                                    onTap: () => FocusScope.of(
+                                                            context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          ScheduleMyActivityWidget(
+                                                        date:
+                                                            getCurrentTimestamp,
+                                                        id: widget.id,
+                                                        model: 'purchase.order',
+                                                        name: widget.name,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            child: Container(
+                                              width: 60.0,
+                                              height: 28.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .hashColor,
+                                                ),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '3w9qhgqi' /* Add */,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 15.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    wrapWithModel(
+                                      model: _model.commonActivityListModel,
+                                      updateCallback: () => setState(() {}),
+                                      child: CommonActivityListWidget(
+                                        type: 'show',
+                                        model: 'purchase.order',
+                                        myactivity: PurchaseApiGroupGroup
+                                            .purchaseOrderViewCall
+                                            .myActivity(
+                                          columnPurchaseOrderViewResponse
+                                              .jsonBody,
+                                        )!,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               );
                             } else {

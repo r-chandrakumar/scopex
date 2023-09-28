@@ -1150,10 +1150,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'To',
       'ta': '',
     },
-    'xf6vy8t0': {
-      'en': 'No of Days',
-      'ta': '',
-    },
     'zvw727c8': {
       'en': 'Status',
       'ta': '',
@@ -2834,6 +2830,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Log',
       'ta': '',
     },
+    'edqzq2ea': {
+      'en': 'Add',
+      'ta': '',
+    },
     'q14bzodw': {
       'en': 'Home',
       'ta': '',
@@ -2965,6 +2965,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'sir6n17w': {
       'en': 'Log',
+      'ta': '',
+    },
+    'bud42f3f': {
+      'en': 'Add',
       'ta': '',
     },
     'cngflwsj': {
@@ -3116,6 +3120,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' Create contact',
       'ta': '',
     },
+    'fg7pi0r8': {
+      'en': 'Contact Person Name',
+      'ta': '',
+    },
+    'mvnwi21e': {
+      'en': '',
+      'ta': '',
+    },
+    'm2urqr9e': {
+      'en': 'Contact Person Name',
+      'ta': '',
+    },
     'th0jmpj8': {
       'en': 'Customer',
       'ta': '',
@@ -3194,18 +3210,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'gvv02oxt': {
       'en': 'Website',
-      'ta': '',
-    },
-    'fg7pi0r8': {
-      'en': 'Contact Person Name',
-      'ta': '',
-    },
-    'mvnwi21e': {
-      'en': '',
-      'ta': '',
-    },
-    'm2urqr9e': {
-      'en': 'Contact Person Name',
       'ta': '',
     },
     '795rg69n': {
@@ -3381,6 +3385,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1ymfttsy': {
       'en': 'Address',
+      'ta': '',
+    },
+    'j1db3tgf': {
+      'en': 'Upload',
+      'ta': '',
+    },
+    'cnh1rty0': {
+      'en': 'If you want profile update?',
       'ta': '',
     },
     '4sbt4ztp': {
@@ -3890,6 +3902,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Log',
       'ta': '',
     },
+    '3w9qhgqi': {
+      'en': 'Add',
+      'ta': '',
+    },
     'yo0g2fs4': {
       'en': 'Home',
       'ta': '',
@@ -3975,6 +3991,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Logs',
       'ta': '',
     },
+    'g6b0mg8m': {
+      'en': 'Add',
+      'ta': '',
+    },
     'xad0ilra': {
       'en': 'Home',
       'ta': '',
@@ -4003,6 +4023,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '7fh0y68n': {
       'en': 'TOTAL',
+      'ta': '',
+    },
+    'j0lj0q3n': {
+      'en': 'Activity',
+      'ta': '',
+    },
+    '48mza4ex': {
+      'en': 'Logs',
+      'ta': '',
+    },
+    '5htxuuo3': {
+      'en': 'Add',
       'ta': '',
     },
     'pikm90z1': {
@@ -4855,7 +4887,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'vjdmlpn6': {
-      'en': 'Date deadline :  ',
+      'en': 'Deadline :  ',
       'ta': '',
     },
     'yoln4ax2': {
@@ -6425,6 +6457,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
   },
+  // UnassileadDashboardlist
+  {
+    'y1ektdyj': {
+      'en': 'Value  : ',
+      'ta': '',
+    },
+    '5tdt7xb1': {
+      'en': 'Home',
+      'ta': '',
+    },
+  },
   // RequestPartAdd
   {
     '0inqgtzz': {
@@ -6706,23 +6749,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     '6vaux5a1': {
-      'en': 'Draft',
+      'en': 'To Submit',
       'ta': '',
     },
     'bcm7k1ah': {
-      'en': 'Waiting',
+      'en': 'Submitted',
       'ta': '',
     },
     '0cyd5brm': {
-      'en': 'Ready',
+      'en': 'Approved',
       'ta': '',
     },
     'tunq7th1': {
-      'en': 'Done',
+      'en': 'Paid',
       'ta': '',
     },
     '2jer4vik': {
-      'en': 'Cancelled',
+      'en': 'Refused',
       'ta': '',
     },
   },
@@ -8007,6 +8050,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
       'ta': '',
     },
+    '7j5s8ggw': {
+      'en': 'Tax',
+      'ta': '',
+    },
     'wdgfjkh3': {
       'en': 'Amount',
       'ta': '',
@@ -8536,12 +8583,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // NotificationList
   {
-    'f08ghlli': {
+    'f2pkuzuc': {
       'en': 'Notifications',
-      'ta': '',
-    },
-    '3ycw5h71': {
-      'en': 'Mark all as read',
       'ta': '',
     },
   },
@@ -8709,10 +8752,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0n9nju2x': {
       'en': 'Work orders',
-      'ta': '',
-    },
-    '4210glnd': {
-      'en': 'List View',
       'ta': '',
     },
     'brr8047i': {
@@ -9655,74 +9694,122 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
   },
-  // ScheduleMyActivityCopy
+  // ScheduleMyActivity
   {
     'fg7oaqnr': {
       'en': 'Schedule My Activity',
       'ta': '',
     },
-    'wqiq33dr': {
+    'p01gpqbh': {
       'en': 'Model',
       'ta': '',
     },
-    '42jrz28y': {
+    'ip0dfc7w': {
       'en': 'lead',
       'ta': '',
     },
-    'rybyz4rq': {
+    'xkl21bsb': {
       'en': 'Sale Order',
       'ta': '',
     },
-    '68leu4co': {
+    '8kaa7bfr': {
       'en': 'Purchase Order',
       'ta': '',
     },
-    'x9l0qn62': {
+    '3bt8asxz': {
       'en': 'Invoice',
       'ta': '',
     },
-    '16yvus9b': {
+    'hghmmm1n': {
       'en': 'Vendor Bill',
       'ta': '',
     },
-    'ryk8ymu8': {
+    'smq1nep8': {
       'en': 'Select Model',
       'ta': '',
     },
-    'mz8miqc2': {
+    '95jtbr3u': {
       'en': 'Search for an item...',
       'ta': '',
     },
-    '6r1fg5ob': {
+    'jpgxr4rp': {
       'en': 'Lead',
       'ta': '',
     },
-    'javdg2j3': {
+    '0reee7wv': {
       'en': 'Option 1',
       'ta': '',
     },
-    '8vqqtc6g': {
+    '8y6ml2un': {
       'en': 'Select Lead',
       'ta': '',
     },
-    'i7gedhx6': {
-      'en': 'Search for an item...',
+    'c9i3fk00': {
+      'en': 'Search for an lead...',
       'ta': '',
     },
-    '1fogl0uf': {
-      'en': 'Hello World',
+    'erct1yhc': {
+      'en': 'Sale Order',
       'ta': '',
     },
-    'lbtr09hv': {
+    'ltbu05b4': {
       'en': 'Option 1',
       'ta': '',
     },
-    'mjawkuri': {
-      'en': 'Please select...',
+    'c9dkbaow': {
+      'en': 'Select Sale',
       'ta': '',
     },
-    'f2nym0jq': {
+    's71gytjx': {
+      'en': 'Search for an sale...',
+      'ta': '',
+    },
+    'meb98n96': {
+      'en': 'Purchase Order',
+      'ta': '',
+    },
+    '2g70jqku': {
+      'en': 'Option 1',
+      'ta': '',
+    },
+    '7b2rg2rd': {
+      'en': 'Select Purchase Order',
+      'ta': '',
+    },
+    '72l51enr': {
       'en': 'Search for an item...',
+      'ta': '',
+    },
+    'at1w1bbw': {
+      'en': 'Invoice',
+      'ta': '',
+    },
+    'y6motc3d': {
+      'en': 'Option 1',
+      'ta': '',
+    },
+    'da0onow9': {
+      'en': 'Select Invoice',
+      'ta': '',
+    },
+    've9bqd7o': {
+      'en': 'Search for an invoice...',
+      'ta': '',
+    },
+    'ewp9taeg': {
+      'en': 'Vendor Bill',
+      'ta': '',
+    },
+    '3t1ca4sx': {
+      'en': 'Option 1',
+      'ta': '',
+    },
+    'i9qglyr5': {
+      'en': 'Select VendorBill',
+      'ta': '',
+    },
+    'wcxjcrud': {
+      'en': 'Search for an vendorbill...',
       'ta': '',
     },
     'tj7ptphg': {
@@ -9936,7 +10023,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
     'qw3ogra1': {
-      'en': 'Enter the invoice amount ',
+      'en': 'Enter the bill amount ',
       'ta': '',
     },
     '6ym2l81f': {
@@ -10262,10 +10349,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
     },
   },
-  // listViewCheck
+  // Checkin_popup
   {
-    '0q1duhqa': {
-      'en': 'Add Items',
+    'zgvq8tx6': {
+      'en':
+          'Rise and Shine! You\'re now checked in and ready to conquer the day!',
+      'ta': '',
+    },
+    'l2xub3rx': {
+      'en': 'OK',
+      'ta': '',
+    },
+    'eb3zddw9': {
+      'en': 'Wave goodbye to today\'s tasks! Checked out and tuning out.',
+      'ta': '',
+    },
+    '18n7baiq': {
+      'en': 'OK',
       'ta': '',
     },
   },

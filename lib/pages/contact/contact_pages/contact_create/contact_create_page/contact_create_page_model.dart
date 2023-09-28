@@ -27,6 +27,20 @@ class ContactCreatePageModel extends FlutterFlowModel {
   final formKey = GlobalKey<FormState>();
   // Model for backButttonComponent component.
   late BackButttonComponentModel backButttonComponentModel;
+  // State field(s) for ContactPersonName widget.
+  TextEditingController? contactPersonNameController;
+  String? Function(BuildContext, String?)? contactPersonNameControllerValidator;
+  String? _contactPersonNameControllerValidator(
+      BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return FFLocalizations.of(context).getText(
+        'r97ckzdu' /* Person Field is required */,
+      );
+    }
+
+    return null;
+  }
+
   // State field(s) for CustomerType widget.
   String? customerTypeValue;
   FormFieldController<String>? customerTypeValueController;
@@ -86,20 +100,6 @@ class ContactCreatePageModel extends FlutterFlowModel {
     return null;
   }
 
-  // State field(s) for ContactPersonName widget.
-  TextEditingController? contactPersonNameController;
-  String? Function(BuildContext, String?)? contactPersonNameControllerValidator;
-  String? _contactPersonNameControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'r97ckzdu' /* Person Field is required */,
-      );
-    }
-
-    return null;
-  }
-
   // State field(s) for Address widget.
   TextEditingController? addressController;
   String? Function(BuildContext, String?)? addressControllerValidator;
@@ -142,12 +142,12 @@ class ContactCreatePageModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
+    contactPersonNameControllerValidator =
+        _contactPersonNameControllerValidator;
     gstControllerValidator = _gstControllerValidator;
     mobileNumberControllerValidator = _mobileNumberControllerValidator;
     emailTextControllerValidator = _emailTextControllerValidator;
     websiteTextControllerValidator = _websiteTextControllerValidator;
-    contactPersonNameControllerValidator =
-        _contactPersonNameControllerValidator;
     addressControllerValidator = _addressControllerValidator;
     pinCodeControllerValidator = _pinCodeControllerValidator;
   }
@@ -155,11 +155,11 @@ class ContactCreatePageModel extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     backButttonComponentModel.dispose();
+    contactPersonNameController?.dispose();
     gstController?.dispose();
     mobileNumberController?.dispose();
     emailTextController?.dispose();
     websiteTextController?.dispose();
-    contactPersonNameController?.dispose();
     addressController?.dispose();
     pinCodeController?.dispose();
   }

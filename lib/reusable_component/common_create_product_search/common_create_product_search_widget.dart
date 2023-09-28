@@ -308,34 +308,68 @@ class _CommonCreateProductSearchWidgetState
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Expanded(
+                                      Flexible(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                getJsonField(
-                                                  productLIstItem,
-                                                  r'''$.product_display''',
-                                                ).toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    getJsonField(
+                                                      productLIstItem,
+                                                      r'''$.product_display''',
+                                                    ).toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color:
-                                                              Color(0xFF14181B),
-                                                          fontSize: 16.0,
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize: 15.0,
                                                           fontWeight:
-                                                              FontWeight.normal,
+                                                              FontWeight.w500,
                                                         ),
+                                                  ),
+                                                  Flexible(
+                                                    child: Text(
+                                                      getJsonField(
+                                                        productLIstItem,
+                                                        r'''$.stock_quants_aggregate.aggregate.count''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
+                                            ),
+                                            Text(
+                                              getJsonField(
+                                                productLIstItem,
+                                                r'''$.product_template.product_category.name''',
+                                              ).toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 15.0,
+                                                      ),
                                             ),
                                           ],
                                         ),

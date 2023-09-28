@@ -1471,7 +1471,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                               'CEO_Dashboard');
 
                                                           await actions
-                                                              .attendanceSubscription();
+                                                              .notificationSubscription();
                                                           if (isAndroid ==
                                                               true) {
                                                             if (FFAppState()

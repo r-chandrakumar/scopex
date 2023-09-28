@@ -5,7 +5,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/schedule_my_activity_copy/schedule_my_activity_copy_widget.dart';
+import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';

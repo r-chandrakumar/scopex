@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
+import '/components/common_activity_list_widget.dart';
 import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/accounting/invoice_pagess/invoice_view/viewpage_common_shimmer/viewpage_common_shimmer_widget.dart';
+import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -15,9 +17,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class PaymentViewPageModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  int? tabchange = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for CommonActivityList component.
+  late CommonActivityListModel commonActivityListModel;
   // Model for CommonLogNote component.
   late CommonLogNoteModel commonLogNoteModel;
   // Model for backButttonComponent component.
@@ -26,6 +34,8 @@ class PaymentViewPageModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    commonActivityListModel =
+        createModel(context, () => CommonActivityListModel());
     commonLogNoteModel = createModel(context, () => CommonLogNoteModel());
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
@@ -33,6 +43,7 @@ class PaymentViewPageModel extends FlutterFlowModel {
 
   void dispose() {
     unfocusNode.dispose();
+    commonActivityListModel.dispose();
     commonLogNoteModel.dispose();
     backButttonComponentModel.dispose();
   }

@@ -99,21 +99,6 @@ class CreateLeadModel extends FlutterFlowModel {
   // State field(s) for Probability widget.
   TextEditingController? probabilityController;
   String? Function(BuildContext, String?)? probabilityControllerValidator;
-  String? _probabilityControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'tj68tgoo' /* Probablity  is required */,
-      );
-    }
-
-    if (!RegExp('^(?!99\$)([1-9]\\d{2,})\$').hasMatch(val)) {
-      return FFLocalizations.of(context).getText(
-        '049bojtg' /* Percentage must between 1 to 1... */,
-      );
-    }
-    return null;
-  }
-
   // State field(s) for street widget.
   TextEditingController? streetController;
   String? Function(BuildContext, String?)? streetControllerValidator;
@@ -139,7 +124,6 @@ class CreateLeadModel extends FlutterFlowModel {
     numberControllerValidator = _numberControllerValidator;
     customerPersonControllerValidator = _customerPersonControllerValidator;
     expectedrevenueControllerValidator = _expectedrevenueControllerValidator;
-    probabilityControllerValidator = _probabilityControllerValidator;
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
   }

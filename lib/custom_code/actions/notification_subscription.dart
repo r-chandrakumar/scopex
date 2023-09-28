@@ -12,30 +12,32 @@ import 'index.dart'; // Imports other custom actions
 
 import 'package:hasura_connect/hasura_connect.dart';
 
-Future attendanceSubscription() async {
+Future notificationSubscription() async {
   // Add your function code here!
-  print('attendanceSubscription');
+  print('notificationSubscription');
   String domainUrl = FFAppState().DomainUrl;
   String authtoken = FFAppState().accessToken;
   if (authtoken != "" || authtoken != 'null') {
     String url = 'https://$domainUrl/v1/graphql';
     HasuraConnect hasuraConnect = HasuraConnect(url, headers: {
-      "x-hasura-admin-secret": authtoken,
+      "Authorization": "Bearer $authtoken",
       // Add any other headers if needed
     });
     String docSubscription = """
-    subscription attendanceSubscription {
-      hr_attendance(order_by: {id: desc}, where: {check_out: {_is_null: true}}) {
-        check_in
-        check_out
-        id
+        subscription notificationSubscription {
+        notification_list_aggregate(where: {read_status: {_eq: "un_read"}}) {
+          aggregate {
+          count(columns: id)
+          }
+        }
       }
-    }
-""";
+      """;
 
     Snapshot snapshot = await hasuraConnect.subscription(docSubscription);
     snapshot.listen((data) {
-      print(data);
+      print(data["data"]['notification_list_aggregate']['aggregate']['count']);
+      FFAppState().notificationCount =
+          data["data"]['notification_list_aggregate']['aggregate']['count'];
     }).onError((err) {
       print(err);
     });

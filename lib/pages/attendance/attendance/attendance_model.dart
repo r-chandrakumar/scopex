@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/checkin_popup_widget.dart';
 import '/components/menu_component_widget.dart';
 import '/drawer/side_bar_new/side_bar_new_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

@@ -403,7 +403,7 @@ class _DashboardTasklistWidgetState extends State<DashboardTasklistWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'vjdmlpn6' /* Date deadline :   */,
+                                                      'vjdmlpn6' /* Deadline :   */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -428,7 +428,12 @@ class _DashboardTasklistWidgetState extends State<DashboardTasklistWidget>
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 14.0,
+                                                              ),
                                                     ),
                                                   ),
                                                 ),

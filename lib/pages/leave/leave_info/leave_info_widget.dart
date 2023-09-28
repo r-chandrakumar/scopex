@@ -319,9 +319,20 @@ class _LeaveInfoWidgetState extends State<LeaveInfoWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    'xf6vy8t0' /* No of Days */,
-                                  ),
+                                  () {
+                                    if (HymechApiGroupGroup.leaveInfoCall.half(
+                                      listViewLeaveInfoResponse.jsonBody,
+                                    )) {
+                                      return 'No of Hours';
+                                    } else if (HymechApiGroupGroup.leaveInfoCall
+                                        .permission(
+                                      listViewLeaveInfoResponse.jsonBody,
+                                    )) {
+                                      return 'No of Hours';
+                                    } else {
+                                      return 'No of Days';
+                                    }
+                                  }(),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

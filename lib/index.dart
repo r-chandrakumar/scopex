@@ -219,3 +219,5 @@ export '/pages/inventory/delivery_chellan_pages/sale_order_delivery_chellan_list
     show SaleOrderDeliveryChellanListWidget;
 export '/pages/inventory/grn_pages/grn_view/purchase_order_grn_list/purchase_order_grn_list_widget.dart'
     show PurchaseOrderGrnListWidget;
+export '/pages/lead/lead_pages/lead_list/unassilead_dashboardlist/unassilead_dashboardlist_widget.dart'
+    show UnassileadDashboardlistWidget;

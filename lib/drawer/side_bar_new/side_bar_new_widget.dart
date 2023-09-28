@@ -1,5 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/list_view_check_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -680,12 +679,13 @@ class _SideBarNewWidgetState extends State<SideBarNewWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().update(() {
-                                FFAppState().accessToken = '';
-                              });
-
                               context.goNamed('Login');
 
+                              FFAppState().update(() {
+                                FFAppState().accessToken = '';
+                                FFAppState().userrole = '';
+                                FFAppState().LoginID = 0;
+                              });
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -2378,69 +2378,6 @@ class _SideBarNewWidgetState extends State<SideBarNewWidget> {
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           '0n9nju2x' /* Work orders */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .inputtextColor,
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          if (FFAppState().RoleAccess.contains('Manufacturing'))
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 18.0, 12.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  Navigator.pop(context);
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: ListViewCheckWidget(
-                                          startdate:
-                                              functions.beforeOneMonthDate(
-                                                  FFAppState().initialMonth)!,
-                                          enddate: functions.getTodayDate()!,
-                                          state: 'sale',
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Icon(
-                                      Icons.work_outline,
-                                      color: FlutterFlowTheme.of(context)
-                                          .inputtextColor,
-                                      size: 20.0,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '4210glnd' /* List View */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium

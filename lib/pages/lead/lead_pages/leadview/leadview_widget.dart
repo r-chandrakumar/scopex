@@ -5,7 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/lead/lead_pages/lead_view/leadview_shimmer/leadview_shimmer_widget.dart';
 import '/pages/noactivity/noactivity_widget.dart';
-import '/pages/schedule_my_activity_copy/schedule_my_activity_copy_widget.dart';
+import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/reusable_component/common_fab_component/common_fab_component_widget.dart';
 import '/reusable_component/common_log_note/common_log_note_widget.dart';
 import '/reusable_component/f_a_b_empty_component_shimmer/f_a_b_empty_component_shimmer_widget.dart';
@@ -1473,19 +1473,15 @@ class _LeadviewWidgetState extends State<LeadviewWidget> {
                                                                         .viewInsetsOf(
                                                                             context),
                                                                     child:
-                                                                        Container(
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              0.7,
-                                                                      child:
-                                                                          ScheduleMyActivityCopyWidget(
-                                                                        leadid:
-                                                                            widget.leadid,
-                                                                        leadname:
-                                                                            widget.leadname,
-                                                                        date:
-                                                                            getCurrentTimestamp,
-                                                                      ),
+                                                                        ScheduleMyActivityWidget(
+                                                                      date:
+                                                                          getCurrentTimestamp,
+                                                                      id: widget
+                                                                          .leadid,
+                                                                      model:
+                                                                          'crm.lead',
+                                                                      name: widget
+                                                                          .leadname,
                                                                     ),
                                                                   ),
                                                                 );

@@ -46,16 +46,14 @@ class ProductDetailsNewModel extends FlutterFlowModel {
       ? pageViewController!.page!.round()
       : 0;
   // Stores action output result for [Backend Call - API (Add To Bookmark)] action in Icon widget.
-  ApiCallResponse? addBookmarkResule;
+  ApiCallResponse? addBookmarkResule1;
   Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (Remove BookMark)] action in Icon widget.
   ApiCallResponse? removeBookmarkResule;
-  // Stores action output result for [Backend Call - API (Add To Bookmark)] action in Icon widget.
-  ApiCallResponse? addBookmarkResule1;
-  // Stores action output result for [Backend Call - API (Remove BookMark)] action in Icon widget.
-  ApiCallResponse? removeBookmarkResule1;
   // Stores action output result for [Backend Call - API (Get Id By Variant Check)] action in Container widget.
   ApiCallResponse? variantIdResult;
+  // Stores action output result for [Backend Call - API (Product Details)] action in Container widget.
+  ApiCallResponse? productDetails;
 
   /// Initialization and disposal methods.
 

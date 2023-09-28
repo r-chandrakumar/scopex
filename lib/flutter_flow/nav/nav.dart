@@ -838,6 +838,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PurchaseOrderGrnListWidget(
             name: params.getParam('name', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'UnassileadDashboardlist',
+          path: '/unassileadDashboardlist',
+          builder: (context, params) => UnassileadDashboardlistWidget(
+            leadType: params.getParam('leadType', ParamType.String),
+            duration: params.getParam('duration', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

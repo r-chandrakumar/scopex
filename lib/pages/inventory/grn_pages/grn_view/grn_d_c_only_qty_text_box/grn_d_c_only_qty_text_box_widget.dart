@@ -89,7 +89,7 @@ class _GrnDCOnlyQtyTextBoxWidgetState extends State<GrnDCOnlyQtyTextBoxWidget> {
                           ),
                         ),
                         duration: Duration(milliseconds: 4000),
-                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                        backgroundColor: FlutterFlowTheme.of(context).error,
                       ),
                     );
                     if (_shouldSetState) setState(() {});
@@ -119,8 +119,7 @@ class _GrnDCOnlyQtyTextBoxWidgetState extends State<GrnDCOnlyQtyTextBoxWidget> {
                             ),
                           ),
                           duration: Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                          backgroundColor: FlutterFlowTheme.of(context).error,
                         ),
                       );
                       if (_shouldSetState) setState(() {});
@@ -150,8 +149,7 @@ class _GrnDCOnlyQtyTextBoxWidgetState extends State<GrnDCOnlyQtyTextBoxWidget> {
                             ),
                           ),
                           duration: Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                          backgroundColor: FlutterFlowTheme.of(context).error,
                         ),
                       );
                       if (_shouldSetState) setState(() {});

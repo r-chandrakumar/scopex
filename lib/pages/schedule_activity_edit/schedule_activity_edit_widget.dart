@@ -555,15 +555,6 @@ class _ScheduleActivityEditWidgetState
                                                     .validate()) {
                                               return;
                                             }
-                                            _model.modelid =
-                                                await HymechApiGroupGroup
-                                                    .getModelIdCall
-                                                    .call(
-                                              authToken:
-                                                  FFAppState().accessToken,
-                                              domainUrl: FFAppState().DomainUrl,
-                                            );
-                                            _shouldSetState = true;
                                             _model.activitycreate =
                                                 await HymechApiGroupGroup
                                                     .activityupdateCall
@@ -595,7 +586,7 @@ class _ScheduleActivityEditWidgetState
                                                     ?.succeeded ??
                                                 true)) {
                                               Navigator.pop(context);
-                                              if (widget.type == 'lead') {
+                                              if (widget.type == 'crm.lead') {
                                                 if (Navigator.of(context)
                                                     .canPop()) {
                                                   context.pop();
@@ -632,6 +623,27 @@ class _ScheduleActivityEditWidgetState
                                                 if (_shouldSetState)
                                                   setState(() {});
                                                 return;
+                                              } else if (widget.type ==
+                                                  'sale.order') {
+                                                context.pushNamed(
+                                                  'quotation_view_page',
+                                                  queryParameters: {
+                                                    'id': serializeParam(
+                                                      0,
+                                                      ParamType.int,
+                                                    ),
+                                                    'name': serializeParam(
+                                                      '',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              } else if (widget.type ==
+                                                  'purchase.order') {
+                                              } else if (widget.type ==
+                                                  'account.move') {
+                                              } else if (widget.type ==
+                                                  'account.move.bill') {
                                               } else {
                                                 if (Navigator.of(context)
                                                     .canPop()) {

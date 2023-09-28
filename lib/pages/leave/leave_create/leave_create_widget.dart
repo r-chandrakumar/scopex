@@ -1715,7 +1715,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
                               child: Text(
-                                _model.optionValuesValue != '6'
+                                _model.leavetype == 'leave'
                                     ? 'Number of Days'
                                     : 'Number of Hours',
                                 style: FlutterFlowTheme.of(context)

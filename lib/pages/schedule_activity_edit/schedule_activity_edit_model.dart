@@ -22,8 +22,6 @@ class ScheduleActivityEditModel extends FlutterFlowModel {
   // State field(s) for summary widget.
   TextEditingController? summaryController;
   String? Function(BuildContext, String?)? summaryControllerValidator;
-  // Stores action output result for [Backend Call - API (Get Model Id)] action in Button widget.
-  ApiCallResponse? modelid;
   // Stores action output result for [Backend Call - API (Activityupdate)] action in Button widget.
   ApiCallResponse? activitycreate;
 

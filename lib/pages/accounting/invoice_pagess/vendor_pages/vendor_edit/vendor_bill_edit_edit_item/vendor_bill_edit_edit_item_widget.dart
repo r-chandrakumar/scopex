@@ -456,6 +456,7 @@ class _VendorBillEditEditItemWidgetState
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),
+                                    maxLines: 2,
                                     validator: _model
                                         .productdescriptionControllerValidator
                                         .asValidator(context),
@@ -611,6 +612,7 @@ class _VendorBillEditEditItemWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .caradTextColor,
                                         ),
+                                    keyboardType: TextInputType.number,
                                     validator: _model
                                         .quantityControllerValidator
                                         .asValidator(context),
@@ -643,6 +645,7 @@ class _VendorBillEditEditItemWidgetState
                                   ),
                                   TextFormField(
                                     controller: _model.unitController,
+                                    readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -707,73 +710,116 @@ class _VendorBillEditEditItemWidgetState
                           ].divide(SizedBox(width: 16.0)),
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 18.0, 0.0, 10.0),
-                              child: Container(
-                                width: 100.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Builder(
-                                  builder: (context) {
-                                    final taxlist = getJsonField(
-                                      FFAppState().taxJson,
-                                      r'''$.taxid''',
-                                    ).toList();
-                                    return Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: List.generate(taxlist.length,
-                                          (taxlistIndex) {
-                                        final taxlistItem =
-                                            taxlist[taxlistIndex];
-                                        return Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 5.0, 5.0, 5.0),
-                                          child: Container(
-                                            width: 100.0,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent3,
-                                            ),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                functions
-                                                    .findListValueWithIndex(
-                                                        getJsonField(
-                                                          FFAppState().taxJson,
-                                                          r'''$.taxnames''',
-                                                        ),
-                                                        taxlistIndex,
-                                                        'value')
-                                                    ?.toString(),
-                                                '-',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 18.0),
+                                child: Container(
+                                  width: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 10.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '7j5s8ggw' /* Tax */,
                                           ),
-                                        );
-                                      }),
-                                    );
-                                  },
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Roboto',
+                                                fontSize: 14.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Builder(
+                                        builder: (context) {
+                                          final taxlist = getJsonField(
+                                            FFAppState().taxJson,
+                                            r'''$.taxid''',
+                                          ).toList();
+                                          return Wrap(
+                                            spacing: 0.0,
+                                            runSpacing: 0.0,
+                                            alignment: WrapAlignment.start,
+                                            crossAxisAlignment:
+                                                WrapCrossAlignment.start,
+                                            direction: Axis.horizontal,
+                                            runAlignment: WrapAlignment.start,
+                                            verticalDirection:
+                                                VerticalDirection.down,
+                                            clipBehavior: Clip.none,
+                                            children: List.generate(
+                                                taxlist.length, (taxlistIndex) {
+                                              final taxlistItem =
+                                                  taxlist[taxlistIndex];
+                                              return Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 5.0, 5.0, 5.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent3,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 5.0,
+                                                                8.0, 5.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        functions
+                                                            .findListValueWithIndex(
+                                                                getJsonField(
+                                                                  FFAppState()
+                                                                      .taxJson,
+                                                                  r'''$.taxnames''',
+                                                                ),
+                                                                taxlistIndex,
+                                                                'value')
+                                                            ?.toString(),
+                                                        '-',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            }),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Padding(
                         padding:
@@ -863,7 +909,6 @@ class _VendorBillEditEditItemWidgetState
                                           });
                                         },
                                       ),
-                                      autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -920,6 +965,7 @@ class _VendorBillEditEditItemWidgetState
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
+                                      keyboardType: TextInputType.number,
                                       validator: _model
                                           .amountControllerValidator
                                           .asValidator(context),
@@ -956,7 +1002,7 @@ class _VendorBillEditEditItemWidgetState
                                         8.0, 0.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.subtotalController,
-                                      autofocus: true,
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)

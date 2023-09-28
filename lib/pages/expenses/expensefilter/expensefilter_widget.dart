@@ -122,7 +122,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '6vaux5a1' /* Draft */,
+                              '6vaux5a1' /* To Submit */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -186,7 +186,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'bcm7k1ah' /* Waiting */,
+                              'bcm7k1ah' /* Submitted */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -250,7 +250,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '0cyd5brm' /* Ready */,
+                              '0cyd5brm' /* Approved */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -314,7 +314,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'tunq7th1' /* Done */,
+                              'tunq7th1' /* Paid */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -378,7 +378,7 @@ class _ExpensefilterWidgetState extends State<ExpensefilterWidget> {
                           alignment: AlignmentDirectional(0.00, 0.00),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '2jer4vik' /* Cancelled */,
+                              '2jer4vik' /* Refused */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

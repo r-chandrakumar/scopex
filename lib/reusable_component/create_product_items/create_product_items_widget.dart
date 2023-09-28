@@ -269,7 +269,7 @@ class _CreateProductItemsWidgetState extends State<CreateProductItemsWidget> {
                                                     return AlertDialog(
                                                       title: Text('Delete'),
                                                       content: Text(
-                                                          'Do you want to remove this quotation Item?'),
+                                                          'Do you want to remove this product?'),
                                                       actions: [
                                                         TextButton(
                                                           onPressed: () =>

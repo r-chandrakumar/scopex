@@ -6,7 +6,7 @@ import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/schedule_my_activity_copy/schedule_my_activity_copy_widget.dart';
+import '/pages/schedule_my_activity/schedule_my_activity_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:aligned_dialog/aligned_dialog.dart';
@@ -193,12 +193,8 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                     .requestFocus(_model.unfocusNode),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.7,
-                                    child: ScheduleMyActivityCopyWidget(
-                                      date: _model.calendarSelectedDay!.start,
-                                    ),
+                                  child: ScheduleMyActivityWidget(
+                                    date: _model.calendarSelectedDay!.start,
                                   ),
                                 ),
                               );
@@ -231,7 +227,10 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                 HymechApiGroupGroup.acitivityDateListCall.call(
                               authToken: FFAppState().accessToken,
                               domainUrl: FFAppState().DomainUrl,
-                              eq: _model.activityDate,
+                              eq: _model.activityDate != null &&
+                                      _model.activityDate != ''
+                                  ? _model.activityDate
+                                  : functions.getTodayDate(),
                             )))
                       .future,
                   builder: (context, snapshot) {
@@ -260,7 +259,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                     )
                                     ?.toList() ??
                                 [];
-                        return ListView.builder(
+                        return ListView.separated(
                           padding: EdgeInsets.fromLTRB(
                             0,
                             0,
@@ -271,32 +270,37 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           itemCount: myActivityList.length,
+                          separatorBuilder: (_, __) => SizedBox(height: 20.0),
                           itemBuilder: (context, myActivityListIndex) {
                             final myActivityListItem =
                                 myActivityList[myActivityListIndex];
-                            return Container(
-                              width: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 3.0, 15.0, 0.0),
-                                    child: Column(
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 15.0, 0.0),
+                              child: Container(
+                                width: 100.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0x2D585858),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
+                                                  15.0, 15.0, 15.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -340,7 +344,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -381,7 +385,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -422,7 +426,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -464,7 +468,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -506,7 +510,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -548,7 +552,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -590,7 +594,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -625,7 +629,7 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 35.0,
+                                                            size: 20.0,
                                                           ),
                                                         ),
                                                       );
@@ -640,121 +644,166 @@ class _MyActivityCalendarWidgetState extends State<MyActivityCalendarWidget> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          functions.isNull(
-                                                              getJsonField(
-                                                            myActivityListItem,
-                                                            r'''$.summary''',
-                                                          ).toString()),
-                                                          '-',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .caradTextColor,
-                                                                ),
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        functions.isNull(
+                                                            getJsonField(
+                                                          myActivityListItem,
+                                                          r'''$.res_user.res_partner.name''',
+                                                        ).toString()),
+                                                        '-',
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                     ),
-                                                  ],
+                                                  ].divide(
+                                                      SizedBox(height: 5.0)),
                                                 ),
                                               ),
                                               Builder(
-                                                builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 15.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showAlignedDialog(
-                                                        context: context,
-                                                        isGlobal: false,
-                                                        avoidOverflow: true,
-                                                        targetAnchor:
-                                                            AlignmentDirectional(
-                                                                    1.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        followerAnchor:
-                                                            AlignmentDirectional(
-                                                                    1.0, -1.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Material(
-                                                            color: Colors
-                                                                .transparent,
+                                                builder: (context) => InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await showAlignedDialog(
+                                                      context: context,
+                                                      isGlobal: false,
+                                                      avoidOverflow: true,
+                                                      targetAnchor:
+                                                          AlignmentDirectional(
+                                                                  1.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      followerAnchor:
+                                                          AlignmentDirectional(
+                                                                  1.0, -1.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      builder: (dialogContext) {
+                                                        return Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => FocusScope
+                                                                    .of(context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode),
                                                             child:
-                                                                GestureDetector(
-                                                              onTap: () => FocusScope
-                                                                      .of(
-                                                                          context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode),
-                                                              child:
-                                                                  MyActivityActionWidget(
-                                                                id: getJsonField(
-                                                                  myActivityListItem,
-                                                                  r'''$.id''',
-                                                                ),
-                                                                type:
-                                                                    'activity',
+                                                                MyActivityActionWidget(
+                                                              id: getJsonField(
+                                                                myActivityListItem,
+                                                                r'''$.id''',
                                                               ),
+                                                              model: '',
                                                             ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          setState(() {}));
-                                                    },
-                                                    child: Icon(
-                                                      Icons.more_vert,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 24.0,
-                                                    ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        setState(() {}));
+                                                  },
+                                                  child: Icon(
+                                                    Icons.more_vert,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
-                                        Divider(
-                                          thickness: 1.0,
-                                          color: FlutterFlowTheme.of(context)
-                                              .accent4,
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  18.0, 5.0, 0.0, 5.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              functions.isNull(getJsonField(
+                                                myActivityListItem,
+                                                r'''$.summary''',
+                                              ).toString()),
+                                              '-',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .caradTextColor,
+                                                  fontSize: 14.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xA557636C),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(0.0),
+                                                  bottomRight:
+                                                      Radius.circular(8.0),
+                                                  topLeft: Radius.circular(8.0),
+                                                  topRight:
+                                                      Radius.circular(0.0),
+                                                ),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 5.0, 5.0, 5.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    functions
+                                                        .isNull(getJsonField(
+                                                      myActivityListItem,
+                                                      r'''$.ir_model.name''',
+                                                    ).toString()),
+                                                    '-',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 12.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             );
                           },

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
+import '/components/common_activity_list_widget.dart';
 import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -27,6 +28,8 @@ class SaleOrderViewPageModel extends FlutterFlowModel {
   late BackButttonComponentModel backButttonComponentModel;
   // Model for commonViewPage component.
   late CommonViewPageModel commonViewPageModel;
+  // Model for CommonActivityList component.
+  late CommonActivityListModel commonActivityListModel;
   // Model for CommonLogNote component.
   late CommonLogNoteModel commonLogNoteModel;
 
@@ -36,6 +39,8 @@ class SaleOrderViewPageModel extends FlutterFlowModel {
     backButttonComponentModel =
         createModel(context, () => BackButttonComponentModel());
     commonViewPageModel = createModel(context, () => CommonViewPageModel());
+    commonActivityListModel =
+        createModel(context, () => CommonActivityListModel());
     commonLogNoteModel = createModel(context, () => CommonLogNoteModel());
   }
 
@@ -43,6 +48,7 @@ class SaleOrderViewPageModel extends FlutterFlowModel {
     unfocusNode.dispose();
     backButttonComponentModel.dispose();
     commonViewPageModel.dispose();
+    commonActivityListModel.dispose();
     commonLogNoteModel.dispose();
   }
 

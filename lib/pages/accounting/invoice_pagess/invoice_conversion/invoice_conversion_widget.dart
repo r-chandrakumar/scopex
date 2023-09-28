@@ -81,7 +81,7 @@ class _InvoiceConversionWidgetState extends State<InvoiceConversionWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 10.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'qw3ogra1' /* Enter the invoice amount  */,
+                      'qw3ogra1' /* Enter the bill amount  */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',

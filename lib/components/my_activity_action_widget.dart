@@ -12,11 +12,11 @@ class MyActivityActionWidget extends StatefulWidget {
   const MyActivityActionWidget({
     Key? key,
     required this.id,
-    required this.type,
+    this.model,
   }) : super(key: key);
 
   final int? id;
-  final String? type;
+  final String? model;
 
   @override
   _MyActivityActionWidgetState createState() => _MyActivityActionWidgetState();
@@ -100,7 +100,7 @@ class _MyActivityActionWidgetState extends State<MyActivityActionWidget> {
                                 height: MediaQuery.sizeOf(context).height * 0.7,
                                 child: ScheduleActivityEditWidget(
                                   activityId: widget.id!,
-                                  type: widget.type!,
+                                  type: widget.model!,
                                 ),
                               ),
                             );
@@ -182,20 +182,8 @@ class _MyActivityActionWidgetState extends State<MyActivityActionWidget> {
                         );
                         if ((_model.markdoneRes?.succeeded ?? true)) {
                           Navigator.pop(context);
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Mark Done as Successfully',
-                                style: TextStyle(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                ),
-                              ),
-                              duration: Duration(milliseconds: 4000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).secondary,
-                            ),
-                          );
+
+                          context.pushNamed('MyActivityCalendar');
                         } else {
                           Navigator.pop(context);
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -303,6 +291,8 @@ class _MyActivityActionWidgetState extends State<MyActivityActionWidget> {
                           activityId: widget.id,
                         );
                         if ((_model.deleteActivity?.succeeded ?? true)) {
+                          context.pushNamed('MyActivityCalendar');
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(

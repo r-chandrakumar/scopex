@@ -8,13 +8,16 @@ import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.da
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ScheduleMyActivityCopyModel extends FlutterFlowModel {
+class ScheduleMyActivityModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   String? search = '';
+
+  String model = '';
 
   ///  State fields for stateful widgets in this component.
 
@@ -25,19 +28,32 @@ class ScheduleMyActivityCopyModel extends FlutterFlowModel {
   // State field(s) for lead widget.
   String? leadValue;
   FormFieldController<String>? leadValueController;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for Sale widget.
+  String? saleValue;
+  FormFieldController<String>? saleValueController;
+  // State field(s) for Purchase widget.
+  String? purchaseValue;
+  FormFieldController<String>? purchaseValueController;
+  // State field(s) for Invoice widget.
+  String? invoiceValue;
+  FormFieldController<String>? invoiceValueController;
+  // State field(s) for VendorBill widget.
+  String? vendorBillValue;
+  FormFieldController<String>? vendorBillValueController;
   // State field(s) for activitytype widget.
-  String? activitytypeValue1;
-  FormFieldController<String>? activitytypeValueController1;
-  // State field(s) for activitytype widget.
-  String? activitytypeValue2;
-  FormFieldController<String>? activitytypeValueController2;
+  String? activitytypeValue;
+  FormFieldController<String>? activitytypeValueController;
+  // State field(s) for User widget.
+  String? userValue;
+  FormFieldController<String>? userValueController;
   DateTime? datePicked;
   // State field(s) for summary widget.
   TextEditingController? summaryController;
   String? Function(BuildContext, String?)? summaryControllerValidator;
+  // Stores action output result for [Backend Call - API (Get Model Id)] action in Button widget.
+  ApiCallResponse? modelResponse;
+  // Stores action output result for [Backend Call - API (My Activity Create)] action in Button widget.
+  ApiCallResponse? activityCreateResponse;
 
   /// Initialization and disposal methods.
 

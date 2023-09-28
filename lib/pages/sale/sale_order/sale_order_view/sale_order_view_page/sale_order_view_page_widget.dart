@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
+import '/components/common_activity_list_widget.dart';
 import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -422,7 +423,26 @@ class _SaleOrderViewPageWidgetState extends State<SaleOrderViewPageWidget> {
                                       15.0, 0.0, 15.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    children: [],
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: wrapWithModel(
+                                          model: _model.commonActivityListModel,
+                                          updateCallback: () => setState(() {}),
+                                          child: CommonActivityListWidget(
+                                            type: 'hide',
+                                            model: 'sale.order',
+                                            myactivity: SalesApiGroupGroup
+                                                .saleOrderViewCall
+                                                .myActivity(
+                                              columnSaleOrderViewResponse
+                                                  .jsonBody,
+                                            )!,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 );
                               } else {
