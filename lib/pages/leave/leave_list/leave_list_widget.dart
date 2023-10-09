@@ -447,10 +447,11 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).hashColor,
                           borderRadius: BorderRadius.circular(50.0),
                           border: Border.all(
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            width: 1.0,
+                            color: Colors.transparent,
+                            width: 0.0,
                           ),
                         ),
                         child: Row(
@@ -775,7 +776,7 @@ class _LeaveListWidgetState extends State<LeaveListWidget>
                                                                               fontFamily: 'Roboto',
                                                                               color: FlutterFlowTheme.of(context).white,
                                                                               fontSize: 12.0,
-                                                                              fontWeight: FontWeight.w600,
+                                                                              fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
                                                                     ),

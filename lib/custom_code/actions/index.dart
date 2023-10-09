@@ -8,3 +8,4 @@ export 'upload_file_tobase64.dart' show uploadFileTobase64;
 export 'request_storage_permission.dart' show requestStoragePermission;
 export 'notification_subscription.dart' show notificationSubscription;
 export 'in_app_update_request.dart' show inAppUpdateRequest;
+export 'share.dart' show share;

@@ -136,7 +136,7 @@ export '/pages/accounting/invoice_pagess/vendor_pages/vendor_create/accoun_vendo
 export '/pages/settings/setting/setting_widget.dart' show SettingWidget;
 export '/pages/auth/payment_pages/account_payment_create/account_payment_create_widget.dart'
     show AccountPaymentCreateWidget;
-export '/pages/product_cataloge/categories_with_product/categories_with_product_widget.dart'
+export '/pages/categories_with_product/categories_with_product_widget.dart'
     show CategoriesWithProductWidget;
 export '/pages/task/dashboard_tasklist/dashboard_tasklist_widget.dart'
     show DashboardTasklistWidget;

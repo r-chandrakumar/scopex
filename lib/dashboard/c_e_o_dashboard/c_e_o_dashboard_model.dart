@@ -24,16 +24,18 @@ class CEODashboardModel extends FlutterFlowModel<CEODashboardWidget> {
 
   int? month = 1;
 
+  String? olddate = '';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (AcitivitySwipeDateList)] action in CEO_Dashboard widget.
   ApiCallResponse? apiSwipe;
+  DateTime? datePicked;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for DropDown widget.
   int? dropDownValue;
   FormFieldController<int>? dropDownValueController;
-  Completer<ApiCallResponse>? apiRequestCompleter;
-  DateTime? datePicked;
   // Model for menuComponent component.
   late MenuComponentModel menuComponentModel;
   // Model for notification_icon component.

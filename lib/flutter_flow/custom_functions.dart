@@ -3689,3 +3689,22 @@ String? imageLogo(
   print(imageurl);
   return imageurl;
 }
+
+List<double> convertJsonListtoDoubleList(List<dynamic>? jsonlist) {
+  if (jsonlist == null) {
+    return [];
+  }
+  List<double> doubleList = [];
+  for (dynamic item in jsonlist) {
+    if (item is double) {
+      doubleList.add(item);
+    } else if (item is int) {
+      doubleList.add(item.toDouble());
+    } else if (item == null || item == "null") {
+      doubleList.add(0.0);
+    } else if (item is String) {
+      doubleList.add(double.tryParse(item) ?? 0.0);
+    }
+  }
+  return doubleList;
+}

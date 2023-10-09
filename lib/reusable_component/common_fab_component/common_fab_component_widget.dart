@@ -5352,8 +5352,8 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          width: 55.0,
-                          height: 55.0,
+                          width: 60.0,
+                          height: 60.0,
                           decoration: BoxDecoration(
                             color: Color(0xFF4B39EF),
                             borderRadius: BorderRadius.circular(50.0),
@@ -5960,117 +5960,42 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
             ),
           );
         } else if (widget.page == 'lead') {
-          return Align(
-            alignment: AlignmentDirectional(1.00, 1.00),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 16.0, 16.0),
-              child: FutureBuilder<ApiCallResponse>(
-                future: HymechApiGroupGroup.crmViewCall.call(
-                  authToken: FFAppState().accessToken,
-                  domainUrl: FFAppState().DomainUrl,
-                  leadId: widget.id,
-                  startDate: valueOrDefault<String>(
-                    functions.calculateLastweekStartDate(),
-                    '-',
-                  ),
-                  endDate: valueOrDefault<String>(
-                    functions.getTodayDate(),
-                    '-',
-                  ),
+          return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 16.0, 16.0),
+            child: FutureBuilder<ApiCallResponse>(
+              future: HymechApiGroupGroup.crmViewCall.call(
+                authToken: FFAppState().accessToken,
+                domainUrl: FFAppState().DomainUrl,
+                leadId: widget.id,
+                startDate: valueOrDefault<String>(
+                  functions.calculateLastweekStartDate(),
+                  '-',
                 ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return FABEmptyComponentShimmerWidget();
-                  }
-                  final leadCrmViewResponse = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      if ((HymechApiGroupGroup.crmViewCall
-                                  .resuserName(
-                                    leadCrmViewResponse.jsonBody,
-                                  )
-                                  .toString() ==
-                              'null') &&
-                          functions.checkArrayValue(
-                              FFAppState().RoleFullList.toList(),
-                              'Sales / Administrator')!)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                                setState(() {
-                                  FFAppState().ResUserSearch = null;
-                                });
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  useSafeArea: true,
-                                  context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: LeadAssignUserWidget(
-                                        leadid: widget.id!,
-                                        leadname: widget.name!,
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 10.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ystclcze' /* Assign User */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 55.0,
-                                    height: 55.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(50.0),
-                                    ),
-                                    child: Icon(
-                                      Icons.person,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
+                endDate: valueOrDefault<String>(
+                  functions.getTodayDate(),
+                  '-',
+                ),
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return FABEmptyComponentShimmerWidget();
+                }
+                final leadCrmViewResponse = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if ((HymechApiGroupGroup.crmViewCall
+                                .resuserName(
+                                  leadCrmViewResponse.jsonBody,
+                                )
+                                .toString() ==
+                            'null') &&
+                        functions.checkArrayValue(
+                            FFAppState().RoleFullList.toList(),
+                            'Sales / Administrator')!)
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -6083,317 +6008,25 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               Navigator.pop(context);
-                              if (isiOS) {
-                                await launchUrl(Uri.parse(
-                                    "sms:${HymechApiGroupGroup.crmViewCall.mobile(
-                                          leadCrmViewResponse.jsonBody,
-                                        ).toString()}&body=${Uri.encodeComponent('')}"));
-                              } else {
-                                await launchUrl(Uri(
-                                  scheme: 'sms',
-                                  path: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        leadCrmViewResponse.jsonBody,
-                                      )
-                                      .toString(),
-                                ));
-                              }
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'j7879pf8' /* Send SMS */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.message,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              await launchUrl(Uri(
-                                scheme: 'mailto',
-                                path: HymechApiGroupGroup.crmViewCall
-                                    .email(
-                                      leadCrmViewResponse.jsonBody,
-                                    )
-                                    .toString(),
-                              ));
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'qircfyyp' /* Send Mail */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.mail_outline_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              if (HymechApiGroupGroup.crmViewCall
-                                          .mobile(
-                                            leadCrmViewResponse.jsonBody,
-                                          )
-                                          .toString() !=
-                                      null &&
-                                  HymechApiGroupGroup.crmViewCall
-                                          .mobile(
-                                            leadCrmViewResponse.jsonBody,
-                                          )
-                                          .toString() !=
-                                      '') {
-                                await launchUrl(Uri(
-                                  scheme: 'tel',
-                                  path: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        leadCrmViewResponse.jsonBody,
-                                      )
-                                      .toString(),
-                                ));
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'No Mobile Number Available',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
-                              }
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'p6jit7as' /* Call Phone */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.call,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              var confirmDialogResponse =
-                                  await showDialog<bool>(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('Opportunity'),
-                                            content: Text(
-                                                'Do you want to convert to opportunity?'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext, false),
-                                                child: Text('Cancel'),
-                                              ),
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext, true),
-                                                child: Text('Confirm'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      ) ??
-                                      false;
-                              if (confirmDialogResponse) {
-                                _model.convertLeadCopy =
-                                    await HymechApiGroupGroup
-                                        .convertOpportunityCall
-                                        .call(
-                                  authToken: FFAppState().accessToken,
-                                  leadId: widget.id,
-                                  domainUrl: FFAppState().DomainUrl,
-                                );
-                                _shouldSetState = true;
-                                if ((_model.convertLeadCopy?.succeeded ??
-                                    true)) {
-                                  if (Navigator.of(context).canPop()) {
-                                    context.pop();
-                                  }
-                                  context.pushNamed(
-                                    'LeadOpportunityList',
-                                    queryParameters: {
-                                      'stageId': serializeParam(
-                                        1,
-                                        ParamType.int,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Opportunity Converted Successfully',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                        ),
-                                      ),
-                                      duration: Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
+                              setState(() {
+                                FFAppState().ResUserSearch = null;
+                              });
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                useSafeArea: true,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: LeadAssignUserWidget(
+                                      leadid: widget.id!,
+                                      leadname: widget.name!,
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Failed to convert',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context).error,
-                                    ),
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                              } else {
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              if (_shouldSetState) setState(() {});
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -6404,7 +6037,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      't18v3k53' /* Convert To Opportunity */,
+                                      'ystclcze' /* Assign User */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -6425,7 +6058,7 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     borderRadius: BorderRadius.circular(50.0),
                                   ),
                                   child: Icon(
-                                    Icons.telegram,
+                                    Icons.person,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     size: 25.0,
@@ -6436,88 +6069,11 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-
-                              context.pushNamed(
-                                'Leadedit',
-                                queryParameters: {
-                                  'leadid': serializeParam(
-                                    widget.id,
-                                    ParamType.int,
-                                  ),
-                                  'leadname': serializeParam(
-                                    HymechApiGroupGroup.crmViewCall
-                                        .leadname(
-                                          leadCrmViewResponse.jsonBody,
-                                        )
-                                        .toString(),
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'kh8pspvr' /* Edit */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.edit,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 55.0,
-                        height: 55.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).menuBarButton,
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -6525,353 +6081,280 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.close,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 25.0,
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            ),
-          );
-        } else if (widget.page == 'opportunity') {
-          return Align(
-            alignment: AlignmentDirectional(1.00, 1.00),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 16.0, 16.0),
-              child: FutureBuilder<ApiCallResponse>(
-                future: HymechApiGroupGroup.crmViewCall.call(
-                  authToken: FFAppState().accessToken,
-                  domainUrl: FFAppState().DomainUrl,
-                  leadId: widget.id,
-                  startDate: valueOrDefault<String>(
-                    functions.calculateLastweekStartDate(),
-                    '-',
-                  ),
-                  endDate: valueOrDefault<String>(
-                    functions.getTodayDate(),
-                    '-',
-                  ),
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return FABEmptyComponentShimmerWidget();
-                  }
-                  final opportunityCrmViewResponse = snapshot.data!;
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              if (isiOS) {
-                                await launchUrl(Uri.parse(
-                                    "sms:${HymechApiGroupGroup.crmViewCall.mobile(
-                                          opportunityCrmViewResponse.jsonBody,
-                                        ).toString()}&body=${Uri.encodeComponent('')}"));
-                              } else {
-                                await launchUrl(Uri(
-                                  scheme: 'sms',
-                                  path: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        opportunityCrmViewResponse.jsonBody,
-                                      )
-                                      .toString(),
-                                ));
-                              }
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '8t1igvqf' /* Send SMS */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.message,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
+                            if (isiOS) {
+                              await launchUrl(Uri.parse(
+                                  "sms:${HymechApiGroupGroup.crmViewCall.mobile(
+                                        leadCrmViewResponse.jsonBody,
+                                      ).toString()}&body=${Uri.encodeComponent('')}"));
+                            } else {
                               await launchUrl(Uri(
-                                scheme: 'mailto',
+                                scheme: 'sms',
                                 path: HymechApiGroupGroup.crmViewCall
-                                    .email(
-                                      opportunityCrmViewResponse.jsonBody,
+                                    .mobile(
+                                      leadCrmViewResponse.jsonBody,
                                     )
                                     .toString(),
                               ));
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'n73nc9is' /* Send Mail */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                            }
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'j7879pf8' /* Send SMS */,
                                   ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.mail_outline_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              if (HymechApiGroupGroup.crmViewCall
-                                          .mobile(
-                                            opportunityCrmViewResponse.jsonBody,
-                                          )
-                                          .toString() !=
-                                      null &&
-                                  HymechApiGroupGroup.crmViewCall
-                                          .mobile(
-                                            opportunityCrmViewResponse.jsonBody,
-                                          )
-                                          .toString() !=
-                                      '') {
-                                await launchUrl(Uri(
-                                  scheme: 'tel',
-                                  path: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        opportunityCrmViewResponse.jsonBody,
-                                      )
-                                      .toString(),
-                                ));
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'No Mobile Number Available',
-                                      style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                    ),
-                                    duration: Duration(milliseconds: 4000),
-                                    backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
-                                  ),
-                                );
-                              }
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'vjyllx4f' /* Call Phone */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
                                 ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.call,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
-                              ],
-                            ),
+                                child: Icon(
+                                  Icons.message,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              _model.leadtoOpportunity =
-                                  await HymechApiGroupGroup.crmViewCall.call(
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            await launchUrl(Uri(
+                              scheme: 'mailto',
+                              path: HymechApiGroupGroup.crmViewCall
+                                  .email(
+                                    leadCrmViewResponse.jsonBody,
+                                  )
+                                  .toString(),
+                            ));
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'qircfyyp' /* Send Mail */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.mail_outline_outlined,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            if (HymechApiGroupGroup.crmViewCall
+                                        .mobile(
+                                          leadCrmViewResponse.jsonBody,
+                                        )
+                                        .toString() !=
+                                    null &&
+                                HymechApiGroupGroup.crmViewCall
+                                        .mobile(
+                                          leadCrmViewResponse.jsonBody,
+                                        )
+                                        .toString() !=
+                                    '') {
+                              await launchUrl(Uri(
+                                scheme: 'tel',
+                                path: HymechApiGroupGroup.crmViewCall
+                                    .mobile(
+                                      leadCrmViewResponse.jsonBody,
+                                    )
+                                    .toString(),
+                              ));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'No Mobile Number Available',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'p6jit7as' /* Call Phone */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.call,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            var _shouldSetState = false;
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Opportunity'),
+                                      content: Text(
+                                          'Do you want to convert to opportunity?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                            if (confirmDialogResponse) {
+                              _model.convertLeadCopy = await HymechApiGroupGroup
+                                  .convertOpportunityCall
+                                  .call(
                                 authToken: FFAppState().accessToken,
                                 leadId: widget.id,
                                 domainUrl: FFAppState().DomainUrl,
-                                startDate: functions.beforeOneMonthDate(
-                                    FFAppState().initialMonth),
-                                endDate: functions.getTodayDate(),
                               );
-                              if ((_model.leadtoOpportunity?.succeeded ??
-                                  true)) {
-                                _model.apiResulthn8 = await ContactApiGroupGroup
-                                    .contactsCreateCall
-                                    .call(
-                                  authToken: FFAppState().accessToken,
-                                  domainUrl: FFAppState().DomainUrl,
-                                  vat: '',
-                                  name: HymechApiGroupGroup.crmViewCall
-                                      .contactName(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  mobile: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  phone: HymechApiGroupGroup.crmViewCall
-                                      .mobile(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  email: HymechApiGroupGroup.crmViewCall
-                                      .email(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  street: HymechApiGroupGroup.crmViewCall
-                                      .street(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  zip: HymechApiGroupGroup.crmViewCall
-                                      .zip(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
-                                  supplierRank: 0,
-                                  customerRank: 1,
-                                  companyName: HymechApiGroupGroup.crmViewCall
-                                      .contactName(
-                                        (_model.leadtoOpportunity?.jsonBody ??
-                                            ''),
-                                      )
-                                      .toString(),
+                              _shouldSetState = true;
+                              if ((_model.convertLeadCopy?.succeeded ?? true)) {
+                                if (Navigator.of(context).canPop()) {
+                                  context.pop();
+                                }
+                                context.pushNamed(
+                                  'LeadOpportunityList',
+                                  queryParameters: {
+                                    'stageId': serializeParam(
+                                      1,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
                                 );
+
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Converted Successfully',
+                                      'Opportunity Converted Successfully',
                                       style: TextStyle(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
                                       ),
                                     ),
                                     duration: Duration(milliseconds: 4000),
@@ -6879,6 +6362,8 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                         FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
+                                if (_shouldSetState) setState(() {});
+                                return;
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -6891,226 +6376,65 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                                     ),
                                     duration: Duration(milliseconds: 4000),
                                     backgroundColor:
-                                        FlutterFlowTheme.of(context).secondary,
+                                        FlutterFlowTheme.of(context).error,
                                   ),
                                 );
+                                if (_shouldSetState) setState(() {});
+                                return;
                               }
+                            } else {
+                              if (_shouldSetState) setState(() {});
+                              return;
+                            }
 
-                              setState(() {});
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'lfw94c3s' /* Convert To Contact */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                            if (_shouldSetState) setState(() {});
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    't18v3k53' /* Convert To Opportunity */,
                                   ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.contacts_outlined,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-                              _model.leadViewRes =
-                                  await HymechApiGroupGroup.crmViewCall.call(
-                                authToken: FFAppState().accessToken,
-                                domainUrl: FFAppState().DomainUrl,
-                                leadId: widget.id,
-                                startDate: valueOrDefault<String>(
-                                  functions.calculateLastweekStartDate(),
-                                  '-',
-                                ),
-                                endDate: valueOrDefault<String>(
-                                  functions.getTodayDate(),
-                                  '- ',
-                                ),
-                              );
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                useSafeArea: true,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: ChangeleadWidget(
-                                      leadid: widget.id!,
-                                      stage: HymechApiGroupGroup.crmViewCall
-                                          .stageid(
-                                        opportunityCrmViewResponse.jsonBody,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      leadname: widget.name!,
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-
-                              setState(() {});
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '1e5ax5fo' /* Change Stage */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
                                 ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Icon(
-                                    Icons.telegram,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    size: 25.0,
-                                  ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
-                              ],
-                            ),
+                                child: Icon(
+                                  Icons.telegram,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              Navigator.pop(context);
-
-                              context.pushNamed(
-                                'Leadedit',
-                                queryParameters: {
-                                  'leadid': serializeParam(
-                                    widget.id,
-                                    ParamType.int,
-                                  ),
-                                  'leadname': serializeParam(
-                                    HymechApiGroupGroup.crmViewCall
-                                        .leadname(
-                                          opportunityCrmViewResponse.jsonBody,
-                                        )
-                                        .toString(),
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'zqie40q9' /* Edit */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 55.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(50.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.edit,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      size: 25.0,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 55.0,
-                        height: 55.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).menuBarButton,
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -7118,19 +6442,682 @@ class _CommonFabComponentWidgetState extends State<CommonFabComponentWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             Navigator.pop(context);
+
+                            context.pushNamed(
+                              'Leadedit',
+                              queryParameters: {
+                                'leadid': serializeParam(
+                                  widget.id,
+                                  ParamType.int,
+                                ),
+                                'leadname': serializeParam(
+                                  HymechApiGroupGroup.crmViewCall
+                                      .leadname(
+                                        leadCrmViewResponse.jsonBody,
+                                      )
+                                      .toString(),
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
                           },
-                          child: Icon(
-                            Icons.close,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 25.0,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'kh8pspvr' /* Edit */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  );
-                },
+                    ),
+                    Container(
+                      width: 60.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).menuBarButton,
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.close,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 25.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          );
+        } else if (widget.page == 'opportunity') {
+          return Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 16.0, 16.0),
+            child: FutureBuilder<ApiCallResponse>(
+              future: HymechApiGroupGroup.crmViewCall.call(
+                authToken: FFAppState().accessToken,
+                domainUrl: FFAppState().DomainUrl,
+                leadId: widget.id,
+                startDate: valueOrDefault<String>(
+                  functions.calculateLastweekStartDate(),
+                  '-',
+                ),
+                endDate: valueOrDefault<String>(
+                  functions.getTodayDate(),
+                  '-',
+                ),
               ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return FABEmptyComponentShimmerWidget();
+                }
+                final opportunityCrmViewResponse = snapshot.data!;
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            if (isiOS) {
+                              await launchUrl(Uri.parse(
+                                  "sms:${HymechApiGroupGroup.crmViewCall.mobile(
+                                        opportunityCrmViewResponse.jsonBody,
+                                      ).toString()}&body=${Uri.encodeComponent('')}"));
+                            } else {
+                              await launchUrl(Uri(
+                                scheme: 'sms',
+                                path: HymechApiGroupGroup.crmViewCall
+                                    .mobile(
+                                      opportunityCrmViewResponse.jsonBody,
+                                    )
+                                    .toString(),
+                              ));
+                            }
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '8t1igvqf' /* Send SMS */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.message,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            await launchUrl(Uri(
+                              scheme: 'mailto',
+                              path: HymechApiGroupGroup.crmViewCall
+                                  .email(
+                                    opportunityCrmViewResponse.jsonBody,
+                                  )
+                                  .toString(),
+                            ));
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'n73nc9is' /* Send Mail */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.mail_outline_outlined,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            if (HymechApiGroupGroup.crmViewCall
+                                        .mobile(
+                                          opportunityCrmViewResponse.jsonBody,
+                                        )
+                                        .toString() !=
+                                    null &&
+                                HymechApiGroupGroup.crmViewCall
+                                        .mobile(
+                                          opportunityCrmViewResponse.jsonBody,
+                                        )
+                                        .toString() !=
+                                    '') {
+                              await launchUrl(Uri(
+                                scheme: 'tel',
+                                path: HymechApiGroupGroup.crmViewCall
+                                    .mobile(
+                                      opportunityCrmViewResponse.jsonBody,
+                                    )
+                                    .toString(),
+                              ));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'No Mobile Number Available',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'vjyllx4f' /* Call Phone */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.call,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            _model.leadtoOpportunity =
+                                await HymechApiGroupGroup.crmViewCall.call(
+                              authToken: FFAppState().accessToken,
+                              leadId: widget.id,
+                              domainUrl: FFAppState().DomainUrl,
+                              startDate: functions.beforeOneMonthDate(
+                                  FFAppState().initialMonth),
+                              endDate: functions.getTodayDate(),
+                            );
+                            if ((_model.leadtoOpportunity?.succeeded ?? true)) {
+                              _model.apiResulthn8 = await ContactApiGroupGroup
+                                  .contactsCreateCall
+                                  .call(
+                                authToken: FFAppState().accessToken,
+                                domainUrl: FFAppState().DomainUrl,
+                                vat: '',
+                                name: HymechApiGroupGroup.crmViewCall
+                                    .contactName(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                mobile: HymechApiGroupGroup.crmViewCall
+                                    .mobile(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                phone: HymechApiGroupGroup.crmViewCall
+                                    .mobile(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                email: HymechApiGroupGroup.crmViewCall
+                                    .email(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                street: HymechApiGroupGroup.crmViewCall
+                                    .street(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                zip: HymechApiGroupGroup.crmViewCall
+                                    .zip(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                                supplierRank: 0,
+                                customerRank: 1,
+                                companyName: HymechApiGroupGroup.crmViewCall
+                                    .contactName(
+                                      (_model.leadtoOpportunity?.jsonBody ??
+                                          ''),
+                                    )
+                                    .toString(),
+                              );
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Converted Successfully',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Failed to convert',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            }
+
+                            setState(() {});
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'lfw94c3s' /* Convert To Contact */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.contacts_outlined,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+                            _model.leadViewRes =
+                                await HymechApiGroupGroup.crmViewCall.call(
+                              authToken: FFAppState().accessToken,
+                              domainUrl: FFAppState().DomainUrl,
+                              leadId: widget.id,
+                              startDate: valueOrDefault<String>(
+                                functions.calculateLastweekStartDate(),
+                                '-',
+                              ),
+                              endDate: valueOrDefault<String>(
+                                functions.getTodayDate(),
+                                '- ',
+                              ),
+                            );
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              useSafeArea: true,
+                              context: context,
+                              builder: (context) {
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: ChangeleadWidget(
+                                    leadid: widget.id!,
+                                    stage:
+                                        HymechApiGroupGroup.crmViewCall.stageid(
+                                      opportunityCrmViewResponse.jsonBody,
+                                    ),
+                                    leadname: widget.name!,
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+
+                            setState(() {});
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '1e5ax5fo' /* Change Stage */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Icon(
+                                  Icons.telegram,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 25.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            Navigator.pop(context);
+
+                            context.pushNamed(
+                              'Leadedit',
+                              queryParameters: {
+                                'leadid': serializeParam(
+                                  widget.id,
+                                  ParamType.int,
+                                ),
+                                'leadname': serializeParam(
+                                  HymechApiGroupGroup.crmViewCall
+                                      .leadname(
+                                        opportunityCrmViewResponse.jsonBody,
+                                      )
+                                      .toString(),
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'zqie40q9' /* Edit */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                              Container(
+                                width: 55.0,
+                                height: 55.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.edit,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 25.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 55.0,
+                      height: 55.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).menuBarButton,
+                        borderRadius: BorderRadius.circular(50.0),
+                      ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.close,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 25.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           );
         } else {

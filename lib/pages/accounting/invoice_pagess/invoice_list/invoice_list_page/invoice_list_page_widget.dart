@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/image_simmer_widget.dart';
+import '/components/image_loading_shimmer_widget.dart';
 import '/components/menu_component_widget.dart';
 import '/components/search_icon_widget.dart';
 import '/drawer/side_bar_new/side_bar_new_widget.dart';
@@ -133,7 +133,7 @@ class _InvoiceListPageWidgetState extends State<InvoiceListPageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 13.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 13.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -296,9 +296,13 @@ class _InvoiceListPageWidgetState extends State<InvoiceListPageWidget> {
             separatorBuilder: (_, __) => SizedBox(height: 10.0),
             builderDelegate: PagedChildBuilderDelegate<dynamic>(
               // Customize what your widget looks like when it's loading the first page.
-              firstPageProgressIndicatorBuilder: (_) => ImageSimmerWidget(),
+              firstPageProgressIndicatorBuilder: (_) => Center(
+                child: ImageLoadingShimmerWidget(),
+              ),
               // Customize what your widget looks like when it's loading another page.
-              newPageProgressIndicatorBuilder: (_) => ImageSimmerWidget(),
+              newPageProgressIndicatorBuilder: (_) => Center(
+                child: ImageLoadingShimmerWidget(),
+              ),
               noItemsFoundIndicatorBuilder: (_) => Center(
                 child: Image.asset(
                   'assets/images/New_Project_(2).png',

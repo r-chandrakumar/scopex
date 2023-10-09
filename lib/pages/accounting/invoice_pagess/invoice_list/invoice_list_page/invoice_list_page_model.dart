@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/image_simmer_widget.dart';
+import '/components/image_loading_shimmer_widget.dart';
 import '/components/menu_component_widget.dart';
 import '/components/search_icon_widget.dart';
 import '/drawer/side_bar_new/side_bar_new_widget.dart';

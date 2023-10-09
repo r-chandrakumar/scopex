@@ -537,9 +537,11 @@ class _LeadlistWidgetState extends State<LeadlistWidget>
                                                                           fontFamily:
                                                                               'Roboto',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).caradTextColor,
+                                                                              FlutterFlowTheme.of(context).rgb,
                                                                           fontSize:
-                                                                              13.0,
+                                                                              16.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
                                                                         ),
                                                                   ),
                                                                 ],

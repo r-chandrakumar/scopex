@@ -222,7 +222,7 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                         children: [
                           Flexible(
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.5,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -233,231 +233,245 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              FlutterFlowDropDown<int>(
-                                                controller: _model
-                                                        .dropDownValueController ??=
-                                                    FormFieldController<int>(
-                                                  _model.dropDownValue ??= 1,
-                                                ),
-                                                options: [1, 3, 6, 12, 0],
-                                                optionLabels: [
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'lqtiqjjp' /* Last 1 month */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'mfupbwgm' /* Last 3 month */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'on5r7xmo' /* Last 6 month */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    's9hh1i6t' /* Last 1 year */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'd8ptsymt' /* Custom */,
-                                                  )
-                                                ],
-                                                onChanged: (val) async {
-                                                  setState(() => _model
-                                                      .dropDownValue = val);
-                                                  setState(() {
-                                                    _model.month =
-                                                        _model.dropDownValue;
-                                                  });
-                                                  setState(() => _model
-                                                          .apiRequestCompleter =
-                                                      null);
-                                                  await _model
-                                                      .waitForApiRequestCompleted();
-                                                },
-                                                width: 150.0,
-                                                height: 30.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 14.0,
-                                                        ),
-                                                hintText:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'sptj5dbz' /* 1 */,
-                                                ),
-                                                icon: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  size: 24.0,
-                                                ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
+                                      if (valueOrDefault<bool>(
+                                        _model.dropDownValue == 0,
+                                        false,
+                                      ))
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Container(
+                                                  width: 150.0,
+                                                  height: 30.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .secondaryBackground,
-                                                elevation: 2.0,
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .hashColor,
-                                                borderWidth: 2.0,
-                                                borderRadius: 8.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 4.0, 8.0, 4.0),
-                                                hidesUnderline: true,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  if (valueOrDefault<bool>(
-                                    _model.dropDownValue == 0,
-                                    false,
-                                  ))
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 1.0,
-                                                  shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
-                                                  ),
-                                                  child: Container(
-                                                    width: 150.0,
-                                                    height: 30.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .hashColor,
-                                                        width: 2.0,
-                                                      ),
+                                                    border: Border.all(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .hashColor,
+                                                      width: 2.0,
                                                     ),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        final _datePickedDate =
-                                                            await showDatePicker(
-                                                          context: context,
-                                                          initialDate:
-                                                              getCurrentTimestamp,
-                                                          firstDate:
-                                                              DateTime(1900),
-                                                          lastDate:
-                                                              getCurrentTimestamp,
-                                                        );
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      final _datePickedDate =
+                                                          await showDatePicker(
+                                                        context: context,
+                                                        initialDate:
+                                                            getCurrentTimestamp,
+                                                        firstDate:
+                                                            DateTime(1900),
+                                                        lastDate:
+                                                            getCurrentTimestamp,
+                                                      );
 
-                                                        if (_datePickedDate !=
-                                                            null) {
-                                                          safeSetState(() {
-                                                            _model.datePicked =
-                                                                DateTime(
-                                                              _datePickedDate
-                                                                  .year,
-                                                              _datePickedDate
-                                                                  .month,
-                                                              _datePickedDate
-                                                                  .day,
-                                                            );
-                                                          });
-                                                        }
-                                                        setState(() {
-                                                          _model.month = 0;
+                                                      if (_datePickedDate !=
+                                                          null) {
+                                                        safeSetState(() {
+                                                          _model.datePicked =
+                                                              DateTime(
+                                                            _datePickedDate
+                                                                .year,
+                                                            _datePickedDate
+                                                                .month,
+                                                            _datePickedDate.day,
+                                                          );
                                                         });
-                                                        setState(() => _model
-                                                                .apiRequestCompleter =
-                                                            null);
-                                                        await _model
-                                                            .waitForApiRequestCompleted();
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              _model.datePicked !=
-                                                                      null
-                                                                  ? functions.convertLeaveDateFormat(_model
-                                                                      .datePicked
-                                                                      ?.toString())
-                                                                  : 'Date',
-                                                              'Date',
+                                                      }
+                                                      setState(() {
+                                                        _model.month = 0;
+                                                      });
+                                                      setState(() => _model
+                                                              .apiRequestCompleter =
+                                                          null);
+                                                      await _model
+                                                          .waitForApiRequestCompleted();
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Flexible(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        6.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                _model.datePicked !=
+                                                                        null
+                                                                    ? functions.convertLeaveDateFormat(_model
+                                                                        .datePicked
+                                                                        ?.toString())
+                                                                    : 'Date',
+                                                                'Date',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                  ),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
                                                           ),
-                                                          Icon(
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      6.0,
+                                                                      0.0),
+                                                          child: Icon(
                                                             Icons
                                                                 .calendar_month_rounded,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 24.0,
+                                                            size: 20.0,
                                                           ),
-                                                        ],
-                                                      ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
+                                              ],
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            FlutterFlowDropDown<int>(
+                                              controller: _model
+                                                      .dropDownValueController ??=
+                                                  FormFieldController<int>(
+                                                _model.dropDownValue ??= 1,
+                                              ),
+                                              options: [1, 3, 6, 12, 0],
+                                              optionLabels: [
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'lqtiqjjp' /* Last 1 month */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'mfupbwgm' /* Last 3 month */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'on5r7xmo' /* Last 6 month */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  's9hh1i6t' /* Last 1 year */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'd8ptsymt' /* Custom */,
+                                                )
+                                              ],
+                                              onChanged: (val) async {
+                                                setState(() =>
+                                                    _model.dropDownValue = val);
+                                                setState(() {
+                                                  _model.olddate = functions
+                                                      .beforeOneMonthDate(
+                                                          _model.month);
+                                                });
+                                                setState(() {
+                                                  _model.month =
+                                                      _model.dropDownValue;
+                                                });
+                                                if (_model.month != 0) {
+                                                  setState(() => _model
+                                                          .apiRequestCompleter =
+                                                      null);
+                                                  await _model
+                                                      .waitForApiRequestCompleted();
+                                                }
+                                              },
+                                              width: 150.0,
+                                              height: 30.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 14.0,
+                                                      ),
+                                              hintText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'sptj5dbz' /* 1 */,
+                                              ),
+                                              icon: Icon(
+                                                Icons
+                                                    .keyboard_arrow_down_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 24.0,
+                                              ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 2.0,
+                                              borderColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .hashColor,
+                                              borderWidth: 2.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 4.0, 8.0, 4.0),
+                                              hidesUnderline: true,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ),
@@ -481,10 +495,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'OpportunityDashboardList',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -616,10 +636,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'QuotationDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -751,10 +777,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'SalelistDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -886,10 +918,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'InvoiceDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1021,10 +1059,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'PurchaseDashboardList',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1156,10 +1200,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'PaymentDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1291,10 +1341,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'VendorDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -1426,10 +1482,16 @@ class _CEODashboardWidgetState extends State<CEODashboardWidget> {
                               'ExpenseDashboard',
                               queryParameters: {
                                 'startdate': serializeParam(
-                                  _model.dropDownValue != 0
-                                      ? functions
-                                          .beforeOneMonthDate(_model.month)
-                                      : _model.datePicked?.toString(),
+                                  () {
+                                    if (_model.dropDownValue != 0) {
+                                      return functions
+                                          .beforeOneMonthDate(_model.month);
+                                    } else if (_model.datePicked != null) {
+                                      return _model.datePicked?.toString();
+                                    } else {
+                                      return _model.olddate;
+                                    }
+                                  }(),
                                   ParamType.String,
                                 ),
                               }.withoutNulls,

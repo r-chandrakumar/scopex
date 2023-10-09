@@ -1922,94 +1922,134 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                               return;
                             }
                             if (_model.leavetype == 'leave') {
-                              _model.leavecheckRes = await HymechApiGroupGroup
-                                  .checkLeaveTakenCall
-                                  .call(
-                                authToken: FFAppState().accessToken,
-                                domainUrl: FFAppState().DomainUrl,
-                                dateFrom: functions.convertDateFormatToSave(
-                                    _model.datePicked1?.toString()),
-                                dateTo: functions.convertDateFormatToSave(
-                                    _model.datePicked2?.toString()),
-                              );
-                              _shouldSetState = true;
-                              if ((_model.leavecheckRes?.succeeded ?? true)) {
-                                if (HymechApiGroupGroup.checkLeaveTakenCall
-                                        .leaveList(
-                                          (_model.leavecheckRes?.jsonBody ??
-                                              ''),
-                                        )
-                                        .length <=
-                                    0) {
-                                  _model.leavePostResult =
-                                      await HymechApiGroupGroup.createLeaveCall
+                              if (_model.datePicked1 != null) {
+                                if (_model.datePicked2 != null) {
+                                  _model.leavecheckRes =
+                                      await HymechApiGroupGroup
+                                          .checkLeaveTakenCall
                                           .call(
-                                    holidayStatusId:
-                                        functions.changeStringToInt(
-                                            _model.optionValuesValue),
+                                    authToken: FFAppState().accessToken,
+                                    domainUrl: FFAppState().DomainUrl,
                                     dateFrom: functions.convertDateFormatToSave(
                                         _model.datePicked1?.toString()),
                                     dateTo: functions.convertDateFormatToSave(
                                         _model.datePicked2?.toString()),
-                                    numberOfDays:
-                                        functions.findDaysBetweenTwoDates(
-                                            _model.datePicked1?.toString(),
-                                            _model.datePicked2?.toString()),
-                                    notes: _model.reasonController.text,
-                                    authToken: FFAppState().accessToken,
-                                    requestDateFrom:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked1?.toString()),
-                                    requestDateTo:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked2?.toString()),
-                                    domainUrl: FFAppState().DomainUrl,
-                                    holidayType: FFAppState().DomainUrl,
-                                    privateName: _model.reasonController.text,
-                                    requestUnitHours: false,
-                                    requestUnitHalf: false,
                                   );
                                   _shouldSetState = true;
-                                  if ((_model.leavePostResult?.succeeded ??
+                                  if ((_model.leavecheckRes?.succeeded ??
                                       true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed('LeaveList');
+                                    if (HymechApiGroupGroup.checkLeaveTakenCall
+                                            .leaveList(
+                                              (_model.leavecheckRes?.jsonBody ??
+                                                  ''),
+                                            )
+                                            .length <=
+                                        0) {
+                                      _model.leavePostResult =
+                                          await HymechApiGroupGroup
+                                              .createLeaveCall
+                                              .call(
+                                        holidayStatusId:
+                                            functions.changeStringToInt(
+                                                _model.optionValuesValue),
+                                        dateFrom:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked1?.toString()),
+                                        dateTo:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked2?.toString()),
+                                        numberOfDays:
+                                            functions.findDaysBetweenTwoDates(
+                                                _model.datePicked1?.toString(),
+                                                _model.datePicked2?.toString()),
+                                        notes: _model.reasonController.text,
+                                        authToken: FFAppState().accessToken,
+                                        requestDateFrom:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked1?.toString()),
+                                        requestDateTo:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked2?.toString()),
+                                        domainUrl: FFAppState().DomainUrl,
+                                        holidayType: FFAppState().DomainUrl,
+                                        privateName:
+                                            _model.reasonController.text,
+                                        requestUnitHours: false,
+                                        requestUnitHalf: false,
+                                      );
+                                      _shouldSetState = true;
+                                      if ((_model.leavePostResult?.succeeded ??
+                                          true)) {
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed('LeaveList');
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Leave created successfully...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Leave created successfully...',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .white,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
                                           ),
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Error While Apply Leave',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Leave already taken in this day',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
                                         ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                    if (_shouldSetState) setState(() {});
-                                    return;
+                                      );
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
                                   } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Error While Apply Leave',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
@@ -2017,7 +2057,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Leave already taken in this day',
+                                        'Select To Date',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -2032,30 +2072,31 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Select From Date',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                                if (_shouldSetState) setState(() {});
+                                return;
                               }
                             } else if (_model.leavetype == 'half') {
-                              _model.halfLeavecheckRes =
-                                  await HymechApiGroupGroup.checkLeaveTakenCall
-                                      .call(
-                                authToken: FFAppState().accessToken,
-                                domainUrl: FFAppState().DomainUrl,
-                                dateFrom: functions.convertDateFormatToSave(
-                                    _model.datePicked3?.toString()),
-                                dateTo: functions.convertDateFormatToSave(
-                                    _model.datePicked3?.toString()),
-                              );
-                              _shouldSetState = true;
-                              if ((_model.halfLeavecheckRes?.succeeded ??
-                                  true)) {
-                                if (HymechApiGroupGroup.checkLeaveTakenCall
-                                        .leaveList(
-                                          (_model.halfLeavecheckRes?.jsonBody ??
-                                              ''),
-                                        )
-                                        .length <=
-                                    0) {
-                                  _model.halfLeavePostResult =
-                                      await HymechApiGroupGroup.createLeaveCall
+                              if (_model.datePicked3 != null) {
+                                if (_model.aMorPMValue != null &&
+                                    _model.aMorPMValue != '') {
+                                  _model.halfLeavecheckRes =
+                                      await HymechApiGroupGroup
+                                          .checkLeaveTakenCall
                                           .call(
                                     authToken: FFAppState().accessToken,
                                     domainUrl: FFAppState().DomainUrl,
@@ -2063,64 +2104,123 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                         _model.datePicked3?.toString()),
                                     dateTo: functions.convertDateFormatToSave(
                                         _model.datePicked3?.toString()),
-                                    holidayStatusId:
-                                        functions.changeStringToInt(
-                                            _model.optionValuesValue),
-                                    holidayType: 'employee',
-                                    notes: _model.reasonController.text,
-                                    numberOfDays: 4.0,
-                                    privateName: _model.reasonController.text,
-                                    requestDateFrom:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked3?.toString()),
-                                    requestDateTo:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked3?.toString()),
-                                    requestDateFromPeriod: _model.aMorPMValue,
-                                    requestUnitHours: false,
-                                    requestUnitHalf: true,
                                   );
                                   _shouldSetState = true;
-                                  if ((_model.halfLeavePostResult?.succeeded ??
+                                  if ((_model.halfLeavecheckRes?.succeeded ??
                                       true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed('LeaveList');
+                                    if (HymechApiGroupGroup.checkLeaveTakenCall
+                                            .leaveList(
+                                              (_model.halfLeavecheckRes
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            .length <=
+                                        0) {
+                                      _model.halfLeavePostResult =
+                                          await HymechApiGroupGroup
+                                              .createLeaveCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        domainUrl: FFAppState().DomainUrl,
+                                        dateFrom:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked3?.toString()),
+                                        dateTo:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked3?.toString()),
+                                        holidayStatusId:
+                                            functions.changeStringToInt(
+                                                _model.optionValuesValue),
+                                        holidayType: 'employee',
+                                        notes: _model.reasonController.text,
+                                        numberOfDays: 4.0,
+                                        privateName:
+                                            _model.reasonController.text,
+                                        requestDateFrom:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked3?.toString()),
+                                        requestDateTo:
+                                            functions.convertDateFormatToSave(
+                                                _model.datePicked3?.toString()),
+                                        requestDateFromPeriod:
+                                            _model.aMorPMValue,
+                                        requestUnitHours: false,
+                                        requestUnitHalf: true,
+                                      );
+                                      _shouldSetState = true;
+                                      if ((_model
+                                              .halfLeavePostResult?.succeeded ??
+                                          true)) {
+                                        if (Navigator.of(context).canPop()) {
+                                          context.pop();
+                                        }
+                                        context.pushNamed('LeaveList');
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Leave created successfully...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Leave created successfully...',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .white,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
                                           ),
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Error While Apply Leave',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Leave already taken in this day',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
                                         ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                    if (_shouldSetState) setState(() {});
-                                    return;
+                                      );
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
                                   } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Error While Apply Leave',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
@@ -2128,7 +2228,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Leave already taken in this day',
+                                        'Select AM or PM Date',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -2143,90 +2243,174 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Select From Date',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                                if (_shouldSetState) setState(() {});
+                                return;
                               }
                             } else {
-                              _model.permissioncheckRes =
-                                  await HymechApiGroupGroup.checkLeaveTakenCall
-                                      .call(
-                                authToken: FFAppState().accessToken,
-                                domainUrl: FFAppState().DomainUrl,
-                                dateFrom: functions.convertDateFormatToSave(
-                                    _model.datePicked4?.toString()),
-                                dateTo: functions.convertDateFormatToSave(
-                                    _model.datePicked4?.toString()),
-                              );
-                              _shouldSetState = true;
-                              if ((_model.permissioncheckRes?.succeeded ??
-                                  true)) {
-                                if (HymechApiGroupGroup.checkLeaveTakenCall
-                                        .leaveList(
-                                          (_model.permissioncheckRes
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )
-                                        .length <=
-                                    0) {
-                                  _model.permissionPostResult =
-                                      await HymechApiGroupGroup.createLeaveCall
-                                          .call(
-                                    domainUrl: FFAppState().DomainUrl,
-                                    authToken: FFAppState().accessToken,
-                                    dateFrom: functions.convertDateFormatToSave(
-                                        _model.datePicked4?.toString()),
-                                    dateTo: functions.convertDateFormatToSave(
-                                        _model.datePicked4?.toString()),
-                                    holidayStatusId:
-                                        functions.changeStringToInt(
-                                            _model.optionValuesValue),
-                                    holidayType: 'employee',
-                                    notes: _model.reasonController.text,
-                                    numberOfDays: functions.findHoursbetweentwo(
-                                        _model.fromHourValue,
-                                        _model.toHourValue),
-                                    privateName: _model.reasonController.text,
-                                    requestDateFrom:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked4?.toString()),
-                                    requestDateTo:
-                                        functions.convertDateFormatToSave(
-                                            _model.datePicked4?.toString()),
-                                    requestHourFrom:
-                                        _model.fromHourValue?.toString(),
-                                    requestHourTo:
-                                        _model.toHourValue?.toString(),
-                                    requestUnitHours: true,
-                                    requestUnitHalf: false,
-                                  );
-                                  _shouldSetState = true;
-                                  if ((_model.permissionPostResult?.succeeded ??
-                                      true)) {
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamed('LeaveList');
-
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Leave created successfully...',
-                                          style: TextStyle(
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
+                              if (_model.datePicked4 != null) {
+                                if (_model.fromHourValue != null) {
+                                  if (_model.toHourValue != null) {
+                                    _model.permissioncheckRes =
+                                        await HymechApiGroupGroup
+                                            .checkLeaveTakenCall
+                                            .call(
+                                      authToken: FFAppState().accessToken,
+                                      domainUrl: FFAppState().DomainUrl,
+                                      dateFrom:
+                                          functions.convertDateFormatToSave(
+                                              _model.datePicked4?.toString()),
+                                      dateTo: functions.convertDateFormatToSave(
+                                          _model.datePicked4?.toString()),
                                     );
-                                    if (_shouldSetState) setState(() {});
-                                    return;
+                                    _shouldSetState = true;
+                                    if ((_model.permissioncheckRes?.succeeded ??
+                                        true)) {
+                                      if (HymechApiGroupGroup
+                                              .checkLeaveTakenCall
+                                              .leaveList(
+                                                (_model.permissioncheckRes
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )
+                                              .length <=
+                                          0) {
+                                        _model.permissionPostResult =
+                                            await HymechApiGroupGroup
+                                                .createLeaveCall
+                                                .call(
+                                          domainUrl: FFAppState().DomainUrl,
+                                          authToken: FFAppState().accessToken,
+                                          dateFrom:
+                                              functions.convertDateFormatToSave(
+                                                  _model.datePicked4
+                                                      ?.toString()),
+                                          dateTo:
+                                              functions.convertDateFormatToSave(
+                                                  _model.datePicked4
+                                                      ?.toString()),
+                                          holidayStatusId:
+                                              functions.changeStringToInt(
+                                                  _model.optionValuesValue),
+                                          holidayType: 'employee',
+                                          notes: _model.reasonController.text,
+                                          numberOfDays:
+                                              functions.findHoursbetweentwo(
+                                                  _model.fromHourValue,
+                                                  _model.toHourValue),
+                                          privateName:
+                                              _model.reasonController.text,
+                                          requestDateFrom:
+                                              functions.convertDateFormatToSave(
+                                                  _model.datePicked4
+                                                      ?.toString()),
+                                          requestDateTo:
+                                              functions.convertDateFormatToSave(
+                                                  _model.datePicked4
+                                                      ?.toString()),
+                                          requestHourFrom:
+                                              _model.fromHourValue?.toString(),
+                                          requestHourTo:
+                                              _model.toHourValue?.toString(),
+                                          requestUnitHours: true,
+                                          requestUnitHalf: false,
+                                        );
+                                        _shouldSetState = true;
+                                        if ((_model.permissionPostResult
+                                                ?.succeeded ??
+                                            true)) {
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed('LeaveList');
+
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Leave created successfully...',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .white,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Error While Apply Leave',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Leave already taken in this day',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                    } else {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
-                                          'Error While Apply Leave',
+                                          'Select To Hour',
                                           style: TextStyle(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -2245,7 +2429,7 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        'Leave already taken in this day',
+                                        'Select From Hour',
                                         style: TextStyle(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
@@ -2260,6 +2444,23 @@ class _LeaveCreateWidgetState extends State<LeaveCreateWidget>
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Select From Date',
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 4000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                                if (_shouldSetState) setState(() {});
+                                return;
                               }
                             }
 

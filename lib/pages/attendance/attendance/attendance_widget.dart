@@ -391,9 +391,7 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                                           _model.unfocusNode)
                                                   : FocusScope.of(context)
                                                       .unfocus(),
-                                              child: CheckinPopupWidget(
-                                                type: 'checkout',
-                                              ),
+                                              child: CheckinPopupWidget(),
                                             ),
                                           );
                                         },
@@ -473,6 +471,35 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                           _model.apiRequestCompleter2 = null);
                                       await _model
                                           .waitForApiRequestCompleted2();
+                                      await showAlignedDialog(
+                                        context: context,
+                                        isGlobal: true,
+                                        avoidOverflow: false,
+                                        targetAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        followerAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        builder: (dialogContext) {
+                                          return Material(
+                                            color: Colors.transparent,
+                                            child: GestureDetector(
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
+                                              child: CheckinPopupWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
+
                                       null?.cancel();
                                       null?.cancel();
                                       _model.instantTimerStart =
@@ -491,35 +518,6 @@ class _AttendanceWidgetState extends State<AttendanceWidget> {
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-
-                                    await showAlignedDialog(
-                                      context: context,
-                                      isGlobal: true,
-                                      avoidOverflow: false,
-                                      targetAnchor: AlignmentDirectional(
-                                              0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      followerAnchor: AlignmentDirectional(
-                                              0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      builder: (dialogContext) {
-                                        return Material(
-                                          color: Colors.transparent,
-                                          child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: CheckinPopupWidget(
-                                              type: 'checkin',
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => setState(() {}));
 
                                     if (_shouldSetState) setState(() {});
                                   },

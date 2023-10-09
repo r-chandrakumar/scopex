@@ -32,11 +32,11 @@ class DashboardCRMModel extends FlutterFlowModel<DashboardCRMWidget> {
   final unfocusNode = FocusNode();
   // Model for sideBar_new component.
   late SideBarNewModel sideBarNewModel;
+  DateTime? datePicked;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for DropDown widget.
   int? dropDownValue;
   FormFieldController<int>? dropDownValueController;
-  Completer<ApiCallResponse>? apiRequestCompleter;
-  DateTime? datePicked;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>

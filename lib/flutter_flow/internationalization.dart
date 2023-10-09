@@ -2752,7 +2752,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last 1 year',
       'ta': '',
     },
-    'hhl91l33': {
+    'k65xdg5r': {
       'en': 'Custom',
       'ta': '',
     },
@@ -10399,21 +10399,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Checkin_popup
   {
-    'zgvq8tx6': {
+    'z6mat7sa': {
       'en':
           'Rise and Shine! You\'re now checked in and ready to conquer the day!',
       'ta': '',
     },
-    'l2xub3rx': {
+    '3xqmo2el': {
       'en': 'OK',
       'ta': '',
     },
-    'eb3zddw9': {
-      'en': 'Wave goodbye to today\'s tasks! Checked out and tuning out.',
+  },
+  // image_loading_shimmer
+  {
+    'axbdm0ym': {
+      'en': 'Loading',
       'ta': '',
     },
-    '18n7baiq': {
-      'en': 'OK',
+    'minkmas4': {
+      'en': '.',
+      'ta': '',
+    },
+    'yoi9sgk3': {
+      'en': '.',
+      'ta': '',
+    },
+    'qc7fijw0': {
+      'en': '.',
       'ta': '',
     },
   },

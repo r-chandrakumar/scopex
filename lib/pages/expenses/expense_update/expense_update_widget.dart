@@ -1,6 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/back_buttton_component_widget.dart';
+import '/drawer/p_d_f_view/p_d_f_view_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,11 +11,13 @@ import '/flutter_flow/upload_data.dart';
 import '/shimmer/drop_down_empty_full_width/drop_down_empty_full_width_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'expense_update_model.dart';
 export 'expense_update_model.dart';
@@ -1377,7 +1381,501 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
+                            15.0, 0.0, 15.0, 0.0),
+                        child: FutureBuilder<ApiCallResponse>(
+                          future: (_model.apiRequestCompleter ??= Completer<
+                                  ApiCallResponse>()
+                                ..complete(
+                                    HymechApiGroupGroup.expenseViewCall.call(
+                                  id: widget.expenseid,
+                                  authToken: FFAppState().accessToken,
+                                  domainUrl: FFAppState().DomainUrl,
+                                )))
+                              .future,
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 40.0,
+                                  height: 40.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      Color(0xFF47E171),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final listViewExpenseViewResponse = snapshot.data!;
+                            return Builder(
+                              builder: (context) {
+                                final attach =
+                                    HymechApiGroupGroup.expenseViewCall
+                                            .irAttach(
+                                              listViewExpenseViewResponse
+                                                  .jsonBody,
+                                            )
+                                            ?.toList() ??
+                                        [];
+                                return ListView.separated(
+                                  padding: EdgeInsets.fromLTRB(
+                                    0,
+                                    0,
+                                    0,
+                                    15.0,
+                                  ),
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: attach.length,
+                                  separatorBuilder: (_, __) =>
+                                      SizedBox(height: 15.0),
+                                  itemBuilder: (context, attachIndex) {
+                                    final attachItem = attach[attachIndex];
+                                    return Builder(
+                                      builder: (context) {
+                                        if (functions.equalValueCheckString(
+                                                getJsonField(
+                                                  attachItem,
+                                                  r'''$.mimetype''',
+                                                ).toString(),
+                                                'application/pdf') ??
+                                            false) {
+                                          return Container(
+                                            width: 100.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              useSafeArea: true,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        PDFViewWidget(
+                                                                      pdfurl: functions.convertAttachmentUrl(
+                                                                          FFAppState().WebUrl,
+                                                                          getJsonField(
+                                                                            attachItem,
+                                                                            r'''$.id''',
+                                                                          ),
+                                                                          'ir.attachment')!,
+                                                                      title:
+                                                                          getJsonField(
+                                                                        attachItem,
+                                                                        r'''$.name''',
+                                                                      ).toString(),
+                                                                      shareFile:
+                                                                          false,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+                                                          },
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: Image.asset(
+                                                              'assets/images/pdf.jpg',
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              getJsonField(
+                                                                attachItem,
+                                                                r'''$.name''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.deleteAttach =
+                                                          await CommonApisGroupGroup
+                                                              .deleteAttachmentCall
+                                                              .call(
+                                                        authToken: FFAppState()
+                                                            .accessToken,
+                                                        domainUrl: FFAppState()
+                                                            .DomainUrl,
+                                                        attachmentId:
+                                                            getJsonField(
+                                                          attachItem,
+                                                          r'''$.id''',
+                                                        ),
+                                                      );
+                                                      if ((_model.deleteAttach
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        setState(() => _model
+                                                                .apiRequestCompleter =
+                                                            null);
+                                                        await _model
+                                                            .waitForApiRequestCompleted();
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Success',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Error',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+
+                                                      setState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Container(
+                                            width: 100.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await Navigator
+                                                                .push(
+                                                              context,
+                                                              PageTransition(
+                                                                type:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                child:
+                                                                    FlutterFlowExpandedImageView(
+                                                                  image: Image
+                                                                      .network(
+                                                                    functions.attachmentconvertor(
+                                                                        getJsonField(
+                                                                          attachItem,
+                                                                          r'''$.id''',
+                                                                        ),
+                                                                        'ir.attachment',
+                                                                        FFAppState().WebUrl)!,
+                                                                    fit: BoxFit
+                                                                        .contain,
+                                                                  ),
+                                                                  allowRotation:
+                                                                      false,
+                                                                  tag: functions.attachmentconvertor(
+                                                                      getJsonField(
+                                                                        attachItem,
+                                                                        r'''$.id''',
+                                                                      ),
+                                                                      'ir.attachment',
+                                                                      FFAppState().WebUrl)!,
+                                                                  useHeroAnimation:
+                                                                      true,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                          child: Hero(
+                                                            tag: functions
+                                                                .attachmentconvertor(
+                                                                    getJsonField(
+                                                                      attachItem,
+                                                                      r'''$.id''',
+                                                                    ),
+                                                                    'ir.attachment',
+                                                                    FFAppState()
+                                                                        .WebUrl)!,
+                                                            transitionOnUserGestures:
+                                                                true,
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child:
+                                                                  Image.network(
+                                                                functions.attachmentconvertor(
+                                                                    getJsonField(
+                                                                      attachItem,
+                                                                      r'''$.id''',
+                                                                    ),
+                                                                    'ir.attachment',
+                                                                    FFAppState().WebUrl)!,
+                                                                width: 50.0,
+                                                                height: 50.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Flexible(
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              getJsonField(
+                                                                attachItem,
+                                                                r'''$.name''',
+                                                              ).toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.deleteAttached =
+                                                          await CommonApisGroupGroup
+                                                              .deleteAttachmentCall
+                                                              .call(
+                                                        authToken: FFAppState()
+                                                            .accessToken,
+                                                        domainUrl: FFAppState()
+                                                            .DomainUrl,
+                                                        attachmentId:
+                                                            getJsonField(
+                                                          attachItem,
+                                                          r'''$.id''',
+                                                        ),
+                                                      );
+                                                      if ((_model.deleteAttached
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        setState(() => _model
+                                                                .apiRequestCompleter =
+                                                            null);
+                                                        await _model
+                                                            .waitForApiRequestCompleted();
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Success',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Error',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+
+                                                      setState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.delete,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 0.0, 15.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -1677,7 +2175,7 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
+                            15.0, 0.0, 15.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -1771,7 +2269,54 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                                   );
                                   _shouldSetState = true;
                                   if ((_model.update?.succeeded ?? true)) {
-                                    context.pushNamed('Expenses_list');
+                                    while (_model.listBase64.length != 0) {
+                                      _model.fileUpload =
+                                          await HymechApiGroupGroup
+                                              .expenseFileAttachCall
+                                              .call(
+                                        authToken: FFAppState().accessToken,
+                                        companyId: FFAppState().companyid,
+                                        fileName: _model.name.last,
+                                        files: _model.listBase64.first,
+                                        resId: widget.expenseid,
+                                        domainUrl: FFAppState().DomainUrl,
+                                      );
+                                      _shouldSetState = true;
+                                      setState(() {
+                                        _model
+                                            .removeAtIndexFromAttachmentType(0);
+                                        _model.removeAtIndexFromName(0);
+                                        _model.removeAtIndexFromListBase64(0);
+                                      });
+                                    }
+                                    if (Navigator.of(context).canPop()) {
+                                      context.pop();
+                                    }
+                                    context.pushNamed(
+                                      'Expenses_list',
+                                      queryParameters: {
+                                        'state': serializeParam(
+                                          'draft',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Expenses updated successfully',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
                                   } else {
                                     if (_shouldSetState) setState(() {});
                                     return;
@@ -1784,7 +2329,7 @@ class _ExpenseUpdateWidgetState extends State<ExpenseUpdateWidget> {
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
-                                  height: 48.0,
+                                  height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
